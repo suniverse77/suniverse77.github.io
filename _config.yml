@@ -35,10 +35,10 @@ social:
   email: suniverse2480@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://github.com/suniverse77 # change to your GitHub homepage
+    - https://github.com/suniverse77
+    - https://www.linkedin.com/in/%EC%84%A0%ED%98%B8-%EC%9D%B4-a94915375/
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/%EC%84%A0%ED%98%B8-%EC%9D%B4-a94915375/
 
 # Site Verification Settings
 webmaster_verifications:
