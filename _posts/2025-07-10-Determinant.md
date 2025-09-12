@@ -12,7 +12,7 @@ description: 👨‍👧‍👧 벡터의 기본 개념
 
 ## Determinant
 
-![Figure 1](/assets/images/인공지능수학/3-1. Figure1.png){: style="display:block; margin:0 auto; width: 50%; height: 50%;"}
+
 
 Square matrix에 대해 정의되며, 행렬이 나타내는 선형 변환의 부피 변화율 또는 가역성을 나타내는 스칼라 값이다.
 
