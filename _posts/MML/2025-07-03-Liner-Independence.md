@@ -10,12 +10,27 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## 정의
+## 선형 결합 (Linear Combination)
+
+선형 결합이란 
+
+벡터를 상수배하고 더하는 두 가지 기본 연산으로 이루어져 있는 1차식 형태이기 때문에 **선형**이고, 여러 개의 벡터를 함께 사용하여 새로운 벡터를 만들어내기 때문에 **결합**이라고 표현한다.
+
+$$
+\mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
+$$
+
+## 선형 생성 (Span)
+
+
+
+
+## 선형 독립 (Linear Independence)
 
 벡터 집합 내의 벡터들 $\lbrace\mathbf{x_1},\dots,\mathbf{x_n}\rbrace$이 서로들의 선형 결합으로 표현될 수 없을 때, 그 벡터들은 선형 종속이라고 표현한다.
 
 $$
-\mathbf{0}=\lambda_1\mathbf{x_1}+\cdots+\lambda_n\mathbf{x_n}=\sum_{i=1}^n\lambda_i\mathbf{x}_i
+\mathbf{0}=\lambda_1\mathbf{v_1}+\cdots+\lambda_n\mathbf{v_n}
 $$
 
 - 위의 수식이 오직 trivial solution만 가지는 경우 $(\boldsymbol\lambda=\mathbf{0})$ → $\mathbf{x}_i$ are linearly independent
