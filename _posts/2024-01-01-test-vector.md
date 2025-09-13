@@ -1,5 +1,5 @@
 ---
-title: "Test"
+title: "Test: 벡터"
 date: 2024-01-01 00:00:00 +/-TTTT
 categories: [인공지능 수학]
 tags: [선형대수]
@@ -248,35 +248,35 @@ $$
 c_i=\frac{\mathbf{v}\cdot\mathbf{u}_i}{\mathbf{u}_i\cdot\mathbf{u}_i}
 $$
 
-<details>
-<summary><font color='#0000FF'>증명</font></summary>
-<div markdown="1">
+   <details>
+   <summary><font color='#0000FF'>공식 유도</font></summary>
+   <div markdown="1">
 
-$$
-\mathbf{v}=\sum c_i\mathbf{u}_i
-$$
+   $$
+   \mathbf{v}=\sum c_i\mathbf{u}_i
+   $$
 
-1. 양변에 $\mathbf{u}_k$를 내적함
+   1. 양변에 $\mathbf{u}_k$를 내적함
 
-$$
-\mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
-$$
+   $$
+   \mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
+   $$
 
-2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
+   2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
 
-$$
-\mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
-$$
+   $$
+   \mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
+   $$
 
-3. $c_1$만 남기고 이항
+   3. $c_1$만 남기고 이항
 
-$$
-c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
-$$
+   $$
+   c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
+   $$
 
-</div>
-</details>
-<br>
+   </div>
+   </details>
+   <br>
 
 ### 정규 직교 기저 (Orthonormal Basis)
 
@@ -326,7 +326,7 @@ $$
 
 벡터 공간 $V$의 basis의 개수를 $V$의 차원이라고 부른다.
 
-벡터의 차원과 벡터 공간의 차원은 다르다.
+<span style="background-color:#fff5b1">벡터의 차원과 벡터 공간의 차원은 다르다.<\span>
 
 - 벡터의 차원은 벡터를 구성하는 원소의 개수를 의미한다.
 
@@ -374,6 +374,256 @@ $$
 Gauss Elimination을 하면 $\text{rank}(A)=2$
 
 즉, 3개의 column vector들이 span하는 공간 $V$의 차원은 2차원 평면이다.
+
+</div>
+</details>
+
+## 노름 (Norm)
+
+$$
+\lVert\cdot\rVert:V→\Bbb R
+$$
+
+벡터의 길이를 norm이라고 하며, 벡터를 스칼라로 mapping하는 일종의 함수로 볼 수 있다.
+
+$$
+\lVert\mathbf{v}\rVert_p:=\left(\sum_{i=1}^{n}{\vert v_i\vert}^p\right)^{\frac{1}{p}}
+$$
+
+Lp norm은 위와 같이 정의되며, 주로 사용하는 norm은 L1 norm과 L2 norm이다.
+
+### L1 norm (Manhattan Norm)
+
+$$
+\lVert\mathbf{v}\rVert_1:=\sum_{i=1}^{n}{\vert v_i\vert}
+=\vert v_1\vert+\cdots+\vert v_n\vert
+$$
+
+2차원 공간에서 단위 벡터 $\mathbf{x}$의 L1 norm은 $\vert x_1\vert+\vert x_2\vert=1$이며, L1 norm이 1인 벡터들의 궤적은 정사각형 형태로 나타난다.
+
+### L2 norm (Euclidean Norm)
+
+$$
+\lVert\mathbf{x}\rVert_2:=\sqrt{\sum_{i=1}^{n}{v_i^2}}
+=\sqrt{v_1^2+\cdots+v_n^2}
+$$
+
+2차원 공간에서 단위 벡터 $\mathbf{x}$의 L2 norm은 $x_1^2+x_2^2=1$이며, L2 norm이 1인 벡터들의 궤적은 원의 형태로 나타난다.
+
+### Norm의 조건
+
+1. Absolutely homogeneous
+
+   $\lVert\lambda\mathbf{x}\rVert=\lambda\lVert\mathbf{x}\rVert$
+
+2. Triangle inequality
+
+   $\lVert\mathbf{x}+\mathbf{y}\rVert\leq\lVert\mathbf{x}\rVert+\lVert\mathbf{y}\rVert$
+
+3. Positive definite
+
+   $\lVert\mathbf{x}\rVert\geq0$
+
+   $\lVert\mathbf{x}\rVert=0\iff\mathbf{x}=\mathbf{0}$
+
+## 거리 (Distance)
+
+$$
+d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert
+$$
+
+벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리는 벡터 차이의 norm으로 정의된다.
+
+$$
+d_p(\mathbf{x}, \mathbf{y}) := \lVert \mathbf{x} - \mathbf{y} \rVert_p
+= \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}
+$$
+
+Lp norm을 사용한 Lp distance는 위와 같이 정의된다.
+
+### L1 distance (Manhattan Distance)
+
+$$
+d_1(\mathbf{x},\mathbf{y}):=\sum_i^n\lvert x_i-y_i\rvert
+$$
+
+### L2 distance (Euclidean Distance)
+
+$$
+d_2(\mathbf{x},\mathbf{y}):=\sqrt{\sum_{i=1}^{n}{(x_i-y_i)^2}}
+$$
+
+### Distance의 조건
+
+1. Symmetric
+
+   $d(\mathbf{x},\mathbf{y})=d(\mathbf{y},\mathbf{x})$
+
+2. Triangle inequality
+
+   $d(\mathbf{x},\mathbf{z})\leq d(\mathbf{x},\mathbf{y})+d(\mathbf{y},\mathbf{z})$
+
+3. Positive definite
+
+   $d(\mathbf{x},\mathbf{y})\geq0$
+
+   $d(\mathbf{x},\mathbf{y})=0\iff \mathbf{x}=\mathbf{y}$
+
+## 내적 (Inner Product)
+
+$$
+\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}
+$$
+
+벡터 공간 내의 임의의 두 벡터를 스칼라로 매핑시키는 함수를 inner product라고 한다.
+
+Inner product가 정의된 vector space $(V,\langle\cdot,\cdot\rangle)$를 **inner product space**라고 한다.
+
+Inner product space에서는 norm과 distance가 아래와 같이 정의된다.
+
+$$
+\lVert\mathbf{x}\rVert=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}
+$$
+
+$$
+d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert=\sqrt{\langle\mathbf{x}-\mathbf{y},\mathbf{x}-\mathbf{y}\rangle}
+$$
+
+### Inner Product의 조건
+
+1. 분배 법칙이 성립
+
+   $\langle\mathbf u+\mathbf w,\mathbf v\rangle=\langle\mathbf u,\mathbf v\rangle+\langle\mathbf w,\mathbf v\rangle$
+
+   $\langle\lambda\mathbf v,\mathbf w\rangle=\lambda\langle\mathbf v,\mathbf w\rangle$
+   
+3. 교환 법칙이 성립
+
+   $\langle\mathbf v,\mathbf w\rangle=\langle\mathbf w,\mathbf v\rangle$
+   
+4. 자기 자신과의 내적은 항상 0 이상
+
+   $\langle\mathbf v,\mathbf v\rangle\geq0$
+
+   $\langle\mathbf v,\mathbf v\rangle=0\iff\mathbf v=\mathbf0$
+
+### Inner Product의 종류
+
+Inner product는 다양한 형태로 정의된다.
+
+- $\langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y$ → 이런 형태로 정의되는 내적을 <span style="background-color:#fff5b1">Dot Product</span>라고 부른다.
+- $\langle\mathbf x,\mathbf y\rangle:=x_1y_1-(x_1y_2+x_2y_1)+2x_2y_2$
+- $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$ → 함수의 내적
+
+즉, 우리가 흔히 사용하는 dot product (또는 scalar product라고도 부름)는 유클리드 공간 $\mathbb{R}^n$에서 사용되는 내적의 한 종류이다.
+
+일반적으로 $\mathbb{R}^n$에서 dot product를 내적이라고 혼용해서 내적이라고 부르지만, '내적 = dot product'라고 정의하는 것은 틀리다.
+
+### Dot Product
+
+두 벡터의 내적은 두 벡터가 서로 얼마나 같은 방향 성분을 공유하는지, 두 벡터가 얼마나 유사한지를 나타내는 값이다.
+
+## 두 벡터가 이루는 각도 (Angle)
+
+$$
+\theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
+$$
+
+Inner product space에서 두 벡터가 이루는 각도는 위와 같이 정의된다.
+
+## 외적 (Outer Product)
+
+$$
+\mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
+$$
+
+두 벡터의 곱으로 행렬을 생성하는 연산을 outper product라고 한다.
+
+## 벡터곱 (Cross Product)
+
+$$
+\mathbf{x}\times\mathbf{y}:=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\mathbf{i}-(x_1y_3-x_3y_1)\mathbf{j}+(x_1y_2-x_2y_1)\mathbf{k}
+$$
+
+Cross product는 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
+
+외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
+
+## 사영 (Projection)
+
+### 벡터 위로의 사영 (Projection onto a vector)
+
+$$
+\pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
+$$
+
+Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\pi_U(\mathbf{x})$는 위와 같이 정의된다.
+
+<details>
+<summary><font color='blue'>공식 유도</font></summary>
+<div markdown="1">
+
+1. $\pi_U(\mathbf{x})$는 $U$ 내의 벡터이기 때문에 $\mathbf{b}$의 상수배이다.
+
+   $$
+   \pi_U(\mathbf{x})=\lambda\mathbf{b}
+   $$
+
+2. $\mathbf{x}-\lambda\mathbf{b}$는 $\mathbf{b}$와 직교한다.
+
+   $$\langle\mathbf{x}-\lambda\mathbf{b},\mathbf{b}\rangle=0\to \mathbf{x}^\top\mathbf{b}=\lambda\mathbf{b}^\top\mathbf{b}
+   $$
+
+3. 수식을 정리한다.
+   
+   $$
+   \lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
+   $$
+
+</div>
+</details>
+
+### 부분공간 위로의 사영 (Projection onto general subspace)
+
+$$
+\pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
+$$
+
+Basis 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\pi_U(\mathbf{x})$는 위와 같이 정의된다.
+
+<details>
+<summary><font color='blue'>공식 유도</font></summary>
+<div markdown="1">
+
+1. $\pi_U(\mathbf{x})$는 $U$ 내의 벡터이기 때문에 basis들의 선형 결합으로 표현될 수 있다.
+
+   $$
+   \pi_U(\mathbf{x})=\lambda_1\mathbf{b}_1+\cdots+\lambda_m\mathbf{b}_m=B\boldsymbol\lambda
+   $$
+
+2. $\mathbf{x}-\pi_U(\mathbf{x})$는 $U$의 basis들과 직교한다.
+
+   $$
+   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_1\rangle=0
+   \\
+   \vdots
+   \\
+   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_m\rangle=0
+   $$
+
+3. 위의 수식을 행렬로 표현한다.
+
+   $$
+   \langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
+   \to
+   \mathbf{x}^\top B=(B\boldsymbol\lambda)^\top B
+   $$
+   
+4. 수식을 정리한다.
+
+   $$
+   \boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
+   $$
 
 </div>
 </details>
