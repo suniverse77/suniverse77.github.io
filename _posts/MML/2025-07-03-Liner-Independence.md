@@ -7,7 +7,7 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: 👨‍👧‍👧 벡터의 기본 개념
+description: 📕 선형 결합과 span의 의미 / 선형 독립
 ---
 
 ## 선형 결합 (Linear Combination)

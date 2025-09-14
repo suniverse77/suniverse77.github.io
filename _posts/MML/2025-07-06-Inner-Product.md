@@ -7,7 +7,7 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: 👨‍👧‍👧 벡터의 기본 개념
+description: 📕 내적과 dot product / 외적과 cross prodcut
 ---
 
 ## 내적 (Inner Product)

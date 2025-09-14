@@ -10,7 +10,7 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## 연립방정식
+## 연립방정식 (Linear Equation)
 
 ## 선형 변환 (Linear Transformation)
 
