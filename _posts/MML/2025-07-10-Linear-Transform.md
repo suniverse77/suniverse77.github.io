@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 선형 변환"
-date: 2025-07-09 00:00:00 +/-TTTT
+date: 2025-07-10 00:00:00 +/-TTTT
 categories: [인공지능 수학]
 tags: [선형대수]
 math: true
