@@ -1,6 +1,6 @@
 ---
 title: "Test: 행렬"
-date: 2024-01-01 00:00:00 +/-TTTT
+date: 2024-01-02 00:00:00 +/-TTTT
 categories: [인공지능 수학]
 tags: [선형대수]
 math: true
@@ -10,610 +10,103 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## Vector Space
+## 연립방정식
 
-공집합이 아닌 집합 $\mathcal{V}$와 스칼라들의 집합(Field) $F$가 있을 때,
+## 선형 변환 (Linear Transformation)
 
-집합 $\mathcal{V}$에 벡터 덧셈 ($+$)과 스칼라 곱셈 ($\cdot$)의 두 가지 연산이 정의되어 있고, 아래 10가지 공리를 만족하면 집합 $\mathcal{V}$를 벡터 공간이라고 하며, $\mathcal{V}$의 원소를 벡터라고 한다.
+선형대수학에서의 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 규칙을 의미한다.
 
-즉, 단순히 벡터들의 집합이 아니라, 이 집합 내의 원소들이 특정 규칙을 만족하는 공간을 의미한다
+일종의 함수이지만, 변환에는 입력 벡터가 새로운 위치로 이동하거나 변형되는 기하학적 움직임을 연상시키는 데 도움이 됩니다.
 
-이때, 벡터 덧셈은 $\mathcal{V} \times \mathcal{V} \to \mathcal{V}$로, 스칼라 곱셈은 $F \times \mathcal{V} \to \mathcal{V}$로 가는 함수로, 연산을 수행해도 다시 집합 $\mathcal{V}$ 내의 원소가 나온다.
+기하학적으로 선형 변환은 아래의 2가지 조건을 만족하는 변형을 의미한다.
 
-### 벡터 덧셈에 대한 공리 (벡터 공간은 아벨 군을 이룬다)
+1. 변환 전의 모든 직선은 변환 후에도 직선으로 유지된다.
+2. 원점은 항상 변환 후에도 같은 원점에 위치한다.
 
-1. 닫힘 (Closure): 임의의 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $\mathbf{u} + \mathbf{v}$는 $\mathcal{V}$에 속한다.
+수학적으로 변환 이 선형 변환이 되려면 아래의 2가지 조건을 만족해야 한다.
 
-2. 교환 법칙 () 성립: 임의의 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$가 성립한다.
+1. 
+2. 
 
-3. 결합 법칙 (Associativity) 성립: 임의의 벡터 $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathcal{V}$에 대해, $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$가 성립한다.
+<span style="background-color:#fff5b1">행렬은 일종의 공간 변환으로 해석할 수 있다.</span>
 
-4. 항등원 (Identity) 존재: V 내에 모든 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $\mathbf{u} + \mathbf{0} = \mathbf{u}$를 만족하는 유일한 영벡터 $\mathbf{0}$이 존재한다.
+### 2차원 선형 변환
 
-5. 역원 (Inverse) 존재: 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$를 만족하는 유일한 역벡터 $-\mathbf{u}$가 V 내에 존재한다.
+2차원 공간에서 선형 변환 행렬은 $2\times2$
 
-### 스칼라 곱셈에 대한 공리
+변환 후 $i=(1,0)$와 $j=(0,1)$의 도달 좌표로 도달 벡터 유추 가능
 
-6. 닫힘 (Closure): 임의의 스칼라 $c\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $c \cdot \mathbf{u}$는 $\mathcal{V}$에 속한다.
+## 행렬식 (Determinant)
 
-7. 스칼라 덧셈에 대한 분배 법칙: 임의의 스칼라 $c,d\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(c+d) \cdot \mathbf{u} = c \cdot \mathbf{u} + d \cdot \mathbf{u}$가 성립한다.
+Square matrix에 대해 정의되며, 행렬이 나타내는 선형 변환의 부피 변화율 또는 가역성을 나타내는 스칼라 값이다.
 
-8. 벡터 덧셈에 대한 분배 법칙: 임의의 스칼라 $c\in F$와 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$가 성립한다.
-
-9. 스칼라 곱셈에 대한 결합 법칙 (Associativity of scalar multiplication): 임의의 스칼라 c,d∈F와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
-
-10. 항등원 (Identity) 존재: 스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $1 \cdot \mathbf{u} = \mathbf{u}$가 성립한다.
-
-## Vector Subspace
-
-벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 subspace라고 한다.
-
-1. $V$에 존재하는 $\mathbf{0}$ (zero vector)를 포함해야 한다.
-2. $U$는 덧셈과 스칼라배에 대해 닫혀있어야 한다.
-
-좌표 공간에서의 subspace는 원점을 포함해야 한다.
-
-- $\mathbb{R}^2$ 공간에서 vector subspace는 원점을 포함하는 직선
-- $\mathbb{R}^3$ 공간에서 vector subspace는 원점을 포함하는 직선 또는 평면
-
-
-
-- 첫 번째 그림은 스칼라배에 대해 닫혀있지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
-- 두 번째 그림은 원점을 포함하지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
-- 세 번째 그림은 $\mathbb{R}^2$의 subspace가 아니다.
-- 네 번째 그림은 subspace의 조건을 다 만족하므로, $\mathbb{R}^2$의 subspace이다.
-
-
-
-- 해당 직선에 있는 벡터들끼리 덧셈을 하거나 벡터에 스칼라배를 할 경우, 직선 밖으로 나가기 때문에 subspace가 아니다.
-
-
-
-- 해당 직선에 있는 벡터들끼리 덧셈을 하거나 벡터에 스칼라배를 해도 직선 내에 존재하기 때문에 subspace이다.
-
-
-
-## Null Space
-
-Homogeneous Equation의 solution을 모두 모아놓은 집합을 Null Space라고 부른다.
+$\text{det}(A)=0$이면 선형 변환에 의해 공간의 부피가 0이 된다는 뜻이므로 정보를 완전히 복원할 수 없기 때문에 역행렬이 존재하지 않는다.
 
 $$
-N(A)=\lbrace\mathbf{x}\mid A\mathbf{x}=\mathbf{0}\rbrace
-$$
-    
-- 어떠한 null space든지 항상 $\mathbf{0}$를 포함하므로, vector space이다.
-- Null space의 차원을 **nullity**라고 하며, free variable의 개수와 동일하다.
-
-## 선형 결합 (Linear Combination)
-
-선형 결합이란 
-
-벡터를 상수배하고 더하는 두 가지 기본 연산으로 이루어져 있는 1차식 형태이기 때문에 **선형**이고, 여러 개의 벡터를 함께 사용하여 새로운 벡터를 만들어내기 때문에 **결합**이라고 표현한다.
-
-$$
-\mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
+A=\begin{bmatrix}a&b\\c&d\end{bmatrix}~\to~\vert A\vert=ad-bc
 $$
 
-## 선형 생성 (Span)
+$2\times2$ 행렬에 대해 determinant는 위와 같이 정의된다.
 
-벡터 집합 $\mathcal{V}$에 있는 벡터들의 가능한 모든 선형 결합으로 만들어지는 집합을 $\text{span}(\mathcal{V})$라고 한다.
+### Properties of Determinant
 
-2차원 공간에서 $\mathbf{v}$와 $\mathbf{w}$의 span은 두 벡터의 모든 선형 결합의 집합 $a\mathbf{v}+b\mathbf{w}$이며, 두 벡터가 일렬로 있지 않다면 span의 결과는 2차원 공간의 벡터 전체가 된다.
+1. $\text{det}(AB)=\text{det}(A)\text{det}(B)$
+2. $\text{det}(A)=\text{det}(A^\top)$
+3. $A$ is invertible $\implies\text{det}(A^{-1})=\frac{1}{\text{det}(A)}$
+4. $\text{det}(A)=\text{det}(S^{-1}AS)$
+5. $T$ is triangular matrix $\implies\text{det}(T)=\prod_i t_{ii}$
+6. 하나의 column(row)에 어떤 숫자를 곱해서 다른 column(row)에 더해도 determinant는 동일
+8. 하나의 column(row)에 상수 $\lambda$를 곱하면 $\text{det}(\lambda A)=\lambda^n\text{det}(A)$
+9. 두 column(row)를 바꾸는 것은 determinant의 부호를 바꿈
+
+(5), (6), (7), (8)번의 성질을 이용해 행렬을 triangular matrix로 변환하면 determinant를 쉽게 구할 수 있다.
 
 <details>
 <summary><font color='red'>Example</font></summary>
-<div markdown="1">
-<br>
-
-$$
-\text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix})=\mathbb{R}^2
-$$
-
-$$
-\text{span}(\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}1\\3\end{bmatrix})=\begin{bmatrix}2a+b\\a+3b\end{bmatrix}=\mathbb{R}^2
-$$
-
-</div>
-</details>
-<br>
-
-## 선형 독립 (Linear Independence)
-
-벡터들의 집합 $\lbrace\mathbf{v}_1,\dots,\mathbf{v}_n\rbrace$이 주어졌을 때,
-
-$$
-\mathbf{0}=\lambda_1\mathbf{v}_1+\cdots+\lambda_n\mathbf{v}_n
-$$
-
-을 만족하는 스칼라 $\lambda_1,\cdots,\lambda_n$이 오직 $\lambda_1=\cdots=\lambda_2=0$일 때만 존재한다면 (trivial solution만 존재한다면), 이 벡터 집합을 선형 독립이라고 한다.
-
-만약 0이 아닌 $\lambda$가 존재한다면 $\lambda_1\mathbf{v}_1=-\lambda_2\mathbf{v}_2-\lambda_n\mathbf{v}_3$처럼 한 벡터가 다른 벡터들의 조합으로 표현될 수 있으며, 이를 선형 종속이라고 한다.
-
-즉, 선형 독립이란 집합 내의 어떤 벡터도 다른 벡터들의 조합으로 만들어지지 않는다는 것을 의미한다.
-
-선형 독립이 중요한 이유는 해당 벡터들이 span할 수 있는 공간의 차원과 연관되어 있기 때문이다.
-
-예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다. 따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다. 이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
-
-반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다. 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
-
-### 선형 독립의 성질
-
-1. 벡터 집합 내 하나라도 $\mathbf{0}$이 존재한다면, 해당 집합은 선형 종속이다. ($\mathbf{0}$은 스칼라배로 표현될 수 있기 때문이다.)
-2. 행렬에서 non-pivot column은 항상 그 왼쪽에 존재하는 pivot column들의 선형 결합으로 표현된다.
-   
-   $$
-   \begin{bmatrix}1&3&0\\0&0&2\end{bmatrix} → \begin{bmatrix}3\\0\end{bmatrix}=3\begin{bmatrix}1\\0\end{bmatrix}
-   $$
-
-### 선형 독립을 판단하는 방법
-
-벡터 집합이 선형 독립인지 판단하는 방법에는 크게 2가지가 있다.
-
-**1. 행렬의 pivot column 확인**
-
-   열벡터로 이루어진 행렬을 REF로 변환했을 때 모든 열이 pivot column이면, 벡터 집합은 선형 독립이다.
-    
-   즉, pivot column들이 선형 독립이어야 한다.
-    
-**2. 동차 방정식 (Homogeneous Equation)의 해 확인**
-
-   동차 방정식 $\sum\lambda_i\mathbf{v}_i=\mathbf{0}$의 해 $\boldsymbol\lambda$가 오직 trivial solution만 존재한다면, 벡터 집합은 선형 독립이다.
-    
-   즉, 변수 $\lambda_i$에 free variable이 존재하면 안된다.
-
-<details>
-<summary><font color='red'>Example</font></summary>
-<div markdown="1">
-
-아래의 벡터들이 선형 독립인지 판단
-
-$$
-\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}
-~,~
-\begin{bmatrix}1\\1\\0\\2\end{bmatrix}
-~,~
-\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}
-$$
-
----
-
-**1. 벡터들을 행렬로 표현**
-
-   $$
-   \begin{bmatrix}1&1&-1\\2&1&-2\\-3&0&1\\4&2&1\end{bmatrix}
-   $$
-
-**2. 가우스 소거법을 이용해 REF로 변환**
-
-   $$
-   \begin{bmatrix}1&1&-1\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}
-   $$
-
-**3-1. 행렬의 pivot column 확인**
-
-모든 열이 pivot column이므로, 세 벡터는 선형 독립이다.
-
-**3-2. 동차 방정식의 해 확인**
-
-동차방정식의 해가 trivial solution이므로, 세 벡터는 선형 독립이다.
-   
-$$
-\lambda_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+\lambda_2\begin{bmatrix}1\\1\\0\\0\end{bmatrix}
-+\lambda_3\begin{bmatrix}-1\\0\\1\\0\end{bmatrix}=\begin{bmatrix}0\\0\\0\\0\end{bmatrix}
-$$
-
-위 방정식을 만족시키는 해는 trivial solution밖에 없다.
-
-$$
-\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}
-$$
-
-</div>
-</details>
-
-## 기저 (Basis)
-
-벡터 공간의 basis란, 공간 전체를 생성할 수 있는 선형 독립인 벡터들의 집합을 말한다.
-
-즉, 벡터 공간 $V$를 span하는 가장 작은 집합 $B$를 $V$의 basis라고 부르며, 이는 특정 공간에서 좌표축 역할을 하는 벡터들의 집합이다.
-
-Basis는 아래와 같이 표현 가능하다.
-
-- $B$는 $V$의 minimal generating set이다. 
-
-   (벡터를 하나라도 제거하면 더 이상 $V$ 전체를 생성할 수 없다.)
-
-- $B$는 $V$의 maximally linearly independent set이다.
-
-   (벡터를 하나라도 추가하면 선형 독립성이 깨진다.)
-
-### 직교 기저 (Orthogonal Basis)
-
-Basis를 이루는 벡터들이 서로 직교(orthogonal)하는 경우, 직교 기저라고 부른다.
-
-$$
-\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)
-$$
-
-직교 기저가 중요한 이유는 2가지가 있다.
-
-1. 서로 직교한다는 것은 <span style="background-color:#fff5b1">선형 독립을 자동으로 보장</span>해준다.
-
-2. 어떤 벡터를 basis들의 선형 결합으로 나타낼 때, 계수를 쉽게 구할 수 있다.
-
-$$
-\mathbf{v}=\sum c_i\mathbf{u}_i
-~\to~
-c_i=\frac{\mathbf{v}\cdot\mathbf{u}_i}{\mathbf{u}_i\cdot\mathbf{u}_i}
-$$
-
-   <details>
-   <summary><font color='#0000FF'>증명</font></summary>
-   <div markdown="1">
-
-   $$
-   \mathbf{v}=\sum c_i\mathbf{u}_i
-   $$
-
-   1. 양변에 $\mathbf{u}_k$를 내적함
-
-   $$
-   \mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
-   $$
-
-   2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
-
-   $$
-   \mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
-   $$
-
-   3. $c_1$만 남기고 이항
-
-   $$
-   c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
-   $$
-
-   </div>
-   </details>
-   <br>
-
-### 정규 직교 기저 (Orthonormal Basis)
-
-Basis를 이루는 벡터들이 서로 직교하고 각각의 크기가 1일 경우, 정규 직교 기저라고 부른다.
-
-$$
-\mathbf{u}_i\cdot\mathbf{u}_j=
-\begin{cases}
-1&(i=j)\\
-0&(i\not=j)
-\end{cases}
-$$
-
-정규 직교 기저는 분모가 사라져 더 단순한 계산으로 계수를 구할 수 있다.
-
-$$
-c_i=\mathbf{v}\cdot\mathbf{u}_i
-$$
-
-### Gram-Schmidt method
-
-Basis 집합 $B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_n\rbrace$를 orthonormal basis로 변환하는 방법에는 Gram-Schmidt method가 있다.
-
-<details>
-<summary><font color='#FF0000'>Example</font></summary>
-<div markdown="1">
-
-$$
-B=
-\begin{bmatrix}
-
-\end{bmatrix}
-$$
-
----
-1. $\mathbf{b}_2$를 $\mathbf{b}_1$ 방향과 $\mathbf{b}_1$에 수직한 벡터의 합으로 분리
-
-3. $\mathbf{b}_1$에 수직한 벡터를 구함
-
-5. 크기를 1로 조절해 orthonormal basis로 변환
-
-
-</div>
-</details>
-
-## 차원 (Dimension)
-
-벡터 공간 $V$의 basis의 개수를 $V$의 차원이라고 부른다.
-
-<span style="background-color:#fff5b1">벡터의 차원과 벡터 공간의 차원은 다르다.<\span>
-
-- 벡터의 차원은 벡터를 구성하는 원소의 개수를 의미한다.
-
-   $$
-   \mathbf{v}=\begin{bmatrix}2\\4\\6\end{bmatrix}~\to~\text{dim}(\mathbf{v})=3
-   $$
-
-- 벡터 공간의 차원은 공간을 생성하는 선형 독립 벡터의 개수를 의미한다.
-
-   $$
-   V=\text{span}\left(\begin{bmatrix}1\\3\\5\end{bmatrix},\begin{bmatrix}2\\4\\6\end{bmatrix}\right)~\to~\text{dim}(V)=2
-   $$
-
-부분공간의 차원은 항상 원래 공간의 차원보다 작거나 같다.
-
-$$
-U\subseteq V \implies \text{dim}(U)\leq \text{dim}(V)
-$$
-
-## 랭크 (Rank)
-
-열 벡터로 이루어진 행렬 $A$에서 선형 독립인 열의 개수를 rank라고 한다.
-
-즉, 열 벡터들이 span하는 공간의 최대 차원을 나타낸다.
-
-행렬의 rank가 행렬의 열 수와 같으면 full rank라고 부른다.
-
-### Rank의 성질
-
-1. $\text{rank}(A)=\text{rank}(A^T)$
-2. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우, 해당 행렬을 full rank라고 한다.
-3. Square matrix $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, 해당 행렬은 invertible함
-4. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
-
-<details>
-<summary><font color='#FF0000'>Example</font></summary>
 <div markdown="1">
   
-$$
-A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
-$$
-
----
-
-Gauss Elimination을 하면 $\text{rank}(A)=2$
-
-즉, 3개의 column vector들이 span하는 공간 $V$의 차원은 2차원 평면이다.
+> $$
+> A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+> $$
+>
+> ---
+> 1. Gauss Elimination 수행 → (6)번에 의해 determinant 변화 X
+>
+>    $$
+>    A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}
+>    $$
+> 2. (5)번 성질 사용
+>
+>    $\text{det}(A)=-2$
 
 </div>
 </details>
 
-## 노름 (Norm)
+## Trace
 
 $$
-\lVert\cdot\rVert:V→\Bbb R
+\displaystyle\text{tr}(A)=\sum_{i=1}^na_{ii}
 $$
 
-벡터의 길이를 norm이라고 하며, 벡터를 스칼라로 mapping하는 일종의 함수로 볼 수 있다.
+Square matrix에 대해 정의되며, 대각 성분을 모두 더한 스칼라 값이다.
 
-$$
-\lVert\mathbf{v}\rVert_p:=\left(\sum_{i=1}^{n}{\vert v_i\vert}^p\right)^{\frac{1}{p}}
-$$
+### Properties of Trace
 
-Lp norm은 위와 같이 정의되며, 주로 사용하는 norm은 L1 norm과 L2 norm이다.
+1. $\text{tr}(A+B)=\text{tr}(A)+\text{tr}(B)$
+2. $\text{tr}(\lambda A)=\lambda\text{tr}(A)$
+3. $\text{tr}(I_n)=n$
+4. $A\in\mathbb{R}^{\color{red}n\times \color{blue}k},B\in\mathbb{R}^{\color{blue}k\times \color{red}n}\implies\text{tr}(AB)=\text{tr}(BA)$
+5. $A\in\mathbb{R}^{\color{red}a\times \color{blue}k},B\in\mathbb{R}^{\color{blue}k\times \color{green}l},C\in\mathbb{R}^{\color{green}l\times \color{red}n}\implies\text{tr}(ABC)=\text{tr}(CAB)=\text{tr}(BCA)$
+6. $\text{tr}(\mathbf{x}^\top\mathbf{y})=\mathbf{x}^\top\mathbf{y}\in\mathbb{R}$
+7. $\text{tr}(A)=\text{tr}(S^{-1}AS)$
+8. $\text{det}(I+\Delta)=1+\text{tr}(\Delta)$
 
-### L1 norm (Manhattan Norm)
+## 역행렬 (Inverse Matrix)
 
-$$
-\lVert\mathbf{v}\rVert_1:=\sum_{i=1}^{n}{\vert v_i\vert}
-=\vert v_1\vert+\cdots+\vert v_n\vert
-$$
+## 열공간 (Column Space)
 
-2차원 공간에서 단위 벡터 $\mathbf{x}$의 L1 norm은 $\vert x_1\vert+\vert x_2\vert=1$이며, L1 norm이 1인 벡터들의 궤적은 정사각형 형태로 나타난다.
+## 영공간 (Null Space)
 
-### L2 norm (Euclidean Norm)
+## 선형 사상 (Linear Mapping)
 
-$$
-\lVert\mathbf{x}\rVert_2:=\sqrt{\sum_{i=1}^{n}{v_i^2}}
-=\sqrt{v_1^2+\cdots+v_n^2}
-$$
-
-2차원 공간에서 단위 벡터 $\mathbf{x}$의 L2 norm은 $x_1^2+x_2^2=1$이며, L2 norm이 1인 벡터들의 궤적은 원의 형태로 나타난다.
-
-### Norm의 조건
-
-1. Absolutely homogeneous
-
-   $\lVert\lambda\mathbf{x}\rVert=\lambda\lVert\mathbf{x}\rVert$
-
-2. Triangle inequality
-
-   $\lVert\mathbf{x}+\mathbf{y}\rVert\leq\lVert\mathbf{x}\rVert+\lVert\mathbf{y}\rVert$
-
-3. Positive definite
-
-   $\lVert\mathbf{x}\rVert\geq0$
-
-   $\lVert\mathbf{x}\rVert=0\iff\mathbf{x}=\mathbf{0}$
-
-## 거리 (Distance)
-
-$$
-d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert
-$$
-
-벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리는 벡터 차이의 norm으로 정의된다.
-
-$$
-d_p(\mathbf{x}, \mathbf{y}) := \lVert \mathbf{x} - \mathbf{y} \rVert_p
-= \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}
-$$
-
-Lp norm을 사용한 Lp distance는 위와 같이 정의된다.
-
-### L1 distance (Manhattan Distance)
-
-$$
-d_1(\mathbf{x},\mathbf{y}):=\sum_i^n\lvert x_i-y_i\rvert
-$$
-
-### L2 distance (Euclidean Distance)
-
-$$
-d_2(\mathbf{x},\mathbf{y}):=\sqrt{\sum_{i=1}^{n}{(x_i-y_i)^2}}
-$$
-
-### Distance의 조건
-
-1. Symmetric
-
-   $d(\mathbf{x},\mathbf{y})=d(\mathbf{y},\mathbf{x})$
-
-2. Triangle inequality
-
-   $d(\mathbf{x},\mathbf{z})\leq d(\mathbf{x},\mathbf{y})+d(\mathbf{y},\mathbf{z})$
-
-3. Positive definite
-
-   $d(\mathbf{x},\mathbf{y})\geq0$
-
-   $d(\mathbf{x},\mathbf{y})=0\iff \mathbf{x}=\mathbf{y}$
-
-## 내적 (Inner Product)
-
-$$
-\langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}
-$$
-
-벡터 공간 내의 임의의 두 벡터를 스칼라로 매핑시키는 함수를 inner product라고 한다.
-
-Inner product가 정의된 vector space $(V,\langle\cdot,\cdot\rangle)$를 **inner product space**라고 한다.
-
-Inner product space에서는 norm과 distance가 아래와 같이 정의된다.
-
-$$
-\lVert\mathbf{x}\rVert=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}
-$$
-
-$$
-d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert=\sqrt{\langle\mathbf{x}-\mathbf{y},\mathbf{x}-\mathbf{y}\rangle}
-$$
-
-### Inner Product의 조건
-
-1. 분배 법칙이 성립
-
-   $\langle\mathbf u+\mathbf w,\mathbf v\rangle=\langle\mathbf u,\mathbf v\rangle+\langle\mathbf w,\mathbf v\rangle$
-
-   $\langle\lambda\mathbf v,\mathbf w\rangle=\lambda\langle\mathbf v,\mathbf w\rangle$
-   
-3. 교환 법칙이 성립
-
-   $\langle\mathbf v,\mathbf w\rangle=\langle\mathbf w,\mathbf v\rangle$
-   
-4. 자기 자신과의 내적은 항상 0 이상
-
-   $\langle\mathbf v,\mathbf v\rangle\geq0$
-
-   $\langle\mathbf v,\mathbf v\rangle=0\iff\mathbf v=\mathbf0$
-
-### Inner Product의 종류
-
-Inner product는 다양한 형태로 정의된다.
-
-- $\langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y$ → 이런 형태로 정의되는 내적을 <span style="background-color:#fff5b1">Dot Product</span>라고 부른다.
-- $\langle\mathbf x,\mathbf y\rangle:=x_1y_1-(x_1y_2+x_2y_1)+2x_2y_2$
-- $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$ → 함수의 내적
-
-즉, 우리가 흔히 사용하는 dot product (또는 scalar product라고도 부름)는 유클리드 공간 $\mathbb{R}^n$에서 사용되는 내적의 한 종류이다.
-
-일반적으로 $\mathbb{R}^n$에서 dot product를 내적이라고 혼용해서 내적이라고 부르지만, '내적 = dot product'라고 정의하는 것은 틀리다.
-
-### Dot Product
-
-두 벡터의 내적은 두 벡터가 서로 얼마나 같은 방향 성분을 공유하는지, 두 벡터가 얼마나 유사한지를 나타내는 값이다.
-
-## 두 벡터가 이루는 각도 (Angle)
-
-$$
-\theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
-$$
-
-Inner product space에서 두 벡터가 이루는 각도는 위와 같이 정의된다.
-
-## 외적 (Outer Product)
-
-$$
-\mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
-$$
-
-두 벡터의 곱으로 행렬을 생성하는 연산을 outper product라고 한다.
-
-## 벡터곱 (Cross Product)
-
-$$
-\mathbf{x}\times\mathbf{y}:=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\mathbf{i}-(x_1y_3-x_3y_1)\mathbf{j}+(x_1y_2-x_2y_1)\mathbf{k}
-$$
-
-Cross product는 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
-
-외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
-
-## 사영 (Projection)
-
-$$
-\pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
-$$
-
-벡터 $\mathbf{x}$의 직선인 vector space $U$ 위로의 정사영은 위와 같이 정의된다.
-
-<details>
-<summary><font color='blue'>공식 유도</font></summary>
-<div markdown="1">
-
-1. 직선 vector space $U$에서 $\mathbf{x}$와 거리가 가장 가까운 벡터를 $\pi_U(\mathbf{x})$라고 정의
-
-2. $\pi_U(\mathbf{x})$는 $U$의 basis의 상수배이다.
-
-   $$
-   \pi_U(\mathbf{x})=\lambda\mathbf{b}
-   $$
-4. $\mathbf{x}-\lambda\mathbf{b}$는 $U$의 basis와 직교해야한다.
-
-   $$\langle\mathbf{x}-\lambda\mathbf{b},\mathbf{b}\rangle=0\to \mathbf{x}^\top\mathbf{b}=\lambda\mathbf{b}^\top\mathbf{b}
-   $$
-6. Find projection
-   
-   $$
-   \lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
-   $$
-
-</div>
-</details>
-
-## Projection onto General Subspaces
-
-
-$$
-\pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
-$$
-
-벡터 $\mathbf{x}$의 vector space $U$ 위로의 정사영은 위와 같이 정의된다.
-
-<details>
-<summary><font color='blue'>공식 유도</font></summary>
-<div markdown="1">
-
-1. $m$차원 vector space $U$에서 $\mathbf{x}$와 가장 가까운 벡터를 $\pi_U(\mathbf{x})$라고 정의
-
-2. $\pi_U(\mathbf{x})$는 $U$의 basis들의 선형 결합으로 표현될 수 있다.
-
-   $$
-   \pi_U(\mathbf{x})=\lambda_1\mathbf{b}_1+\cdots+\lambda_m\mathbf{b}_m=B\boldsymbol\lambda
-   $$
-4. $\mathbf{x}-\pi_U(\mathbf{x})$는 $U$의 basis들과 직교해야한다.
-
-   $$
-   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_1\rangle=0,~\cdots,~\langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_m\rangle=0
-   $$
-6. 행렬로 표현
-
-   
-7. Find projection
-
-   $$
-   \boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
-   $$
-
-</div>
-</details>
+## 

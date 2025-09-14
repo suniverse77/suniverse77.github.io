@@ -10,32 +10,32 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## Projection onto Lines
+## 사영 (Projection)
 
-
+### 벡터 위로의 사영 (Projection onto a vector)
 
 $$
 \pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
 $$
 
-벡터 $\mathbf{x}$의 직선인 vector space $U$ 위로의 정사영은 위와 같이 정의된다.
+Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\pi_U(\mathbf{x})$는 위와 같이 정의된다.
 
 <details>
 <summary><font color='blue'>공식 유도</font></summary>
 <div markdown="1">
 
-1. 직선 vector space $U$에서 $\mathbf{x}$와 거리가 가장 가까운 벡터를 $\pi_U(\mathbf{x})$라고 정의
-
-2. $\pi_U(\mathbf{x})$는 $U$의 basis의 상수배이다.
+1. $\pi_U(\mathbf{x})$는 $U$ 내의 벡터이기 때문에 $\mathbf{b}$의 상수배이다.
 
    $$
    \pi_U(\mathbf{x})=\lambda\mathbf{b}
    $$
-4. $\mathbf{x}-\lambda\mathbf{b}$는 $U$의 basis와 직교해야한다.
+
+2. $\mathbf{x}-\lambda\mathbf{b}$는 $\mathbf{b}$와 직교한다.
 
    $$\langle\mathbf{x}-\lambda\mathbf{b},\mathbf{b}\rangle=0\to \mathbf{x}^\top\mathbf{b}=\lambda\mathbf{b}^\top\mathbf{b}
    $$
-6. Find projection
+
+3. 수식을 정리한다.
    
    $$
    \lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\pi_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
@@ -44,35 +44,43 @@ $$
 </div>
 </details>
 
-## Projection onto General Subspaces
-
+### 부분공간 위로의 사영 (Projection onto general subspace)
 
 $$
 \pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
 $$
 
-벡터 $\mathbf{x}$의 vector space $U$ 위로의 정사영은 위와 같이 정의된다.
+Basis 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\pi_U(\mathbf{x})$는 위와 같이 정의된다.
 
 <details>
 <summary><font color='blue'>공식 유도</font></summary>
 <div markdown="1">
 
-1. $m$차원 vector space $U$에서 $\mathbf{x}$와 가장 가까운 벡터를 $\pi_U(\mathbf{x})$라고 정의
-
-2. $\pi_U(\mathbf{x})$는 $U$의 basis들의 선형 결합으로 표현될 수 있다.
+1. $\pi_U(\mathbf{x})$는 $U$ 내의 벡터이기 때문에 basis들의 선형 결합으로 표현될 수 있다.
 
    $$
    \pi_U(\mathbf{x})=\lambda_1\mathbf{b}_1+\cdots+\lambda_m\mathbf{b}_m=B\boldsymbol\lambda
    $$
-4. $\mathbf{x}-\pi_U(\mathbf{x})$는 $U$의 basis들과 직교해야한다.
+
+2. $\mathbf{x}-\pi_U(\mathbf{x})$는 $U$의 basis들과 직교한다.
 
    $$
-   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_1\rangle=0,~\cdots,~\langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_m\rangle=0
+   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_1\rangle=0
+   \\
+   \vdots
+   \\
+   \langle\mathbf{x}-\pi_U(\mathbf{x}),\mathbf{b}_m\rangle=0
    $$
-6. 행렬로 표현
 
+3. 위의 수식을 행렬로 표현한다.
+
+   $$
+   \langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
+   \to
+   \mathbf{x}^\top B=(B\boldsymbol\lambda)^\top B
+   $$
    
-7. Find projection
+4. 수식을 정리한다.
 
    $$
    \boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\pi_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}

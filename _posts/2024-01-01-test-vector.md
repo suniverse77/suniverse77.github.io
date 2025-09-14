@@ -10,7 +10,65 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## Vector Space
+## 물리적 벡터
+
+크기와 방향을 모두 가진 양을 벡터라고 부르며, 크기만 가진 양을 스칼라라고 부른다.
+
+- 위치벡터: 공간에서 점의 위치를 나타내는 벡터로, 원점을 시점으로 한다.
+- 방향벡터: 직선이나 움직임의 방향을 나타내는 벡터로, 크기는 신경 쓰지 않는다.
+
+## 수학적 벡터
+
+벡터 공간의 원소를 벡터라고 부른다.
+
+벡터는 열 벡터 (column vector) 또는 행 벡터 (row vector)로 표현할 수 있으며, 선형대수학에서는 일반적으로 열 벡터를 표준 표현으로 사용한다.
+
+$$
+\mathbf{v}=\begin{bmatrix}1&2&3\end{bmatrix}
+$$
+
+$$
+\mathbf{v}=\begin{bmatrix}1\\2\\3\end{bmatrix}
+$$
+
+여러 벡터를 나란히 배치하면 행렬을 만들 수 있다. 즉, 행렬은 벡터들을 열 단위로 모아 놓은 것으로도 볼 수 있다.
+
+$$
+\begin{bmatrix}1\\2\\3\end{bmatrix}~,~
+\begin{bmatrix}4\\5\\6\end{bmatrix}
+\to
+\begin{bmatrix}
+1&4\\2&5\\3&6
+\end{bmatrix}
+$$
+
+## 벡터의 기본 연산
+
+### 벡터의 덧셈
+
+벡터의 덧셈은 같은 위치의 성분끼리 더하면 된다.
+
+$$
+\begin{bmatrix}1\\2\\3\end{bmatrix}+
+\begin{bmatrix}4\\5\\6\end{bmatrix}=
+\begin{bmatrix}5\\7\\9\end{bmatrix}
+$$
+
+두 벡터를 화살표로 생각했을 때, $\mathbf{u}+\mathbf{v}$는 $\mathbf{u}$의 끝점에서 $\mathbf{v}$를 이어 붙인 화살표로 생각할 수 있다.
+
+### 스칼라배
+
+스칼라배는 벡터의 각 성분을 같은 스칼라로 곱하면 된다.
+
+$$
+3\cdot
+\begin{bmatrix}1\\2\\3\end{bmatrix}=
+\begin{bmatrix}3\\6\\9\end{bmatrix}
+$$
+
+벡터를 화살표로 생각했을 때, 방향은 유지되고 크기만 스칼라 배율만큼 늘어나거나 줄어든다.
+
+## 벡터 공간 (Vector Space)
 
 공집합이 아닌 집합 $\mathcal{V}$와 스칼라들의 집합(Field) $F$가 있을 때,
 
@@ -44,7 +102,7 @@ description: 👨‍👧‍👧 벡터의 기본 개념
 
 10. 항등원 (Identity) 존재: 스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $1 \cdot \mathbf{u} = \mathbf{u}$가 성립한다.
 
-## Vector Subspace
+## 벡터 부분공간 (Vector Subspace)
 
 벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 subspace라고 한다.
 
@@ -92,6 +150,14 @@ $$
 
 $$
 \mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
+$$
+
+예를 들어, 2차원 평면에서 
+
+$$
+\begin{bmatrix}2\\4\end{bmatrix}=
+2\cdot\begin{bmatrix}1\\0\end{bmatrix}+4\cdot\begin{bmatrix}0\\1\end{bmatrix}
+=2\mathbf{i}+4\mathbf{j}
 $$
 
 ## 선형 생성 (Span)

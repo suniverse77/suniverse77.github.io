@@ -10,7 +10,7 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## Norm
+## 노름 (Norm)
 
 $$
 \lVert\cdot\rVert:V→\Bbb R
@@ -18,17 +18,29 @@ $$
 
 벡터의 길이를 norm이라고 하며, 벡터를 스칼라로 mapping하는 일종의 함수로 볼 수 있다.
 
-여러 종류의 norm이 있으며, 주로 사용하는 norm은 Manhattan Norm($l_1)$과 Euclidean Norm($l_2$)이다.
+$$
+\lVert\mathbf{v}\rVert_p:=\left(\sum_{i=1}^{n}{\vert v_i\vert}^p\right)^{\frac{1}{p}}
+$$
 
+Lp norm은 위와 같이 정의되며, 주로 사용하는 norm은 L1 norm과 L2 norm이다.
 
-- 좌측이 Manhattan Norm $\lVert\mathbf{x}\rVert_1:=\sum_{i=1}^{n}{\vert x_i\vert}$
-- 우측이 Euclidean Norm $\lVert\mathbf{x}\rVert_2:=\sqrt{\sum_{i=1}^{n}{x_i^2}}$
-
-Inner product space에서 norm은 다음과 같이 정의된다.
+### L1 norm (Manhattan Norm)
 
 $$
-\lVert\mathbf{x}\rVert=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}
+\lVert\mathbf{v}\rVert_1:=\sum_{i=1}^{n}{\vert v_i\vert}
+=\vert v_1\vert+\cdots+\vert v_n\vert
 $$
+
+2차원 공간에서 단위 벡터 $\mathbf{x}$의 L1 norm은 $\vert x_1\vert+\vert x_2\vert=1$이며, L1 norm이 1인 벡터들의 궤적은 정사각형 형태로 나타난다.
+
+### L2 norm (Euclidean Norm)
+
+$$
+\lVert\mathbf{x}\rVert_2:=\sqrt{\sum_{i=1}^{n}{v_i^2}}
+=\sqrt{v_1^2+\cdots+v_n^2}
+$$
+
+2차원 공간에서 단위 벡터 $\mathbf{x}$의 L2 norm은 $x_1^2+x_2^2=1$이며, L2 norm이 1인 벡터들의 궤적은 원의 형태로 나타난다.
 
 ### Norm의 조건
 
@@ -46,15 +58,32 @@ $$
 
    $\lVert\mathbf{x}\rVert=0\iff\mathbf{x}=\mathbf{0}$
 
-## Distance
+## 거리 (Distance)
 
 $$
-d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert=\sqrt{\langle\mathbf{x}-\mathbf{y},\mathbf{x}-\mathbf{y}\rangle}
+d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert
 $$
 
-Inner product space에서 두 벡터 사이의 distance는 위와 같이 정의된다.
+벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리는 벡터 차이의 norm으로 정의된다.
 
-Inner product로 dot product를 사용할 때 정의된 distance $\sqrt{(\mathbf{x}-\mathbf{y})^\top(\mathbf{x}-\mathbf{y})}$를 **Euclidian distance**라고 부른다.
+$$
+d_p(\mathbf{x}, \mathbf{y}) := \lVert \mathbf{x} - \mathbf{y} \rVert_p
+= \left( \sum_{i=1}^{n} |x_i - y_i|^p \right)^{\frac{1}{p}}
+$$
+
+Lp norm을 사용한 Lp distance는 위와 같이 정의된다.
+
+### L1 distance (Manhattan Distance)
+
+$$
+d_1(\mathbf{x},\mathbf{y}):=\sum_i^n\lvert x_i-y_i\rvert
+$$
+
+### L2 distance (Euclidean Distance)
+
+$$
+d_2(\mathbf{x},\mathbf{y}):=\sqrt{\sum_{i=1}^{n}{(x_i-y_i)^2}}
+$$
 
 ### Distance의 조건
 

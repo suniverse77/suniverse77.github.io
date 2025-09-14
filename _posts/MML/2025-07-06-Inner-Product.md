@@ -10,7 +10,7 @@ img_path: /assets/images/math/
 description: 👨‍👧‍👧 벡터의 기본 개념
 ---
 
-## Inner Product
+## 내적 (Inner Product)
 
 $$
 \langle\cdot,\cdot\rangle:V\times V\to\mathbb{R}
@@ -19,6 +19,16 @@ $$
 벡터 공간 내의 임의의 두 벡터를 스칼라로 매핑시키는 함수를 inner product라고 한다.
 
 Inner product가 정의된 vector space $(V,\langle\cdot,\cdot\rangle)$를 **inner product space**라고 한다.
+
+Inner product space에서는 norm과 distance가 아래와 같이 정의된다.
+
+$$
+\lVert\mathbf{x}\rVert=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}
+$$
+
+$$
+d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert=\sqrt{\langle\mathbf{x}-\mathbf{y},\mathbf{x}-\mathbf{y}\rangle}
+$$
 
 ### Inner Product의 조건
 
@@ -42,34 +52,27 @@ Inner product가 정의된 vector space $(V,\langle\cdot,\cdot\rangle)$를 **inn
 
 Inner product는 다양한 형태로 정의된다.
 
-- $\langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y$ → 이런 형태로 정의되는 내적을 **Dot Product**라고 부른다.
+- $\langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y$ → 이런 형태로 정의되는 내적을 <span style="background-color:#fff5b1">Dot Product</span>라고 부른다.
 - $\langle\mathbf x,\mathbf y\rangle:=x_1y_1-(x_1y_2+x_2y_1)+2x_2y_2$
 - $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$ → 함수의 내적
 
-### Symmetric, Positive Definite
+즉, 우리가 흔히 사용하는 dot product (또는 scalar product라고도 부름)는 유클리드 공간 $\mathbb{R}^n$에서 사용되는 내적의 한 종류이다.
 
-대칭 행렬 $A$에 대해 $\mathbf{x}^\top A\mathbf{x}$가 $\mathbf{0}$이 아닌 모든 $\mathbf{x}$에 대해 양수일 때, $A$를 symmetric, positive definite matrix라고 부른다.
+일반적으로 $\mathbb{R}^n$에서 dot product를 내적이라고 혼용해서 내적이라고 부르지만, '내적 = dot product'라고 정의하는 것은 틀리다.
+
+### Dot Product
+
+두 벡터의 내적은 두 벡터가 서로 얼마나 같은 방향 성분을 공유하는지, 두 벡터가 얼마나 유사한지를 나타내는 값이다.
+
+## 두 벡터가 이루는 각도 (Angle)
 
 $$
-\langle\mathbf{x},\mathbf y\rangle:=\mathbf{x}^\top A\mathbf{y}
+\theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
 $$
 
-행렬 $A$가 symmetric, positive definite matrix라면, 내적을 위와 같이 정의할 수 있다.
+Inner product space에서 두 벡터가 이루는 각도는 위와 같이 정의된다.
 
-<details>
-<summary><font color='red'>Example</font></summary>
-<div markdown="1">
-  
-
----
-
-<br>
-$\mathbf{x}\not=\mathbf{0}$일 때 항상 양수이므로, $A$는 symmetric, positive definite matrix이다.
-
-</div>
-</details>
-
-## Outer Product
+## 외적 (Outer Product)
 
 $$
 \mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
@@ -77,69 +80,12 @@ $$
 
 두 벡터의 곱으로 행렬을 생성하는 연산을 outper product라고 한다.
 
-## Cross Product
+## 벡터곱 (Cross Product)
 
 $$
 \mathbf{x}\times\mathbf{y}:=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\mathbf{i}-(x_1y_3-x_3y_1)\mathbf{j}+(x_1y_2-x_2y_1)\mathbf{k}
 $$
 
-두 3차원 벡터에 수직인 벡터를 생성하는 연산을 cross product라고 한다.
+Cross product는 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
 
-## Angle
-
-$$
-\theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
-$$
-
-Inner product space에서 두 벡터의 각도는 위와 같이 정의된다.
-
-## Orthogonality
-
-두 벡터 $\mathbf{x}$, $\mathbf{y}$의 내적이 0이라면, 두 벡터는 **orthogonal**하다고 한다.
-
-직교하고 있는 두 벡터의 크기가 1이라면, **orthonormal**하다고 한다.
-
-Square matrix $A$의 column vector들이 orthonormal하면, $A$를 **orthogonal matrix**라고 한다.
-
-- $A$, $B$가 orthogonal matrix라면, $AB$도 orthogonal matrix다.
-- $A$가 orthogonal matrix라면, $\text{det}(A)=\pm1$이다.
-
-## Orthonormal Basis
-
-Basis $B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_n\rbrace$를 orthonormal basis로 변환하는 방법에는 크게 2가지가 있다.
-
-**1. $[BB^\top\vert B]$에 대해 Gauss Elimination 수행**
-
-<details>
-<summary><font color='red'>Example</font></summary>
-<div markdown="1">
-
-
-
----
-
-
-
-가우스 소거법을 적용해서 아래와 같은 orthonormal basis를 얻을 수 있다.
-
-</div>
-</details>
-<br>
-**2. Gram-Schmidt method 적용**
-
-  <details>
-  <summary><font color='red'>Example</font></summary>
-  <div markdown="1">
-  
-
-  
-  ---
-  1. $\mathbf{b}_2$를 $\mathbf{b}_1$ 방향과 $\mathbf{b}_1$에 수직한 벡터의 합으로 분리
-
-  3. $\mathbf{b}_1$에 수직한 벡터를 구함
-
-  5. 크기를 1로 조절해 orthonormal basis로 변환
-
-  
-  </div>
-  </details>
+외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
