@@ -12,7 +12,7 @@ description: 📕 선형 변환으로서의 행렬
 
 해당 포스트는 3Blue1Brown님의 영상을 바탕으로 정리하였습니다.
 
-https://www.youtube.com/watch?v=35ESC-g49fY&list=PL7x3-Ea6TrJR095LxHtu7MgS0vpli1XZv&index=4
+[Youtube - 3Blue1Brown](https://www.youtube.com/watch?v=35ESC-g49fY&list=PL7x3-Ea6TrJR095LxHtu7MgS0vpli1XZv&index=4)
 
 ## 선형 변환 (Linear Transformation)
 
