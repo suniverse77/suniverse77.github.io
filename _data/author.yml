@@ -1,0 +1,10 @@
+## Template › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/advanced-usage.md#setting-author-url
+# -------------------------------------
+# {author_id}:
+#   name: {full name}
+#   url: {homepage_of_author}
+# -------------------------------------
+
+sunho:
+  name: Sunho Lee
+  url: https://github.com/suniverse77
