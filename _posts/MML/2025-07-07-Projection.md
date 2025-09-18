@@ -7,7 +7,7 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: 📕 벡터의 투영 (projection)
+description: ✏️ 벡터의 투영 (projection)
 ---
 
 ## 사영 (Projection)

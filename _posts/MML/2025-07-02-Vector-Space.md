@@ -7,7 +7,7 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: 📕 벡터 공간과 부분 공간
+description: ✏️ 벡터 공간과 부분 공간
 ---
 
 ## Vector Space

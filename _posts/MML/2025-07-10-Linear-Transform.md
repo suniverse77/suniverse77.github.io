@@ -7,7 +7,7 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: 📕 선형 변환으로서의 행렬
+description: ✏️ 선형 변환으로서의 행렬
 ---
 
 해당 포스트는 3Blue1Brown님의 영상을 바탕으로 정리하였습니다.
