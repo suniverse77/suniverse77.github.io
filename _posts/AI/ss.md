@@ -1,4 +1,13 @@
-
+---
+title: "[CS231n] Normalization"
+date: 2025-09-04 00:00:00 +/-TTTT
+categories: [딥러닝]
+tags: [CS231n]
+math: true
+toc: true
+author: sunho
+description: 📖 Stanford CS231n | Spring 2025 | Lecture 1
+---
 
 ## Min-Max Scaling
 
