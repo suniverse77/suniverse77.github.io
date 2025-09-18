@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 벡터 공간"
 date: 2025-07-02 00:00:00 +/-TTTT
-categories: [인공지능 수학]
+categories: [인공지능 수학, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -10,7 +10,7 @@ img_path: /assets/images/math/
 description: ✏️ 벡터 공간과 부분 공간
 ---
 
-## Vector Space
+## 벡터 공간 (Vector Space)
 
 공집합이 아닌 집합 $\mathcal{V}$와 스칼라들의 집합(Field) $F$가 있을 때,
 

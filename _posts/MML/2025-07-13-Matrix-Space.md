@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 행렬이 만드는 공간"
 date: 2025-07-13 00:00:00 +/-TTTT
-categories: [인공지능 수학]
+categories: [인공지능 수학, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
