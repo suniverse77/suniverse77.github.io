@@ -50,11 +50,17 @@ $$
 
 행렬식이 0이라는 것은 변환에 의해 공간 전체가 직선 또는 한점으로 찌그러진다는 것을 의미한다. 이 경우 다시 정보를 복원할 수 없기 때문에 역행렬이 존재하지 않는다.
 
+이해하기 쉽게 생각해보면, 행렬식이 0이라는 것은 어떤 숫자에 0을 곱하는 것과 같다.
+예를 들어, 숫자 3에 0을 곱하면 0이 된다. 이렇게 0이 되어 버린 결과만 가지고는 원래 숫자가 3이었는지 아니면 다른 어떤 숫자였는지 다시 알아낼 수가 없다.
+
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.
 
 $$
 A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}~\to~
-\text{det}(A)=a(ei-fh)-b(di-fg)+c(dh-eg)
+\text{det}(A)=
+a\begin{vmatrix}e&f\\h&i\end{vmatrix}
+-b\begin{vmatrix}d&f\\g&i\end{vmatrix}
++c\begin{vmatrix}d&e\\g&h\end{vmatrix}
 $$
 
 $3\times3$ 행렬에 대해 determinant는 위와 같이 정의된다.
@@ -98,3 +104,18 @@ $3\times3$ 행렬에 대해 determinant는 위와 같이 정의된다.
 
 ## 역행렬 (Inverse Matrix)
 
+역행렬 $A^{-1}$은 어떤 행렬 $A$에 곱했을 때 단위 행렬 $I$를 만들어주는 행렬을 의미한다.
+
+즉, $AA^{-1}=A^{-1}AI$가 성립하며, $3\times\frac{1}{3}=1$과 같은 개념이다.
+
+행렬을 선형 변환 관점에서 보면, 역행렬은 원래 변환을 되돌리는 역할을 한다.
+
+예를 들어, 어떤 행렬이 물체를 시계 방향으로 90도 회전시키는 역할을 한다면, 이 행렬의 역행렬은 물체를 반시계 방향으로 90도 회전시켜서 원래 위치로 되돌려놓는 역할을 한다.
+
+$$
+A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
+~\to~
+A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
+$$
+
+$2\times2$ 행렬에서 역행렬을 계산하는 공식은 위와 같다.
