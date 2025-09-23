@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 선형 사상"
 date: 2025-07-14 00:00:00 +/-TTTT
-categories: [인공지능 수학]
+categories: [인공지능 수학, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -10,9 +10,9 @@ img_path: /assets/images/math/
 description: ✏️ 벡터의 기본 개념
 ---
 
-## Linear Mappings
+## 선형 사상 (Linear Mappings)
 
-아래의 조건을 만족시키는 사상 $\Phi : V → W$를 Linear Mapping이라고 부른다.
+아래의 조건을 만족시키는 사상 $\Phi : V → W$를 선형 사상이라고 부른다.
 
 1. $\Phi(\mathbf{x}+\mathbf{y})=\Phi(\mathbf{x})+\Phi(\mathbf{y})$
 2. $\Phi (\lambda \mathbf{x})=\lambda \Phi (\mathbf{x})$
@@ -21,7 +21,7 @@ description: ✏️ 벡터의 기본 개념
 
 ![fig1](mlm/10-1.png){: style="display:block; margin:0 auto; width:90%;"}
 
-### Injective (단사)
+### 단사 (Injective)
 
 $$
 \Phi (\mathbf{x})=\Phi (\mathbf{y})\implies\mathbf{x}=\mathbf{y}
@@ -31,7 +31,7 @@ $$
 - 입력과 대응되지 않는 출력도 존재
 - 입력값이 다르면 출력값도 다름
   
-### Surjective (전사)
+### 전사 (Surjective)
 
 $$
 \Phi (V)=W
@@ -40,21 +40,23 @@ $$
 - 공역과 치역이 동일
 - 모든 출력이 적어도 하나의 입력과 대응됨
   
-### Bijective (전단사)
+### 전단사 (Bijective)
 
 - injective하면서 surjective함
 - 서로 완전히 일대일 대응됨
 - inverse mapping $\Phi^{-1}=\Psi:W\to V$가 존재
 
-## Image & Kernel
+## 이미지와 커널 (Image & Kernel)
 
-![fig1](mlm/10-2.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](mlm/10-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
 ### Image
 
-
-
 선형 사상 $\Phi : V → W$ 에 대해, $V$가 mapping되는 $W$의 벡터들의 집합을 image라고 한다.
+
+$$
+
+$$
 
 ### Kernel
 
@@ -71,9 +73,13 @@ $$
 - 변환 행렬 $A$의 rank는 image의 차원과 동일하다. → $\text{rank}(A)=\text{dim}(\text{Im}(\Phi))$
 - 변환 행렬 $A$의 nullity는 kernel의 차원과 동일하다. → $\text{nullity}(A)=\text{dim}(\text{ker}(\Phi))$
 
-## Rank-Nullity Theorem
+## 차원 정리 (Rank-Nullity Theorem)
 
-선형 사상 $\Phi : V → W$ 에 대해, **$\text{dim}(V)=\text{rank}(A)+\text{nullity}(A)$**가 성립한다.
+선형 사상 $\Phi : V → W$ 에 대해, 아래의 수식이 성립한다.
+
+$$
+\text{dim}(V)=\text{rank}(A)+\text{nullity}(A)
+$$
 
 선형 사상이 행렬 $A\in \Bbb R^{m\times n}$로 표현될 경우, 아래와 같이 표현할 수 있다.
 
