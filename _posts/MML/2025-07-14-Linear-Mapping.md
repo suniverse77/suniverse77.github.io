@@ -67,7 +67,7 @@ $$
 
 $$
 \text{Im}(\Phi)=\Phi(V)=
-\lbrace w\in W\mid\exist v\in V:\Phi(v)=w
+\lbrace w\in W\mid\exists v\in V:\Phi(v)=w
 \rbrace
 $$
 
@@ -123,3 +123,6 @@ n=\text{rank}(A)+\text{nullity}(A)
 $$
 
 여기서 $n$은 입력 공간의 차원으로, 변환 후의 차원 (rank)과 원점으로 사라진 차원 (nullity)을 더하면 원래의 전체 차원 $n$이 된다는 것을 보여준다.
+
+![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Rank-nullity.svg)_
