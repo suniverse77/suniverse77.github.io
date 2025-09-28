@@ -21,6 +21,9 @@ $$
 
 행렬식의 기하학적 의미는 아래와 같다.
 
+![fig1](mlm/12-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
+
 1. 행렬을 열 벡터의 집합으로 본다면, 두 열 벡터가 이루는 영역의 너비를 의미한다.
 2. 행렬을 변환으로 본다면, 변환에 의해 늘어나는 영역의 너비 변화율을 의미한다.
 
@@ -63,9 +66,12 @@ a\begin{vmatrix}e&f\\h&i\end{vmatrix}
 +c\begin{vmatrix}d&e\\g&h\end{vmatrix}
 $$
 
-$3\times3$ 행렬에 대해 determinant는 위와 같이 정의된다.
+$3\times3$ 행렬에 대해 행렬식은 위와 같이 정의된다.
 
 3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
+
+![fig2](mlm/12-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDeterminant-%EC%97%AC%EC%9D%B8%EC%9E%90cofactor-%EC%99%B8%EC%A0%81Cross-product)_
 
 ### 행렬식의 성질
 
@@ -74,11 +80,11 @@ $3\times3$ 행렬에 대해 determinant는 위와 같이 정의된다.
 3. $A$ is invertible $\implies\text{det}(A^{-1})=\frac{1}{\text{det}(A)}$
 4. $\text{det}(A)=\text{det}(S^{-1}AS)$
 5. $T$ is triangular matrix $\implies\text{det}(T)=\prod_i t_{ii}$
-6. 하나의 column(row)에 어떤 숫자를 곱해서 다른 column(row)에 더해도 determinant는 동일
-8. 하나의 column(row)에 상수 $\lambda$를 곱하면 $\text{det}(\lambda A)=\lambda^n\text{det}(A)$
-9. 두 column(row)를 바꾸는 것은 determinant의 부호를 바꿈
+6. 하나의 열 (행)에 어떤 숫자를 곱해서 다른 열 (행)에 더해도 행렬식은 동일
+8. 하나의 열 (행)에 상수 $\lambda$를 곱하면 $\text{det}(\lambda A)=\lambda^n\text{det}(A)$
+9. 두 열 (행)를 바꾸는 것은 행렬식의 부호를 바꿈
 
-(5), (6), (7), (8)번의 성질을 이용해 행렬을 triangular matrix로 변환하면 determinant를 쉽게 구할 수 있다.
+(5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
 <details>
 <summary><font color='red'>Example</font></summary>
@@ -120,34 +126,42 @@ $$
 
 $2\times2$ 행렬에서 역행렬을 계산하는 공식은 위와 같다.
 
+역행렬은 정방 행렬에 대해서만 정의되며, 정방 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
+$A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
+
+- $\text{det}(A)\neq0$
+- $\text{rank}(A)=n$
+
+    만약 $\text{rank}(A)<n$ 이면, 변환 후 출력 공간의 차원이 줄어들어 정보를 복원할 수 없게 된다.
+
+- $A\mathbf{x}=\mathbf{b}$가 유일한 해를 가짐
+
+    $A$가 가역 행렬이라면, $\mathbf{x}=A^{-1}\mathbf{b}$이므로 $\mathbf{x}$는 유일한 해를 가지게 된다.
+
+- $A$의 고유값에 0이 없음
+
+    $\text{det}(A)=\prod_{i=1}^n\lambda_i$이 성립하기 때문에 $\text{det}(A)\neq0$이기 위해서는 $\lambda_i\neq0$이어야 한다.
+
 ## 의사 역행렬 (Pseudo-inverse Matrix)
 
 의사 역행렬 $A^{+}$는 역행렬의 개념을 일반화한 행렬을 의미한다.
-즉, $A$가 정방행렬이 아니거나 invertible하지 않을 때에도 정의된다.
+즉, $A$가 정방 행렬, 가역 행렬이 아닐 때에도 정의된다.
 
-$m>n$이고 모든 열벡터가 선형 독립일 때, 의사 역행렬은 아래와 같이 정의된다.
+$A\in\mathbb{R}^{m\times n}$가 $m>n$이고 full-rank일 때, 의사 역행렬은 아래와 같이 정의된다.
 
 $$
 A^{+}=(A^\top A)^{-1}A^\top
 $$
 
-- $A^{+}A=I$가 성립하기 때문에 $A^{+}$를 좌측 역행렬이라고 부른다.
+$A$가 가역 행렬이라면, $A^{-1}=A^{+}$이다.
 
-$m<n$이고 모든 행벡터가 선형 독립일 때, 의사 역행렬은 아래와 같이 정의된다.
-
-$$
-A^{+}=A^\top(AA^\top)^{-1}
-$$
-
-- $AA^{+}=I$가 성립하기 때문에 $A^{+}$를 우측 역행렬이라고 부른다.
-
-의사 역행렬 $A^{+}$는 다음 4가지 조건을 만족하는 행렬이며, 정확한 이름은 Moore-Penrose Psuedo-inverse Matrix이다.
+의사 역행렬 $A^{+}$는 다음 4가지 조건 (Moore-Penrose 조건)을 만족하는 행렬이다.
 
 1. $AA^{+}A = A$
 2. $A^{+}AA^{+} = A^{+}$
 3. $(AA^{+})^T = AA^{+}$
 4. $(A^{+}A)^T = A^{+}A$
 
-역행렬처럼 곱했을 때 단위행렬이 되지는 않지만, 최대한 역행렬과 비슷한 성질을 유지하도록 정의된다.
-
 선형 변환 관점에서 보면, 의사역행렬은 $A$의 변환을 최대한 되돌리는 근사 행렬이다.
+
+의사 역행렬은 [최소제곱법 (Method of Least Square)]의 해와 관련이 있다.
