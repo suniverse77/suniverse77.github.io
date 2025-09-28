@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 투영"
+title: "[선형대수] 사영 (Projection)"
 date: 2025-07-07 00:00:00 +/-TTTT
 categories: [인공지능 수학, 선형대수]
 tags: [선형대수]

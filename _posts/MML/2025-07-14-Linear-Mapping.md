@@ -7,7 +7,6 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: ✏️ 선형 사상
 ---
 
 ## 선형 사상 (Linear Mappings)

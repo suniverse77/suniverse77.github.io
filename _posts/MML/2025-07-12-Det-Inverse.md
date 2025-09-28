@@ -7,7 +7,6 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: ✏️ 행렬식의 기하학적 의미와 가역성
 ---
 
 ## 행렬식 (Determinant)

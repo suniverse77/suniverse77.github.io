@@ -7,7 +7,6 @@ math: true
 toc: true
 author: sunho
 img_path: /assets/images/math/
-description: ✏️ 열공간 (column space)과 영공간 (null space)
 ---
 
 ## 열공간 (Column space)
