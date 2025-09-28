@@ -6,8 +6,6 @@ tags: [선형대수]
 math: true
 toc: true
 author: sunho
-img_path: /assets/images/math/
-description: ✏️ 기저, 랭크와 차원
 ---
 
 ## 기저 (Basis)

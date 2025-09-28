@@ -6,7 +6,6 @@ tags: [선형대수]
 math: true
 toc: true
 author: sunho
-img_path: /assets/images/math/
 ---
 
 ## 열공간 (Column space)

@@ -6,7 +6,6 @@ tags: [선형대수]
 math: true
 toc: true
 author: sunho
-img_path: /assets/images/math/
 ---
 
 ## 선형 사상 (Linear Mappings)

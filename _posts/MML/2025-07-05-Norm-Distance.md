@@ -6,8 +6,6 @@ tags: [선형대수]
 math: true
 toc: true
 author: sunho
-img_path: /assets/images/math/
-description: ✏️ 벡터의 크기 / 두 벡터 사이의 거리
 ---
 
 ## 노름 (Norm)

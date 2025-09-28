@@ -6,8 +6,6 @@ tags: [선형대수]
 math: true
 toc: true
 author: sunho
-img_path: /assets/images/math/
-description: ✏️ 내적과 dot product / 외적과 cross prodcut
 ---
 
 ## 내적 (Inner Product)
