@@ -1,6 +1,6 @@
 ---
 title: "[논문리뷰] Generative Modeling by Estimating Gradients of the Data Distribution"
-date: 2025-03-22 00:00:00 +/-TTTT
+date: 2025-03-20 12:00:00 +/-TTTT
 categories: [논문리뷰, Generative AI]
 tags: [Diffusion, Image Generation]
 math: true
