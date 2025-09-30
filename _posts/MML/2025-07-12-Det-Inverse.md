@@ -26,7 +26,7 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 2. 행렬을 변환으로 본다면, 변환에 의해 늘어나는 영역의 너비 변화율을 의미한다.
 
 <details>
-<summary><font color='#FF0000'>Example</font></summary>
+<summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
 $$
@@ -85,7 +85,7 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 (5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
 <details>
-<summary><font color='red'>Example</font></summary>
+<summary><font color='red'>Example 2</font></summary>
 <div markdown="1">
   
 > $$
@@ -116,14 +116,6 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 
 예를 들어, 어떤 행렬이 물체를 시계 방향으로 90도 회전시키는 역할을 한다면, 이 행렬의 역행렬은 물체를 반시계 방향으로 90도 회전시켜서 원래 위치로 되돌려놓는 역할을 한다.
 
-$$
-A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
-~\to~
-A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
-$$
-
-$2\times2$ 행렬에서 역행렬을 계산하는 공식은 위와 같다.
-
 역행렬은 정방 행렬에 대해서만 정의되며, 정방 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
 $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
 
@@ -139,6 +131,26 @@ $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의�
 - $A$의 고유값에 0이 없음
 
     $\text{det}(A)=\prod_{i=1}^n\lambda_i$이 성립하기 때문에 $\text{det}(A)\neq0$이기 위해서는 $\lambda_i\neq0$이어야 한다.
+
+$2\times2$ 행렬에서 역행렬을 계산하는 공식은 아래와 같다.
+
+$$
+A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
+~\to~
+A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
+$$
+
+$3\times3$ 행렬의 크기가 커질수록 역행렬을 계산하기 어려워지는데, 아래의 성질을 이용해서 역행렬을 계산할 수 있다.
+
+<details>
+<summary><font color='#FF0000'>Example 3</font></summary>
+<div markdown="1">
+
+
+
+</div>
+</details>
+<br>
 
 ## 의사 역행렬 (Pseudo-inverse Matrix)
 
