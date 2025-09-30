@@ -116,6 +116,9 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 
 예를 들어, 어떤 행렬이 물체를 시계 방향으로 90도 회전시키는 역할을 한다면, 이 행렬의 역행렬은 물체를 반시계 방향으로 90도 회전시켜서 원래 위치로 되돌려놓는 역할을 한다.
 
+![fig3](mlm/12-3.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
+
 역행렬은 정방 행렬에 대해서만 정의되며, 정방 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
 $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
 
@@ -142,11 +145,19 @@ $$
 
 $3\times3$ 행렬의 크기가 커질수록 역행렬을 계산하기 어려워지는데, 아래의 성질을 이용해서 역행렬을 계산할 수 있다.
 
+$$
+A=A~\to~I=
+$$
+
 <details>
 <summary><font color='#FF0000'>Example 3</font></summary>
 <div markdown="1">
 
+$$
 
+$$
+
+---
 
 </div>
 </details>

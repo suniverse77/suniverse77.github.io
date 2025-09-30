@@ -43,7 +43,12 @@ $$
 N(A)=\lbrace\mathbf{x}\mid A\mathbf{x}=\mathbf{0}\rbrace
 $$
 
-즉, Homogeneous Equation의 해를 모두 모아놓은 집합을 영공간이라고 부른다.
+즉, 동차 방정식의 해를 모두 모아놓은 집합을 의미한다.
+
+$A\mathbf{x}=\mathbf{0}$은 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때문에 공간 상에서 원점을 지나는 직선 또는 평면으로 표현된다.
+
+![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 ### 영공간의 성질
     
