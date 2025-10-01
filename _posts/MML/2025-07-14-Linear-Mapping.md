@@ -17,11 +17,13 @@ author: sunho
 
 사상은 함수라고도 하며, $V$를 정의역, $W$를 치역이라고 생각하면 된다.
 
+### 사상의 성질
+
 ![fig1](mlm/10-1.png){: style="display:block; margin:0 auto; width:90%;"}
 
-### 단사 함수 (Injective Function)
+#### 단사 (Injective)
 
-일대일 함수라고도 불리며, 정의역의 서로 다른 두 원소가 공역의 서로 다른 두 원소에 대응하는 함수를 의미한다.
+선형 사상 $\Phi$가 단사라는 것은 정의역의 서로 다른 두 원소가 공역의 서로 다른 두 원소에 대응한다는 것을 의미한다. 일대일이라고도 불린다.
 
 $$
 \Phi (\mathbf{x})=\Phi (\mathbf{y})\implies\mathbf{x}=\mathbf{y}
@@ -31,9 +33,9 @@ $$
 
 입력에 대응되지 않는 출력도 존재한다.
   
-### 전사 함수 (Surjective Function)
+#### 전사 (Surjective)
 
-공역의 모든 원소가 적어도 하나의 정의역 원소와 대응하는 함수를 의미한다.
+선형 사상 $\Phi$가 전사라는 것은 공역의 모든 원소가 적어도 하나의 정의역 원소와 대응한다는 것을 의미한다.
 
 $$
 \Phi (V)=W
@@ -43,9 +45,9 @@ $$
 
 하나의 출력에 여러 입력이 대응될 수 있다.
   
-### 전단사 함수 (Bijective Function)
+#### 전단사 (Bijective)
 
-일대일 대응이라고도 불리며, 단사 함수이면서 동시에 전사 함수인 경우를 의미한다.
+일대일 대응이라고도 불리며, 단사이면서 동시에 전사인 경우를 의미한다.
 
 모든 입력이 서로 다른 출력에 정확히 하나씩 대응되며, 공역에 남는 원소가 없다. 이 때문에 역함수 (inverse mapping)가 존재한다.
 
@@ -55,9 +57,26 @@ $$
 
 선형 변환 관점에서 역행렬이 존재하는 경우가 전단사 변환이다.
 
+### 사상의 특별한 경우
+
+![fig2](mlm/10-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://math.stackexchange.com/questions/1510769/difference-between-epimorphism-isomorphism-endomorphism-and-automorphism-with)_
+
+#### 동형 사상 (Isomorphism)
+
+두 공간이 '본질적으로 같음'을 증명하는 사상입니다.
+
+#### 자기 사상 (Endomorphism)
+
+정의역과 공역이 자기 자신으로 같은 경우입니다.
+
+#### 자기 동형 사상 (Automorphism)
+
+한 공간에서 자기 자신으로 가는 동형 사상입니다.
+
 ## 상과 핵 (Image & Kernel)
 
-![fig1](mlm/10-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:50%;"}
 
 ### Image
 
@@ -82,7 +101,7 @@ $$
 \rbrace
 $$
 
-즉, 핵은 선형 변환의 (Null Space)[https://suniverse77.github.io/posts/Matrix-Space/#%EC%98%81%EA%B3%B5%EA%B0%84-null-space]이다. 다시 말해 동차 방정식 $A\mathbf{x}=\mathbf{0}$의 일반해로도 볼 수 있다.
+즉, kernel은 <span style="background-color:#fff5b1">선형 변환의 [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)</span>를 의미한다.
 
 ---
 
@@ -122,5 +141,5 @@ $$
 
 여기서 $n$은 입력 공간의 차원으로, 변환 후의 차원 (rank)과 원점으로 사라진 차원 (nullity)을 더하면 원래의 전체 차원 $n$이 된다는 것을 보여준다.
 
-![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig4](mlm/10-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Rank-nullity.svg)_

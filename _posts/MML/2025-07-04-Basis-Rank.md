@@ -122,7 +122,7 @@ $$
 
 벡터 공간 $V$의 basis의 개수를 $V$의 차원이라고 부른다.
 
-<span style="background-color:#fff5b1">벡터의 차원과 벡터 공간의 차원은 다르다.<\span>
+<span style="background-color:#fff5b1">벡터의 차원과 벡터 공간의 차원은 다르다.</span>
 
 - 벡터의 차원은 벡터를 구성하는 원소의 개수를 의미한다.
 
@@ -142,7 +142,7 @@ $$
 U\subseteq V \implies \text{dim}(U)\leq \text{dim}(V)
 $$
 
-## 랭크 (Rank)
+## 계수 (Rank)
 
 열 벡터로 이루어진 행렬 $A$에서 선형 독립인 열의 개수를 rank라고 한다.
 
@@ -153,8 +153,10 @@ $$
 ### Rank의 성질
 
 1. $\text{rank}(A)=\text{rank}(A^T)$
-2. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우, 해당 행렬을 full rank라고 한다.
-3. Square matrix $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, 해당 행렬은 invertible함
+2. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 full rank라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 rank-deficient라고 한다.
+3. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
+
+   변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
 4. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
 
 <details>

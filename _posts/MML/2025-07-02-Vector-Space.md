@@ -71,23 +71,13 @@ author: sunho
 
 ## Span
 
-벡터 집합 $S$에 있는 벡터들의 가능한 모든 linear combination으로 만들어지는 집합을 $\text{span}(S)$라고 한다.
+벡터 집합 $S$에 있는 벡터들의 가능한 모든 선형 결합으로 만들어지는 집합을 $\text{span}(S)$라고 한다.
 
-- $$
+$$
 	\text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix})=\mathbb{R}^2
 	$$ <font color='white'>.</font>
-- $$
+
+$$
 	\text{span}(\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}1\\3\end{bmatrix})=\begin{bmatrix}2a+b\\a+3b\end{bmatrix}
 	$$ <font color='white'>.</font>
-
-## Null Space
-
-Homogeneous Equation의 solution을 모두 모아놓은 집합을 Null Space라고 부른다.
-
-$$
-N(A)=\lbrace\mathbf{x}\mid A\mathbf{x}=\mathbf{0}\rbrace
-$$
-    
-- 어떠한 null space든지 항상 $\mathbf{0}$를 포함하므로, vector space이다.
-- Null space의 차원을 **nullity**라고 하며, free variable의 개수와 동일하다.
 

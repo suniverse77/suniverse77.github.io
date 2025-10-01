@@ -50,8 +50,24 @@ $A\mathbf{x}=\mathbf{0}$은 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때�
 ![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
+영공간의 차원을 **nullity**라고 한다.
+
+$$
+\text{nullity}(A)=\text{dim}\left(N(A)\right)
+$$
+
 ### 영공간의 성질
     
 1. 어떠한 영공간이든지 항상 $\mathbf{0}$를 포함하므로, 영공간은 벡터 공간이다.
-2. 영공간의 차원을 **nullity**라고 하며, $A\mathbf{x}=\mathbf{0}$를 풀었을 때 나오는 자유 변수의 개수와 동일하다.
-3. $A\mathbf{x}=\mathbf{0}$이므로 영공간은 방정식의 가능한 모든 해가된다.
+2. 영공간은 방정식의 가능한 모든 해이다.
+3. Nullity는 $A\mathbf{x}=\mathbf{0}$를 풀었을 때 나오는 자유 변수의 개수와 동일하다.
+
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
+
+
+
+</div>
+</details>
+<br>
