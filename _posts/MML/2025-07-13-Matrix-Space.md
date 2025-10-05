@@ -12,6 +12,12 @@ author: sunho
 
 행렬 $A$의 선형 변환을 통해 나올 수 있는 가능한 모든 출력 벡터 $\mathbf{v}$의 집합을 $A$의 열공간이라고 한다.
 
+$$
+A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+\to
+\text{col}(A)=\text{span}\left(\begin{bmatrix}1\\3\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix}\right)
+$$
+
 행렬 $A$의 각 열은 변환 후 도달할 기저 벡터의 위치를 알려주고, 이 기저 벡터의 span이 가능한 모든 출력이기 때문이다.
 
 여기서 [rank](https://suniverse77.github.io/posts/Basis/)에 대해 다시 집고 가자.
@@ -32,6 +38,16 @@ Rank의 의미는 변환 후 출력의 차원수 즉, 열공간의 차원수이�
     3차원 공간이 평면으로 붕괴되면, 모두 원점에 도달하는 벡터로 가득 찬 직선이 존재
 
     3차원 공간이 직선으로 붕괴하면 모두 원점에 도달하는 벡터로 가득 찬 평면이 존재
+
+## 행공간 (Row space)
+
+일반적으로 열벡터를 기준으로 보기 때문에 열공간 중심으로 다루지만, 행공간도 존재한다.
+
+$$
+A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+\to
+\text{row}(A)=\text{span}\left(\begin{bmatrix}1&2\end{bmatrix},\begin{bmatrix}3&4\end{bmatrix}\right)
+$$
 
 ## 영공간 (Null space)
 
@@ -71,3 +87,17 @@ $$
 </div>
 </details>
 <br>
+
+### 행공간과 영공간의 관계
+
+아래의 수식을 통해 행공간과 영공간은 공간 상에서 서로 직교한다는 것을 알 수 있다.
+
+$$
+A\mathbf{x}=\mathbf{0}~\to~
+\begin{bmatrix}-\mathbf{a}_1-\\-\mathbf{a}_2-\end{bmatrix}
+\begin{bmatrix}x_1\\x_2\end{bmatrix}=
+\begin{bmatrix}0\\0\end{bmatrix}
+$$
+
+![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_
