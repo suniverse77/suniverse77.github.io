@@ -30,6 +30,9 @@ author: sunho
 
 <span style="background-color:#fff5b1">행렬은 일종의 공간 변환으로 해석할 수 있다.</span>
 
+![fig1](mlm/10-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
+
 ### 2차원 선형 변환
 
 $$
@@ -145,7 +148,16 @@ $$
 비정사각행렬은 공간의 차원을 변환하는 역할을 한다.
 
 $m\times n$ 행렬은 $n$차원 공간의 벡터를 $m$차원 공간으로 변환한다.
+즉, 행렬에서 열이 입력 공간의 차원, 행이 변환 후 출력 공간의 차원을 의미한다.
 
 예를 들어 $3\times2$ 행렬은 2차원 공간의 벡터를 3차원 공간으로 옮긴다. 하지만 옮겨진 벡터는 3차원 공간을 채우는 것이 아니라, 3차원 공간에서 원점을 가로지르는 2차원 평면 위에 놓이게 된다.
+
+$$
+\begin{bmatrix}2&1\\1&3\\3&2\end{bmatrix}
+\begin{bmatrix}1&2\\3&4\end{bmatrix}
+=\begin{bmatrix}5&8\\10&14\\9&14\end{bmatrix}
+$$
+
+위의 예시에서 2차원 벡터 $[1~~3]^\top$ , $[2~~4]^\top$는 변환 후 각각 3차원 벡터 $[5~~10~~9]^\top$ , $[8~~14~~14]^\top$가 된다.
 
 비정사각행렬에서 full-rank는 원래의 차원을 그대로 유지하면서 더 높은 차원으로 변환된 것을 의미한다.

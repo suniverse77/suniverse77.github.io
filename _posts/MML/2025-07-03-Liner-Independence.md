@@ -69,6 +69,9 @@ $$
 
 반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다. 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
+![fig1](mlm/3-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]]https://deep-learning-study.tistory.com/301_
+
 ### 선형 독립의 성질
 
 1. 벡터 집합 내 하나라도 $\mathbf{0}$이 존재한다면, 해당 집합은 선형 종속이다. ($\mathbf{0}$은 스칼라배로 표현될 수 있기 때문이다.)
