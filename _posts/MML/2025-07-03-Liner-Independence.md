@@ -69,8 +69,12 @@ $$
 
 반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다. 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
-![fig1](mlm/3-1.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처]]https://deep-learning-study.tistory.com/301_
+![fig1](mlm/3-1.png){: style="display:block; margin:0 auto; width:90%;"}
+_[[출처]](https://deep-learning-study.tistory.com/301)_
+
+위 그림에서 왼쪽은 $\mathbf{w}$가 $\mathbf{u}$와 $\mathbf{v}$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.
+
+하지만 오른쪽은 3개의 벡터가 모두 선형 독립이므로, 3차원 공간을 생성할 수 있다.
 
 ### 선형 독립의 성질
 
