@@ -86,6 +86,5 @@ $$
 
 벡터 공간을 평행 이동한 공간을 affine subspace라고 부른다.
 
-![Figure 2](/assets/images/인공지능수학/1-7. Figure2.png){: style="display:block; margin:0 auto; width: 52%; height: 52%;"}
 
 원점에서 offset된 space로, $\mathbf0$을 포함하지 않아 vector space가 아니다.
