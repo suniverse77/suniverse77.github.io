@@ -49,25 +49,22 @@ $$
 
 ### 2차원 선형 변환
 
-$$
-A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
-$$
-
 2차원 공간에서 선형 변환은 $2\times2$ 행렬로 표현된다.
 
 행렬의 각 열 벡터는 원래 기저 벡터 $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$의 도달 좌표로 볼 수 있다.
 
-임의의 벡터 $\mathbf{v}$가 변환 후 도달하는 벡터는 $\hat{\mathbf{i}}$의 도달 벡터와 $\hat{\mathbf{j}}$ 도달 벡터의 선형 결합으로 표현할 수 있다. 즉, 기저 벡터의 도달 위치만 안다면 $\mathbf{v}$의 도달 위치를 유추할 수 있다는 의미이다.
+![fig2](mlm/10-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
-예를 들어, 행렬 $A$와 벡터 $\mathbf{v}$가 아래와 같이 주어졌다고 해보자.
+위 그림에서 $\hat{\mathbf{i}}$와 $\hat{\mathbf{j}}$가 각각 $(1,-2)$ , $(3,0)$에 도달했으므로, 변환 행렬 $A$는 아래와 같이 표현할 수 있다.
 
 $$
 A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}
-~,~
-\mathbf{v}=\begin{bmatrix}-1\\2\end{bmatrix}
 $$
 
-벡터 $\mathbf{v}$는 아래처럼 두 기저 벡터의 선형 결합으로 표현할 수 있다.
+임의의 벡터 $\mathbf{v}$가 변환 후 도달하는 벡터 $\mathbf{v}'$은 $\mathbf{i}'$ ( $\hat{\mathbf{i}}$의 도달 벡터)과 $\mathbf{j}'$ ( $\hat{\mathbf{j}}$의 도달 벡터)의 선형 결합으로 표현할 수 있다. 이는 기저 벡터의 도달 위치만 안다면 $\mathbf{v}$의 도달 위치를 유추할 수 있다는 의미이다.
+
+예를 들어 벡터 $\mathbf{v}$가 아래와 같이 주어졌있을 때, 두 기저 벡터의 선형 결합으로 표현할 수 있다.
 
 $$
 \mathbf{v}=\begin{bmatrix}-1\\2\end{bmatrix}
