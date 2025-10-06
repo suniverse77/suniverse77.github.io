@@ -14,24 +14,38 @@ author: sunho
 
 ## 선형 변환 (Linear Transformation)
 
-선형대수학에서의 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 규칙을 의미한다.
+변환 (Transformation)은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
 
-일종의 함수이지만, 변환에는 입력 벡터가 새로운 위치로 이동하거나 변형되는 기하학적 움직임을 연상시키는 데 도움이 됩니다.
+![fig1](mlm/10-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
-기하학적으로 선형 변환은 아래의 2가지 조건을 만족하는 변형을 의미한다.
+변환이라는 단어를 사용한 이유는 입력 벡터가 특정 규칙에 따라 움직이는 기하학적 이동을 연상하기 쉽기 때문이다.
 
-1. 변환 전의 모든 직선은 변환 후에도 직선으로 유지된다.
-2. 원점은 항상 변환 후에도 같은 원점에 위치한다.
+선형 변환은 선형성을 만족하는 특별한 변환을 의미하며, 아래의 특징을 가지고 있다.
 
-수학적으로 변환 이 선형 변환이 되려면 아래의 2가지 조건을 만족해야 한다.
+**대수적 정의**
 
-1. 
-2. 
+$$
+T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
+$$
+
+1. 두 벡터를 먼저 더한 후 변환한 결과는, 각각을 변환한 후 더한 결과와 같다.
+
+    $$
+    T(\mathbf{u}+\mathbf{v})=T(\mathbf{u})+T(\mathbf{v})
+    $$
+2. 벡터에 스칼라를 곱한 후 변환한 결과는, 변환을 먼저 한 후 스칼라를 곱한 결과와 같다.
+
+    $$
+    T(a\mathbf{u})=a\cdot T(\mathbf{u})
+    $$
+
+**기하학적 특징**
+
+1. 변환 전의 모든 직선은 변환 후에도 휘어지지 않고 직선으로 유지된다.
+2. 원점은 변환 후에도 원점에 위치한다.
 
 <span style="background-color:#fff5b1">행렬은 일종의 공간 변환으로 해석할 수 있다.</span>
-
-![fig1](mlm/10-1.png){: style="display:block; margin:0 auto; width:80%;"}
-_[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 ### 2차원 선형 변환
 

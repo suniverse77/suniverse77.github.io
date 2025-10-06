@@ -92,12 +92,18 @@ $$
 c_i=\mathbf{v}\cdot\mathbf{u}_i
 $$
 
-### Gram-Schmidt method
+### 기저를 구하는 방법
+
+#### 1. 가우스 소거법
+
+
+
+#### 2. Gram-Schmidt method
 
 Basis 집합 $B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_n\rbrace$를 orthonormal basis로 변환하는 방법에는 Gram-Schmidt method가 있다.
 
 <details>
-<summary><font color='#FF0000'>Example</font></summary>
+<summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
 $$
@@ -108,12 +114,14 @@ B=
 $$
 
 ---
+
 1. $\mathbf{b}_2$를 $\mathbf{b}_1$ 방향과 $\mathbf{b}_1$에 수직한 벡터의 합으로 분리
 
 3. $\mathbf{b}_1$에 수직한 벡터를 구함
 
 5. 크기를 1로 조절해 orthonormal basis로 변환
 
+---
 
 </div>
 </details>
@@ -133,7 +141,7 @@ $$
 - 벡터 공간의 차원은 공간을 생성하는 선형 독립 벡터의 개수를 의미한다.
 
    $$
-   V=\text{span}\left(\begin{bmatrix}1\\3\\5\end{bmatrix},\begin{bmatrix}2\\4\\6\end{bmatrix}\right)~\to~\text{dim}(V)=2
+   V=\text{span}(\begin{bmatrix}1\\3\\5\end{bmatrix},\begin{bmatrix}2\\4\\6\end{bmatrix})~\to~\text{dim}(V)=2
    $$
 
 부분공간의 차원은 항상 원래 공간의 차원보다 작거나 같다.
@@ -144,11 +152,40 @@ $$
 
 ## 계수 (Rank)
 
-열 벡터로 이루어진 행렬 $A$에서 선형 독립인 열의 개수를 rank라고 한다.
+Rank는 행렬에서 선형 독립인 행 또는 열의 최대 개수를 의미한다.
 
-즉, 열 벡터들이 span하는 공간의 최대 차원을 나타낸다.
+열 벡터로 이루어진 행렬 $A$에서는 선형 독립인 열의 개수를 의미하므로, 열 벡터들이 span하는 공간의 최대 차원을 나타낸다.
 
-행렬의 rank가 행렬의 열 수와 같으면 full rank라고 부른다.
+행렬의 rank가 행렬의 열 또는 행의 개수와 같으면 full rank라고 부른다.
+
+가우스 소거법을 적용 후 변환된 REF 형태의 행렬에서 0이 아닌 행 또는 열의 개수가 rank이다.
+
+<details>
+<summary><font color='#FF0000'>Example</font></summary>
+<div markdown="1">
+  
+$$
+A=\begin{bmatrix}1&2&3\\2&3&4\\3&6&9\end{bmatrix}
+$$
+
+---
+
+**1. 가우스 소거법 적용**
+
+$$
+A=\begin{bmatrix}1&2&3\\0&1&2\\0&0&0\end{bmatrix}
+$$
+
+**2. 0이 아닌 행 또는 열의 개수 세기**
+
+0이 아닌 행이 2개이므로, $\text{rank}(A)=2$ 이다.
+
+즉, 3개의 column vector들이 span하는 공간 $V$의 차원은 2차원 평면이다.
+
+---
+
+</div>
+</details>
 
 ### Rank의 성질
 
@@ -158,20 +195,3 @@ $$
 
    변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
 4. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
-
-<details>
-<summary><font color='#FF0000'>Example</font></summary>
-<div markdown="1">
-  
-$$
-A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
-$$
-
----
-
-Gauss Elimination을 하면 $\text{rank}(A)=2$
-
-즉, 3개의 column vector들이 span하는 공간 $V$의 차원은 2차원 평면이다.
-
-</div>
-</details>
