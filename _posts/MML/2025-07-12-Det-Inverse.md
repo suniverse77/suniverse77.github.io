@@ -10,12 +10,12 @@ author: sunho
 
 ## 행렬식 (Determinant)
 
+정방 행렬에서만 정의되며, $2\times2$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+
 $$
 A=\begin{bmatrix}a&b\\c&d\end{bmatrix}~\to~
 \text{det}(A)=\lvert A\rvert=ad-bc
 $$
-
-정방 행렬에서만 정의되며, $2\times2$ 행렬에 대해 행렬식은 위와 같이 정의된다.
 
 행렬식의 기하학적 의미는 아래와 같다.
 
@@ -45,6 +45,8 @@ $$
 \text{det}(A)=6-0=6
 $$
 
+---
+
 </div>
 </details>
 <br>
@@ -56,6 +58,49 @@ $$
 
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.
 
+<details>
+<summary><font color='#FF0000'>Example 2</font></summary>
+<div markdown="1">
+
+$$
+A=\begin{bmatrix}2&4\\2&4\end{bmatrix}
+~,~
+\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix}
+,\mathbf{x}_1=\begin{bmatrix}2\\4\end{bmatrix}
+$$
+
+---
+
+행렬 $A$의 행렬식은 $0$이다.
+
+$\mathbf{x}_1$와 $\mathbf{x}_1$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
+
+$$
+\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2
+$$
+
+하지만 변환 후의 $\mathbf{x}_1$와 $\mathbf{x}_1$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
+
+$$
+AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}
+\begin{bmatrix}1&2\\1&4\end{bmatrix}
+=\begin{bmatrix}6&20\\6&20\end{bmatrix}
+$$
+
+$$
+\text{span}(\begin{bmatrix}6\\6\end{bmatrix},\begin{bmatrix}20\\20\end{bmatrix})=\mathbb{R}^1
+$$
+
+즉, 행렬식이 $0$인 행렬에 의해 변환된 공간은 차원이 줄어드는 것을 확인할 수 있다.
+
+---
+
+</div>
+</details>
+<br>
+
+$3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+
 $$
 A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}~\to~
 \text{det}(A)=
@@ -63,8 +108,6 @@ a\begin{vmatrix}e&f\\h&i\end{vmatrix}
 -b\begin{vmatrix}d&f\\g&i\end{vmatrix}
 +c\begin{vmatrix}d&e\\g&h\end{vmatrix}
 $$
-
-$3\times3$ 행렬에 대해 행렬식은 위와 같이 정의된다.
 
 3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
 
@@ -85,22 +128,30 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 (5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
 <details>
-<summary><font color='red'>Example 2</font></summary>
+<summary><font color='red'>Example 3</font></summary>
 <div markdown="1">
   
-> $$
-> A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
-> $$
->
-> ---
-> 1. Gauss Elimination 수행 → (6)번에 의해 determinant 변화 X
->
->    $$
->    A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}
->    $$
-> 2. (5)번 성질 사용
->
->    $\text{det}(A)=-2$
+$$
+A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+$$
+
+---
+
+**1. Gauss Elimination 수행**
+
+(6)번 성질에 의해 가우스 소거법을 사용해도 행렬식에는 변화가 없다.
+
+$$
+A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}
+$$
+
+**2. 삼각행렬에서의 행렬식 계산**
+
+정리한 행렬은 삼각 행렬 형태로, (5)번 성질을 사용해서 쉽게 행렬식을 계산할 수 있다.
+
+$$\text{det}(A)=1\times(-2)=-2$$
+
+---
 
 </div>
 </details>
@@ -150,7 +201,7 @@ A=A~\to~I=
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 3</font></summary>
+<summary><font color='#FF0000'>Example 4</font></summary>
 <div markdown="1">
 
 $$
