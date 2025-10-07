@@ -8,6 +8,30 @@ toc: true
 author: sunho
 ---
 
+## 행렬의 노름 (Matrix Norm)
+
+벡터의 norm 개념을 행렬에 확장한 것이다.
+
+가장 직관적인 의미는 **"이 행렬이 벡터를 최대 몇 배까지 늘릴(stretch) 수 있는가?"**
+
+### Norm의 조건
+
+행렬 norm도 벡터 norm과 같이 만족해야 할 조건이 필요하다.
+
+1. Absolutely homogeneous
+
+   $\lVert\lambda A\rVert=\lambda\lVert A\rVert$
+
+2. Triangle inequality
+
+   $\lVert A+B\rVert\leq\lVert A\rVert+\lVert B\rVert$
+
+3. Positive definite
+
+   $\lVert A\rVert\geq0$
+
+   $\lVert A\rVert=0\iff A=\mathbf{0}_{m,n}$
+
 ## Spectral Norm
 
 Matrix norm에는 여러 종류가 있으며, 그 중 spectral norm은 아래와 같이 정의된다.

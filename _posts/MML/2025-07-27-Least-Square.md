@@ -15,7 +15,7 @@ author: sunho
 이때 가장 가깝다는 뜻은 오차 벡터 $\mathbf{b}−A\mathbf{x}$의 norm이 최소가 된다는 의미이며, 따라서 최적의 해 $\hat{\mathbf{x}}$은 아래와 같이 정의된다.
 
 $$
-\hat{\mathbf{x}}=\underset{\mathbf{x}}{\argmin}\lVert\mathbf{b}−A\mathbf{x}\rVert
+\hat{\mathbf{x}}=\underset{\mathbf{x}}{\arg\min}\lVert\mathbf{b}−A\mathbf{x}\rVert
 $$
 
 예를 들어, 아래의 왼쪽 그림에서 모든 점을 완벽히 통과하는 직선은 찾을 수 없다. 따라서 오른쪽 그림처럼 여러 개의 직선을 그어 보면서, 각 점과의 오차가 가장 작아지는 직선을 찾는 과정으로 이해할 수 있다.
@@ -69,7 +69,7 @@ $$
 ~\to~\mathbf{x}^\top=\left(A^\top A\right)^{-1}\mathbf{b}^\top A
 $$
 
-최종적으로 최소제곱 해는 아래와 같이 얻을 수 있다.
+최종적으로 최소 제곱 해는 아래와 같이 얻을 수 있다.
 
 $$
 \mathbf{x}=(A^\top A)^{-1}A^\top\mathbf{b}
@@ -81,7 +81,7 @@ $$
 </details>
 <br>
 
-의사 역행렬이기 때문에 아래와 같이 표현할 수 있다.
+최소 제곱 해를 의사 역행렬을 이용해 아래와 같이 표현할 수 있다.
 
 $$
 \hat{\mathbf{x}}=A^+\mathbf{b}

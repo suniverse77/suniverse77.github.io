@@ -236,4 +236,4 @@ $A$가 가역 행렬이라면, $A^{-1}=A^{+}$이다.
 
 선형 변환 관점에서 보면, 의사역행렬은 $A$의 변환을 최대한 되돌리는 근사 행렬이다.
 
-의사 역행렬은 [최소제곱법 (Method of Least Square)]의 해와 관련이 있다.
+의사 역행렬은 [최소제곱법 (Method of Least Square)](https://suniverse77.github.io/posts/Least-Square/)의 해와 관련이 있다.
