@@ -156,8 +156,6 @@ Rank는 행렬에서 선형 독립인 행 또는 열의 최대 개수를 의미�
 
 열 벡터로 이루어진 행렬 $A$에서는 선형 독립인 열의 개수를 의미하므로, 열 벡터들이 span하는 공간의 최대 차원을 나타낸다.
 
-행렬의 rank가 행렬의 열 또는 행의 개수와 같으면 full rank라고 부른다.
-
 가우스 소거법을 적용 후 변환된 REF 형태의 행렬에서 0이 아닌 행 또는 열의 개수가 rank이다.
 
 <details>
@@ -190,8 +188,9 @@ $$
 ### Rank의 성질
 
 1. $\text{rank}(A)=\text{rank}(A^T)$
-2. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 full rank라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 rank-deficient라고 한다.
-3. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
+2. $\text{rank}(AB)<\min\left(\text{rank}(A),\text{rank}(B)\right)$
+3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">full rank</span>라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">rank-deficient</span>라고 한다.
+4. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
 
    변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
-4. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
+5. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.

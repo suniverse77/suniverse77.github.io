@@ -42,7 +42,9 @@ $$
 \lVert A\rVert_F=\sqrt{\sum_{i=1}^n\sum_{j=1}^m\lvert a_{i,j}\rvert^2}
 $$
 
-벡터의 Euclidean Norm을 구하는 것과 비슷하다.
+벡터의 Euclidean Norm처럼 행렬 전체의 크기를 측정할 때 가장 일반적으로 사용되는 norm 이다.
+
+머신러닝에서 경사하강법의 가중치 행렬의 변화량을 측정하거나, 정규화 항을 구현할 때 주로 사용된다.
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
