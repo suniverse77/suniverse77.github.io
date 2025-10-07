@@ -10,7 +10,7 @@ author: sunho
 
 ## 행렬의 노름 (Matrix Norm)
 
-벡터의 norm 개념을 행렬에 확장한 것이다.
+벡터의 norm 개념을 행렬에 확장한 것으로, 행렬의 크기를 측정하는 척도이다.
 
 ### Norm의 조건
 
@@ -97,7 +97,7 @@ $$
 각 행에 있는 원소들의 절댓값을 모두 더한 후, 그 합들 중 최댓값이 L2 Norm이다.
 
 $$
-\lVert A\rVert_\infin=\max_{i}\sum_{j=1}^n\lvert a_{i,j}\rvert
+\lVert A\rVert_\infty=\max_{i}\sum_{j=1}^n\lvert a_{i,j}\rvert
 $$
 
 <details>
@@ -111,7 +111,7 @@ $$
 ---
 
 $$
-\lVert A\rVert_1=\max(1+2,3+4)=7
+\lVert A\rVert_\infty=\max(1+2,3+4)=7
 $$
 
 ---
