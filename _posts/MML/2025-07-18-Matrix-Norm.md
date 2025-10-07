@@ -44,7 +44,7 @@ $$
 
 벡터의 Euclidean Norm처럼 행렬 전체의 크기를 측정할 때 가장 일반적으로 사용되는 norm 이다.
 
-머신러닝에서 경사하강법의 가중치 행렬의 변화량을 측정하거나, 정규화 항을 구현할 때 주로 사용된다.
+머신러닝에서 경사하강법의 가중치 행렬 변화량 $\Delta W$를 측정하거나, 정규화 항을 구현할 때 주로 사용된다.
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
@@ -66,7 +66,7 @@ $$
 </details>
 <br>
 
-### L1 Norm
+### 1-Norm
 
 각 열에 있는 원소들의 절댓값을 모두 더한 후, 그 합들 중 최댓값이 L1 Norm이다.
 
@@ -94,7 +94,7 @@ $$
 </details>
 <br>
 
-### L-infinity Norm
+### ∞-Norm (Infinity-Norm)
 
 각 행에 있는 원소들의 절댓값을 모두 더한 후, 그 합들 중 최댓값이 L2 Norm이다.
 
@@ -122,7 +122,7 @@ $$
 </details>
 <br>
 
-### Spectral Norm (L2 Norm)
+### Spectral Norm (2-Norm)
 
 L2 Norm과 동일한 값을 가지며, 아래와 같이 정의된다.
 
