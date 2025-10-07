@@ -54,7 +54,7 @@ Inner product는 다양한 형태로 정의된다.
 - $\langle\mathbf x,\mathbf y\rangle:=x_1y_1-(x_1y_2+x_2y_1)+2x_2y_2$
 - $\langle f,g\rangle:=\int_a^b f(x)g(x)\,dx$ → 함수의 내적
 
-즉, 우리가 흔히 사용하는 dot product (또는 scalar product라고도 부름)는 유클리드 공간 $\mathbb{R}^n$에서 사용되는 내적의 한 종류이다.
+즉, 우리가 흔히 사용하는 **dot product** (또는 **scalar product**라고도 부름)는 유클리드 공간 $\mathbb{R}^n$에서 사용되는 내적의 한 종류이다.
 
 일반적으로 $\mathbb{R}^n$에서 dot product를 내적이라고 혼용해서 내적이라고 부르지만, '내적 = dot product'라고 정의하는 것은 틀리다.
 
