@@ -12,15 +12,18 @@ author: sunho
 
 ### 벡터 위로의 사영 (Projection onto a vector)
 
-$$
-\text{proj}_U(\mathbf{x})=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}
+$$\vphantom{\Big(}
+\text{proj}_U(\mathbf{x})
+=\frac{\mathbf{b}\cdot\mathbf{x}}{\mathbf{b}\cdot\mathbf{b}}\mathbf{b}
+=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert^2_2}\mathbf{b}
 $$
 
 Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
 
-내적은 $\mathbf{b}^\top\mathbf{x}=\lVert\mathbf{b}\rVert\cdot\lVert\mathbf{x}\rVert\cos\theta$으로 정의되기 때문에 내적값에는 $\mathbf{b}$의 크기가 포함되어 있다.
+내적은 $\mathbf{b}^\top\mathbf{x}=\lVert\mathbf{b}\rVert\cdot\lVert\mathbf{x}\rVert\cos\theta$으로 정의되기 때문에 내적값에는 $\lVert\mathbf{b}\rVert_2$이 포함되어 있다. 
+또한 $\mathbf{x}$의 정사영의 크기는 $\lVert\mathbf{x}\rVert\cos\theta$이지만, 뒤에 곱해져 있는 $\mathbf{b}$는 단위 벡터가 아니기 때문에 여기에도 $\lVert\mathbf{b}\rVert_2$이 포함되어 있다. 
 
-$\mathbf{x}$의 그림자 길이는 $\lVert\mathbf{x}\rVert\cos\theta$이기 때문에, 정사영을 구할 때 $\mathbf{b}$의 크기를 나눠야 한다.
+따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
 
 ![fig1](mlm/7-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
@@ -42,7 +45,7 @@ $$
 
 **3. 수식을 정리한다.**
    
-$$
+$$\vphantom{\Big(}
 \lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\text{proj}_U(\mathbf{x})=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}
 $$
 

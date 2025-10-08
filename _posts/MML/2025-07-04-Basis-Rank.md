@@ -61,7 +61,7 @@ $$
 
 RREF 행렬에서 $\mathbf{0}$이 아닌 행벡터가 $A$의 행공간의 기저다.
 
-$$
+$$\vphantom{\Big(}
 \mathbf{b_1}=\begin{bmatrix}1&0&5\end{bmatrix}
 ~,~\mathbf{b_2}=\begin{bmatrix}0&1&-1\end{bmatrix}
 $$
@@ -82,7 +82,7 @@ $$
 
 ### 직교 기저 (Orthogonal Basis)
 
-Basis를 이루는 벡터들이 서로 직교(orthogonal)하는 경우, 직교 기저라고 부른다.
+기저를 이루는 벡터들이 서로 직교(orthogonal)하는 경우, 직교 기저라고 부른다.
 
 $$
 \mathbf{b}_i\cdot\mathbf{b}_j=0~,~(i\not=j)
@@ -92,12 +92,12 @@ $$
 
 1. 서로 직교한다는 것은 <span style="background-color:#fff5b1">선형 독립을 자동으로 보장</span>해준다.
 
-2. 어떤 벡터를 basis들의 선형 결합으로 나타낼 때, 계수를 쉽게 구할 수 있다.
+2. 어떤 벡터를 기저들의 선형 결합으로 나타낼 때, 계수를 쉽게 구할 수 있다.
 
 $$
 \mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
-~\to~
-c_i=\frac{\mathbf{v}\cdot\mathbf{b}_i}{\mathbf{b}_i\cdot\mathbf{b}_i}
+~~,~~
+c_i=\frac{\mathbf{v}\cdot\mathbf{b}_i}{\lVert\mathbf{b}_i\rVert}
 $$
 
 <details>
@@ -105,25 +105,25 @@ $$
 <div markdown="1">
 
 $$
-\mathbf{v}=\sum c_i\mathbf{u}_i
+\mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
 $$
 
-1. 양변에 $\mathbf{u}_k$를 내적함
+1. 양변에 $\mathbf{b}_k$를 내적함
 
 $$
-\mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
+\mathbf{v}\cdot\mathbf{b}_k=\left(\sum_{i=1}^N c_i\mathbf{b}_i\right)\cdot\mathbf{b}_k=\sum_{i=1}^N c_i(\mathbf{b}_i\cdot\mathbf{b}_k)
 $$
 
-2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
+2. $\mathbf{b}_i\cdot\mathbf{b}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
 
 $$
-\mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
+\mathbf{v}\cdot\mathbf{b}_k=c_k(\mathbf{b}_k\cdot\mathbf{b}_k)
 $$
 
 3. $c_1$만 남기고 이항
 
 $$
-c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
+c_k=\frac{\mathbf{v}\cdot\mathbf{b}_k}{\lVert\mathbf{b}_k\rVert}
 $$
 
 ---
@@ -194,6 +194,8 @@ $$
 어떤 벡터를 기저들의 선형 결합으로 표현할 때, 정규 직교 기저라면 더 단순한 계산으로 선형 결합 계수를 구할 수 있다.
 
 $$
+\mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
+~~,~~
 c_i=\mathbf{v}\cdot\mathbf{b}_i
 $$
 
@@ -299,7 +301,7 @@ $\mathbf{a}_1^{\shortparallel}$은 $\mathbf{a}_2$를 $\mathbf{a}_1$으로 정사
 
 $$
 \mathbf{w}_2=\mathbf{w}_2-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_2)
-=\mathbf{w}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\lVert\mathbf{w}_1\rVert}\mathbf{w}_1
+=\mathbf{w}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
 $$
 
 이후 정규화하여 두 번째 기저 $\mathbf{b}_2$를 구한다.
@@ -315,8 +317,8 @@ $$
 $$
 \mathbf{w}_3=\mathbf{w}_3-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_3)-\text{proj}_{\mathbf{w}_2}(\mathbf{a}_3)
 =\mathbf{w}_3
--\frac{\mathbf{w}_1^\cdot\mathbf{a}_3}{\lVert\mathbf{w}_1\rVert}\mathbf{w}_1
--\frac{\mathbf{w}_2^\cdot\mathbf{a}_3}{\lVert\mathbf{w}_2\rVert}\mathbf{w}_2
+-\frac{\mathbf{w}_1\cdot\mathbf{a}_3}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
+-\frac{\mathbf{w}_2\cdot\mathbf{a}_3}{\mathbf{w}_2\cdot\mathbf{w}_2}\mathbf{w}_2
 $$
 
 이후 정규화하여 세 번째 기저 $\mathbf{b}_3$를 구한다.
@@ -335,19 +337,55 @@ _[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/Gram
 <div markdown="1">
 
 $$
-B=
-\begin{bmatrix}
-
-\end{bmatrix}
+\mathbf{a}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}~,~
+\mathbf{a}_2=\begin{bmatrix}1\\3\\2\end{bmatrix}~,~
+\mathbf{a}_3=\begin{bmatrix}2\\0\\1\end{bmatrix}
 $$
 
 ---
 
-1. $\mathbf{b}_2$를 $\mathbf{b}_1$ 방향과 $\mathbf{b}_1$에 수직한 벡터의 합으로 분리
+**1. 첫 번째 정규 직교 기저 구하기**
 
-3. $\mathbf{b}_1$에 수직한 벡터를 구함
+$$
+\mathbf{w}_1=\mathbf{a}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}
+$$
 
-5. 크기를 1로 조절해 orthonormal basis로 변환
+$$
+\mathbf{b}_1=\frac{\mathbf{w}_1}{\lVert\mathbf{w}_1\rVert}=
+\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}
+$$
+
+**2. 두 번째 정규 직교 기저 구하기**
+
+$$
+\mathbf{w}_2=\mathbf{a}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
+=\begin{bmatrix}-1\\1\\2\end{bmatrix}
+$$
+
+$$
+\mathbf{b}_2=\frac{\mathbf{w}_2}{\lVert\mathbf{w}_2\rVert}=
+\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}
+$$
+
+**3. 세 번째 정규 직교 기저 구하기**
+
+$$
+\mathbf{w}_3=\mathbf{a}_3-\frac{\mathbf{w}_1\cdot\mathbf{a}_3}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1-\frac{\mathbf{w}_2\cdot\mathbf{a}_3}{\mathbf{w}_2\cdot\mathbf{w}_2}\mathbf{w}_2
+=\begin{bmatrix}1\\-1\\1\end{bmatrix}
+$$
+
+$$
+\mathbf{b}_3=\frac{\mathbf{w}_2}{\lVert\mathbf{w}_2\rVert}=
+\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}
+$$
+
+최종적으로 얻은 정규 직교 기저는 아래와 같다.
+
+$$
+\mathbf{a}_1=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}~,~
+\mathbf{a}_2=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}~,~
+\mathbf{a}_3=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}
+$$
 
 ---
 
