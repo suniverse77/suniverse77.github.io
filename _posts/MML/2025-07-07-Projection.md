@@ -59,7 +59,7 @@ $$
 
 Basis 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
 
-![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
