@@ -12,10 +12,10 @@ author: sunho
 
 ### 벡터 위로의 사영 (Projection onto a vector)
 
-$$\vphantom{\Big(}
+$$
 \text{proj}_U(\mathbf{x})
 =\frac{\mathbf{b}\cdot\mathbf{x}}{\mathbf{b}\cdot\mathbf{b}}\mathbf{b}
-=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert^2_2}\mathbf{b}
+=\frac{\vphantom{\Big(}\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert^2_2}\mathbf{b}
 $$
 
 Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
@@ -45,8 +45,8 @@ $$
 
 **3. 수식을 정리한다.**
    
-$$\vphantom{\Big(}
-\lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\text{proj}_U(\mathbf{x})=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}
+$$
+\lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\text{proj}_U(\mathbf{x})=\frac{\vphantom{\Big(}\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}
 $$
 
 ---
