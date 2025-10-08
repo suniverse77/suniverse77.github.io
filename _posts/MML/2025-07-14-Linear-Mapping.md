@@ -64,15 +64,15 @@ _[[출처]](https://math.stackexchange.com/questions/1510769/difference-between-
 
 #### 동형 사상 (Isomorphism)
 
-두 공간이 '본질적으로 같음'을 증명하는 사상입니다.
+두 공간이 본질적으로 같다는 것을 증명하는 사상이다.
 
 #### 자기 사상 (Endomorphism)
 
-정의역과 공역이 자기 자신으로 같은 경우입니다.
+정의역과 공역이 자기 자신으로 같은 경우이다.
 
 #### 자기 동형 사상 (Automorphism)
 
-한 공간에서 자기 자신으로 가는 동형 사상입니다.
+한 공간에서 자기 자신으로 가는 동형 사상이다.
 
 ## 상과 핵 (Image & Kernel)
 

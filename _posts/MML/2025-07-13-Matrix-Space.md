@@ -85,12 +85,29 @@ $$
 <div markdown="1">
 
 $$
-\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}
-\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
-=\begin{bmatrix}42\\8\end{bmatrix}
+A=\begin{bmatrix}1&-2&3\\2&-4&6\\3&-6&9\end{bmatrix}
 $$
 
 ---
+
+위 행렬에 대한 동차 방정식을 REF로 변환하면 아래와 같다. 
+
+$$
+\begin{bmatrix}\begin{array}{ccc|c}1&-2&3&0\\0&0&0&0\\0&0&0&0\end{array}\end{bmatrix}
+$$
+
+피벗 변수는 $x_1$이고, 자유 변수는 $x_2$와 $x_3$이다.
+
+자유변수들을 $x_2=s,x_3=t$와 같은 파라미터로 설정하면, 동차해를 아래와 같이 파라미터에 대한 식으로 표현할 수 있다.
+
+$$
+\mathbf{x}_h=\begin{bmatrix}2s-3t\\s\\t\end{bmatrix}
+=s\begin{bmatrix}2\\1\\0\end{bmatrix}+t\begin{bmatrix}-3\\0\\1\end{bmatrix}
+$$
+
+이때 $s$에 의해 생성되는 공간은 $x=2y$ 직선이고, $t$에 의해 생성되는 공간은 $x=-3z$ 직선이다.
+
+즉, 두 벡터의 선형 결합으로 $\mathbb{R}^3$ 공간에서의 2차원 평면을 span할 수 있으며, 결국 자유 변수의 개수가 영공간의 차원과 동일하다는 것을 알 수 있다.
 
 ---
 

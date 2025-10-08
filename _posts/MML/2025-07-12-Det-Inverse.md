@@ -10,7 +10,7 @@ author: sunho
 
 ## 행렬식 (Determinant)
 
-정방 행렬에서만 정의되며, $2\times2$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+정사각 행렬에서만 정의되며, $2\times2$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
 
 $$
 A=\begin{bmatrix}a&b\\c&d\end{bmatrix}~\to~
@@ -118,12 +118,14 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 
 1. $\text{det}(AB)=\text{det}(A)\text{det}(B)$
 2. $\text{det}(A)=\text{det}(A^\top)$
-3. $A$ is invertible $\implies\text{det}(A^{-1})=\frac{1}{\text{det}(A)}$
+3. $A$가 가역 행렬이라면, $\text{det}(A^{-1})=\frac{1}{\text{det}(A)}$이 성립한다.
 4. $\text{det}(A)=\text{det}(S^{-1}AS)$
-5. $T$ is triangular matrix $\implies\text{det}(T)=\prod_i t_{ii}$
-6. 하나의 열 (행)에 어떤 숫자를 곱해서 다른 열 (행)에 더해도 행렬식은 동일
+5. $T$가 삼각 행렬이라면, $T$의 행렬식은 대각 성분의 곱과 같다.
+
+    $$\text{det}(T)=\prod_i t_{ii}$$
+6. 하나의 열 (행)에 어떤 숫자를 곱해서 다른 열 (행)에 더해도 행렬식은 동일하다.
 8. 하나의 열 (행)에 상수 $\lambda$를 곱하면 $\text{det}(\lambda A)=\lambda^n\text{det}(A)$
-9. 두 열 (행)를 바꾸는 것은 행렬식의 부호를 바꿈
+9. 두 열 (행)를 바꾸는 것은 행렬식의 부호를 바꾼다.
 
 (5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
@@ -170,7 +172,7 @@ $$\text{det}(A)=1\times(-2)=-2$$
 ![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
-역행렬은 정방 행렬에 대해서만 정의되며, 정방 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
+역행렬은 정사각 행렬에 대해서만 정의되며, 정사각 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
 $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
 
 - $\text{det}(A)\neq0$
@@ -217,7 +219,7 @@ $$
 ## 의사 역행렬 (Pseudo-inverse Matrix)
 
 의사 역행렬 $A^{+}$는 역행렬의 개념을 일반화한 행렬을 의미한다.
-즉, $A$가 정방 행렬, 가역 행렬이 아닐 때에도 정의된다.
+즉, $A$가 정사각 행렬, 가역 행렬이 아닐 때에도 정의된다.
 
 $A\in\mathbb{R}^{m\times n}$가 $m>n$이고 full-rank일 때, 의사 역행렬은 아래와 같이 정의된다.
 
