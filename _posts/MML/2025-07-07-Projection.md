@@ -13,10 +13,10 @@ author: sunho
 ### 벡터 위로의 사영 (Projection onto a vector)
 
 $$
-\text{proj}_U(\mathbf{x})=\frac{\mathbf{b}\mathbf{b}^\top}{\lVert\mathbf{b}\rVert}\mathbf{x}
+\text{proj}_U(\mathbf{x})=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}
 $$
 
-Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\pi_U(\mathbf{x})$는 위와 같이 정의된다.
+Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
 
 <details>
 <summary><font color='blue'>공식 유도</font></summary>
