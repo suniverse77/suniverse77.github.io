@@ -394,7 +394,7 @@ $$
 
 ## 차원 (Dimension)
 
-벡터 공간 $V$의 basis의 개수를 $V$의 차원이라고 부른다.
+벡터 공간 $V$의 기저의 개수를 $V$의 차원이라고 부른다.
 
 <span style="background-color:#fff5b1">벡터의 차원과 벡터 공간의 차원은 다르다.</span>
 
@@ -444,7 +444,7 @@ $$
 
 0이 아닌 행이 2개이므로, $\text{rank}(A)=2$ 이다.
 
-즉, 3개의 column vector들이 span하는 공간 $V$의 차원은 2차원 평면이다.
+즉, 3개의 열벡터들이 span하는 공간 $V$의 차원은 2차원 평면이다.
 
 ---
 
@@ -460,3 +460,33 @@ $$
 
    변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
 5. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
+
+<details>
+<summary><font color='#FF0000'>Example 7</font></summary>
+<div markdown="1">
+
+$$
+\begin{cases}x_1+x_2=2\\x_1+x_2=4\end{cases}
+$$
+
+---
+
+위의 연립 방정식에 대한 첨가 행렬은 아래와 같이 구성할 수 있다.
+
+$$
+[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{cc|c}1&1&2\\1&1&4\end{array}\end{bmatrix}
+$$
+
+$\text{rank}(A)=1$이지만 $\text{rank}(A\mid \mathbf{b})=2$인 경우로, $\text{rank}(A)<\text{rank}(A\mid \mathbf{b})$이다. 
+
+실제 가우스 소거법을 적용해보면 해가 존재하지 않는 것을 확인할 수 있다.
+
+$$
+[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{cc|c}1&1&2\\0&0&2\end{array}\end{bmatrix}
+$$
+
+---
+
+</div>
+</details>
+<br>
