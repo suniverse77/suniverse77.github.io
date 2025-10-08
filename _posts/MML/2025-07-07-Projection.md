@@ -88,6 +88,7 @@ $$
 **3. 위의 수식을 행렬로 표현한다.**
 
 $$
+\vphantom{\Big(}
 \langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
 \to
 \mathbf{x}^\top B=(B\boldsymbol\lambda)^\top B

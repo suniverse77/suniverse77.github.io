@@ -53,7 +53,7 @@ $$
 
 행렬의 각 열 벡터는 원래 기저 벡터 $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$의 도달 좌표로 볼 수 있다.
 
-![fig2](mlm/10-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](mlm/10-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 위 그림에서 $\hat{\mathbf{i}}$와 $\hat{\mathbf{j}}$가 각각 $(1,-2)$ , $(3,0)$에 도달했으므로, 변환 행렬 $A$는 아래와 같이 표현할 수 있다.
@@ -114,13 +114,13 @@ $$
 
 즉, 벡터의 각 좌표를 계수로 삼아 행렬의 열벡터를 선형 결합한 것이 곱셈의 본질이다.
 
-$$
-\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e&f\\g&h\end{bmatrix}
-=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e\\g\end{bmatrix}+\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}f\\h\end{bmatrix}
-=\begin{bmatrix}ae+bg&af+bh\\ce+dg&cf+dh\end{bmatrix}
-$$
-
 마찬가지로 여러 개의 벡터를 동시에 변환하고 싶다면, 그 벡터들을 모아 행렬로 만들면 된다. 이것이 행렬곱을 정의하는 방식이다.
+
+$$
+\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}\color{red}e&\color{blue}f\\\color{red}g&\color{blue}h\end{bmatrix}
+=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e\\g\end{bmatrix}+\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}f\\h\end{bmatrix}
+=\begin{bmatrix}\color{red}{ae+bg}&\color{blue}{af+bh}\\\color{red}{ce+dg}&\color{blue}{cf+dh}\end{bmatrix}
+$$
 
 특별한 변환을 수행하는 행렬이 있다.
 
