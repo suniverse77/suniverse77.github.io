@@ -40,6 +40,11 @@ $$
 
 2차원 공간에서 단위 벡터 $\mathbf{x}$의 L2 norm은 $x_1^2+x_2^2=1$이며, L2 norm이 1인 벡터들의 궤적은 원의 형태로 나타난다.
 
+아래 그림은 $p$ 값에 따른 궤적의 변화를 나타낸다.
+
+![fig1](mlm/5-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처]](https://sooho-kim.tistory.com/85)_
+
 ### Norm의 조건
 
 1. Absolutely homogeneous
@@ -62,7 +67,7 @@ $$
 d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert
 $$
 
-벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리는 벡터 차이의 norm으로 정의된다.
+벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리는 <span style="background-color:#fff5b1">벡터 차이의 norm</span>으로 정의된다.
 
 $$
 d_p(\mathbf{x}, \mathbf{y}) := \lVert \mathbf{x} - \mathbf{y} \rVert_p
