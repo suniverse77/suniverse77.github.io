@@ -15,7 +15,7 @@ author: sunho
 $$
 A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
 \to
-\text{col}(A)=\text{span}\left(\begin{bmatrix}1\\3\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix}\right)
+\text{col}(A)=\text{span}(\begin{bmatrix}1\\3\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})
 $$
 
 행렬 $A$의 각 열은 변환 후 도달할 기저 벡터의 위치를 알려주고, 이 기저 벡터의 span이 가능한 모든 출력이기 때문이다.
@@ -63,7 +63,9 @@ $$
 
 $A\mathbf{x}=\mathbf{0}$은 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때문에 공간 상에서 원점을 지나는 직선 또는 평면으로 표현된다.
 
-![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:70%;"}
+아래 그림의 왼쪽의 노란색 직선이 변환 후 오른쪽의 노란색 점 (원점)이 되었으므로, 노란색 직선은 영공간이다.
+
+![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 영공간의 차원을 **nullity**라고 한다.
@@ -82,7 +84,15 @@ $$
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
+$$
+\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}
+\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
+=\begin{bmatrix}42\\8\end{bmatrix}
+$$
 
+---
+
+---
 
 </div>
 </details>
@@ -99,5 +109,5 @@ A\mathbf{x}=\mathbf{0}~\to~
 \begin{bmatrix}0\\0\end{bmatrix}
 $$
 
-![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](mlm/13-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_
