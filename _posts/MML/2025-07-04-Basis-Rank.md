@@ -30,10 +30,50 @@ Basis는 아래와 같이 표현 가능하다.
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
+$$
+A=\begin{bmatrix}1&2&3\\2&5&5\end{bmatrix}
+$$
 
 ---
 
+가우스 소거법을 이용해 RREF로 변환한다.
 
+$$
+A=\begin{bmatrix}1&0&5\\0&1&-1\end{bmatrix}
+$$
+
+위에서 첫 번째와 두 번째 열이 pivot 열이다.
+
+**열공간의 basis**
+
+Pivot 열의 위치에 해당하는 원본 행렬에서의 열벡터가 $A$의 열공간의 기저다.
+
+$$
+\mathbf{b_1}=\begin{bmatrix}1\\2\end{bmatrix}
+~,~\mathbf{b_2}=\begin{bmatrix}2\\5\end{bmatrix}
+$$
+
+가우스 소거법을 해도 열벡터 사이의 관계 (누가 종속이고 독립인지)는 유지된다. 하지만, 가우스 소거법을 통해 변형된 열벡터는 원본 행렬의 열벡터와 같은 공간을 span하지 않는다.
+
+따라서, 기저는 원본 행렬에서 선택해야 한다.
+
+**행공간의 basis**
+
+RREF 행렬에서 $\mathbf{0}$이 아닌 행벡터가 $A$의 행공간의 기저다.
+
+$$
+\mathbf{b_1}=\begin{bmatrix}1&0&5\end{bmatrix}
+~,~\mathbf{b_2}=\begin{bmatrix}0&1&-1\end{bmatrix}
+$$
+
+가우스 소거법은 행들의 선형 결합을 통해 이뤄진다. 따라서 원본 행렬에서의 행벡터가 가우스 소거법을 통해 변형될지라도, RREF에서의 행벡터와 원본 행렬에서의 행벡터는 결국 같은 공간을 span한다.
+
+$$
+\text{span}(\begin{bmatrix}1\\2\\3\end{bmatrix}^\top,\begin{bmatrix}2\\5\\5\end{bmatrix}^\top)
+=\text{span}(\begin{bmatrix}1\\0\\5\end{bmatrix}^\top,\begin{bmatrix}0\\1\\-1\end{bmatrix}^\top)
+$$
+
+따라서, 기저를 원본 행렬 또는 RREF 행렬에서 선택해도 무관하다.
 
 ---
 
