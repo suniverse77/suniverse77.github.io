@@ -150,6 +150,9 @@ $$
 
 이 변환은 반시계 방향으로 90º 회전시키는 역할을 수행한다.
 
+![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
+
 ### 3차원 선형 변환
 
 3차원 공간에서의 선형 변환은 변환이 $3\times3$ 행렬로 표현된다는 것 외에는 2차원 선형 변환과 큰 차이가 없다.

@@ -66,20 +66,20 @@ $$
 A=\begin{bmatrix}2&4\\2&4\end{bmatrix}
 ~,~
 \mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix}
-,\mathbf{x}_1=\begin{bmatrix}2\\4\end{bmatrix}
+,\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}
 $$
 
 ---
 
 행렬 $A$의 행렬식은 $0$이다.
 
-$\mathbf{x}_1$와 $\mathbf{x}_1$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
+$\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
 
 $$
 \text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2
 $$
 
-하지만 변환 후의 $\mathbf{x}_1$와 $\mathbf{x}_1$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
+하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
 
 $$
 AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}

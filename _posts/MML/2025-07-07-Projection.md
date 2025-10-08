@@ -57,6 +57,7 @@ $$
 ### 부분공간 위로의 사영 (Projection onto general subspace)
 
 $$
+\vphantom{\Big(}
 \text{proj}_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
 $$
 
@@ -88,7 +89,6 @@ $$
 **3. 위의 수식을 행렬로 표현한다.**
 
 $$
-\vphantom{\Big(}
 \langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
 \to
 \mathbf{x}^\top B=(B\boldsymbol\lambda)^\top B
@@ -97,6 +97,7 @@ $$
 **4. 수식을 정리한다.**
 
 $$
+\vphantom{\Big(}
 \boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\text{proj}_U(\mathbf{x})(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
 $$
 
