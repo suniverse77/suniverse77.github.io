@@ -299,7 +299,7 @@ $\mathbf{a}_1^{\shortparallel}$은 $\mathbf{a}_2$를 $\mathbf{a}_1$으로 정사
 
 $$
 \mathbf{w}_2=\mathbf{w}_2-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_2)
-=\mathbf{w}_2-\frac{\mathbf{w}_1^\top\mathbf{a}_2}{\mathbf{w}_1^\top\mathbf{w}_1}\mathbf{w}_1
+=\mathbf{w}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\lVert\mathbf{w}_1\rVert}\mathbf{w}_1
 $$
 
 이후 정규화하여 두 번째 기저 $\mathbf{b}_2$를 구한다.
@@ -315,8 +315,8 @@ $$
 $$
 \mathbf{w}_3=\mathbf{w}_3-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_3)-\text{proj}_{\mathbf{w}_2}(\mathbf{a}_3)
 =\mathbf{w}_3
--\frac{\mathbf{w}_1^\top\mathbf{a}_3}{\mathbf{w}_1^\top\mathbf{w}_1}\mathbf{w}_1
--\frac{\mathbf{w}_2^\top\mathbf{a}_3}{\mathbf{w}_2^\top\mathbf{w}_2}\mathbf{w}_2
+-\frac{\mathbf{w}_1^\cdot\mathbf{a}_3}{\lVert\mathbf{w}_1\rVert}\mathbf{w}_1
+-\frac{\mathbf{w}_2^\cdot\mathbf{a}_3}{\lVert\mathbf{w}_2\rVert}\mathbf{w}_2
 $$
 
 이후 정규화하여 세 번째 기저 $\mathbf{b}_3$를 구한다.
