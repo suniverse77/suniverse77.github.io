@@ -10,7 +10,7 @@ author: sunho
 
 ## 선형 결합 (Linear Combination)
 
-선형 결합이란 
+선형 결합이란 각 벡터에 상수를 곱하고 그 결과를 더한 형태의 표현식을 의미한다.
 
 벡터를 상수배하고 더하는 두 가지 기본 연산으로 이루어져 있는 1차식 형태이기 때문에 **선형**이고, 여러 개의 벡터를 함께 사용하여 새로운 벡터를 만들어내기 때문에 **결합**이라고 표현한다.
 
@@ -18,7 +18,7 @@ $$
 \mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
 $$
 
-예를 들어, 2차원 평면에서 
+예를 들어, 2차원 평면에서 벡터는 두 기저 벡터의 선형 결합으로 표현할 수 있다.
 
 $$
 \begin{bmatrix}2\\4\end{bmatrix}=
@@ -30,24 +30,19 @@ $$
 
 벡터 집합 $\mathcal{V}$에 있는 벡터들의 가능한 모든 선형 결합으로 만들어지는 집합을 $\text{span}(\mathcal{V})$라고 한다.
 
-2차원 공간에서 $\mathbf{v}$와 $\mathbf{w}$의 span은 두 벡터의 모든 선형 결합의 집합 $a\mathbf{v}+b\mathbf{w}$이며, 두 벡터가 일렬로 있지 않다면 span의 결과는 2차원 공간의 벡터 전체가 된다.
+2차원 공간에서 $\mathbf{v}$와 $\mathbf{w}$의 span은 두 벡터의 모든 선형 결합의 집합 $a\mathbf{v}+b\mathbf{w}$이다.
 
-<details>
-<summary><font color='red'>Example</font></summary>
-<div markdown="1">
-<br>
+아래의 예에서는 두 벡터가 일렬로 있기 때문에 span한 결과는 1차원 직선이 된다.
+
+$$
+\text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}2\\0\end{bmatrix})=\mathbb{R}^1
+$$
+
+아래의 예에서는 두 벡터가 일렬로 있지 않기 때문에 span한 결과는 2차원 평면이 된다.
 
 $$
 \text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix})=\mathbb{R}^2
 $$
-
-$$
-\text{span}(\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}1\\3\end{bmatrix})=\begin{bmatrix}2a+b\\a+3b\end{bmatrix}=\mathbb{R}^2
-$$
-
-</div>
-</details>
-<br>
 
 ## 선형 독립 (Linear Independence)
 
@@ -63,7 +58,8 @@ $$
 
 즉, 선형 독립이란 집합 내의 어떤 벡터도 다른 벡터들의 조합으로 만들어지지 않는다는 것을 의미한다.
 
-선형 독립이 중요한 이유는 해당 벡터들이 span할 수 있는 공간의 차원과 연관되어 있기 때문이다.
+<span style="background-color:#fff5b1">선형 독립은 해당 벡터들이 span할 수 있는 공간의 차원과 연관
+</span>되어 있기 때문에 중요하다.
 
 예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다. 따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다. 이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
 
@@ -102,7 +98,7 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
    즉, 변수 $\lambda_i$에 free variable이 존재하면 안된다.
 
 <details>
-<summary><font color='red'>Example</font></summary>
+<summary><font color='red'>Example 1</font></summary>
 <div markdown="1">
 
 아래의 벡터들이 선형 독립인지 판단

@@ -46,7 +46,7 @@ author: sunho
 
 벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 부분공간이라고 한다.
 
-1. $V$에 존재하는 영벡터를 포함해야 한다.
+1. $U$는 영벡터를 포함해야 한다.
 
 	$$
 	\mathbf{0}\in U
@@ -58,43 +58,59 @@ author: sunho
 	$$
 3. $U$는 스칼라배에 대해 닫혀있어야 한다.
 
-	$$
+	$$\vphantom{\Big(}
 	\mathbf{u}\in U~\to~c\mathbf{u}\in U
 	$$
 
-좌표 공간에서의 subspace는 원점을 포함해야 한다. 즉, 2차원 공간에서 부분공간은 원점을 통과하는 직선이며, 3차원 공간에서는 원점을 통과하는 직선 또는 평면이다.
+1번 조건에 의해 좌표 공간에서의 부분공간은 원점을 포함해야 하기 때문에, 2차원 공간에서는 원점을 통과하는 직선, 3차원 공간에서는 원점을 통과하는 직선 또는 평면으로 나타난다.
 
-![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:50%;"}
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
 
-- 첫 번째 그림은 스칼라배에 대해 닫혀있지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
-- 두 번째 그림은 원점을 포함하지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
-- 세 번째 그림은 $\mathbb{R}^2$의 subspace가 아니다.
-- 네 번째 그림은 subspace의 조건을 다 만족하므로, $\mathbb{R}^2$의 subspace이다.
+![fig1](mlm/2-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
+---
 
+**1. 첫 번째 그림**
 
-- 해당 직선에 있는 벡터들끼리 덧셈을 하거나 벡터에 스칼라배를 할 경우, 직선 밖으로 나가기 때문에 subspace가 아니다.
+(2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
 
+예를 들어, 그림에서 축과 만나는 지점의 좌표를 $\pm1$이라고 가정하자.
 
+집합 내에 존재하는 벡터 $\mathbf{u}=(1,0)$와 $\mathbf{v}=(1,1)$에 대해, $\mathbf{u}+\mathbf{v}=(2,1)$ , $2\mathbf{u}=(2,0)$이 되어 해당 집합을 벗어나게 된다.
 
-- 해당 직선에 있는 벡터들끼리 덧셈을 하거나 벡터에 스칼라배를 해도 직선 내에 존재하기 때문에 subspace이다.
+**2. 두 번째 그림**
 
-## Span
+(1)번, (2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
 
-벡터 집합 $S$에 있는 벡터들의 가능한 모든 선형 결합으로 만들어지는 집합을 $\text{span}(S)$라고 한다.
+예를 들어, 그림의 직선의 방정식이 $y=x+1$이라고 가정하자.
 
-$$
-	\text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix})=\mathbb{R}^2
-	$$ <font color='white'>.</font>
+집합 내에 존재하는 벡터 $\mathbf{u}=(0,1)$와 $\mathbf{v}=(-1,0)$에 대해, $\mathbf{u}+\mathbf{v}=(-1,1)$ , $2\mathbf{u}=(0,2)$가 되어 해당 집합을 벗어나게 된다.
 
-$$
-	\text{span}(\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}1\\3\end{bmatrix})=\begin{bmatrix}2a+b\\a+3b\end{bmatrix}
-	$$ <font color='white'>.</font>
+**3. 세 번째 그림**
 
-## Affine Space
+(2)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
 
+예를 들어, 그림의 두 직선의 방정식이 각각 $y=2x$ , $y=\frac{1}{2}x$라고 가정하자.
 
-벡터 공간을 평행 이동한 공간을 affine subspace라고 부른다.
+집합 내에 존재하는 벡터 $\mathbf{u}=(4,2)$와 $\mathbf{v}=(-2,-4)$에 대해, $\mathbf{u}+\mathbf{v}=(2,-2)$가 되어 해당 집합을 벗어나게 된다.
 
+**4. 네 번째 그림**
 
-원점에서 offset된 space로, $\mathbf0$을 포함하지 않아 vector space가 아니다.
+모든 조건을 다 만족하므로, $\mathbb{R}^2$의 부분공간이다.
+
+---
+
+</div>
+</details>
+
+## 아핀 공간 (Affine Space)
+
+벡터 공간을 평행 이동한 공간을 아핀 공간이라고 부른다.
+
+원점에서 offset된 공간으로, $\mathbf0$을 포함하지 않아 벡터 공간은 아니다.
+
+![fig2](mlm/2-2.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처]](https://en.wikipedia.org/wiki/Affine_space)_
