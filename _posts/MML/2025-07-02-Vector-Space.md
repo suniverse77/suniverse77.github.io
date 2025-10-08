@@ -42,19 +42,29 @@ author: sunho
 
 10. 항등원 (Identity) 존재: 스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $1 \cdot \mathbf{u} = \mathbf{u}$가 성립한다.
 
-## Vector Subspace
+## 벡터 부분공간 (Vector Subspace)
 
-벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 subspace라고 한다.
+벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 부분공간이라고 한다.
 
-1. $V$에 존재하는 $\mathbf{0}$ (zero vector)를 포함해야 한다.
-2. $U$는 덧셈과 스칼라배에 대해 닫혀있어야 한다.
+1. $V$에 존재하는 영벡터를 포함해야 한다.
 
-좌표 공간에서의 subspace는 원점을 포함해야 한다.
+	$$
+	\mathbf{0}\in U
+	$$
+2. $U$는 덧셈에 대해 닫혀있어야 한다.
 
-- $\mathbb{R}^2$ 공간에서 vector subspace는 원점을 포함하는 직선
-- $\mathbb{R}^3$ 공간에서 vector subspace는 원점을 포함하는 직선 또는 평면
+	$$
+	\mathbf{u},\mathbf{v}\in U~\to~\mathbf{u+v}\in U
+	$$
+3. $U$는 스칼라배에 대해 닫혀있어야 한다.
 
+	$$
+	\mathbf{u}\in U~\to~c\mathbf{u}\in U
+	$$
 
+좌표 공간에서의 subspace는 원점을 포함해야 한다. 즉, 2차원 공간에서 부분공간은 원점을 통과하는 직선이며, 3차원 공간에서는 원점을 통과하는 직선 또는 평면이다.
+
+![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:50%;"}
 
 - 첫 번째 그림은 스칼라배에 대해 닫혀있지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
 - 두 번째 그림은 원점을 포함하지 않으므로, $\mathbb{R}^2$의 subspace가 아니다.
