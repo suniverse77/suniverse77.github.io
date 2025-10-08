@@ -24,12 +24,28 @@ Basis는 아래와 같이 표현 가능하다.
 
    (벡터를 하나라도 추가하면 선형 독립성이 깨진다.)
 
+기저는 가우스 소거법을 이용해 구할 수 있다.
+
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
+
+
+---
+
+
+
+---
+
+</div>
+</details>
+
 ### 직교 기저 (Orthogonal Basis)
 
 Basis를 이루는 벡터들이 서로 직교(orthogonal)하는 경우, 직교 기저라고 부른다.
 
 $$
-\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)
+\mathbf{b}_i\cdot\mathbf{b}_j=0~,~(i\not=j)
 $$
 
 직교 기저가 중요한 이유는 2가지가 있다.
@@ -39,71 +55,193 @@ $$
 2. 어떤 벡터를 basis들의 선형 결합으로 나타낼 때, 계수를 쉽게 구할 수 있다.
 
 $$
-\mathbf{v}=\sum c_i\mathbf{u}_i
+\mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
 ~\to~
-c_i=\frac{\mathbf{v}\cdot\mathbf{u}_i}{\mathbf{u}_i\cdot\mathbf{u}_i}
+c_i=\frac{\mathbf{v}\cdot\mathbf{b}_i}{\mathbf{b}_i\cdot\mathbf{b}_i}
 $$
 
-   <details>
-   <summary><font color='#0000FF'>공식 유도</font></summary>
-   <div markdown="1">
+<details>
+<summary><font color='#0000FF'>공식 유도</font></summary>
+<div markdown="1">
 
-   $$
-   \mathbf{v}=\sum c_i\mathbf{u}_i
-   $$
+$$
+\mathbf{v}=\sum c_i\mathbf{u}_i
+$$
 
-   1. 양변에 $\mathbf{u}_k$를 내적함
+1. 양변에 $\mathbf{u}_k$를 내적함
 
-   $$
-   \mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
-   $$
+$$
+\mathbf{v}\cdot\mathbf{u}_k=\left(\sum c_i\mathbf{u}_i\right)\cdot\mathbf{u}_k=\sum c_i(\mathbf{u}_i\cdot\mathbf{u}_k)
+$$
 
-   2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
+2. $\mathbf{u}_i\cdot\mathbf{u}_j=0~,~(i\not=j)$이기 때문에 우변에는 $i=k$인 항만 남음
 
-   $$
-   \mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
-   $$
+$$
+\mathbf{v}\cdot\mathbf{u}_k=c_k(\mathbf{u}_k\cdot\mathbf{u}_k)
+$$
 
-   3. $c_1$만 남기고 이항
+3. $c_1$만 남기고 이항
 
-   $$
-   c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
-   $$
+$$
+c_k=\frac{\mathbf{v}\cdot\mathbf{u}_k}{\mathbf{u}_k\cdot\mathbf{u}_k}
+$$
 
-   </div>
-   </details>
-   <br>
+---
+
+</div>
+</details>
+
+<details>
+<summary><font color='#FF0000'>Example 2</font></summary>
+<div markdown="1">
+
+$$
+B=\begin{bmatrix}1&-1\\1&1\end{bmatrix}
+~~,~~
+\mathbf{v}=\begin{bmatrix}3\\5\end{bmatrix}
+$$
+
+---
+
+$B$의 basis들은 서로 직교한다. 벡터 $\mathbf{v}$를 이 basis들의 선형 결합으로 표현할 수 있다.
+
+$$
+\mathbf{v}=\begin{bmatrix}3\\5\end{bmatrix}
+=c_1\begin{bmatrix}1\\1\end{bmatrix}+c_2\begin{bmatrix}-1\\1\end{bmatrix}
+$$
+
+**1. $c_1$ 구하기**
+
+$$
+c_1=\frac{\mathbf{v}^\top\mathbf{b}_1}{\mathbf{b}_1^\top\mathbf{b}_1}
+=\frac{8}{2}=4
+$$
+
+**2. $c_2$ 구하기**
+
+$$
+c_2=\frac{\mathbf{v}^\top\mathbf{b}_2}{\mathbf{b}_2^\top\mathbf{b}_2}
+=\frac{2}{2}=1
+$$
+
+따라서 아래와 같이, basis들의 선형 결합으로 표현할 수 있다.
+
+$$
+\mathbf{v}=4\mathbf{b}_1+\mathbf{b}_2
+$$
+
+---
+
+</div>
+</details>
 
 ### 정규 직교 기저 (Orthonormal Basis)
 
-Basis를 이루는 벡터들이 서로 직교하고 각각의 크기가 1일 경우, 정규 직교 기저라고 부른다.
+Basis를 이루는 벡터들이 <span style="background-color:#fff5b1">서로 직교하고 각각의 크기가 1</span>일 경우, 정규 직교 기저라고 부른다.
 
 $$
-\mathbf{u}_i\cdot\mathbf{u}_j=
+\mathbf{b}_i\cdot\mathbf{b}_j=
 \begin{cases}
 1&(i=j)\\
 0&(i\not=j)
 \end{cases}
 $$
 
-정규 직교 기저는 분모가 사라져 더 단순한 계산으로 계수를 구할 수 있다.
+#### 정규 직교 기저가 중요한 이유
+
+정규 직교 기저는 여러 계산에서 유용하게 사용될 수 있다.
+
+어떤 벡터를 기저들의 선형 결합으로 표현할 때, 정규 직교 기저라면 더 단순한 계산으로 선형 결합 계수를 구할 수 있다.
 
 $$
-c_i=\mathbf{v}\cdot\mathbf{u}_i
+c_i=\mathbf{v}\cdot\mathbf{b}_i
 $$
-
-### 기저를 구하는 방법
-
-#### 1. 가우스 소거법
-
-
-
-#### 2. Gram-Schmidt method
-
-Basis 집합 $B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_n\rbrace$를 orthonormal basis로 변환하는 방법에는 Gram-Schmidt method가 있다.
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'>Example 3</font></summary>
+<div markdown="1">
+
+$$
+B=\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\end{bmatrix}
+~~,~~
+\mathbf{v}=\begin{bmatrix}3\\5\end{bmatrix}
+$$
+
+---
+
+$$
+\mathbf{v}=\begin{bmatrix}3\\5\end{bmatrix}
+=c_1\begin{bmatrix}1\\1\end{bmatrix}+c_2\begin{bmatrix}-1\\1\end{bmatrix}
+$$
+
+**1. $c_1$ 구하기**
+
+$$
+c_1=\mathbf{v}^\top\mathbf{b}_1=4
+$$
+
+**2. $c_2$ 구하기**
+
+$$
+c_2=\mathbf{v}^\top\mathbf{b}_2=1
+$$
+
+따라서 아래와 같이, basis들의 선형 결합으로 표현할 수 있다.
+
+$$
+\mathbf{v}=4\mathbf{b}_1+\mathbf{b}_2
+$$
+
+---
+
+</div>
+</details>
+<br>
+
+또한 벡터를 어떤 벡터 공간으로 [정사영](https://suniverse77.github.io/posts/Projection/#%EB%B6%80%EB%B6%84%EA%B3%B5%EA%B0%84-%EC%9C%84%EB%A1%9C%EC%9D%98-%EC%82%AC%EC%98%81-projection-onto-general-subspace)할 때, $B^\top B=I$이므로 복잡한 역행렬 계산을 피할 수 있다.
+
+$$
+\text{proj}_U(\mathbf{v})=BB^\top\mathbf{v}
+$$
+
+<details>
+<summary><font color='#FF0000'>Example 4</font></summary>
+<div markdown="1">
+
+$$
+B=\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\0&0\end{bmatrix}
+~~,~~
+\mathbf{v}=\begin{bmatrix}3\\5\\7\end{bmatrix}
+$$
+
+---
+
+벡터 $\mathbf{v}$를 기저 집합이 $B$인 벡터 공간으로 정사영한 결과는 아래와 같이 구할 수 있다.
+
+$$
+\pi_U(\mathbf{v})=
+\begin{bmatrix}\frac{1}{\sqrt{2}}&-\frac{1}{\sqrt{2}}\\\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}\\0&0\end{bmatrix}
+\begin{bmatrix}\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}&0\\-\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{2}}&0\end{bmatrix}
+\begin{bmatrix}3\\5\\7\end{bmatrix}
+=\begin{bmatrix}3\\5\\0\end{bmatrix}
+$$
+
+---
+
+</div>
+</details>
+
+### Gram-Schmidt method
+
+Gram-Schmit 방법을 통해 기저 $B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_n\rbrace$를 정규 직교 기저 $B'=\lbrace\mathbf{w}_1,\dots,\mathbf{w}_n\rbrace$로 변환할 수 있다. 과정은 아래와 같다.
+
+1. 
+
+![fig1](mlm/4-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
+
+<details>
+<summary><font color='#FF0000'>Example 5</font></summary>
 <div markdown="1">
 
 $$
@@ -159,7 +297,7 @@ Rank는 행렬에서 선형 독립인 행 또는 열의 최대 개수를 의미�
 가우스 소거법을 적용 후 변환된 REF 형태의 행렬에서 0이 아닌 행 또는 열의 개수가 rank이다.
 
 <details>
-<summary><font color='#FF0000'>Example</font></summary>
+<summary><font color='#FF0000'>Example 6</font></summary>
 <div markdown="1">
   
 $$
