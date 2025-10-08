@@ -93,9 +93,9 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
     
 **2. 동차 방정식 (Homogeneous Equation)의 해 확인**
 
-   동차 방정식 $\sum\lambda_i\mathbf{v}_i=\mathbf{0}$의 해 $\boldsymbol\lambda$가 오직 trivial solution만 존재한다면, 벡터 집합은 선형 독립이다.
+   동차 방정식 $\sum\lambda_i\mathbf{v}_i=\mathbf{0}$의 해 $\boldsymbol\lambda$가 오직 자명해 (trivial solution)만 존재한다면, 벡터 집합은 선형 독립이다.
     
-   즉, 변수 $\lambda_i$에 free variable이 존재하면 안된다.
+   즉, 변수 $\lambda_i$에 자유 변수 (free variable)가 존재하면 안된다.
 
 <details>
 <summary><font color='red'>Example 1</font></summary>
@@ -131,18 +131,17 @@ $$
 
 **3-2. 동차 방정식의 해 확인**
 
-동차방정식의 해가 trivial solution이므로, 세 벡터는 선형 독립이다.
-   
-$$
-\lambda_1\begin{bmatrix}1\\0\\0\\0\end{bmatrix}+\lambda_2\begin{bmatrix}1\\1\\0\\0\end{bmatrix}
-+\lambda_3\begin{bmatrix}-1\\0\\1\\0\end{bmatrix}=\begin{bmatrix}0\\0\\0\\0\end{bmatrix}
-$$
-
-위 방정식을 만족시키는 해는 trivial solution밖에 없다.
+동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
 
 $$
+\begin{bmatrix}\begin{array}{ccc|c}
+1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0
+\end{array}\end{bmatrix}
+~\to~
 \boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}
 $$
+
+---
 
 </div>
 </details>
