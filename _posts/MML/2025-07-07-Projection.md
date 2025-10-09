@@ -105,6 +105,7 @@ $$
 
 </div>
 </details>
+<br>
 
 $\mathbf{x}$의 정사영은 $U$의 기저들의 선형 결합으로 표현될 수 있다. 따라서 선형 결합 계수 $\lambda$만 안다면 $\text{proj}_U(\mathbf{x})$를 바로 구할 수 있다.
 
