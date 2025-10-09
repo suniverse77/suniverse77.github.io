@@ -61,7 +61,7 @@ $$
 \text{proj}_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
 $$
 
-Basis 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
+기저 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
 
 ![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
@@ -105,3 +105,49 @@ $$
 
 </div>
 </details>
+
+$\mathbf{x}$의 정사영은 $U$의 기저들의 선형 결합으로 표현될 수 있다. 따라서 선형 결합 계수 $\lambda$만 안다면 $\text{proj}_U(\mathbf{x})$를 바로 구할 수 있다.
+
+$$
+\text{proj}_U(\mathbf{x})=B\boldsymbol\lambda
+$$
+
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
+
+$$
+B=\begin{bmatrix}0&1&-3\\-1&-3&4\\2&1&1\\0&-1&2\\2&2&1\end{bmatrix}
+~,~\mathbf{x}=\begin{bmatrix}-1\\-9\\-1\\4\\1\end{bmatrix}
+$$
+
+---
+
+$\mathbf{x}-B\boldsymbol\lambda$와 $B$는 서로 수직이다. 따라서 아래의 식이 성립한다.
+
+$$
+\langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
+~\to~B^\top(\mathbf{x}-B\boldsymbol\lambda)=0
+~\to~B^\top\mathbf{x}=B^\top B\boldsymbol\lambda
+$$
+
+즉, 아래의 방정식을 풀어 $\boldsymbol\lambda
+$를 구하면 $\text{proj}_U(\mathbf{x})$를 구할 수 있다.
+
+$$
+[B^\top B\mid B^\top\mathbf{x}]=
+\begin{bmatrix}\begin{array}{ccc|c}
+9&9&0&9\\9&16&-14&23\\0&-14&31&-25
+\end{array}\end{bmatrix}
+~\to~\boldsymbol\lambda=\begin{bmatrix}-3\\4\\1\end{bmatrix}
+$$
+
+$$
+\text{proj}_U(\mathbf{x})=B\boldsymbol\lambda=\begin{bmatrix}1\\-5\\-1\\-2\\3\end{bmatrix}
+$$
+
+---
+
+</div>
+</details>
+<br>

@@ -176,7 +176,7 @@ _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
 
 - $\text{det}(A)\neq0$
-- $\text{rank}(A)=n$
+- $\text{rank}(A)=n$ ($A$가 full-rank)
 
     만약 $\text{rank}(A)<n$ 이면, 변환 후 출력 공간의 차원이 줄어들어 정보를 복원할 수 없게 된다.
 
@@ -196,10 +196,13 @@ A=\begin{bmatrix}a&b\\c&d\end{bmatrix}
 A^{-1}=\frac{1}{\text{det}(A)}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}
 $$
 
-$3\times3$ 행렬의 크기가 커질수록 역행렬을 계산하기 어려워지는데, 아래의 성질을 이용해서 역행렬을 계산할 수 있다.
+$3\times3$ 이상의 행렬은 계산이 복잡해져 역행렬을 직접 구하기가 어렵다.
+
+이때 첨가 행렬 $\left[A\mid I\right]$를 만들어 가우스 소거법을 이용해 좌변을 단위 행렬 $I$로 만들면, 우변에는 자동으로 $A^{-1}$가 만들어진다.
 
 $$
-A=A~\to~I=
+\left[A\mid I\right]~\to~\left[AA^{-1}\mid IA^{-1}\right]
+~\to~\left[I\mid A^{-1}\right]
 $$
 
 <details>
@@ -207,7 +210,59 @@ $$
 <div markdown="1">
 
 $$
+A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}
+$$
 
+---
+
+첨가 행렬 $[A\mid I]$를 만든다.
+
+$$
+[A\mid I]=
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\1&1&0&1&0&0&1&0\\1&1&1&0&0&0&0&1
+\end{array}\end{bmatrix}
+$$
+
+가우스 소거법을 이용해 좌변을 $I$로 만든다.
+
+$$
+[A\mid I]~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&1&-1&1&-1&0&1&0\\0&1&0&0&-1&0&0&1
+\end{array}\end{bmatrix}
+~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-2&1&-1&-1&1&0\\0&0&-1&0&-1&-1&0&1
+\end{array}\end{bmatrix}
+$$
+
+$$
+~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&-2&1&-1&-1&1&0
+\end{array}\end{bmatrix}
+~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&0&1&1&1&1&-2
+\end{array}\end{bmatrix}
+$$
+
+$$
+~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2
+\end{array}\end{bmatrix}
+~\to~
+\begin{bmatrix}\begin{array}{cccc|cccc}
+1&0&0&0&0&-1&0&1\\0&1&0&0&-1&0&0&1\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2
+\end{array}\end{bmatrix}
+$$
+
+좌변이 $I$가 되었으므로, 우변은 자연스럽게 $A^{-1}$가 된다.
+
+$$
+A^{-1}=\begin{bmatrix}0&-1&0&1\\-1&0&0&1\\1&1&0&-1\\1&1&1&-2\end{bmatrix}
 $$
 
 ---
