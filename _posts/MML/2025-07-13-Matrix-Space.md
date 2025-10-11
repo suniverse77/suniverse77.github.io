@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 행렬의 네 가지 주요 부분 공간 (Four Fundamental Subspaces)"
+title: "[선형대수] 행렬의 네 가지 주요 부분공간 (Four Fundamental Subspaces)"
 date: 2025-07-13 00:00:00 +/-TTTT
 categories: [인공지능 수학, 선형대수]
 tags: [선형대수]
@@ -8,76 +8,78 @@ toc: true
 author: sunho
 ---
 
-![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:80%;"}
-_[[출처]](https://psh7286.tistory.com/entry/2%EC%9E%A5-%EB%84%A4-%EA%B0%80%EC%A7%80-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EB%B6%80%EB%B6%84-%EA%B3%B5%EA%B0%84)_
+선형대수학에는 네 가지 주요 부분공간이 있다.
 
-위의 그림은 
+- 열공간 (Column space)
+- 행공간 (Row space)
+- 영공간 (Null space)
+- 좌측 영공간 (Left Null space)
+
+![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처]](https://www.cs.utexas.edu/~flame/laff/alaff/chapter04-four-fundamental-spaces.html)_
+
+위의 그림은 행렬 $A\in\mathbb{R}^{m\times n}$에 대한 네 가지 주요 부분공간을 시각화한 것으로, 아래 내용을 보고 난 뒤에는 이해할 수 있을 것이다.
 
 ## 열공간 (Column space)
 
-행렬 $A$의 선형 변환을 통해 나올 수 있는 가능한 모든 출력 벡터 $\mathbf{v}$의 집합을 $A$의 열공간이라고 한다.
+열공간 $C(A)$는 행렬 $A\in\mathbb{R}^{m\times n}$의 열벡터들의 선형 결합으로 이루어지는 부분공간을 의미한다.
+
+열벡터의 차원은 $\mathbb{R}^m$이기 때문에 열공간은 $\mathbb{R}^m$의 부분공간이다.
 
 $$
-A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
 \to
-\text{col}(A)=\text{span}(\begin{bmatrix}1\\3\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})
+C(A)=\text{span}(\begin{bmatrix}1\\3\\5\end{bmatrix},\begin{bmatrix}2\\4\\6\end{bmatrix})\subseteq\mathbb{R}^3
 $$
 
-행렬 $A$의 각 열은 변환 후 도달할 기저 벡터의 위치를 알려주고, 이 기저 벡터의 span이 가능한 모든 출력이기 때문이다.
+열공간의 차원은 행렬 $A$의 rank와 같다.
 
-여기서 [rank](https://suniverse77.github.io/posts/Basis/)에 대해 다시 집고 가자.
-
-Rank의 의미는 변환 후 출력의 차원수 즉, 열공간의 차원수이다.
-
-변환 후 출력이 직선 (1차원)이면 변환 행렬의 rank는 1, 평면 (2차원)이라면 rank는 2이다.
-
-이때 rank가 행렬의 열 수와 같으면 full-rank라고 하며, 이는 변환을 거쳐도 공간이 찌그러지지 않고 원래의 차원을 그대로 유지한다는 뜻이다.
-
-선형 변환은 변환 후에도 원점이 고정이어야하기 때문에 열공간은 항상 영벡터를 포함한다.
-
-- Full-rank인 경우, 오직 영벡터만이 변환 후 영벡터가 된다.
-- Full-rank가 아닌 경우, 일부 벡터들도 변환후 영벡터가 될 수 있다.
-
-    예를 들어 2차원 공간이 직선으로 붕괴되면, 원래 다른 방향으로 뻗어 있던 직선 위의 벡터들이 변환 후 원점으로 모이게 된다.
-
-    3차원 공간이 평면으로 붕괴되면, 모두 원점에 도달하는 벡터로 가득 찬 직선이 존재
-
-    3차원 공간이 직선으로 붕괴하면 모두 원점에 도달하는 벡터로 가득 찬 평면이 존재
+$$
+\text{dim}\left(C(A)\right)=\text{rank}(A)=r
+$$
 
 ## 행공간 (Row space)
 
-일반적으로 열벡터를 기준으로 보기 때문에 열공간 중심으로 다루지만, 행공간도 존재한다.
+행공간 $C(A^\top)$는 행렬 $A\in\mathbb{R}^{m\times n}$의 행벡터들의 선형 결합으로 이루어지는 공간을 의미한다.
+
+행벡터의 차원은 $\mathbb{R}^n$이기 때문에 행공간은 $\mathbb{R}^n$의 부분 공간이다.
 
 $$
-A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
+A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
 \to
-\text{row}(A)=\text{span}\left(\begin{bmatrix}1&2\end{bmatrix},\begin{bmatrix}3&4\end{bmatrix}\right)
+C(A^\top)=\text{span}(\begin{bmatrix}1&2\end{bmatrix},\begin{bmatrix}3&4\end{bmatrix},\begin{bmatrix}5&6\end{bmatrix})\subseteq\mathbb{R}^2
+$$
+
+행공간의 차원은 행렬 $A$의 rank와 같다.
+
+$$
+\text{dim}\left(C(A^\top)\right)=\text{rank}(A)=r
 $$
 
 ## 영공간 (Null space)
 
-행렬 $A$의 선형 변환을 통해 원점으로 도달하는 벡터 $\mathbf{x}$의 집합을 의미하며, 다른 말로 커널 (kernel)이라고 부른다.
+영공간 $N(A)$는 $A\mathbf{x}=\mathbf{0}$의 모든 해 집합을 의미하며, 다른 말로 커널 (kernel)이라고 부른다.
 
-수학적으로는 아래와 같이 표현된다.
+해 집합은 행벡터의 차원과 같기 때문에 영공간은 공간은 $\mathbb{R}^n$의 부분 공간이다.
 
 $$
-N(A)=\lbrace\mathbf{x}\mid A\mathbf{x}=\mathbf{0}\rbrace
+N(A)=\lbrace\mathbf{x}\in\mathbb{R}^n\mid A\mathbf{x}=\mathbf{0}\rbrace
+\subseteq\mathbb{R}^n
 $$
 
-즉, 동차 방정식의 해를 모두 모아놓은 집합을 의미한다.
+영공간의 차원을 **nullity**라고 부르며, [차원 정리](https://suniverse77.github.io/posts/Linear-Mapping/#%EC%B0%A8%EC%9B%90-%EC%A0%95%EB%A6%AC-rank-nullity-theorem)에 따라 아래와 같다.
 
-$A\mathbf{x}=\mathbf{0}$은 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때문에 공간 상에서 원점을 지나는 직선 또는 평면으로 표현된다.
+$$
+\text{nullity}(A)=\text{dim}\left(N(A)\right)
+=n-r
+$$
+
+기하학적으로 봤을 때, 영공간은 행렬 $A$의 선형 변환을 통해 원점으로 도달하는 벡터 $\mathbf{x}$의 집합이며, 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때문에 공간 상에서 원점을 지나는 직선 또는 평면으로 표현된다.
 
 아래 그림의 왼쪽의 노란색 직선이 변환 후 오른쪽의 노란색 점 (원점)이 되었으므로, 노란색 직선은 영공간이다.
 
 ![fig2](mlm/13-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
-
-영공간의 차원을 **nullity**라고 한다.
-
-$$
-\text{nullity}(A)=\text{dim}\left(N(A)\right)
-$$
 
 ### 영공간의 성질
     
@@ -121,18 +123,60 @@ $$
 
 ## 좌측 영공간 (Left Null space)
 
-행렬 $A$의 선형 변환을 통해 원점으로 도달하는 벡터 $\mathbf{x}$의 집합을 의미하며, 다른 말로 커널 (kernel)이라고 부른다.
+좌측 영공간 $N(A^\top)$는 $A^\top\mathbf{y}=\mathbf{0}$의 모든 해 집합을 의미한다.
 
-## 부분 공간 간의 관계
+해 집합은 열벡터의 차원과 같기 때문에 좌측 영공간은 공간은 $\mathbb{R}^m$의 부분 공간이다.
 
-아래의 수식을 통해 행공간과 영공간은 공간 상에서 서로 직교한다는 것을 알 수 있다.
+$$
+N(A^\top)=\lbrace\mathbf{y}\in\mathbb{R}^m\mid A^\top\mathbf{y}=\mathbf{0}\rbrace\subseteq\mathbb{R}^m
+$$
+
+좌측 영공간의 차원은 아래와 같다.
+
+$$
+\text{dim}\left(N(A^\top)\right)=m-r
+$$
+
+행렬 $A$의 관점에서 봤을 때, $\mathbf{y}^\top A=\mathbf{0}^\top$는 벡터가 행렬의 왼쪽에 곱해지므로 좌측 영공간이라고 부른다.
+
+## 부분공간 간의 관계
+
+행공간과 영공간은 정의역인 $\mathbb{R}^n$에 속하고, 열공간과 좌측 열공간은 공역인 $\mathbb{R}^m$에 속한다.
+
+또한, 4개의 부분공간은 서로 직교쌍을 이룬다.
+
+**열공간과 좌측 영공간은 직교한다.**
+
+$$
+N(A)=C(A^\top)^\perp
+$$
+
+아래의 식을 통해 직교성을 간단하게 확인할 수 있다.
+
+$$
+\mathbf{y}^\top A=\mathbf{0}^\top~\to~
+\begin{bmatrix}y_1&y_2\end{bmatrix}
+\begin{bmatrix}|&|\\\mathbf{a}_1&\mathbf{a}_2\\|&|\end{bmatrix}
+=\begin{bmatrix}0&0\end{bmatrix}~\to~
+\mathbf{y}\cdot\mathbf{a}_i=0
+$$
+
+내적이 $0$이므로, 두 공간은 직교한다.
+
+**행공간과 영공간은 직교한다.**
+
+$$
+N(A^\top)=C(A)^\perp
+$$
+
+아래의 식을 통해 직교성을 간단하게 확인할 수 있다.
 
 $$
 A\mathbf{x}=\mathbf{0}~\to~
 \begin{bmatrix}-\mathbf{a}_1-\\-\mathbf{a}_2-\end{bmatrix}
 \begin{bmatrix}x_1\\x_2\end{bmatrix}=
-\begin{bmatrix}0\\0\end{bmatrix}
+\begin{bmatrix}0\\0\end{bmatrix}~\to~
+\mathbf{a}_i\cdot\mathbf{x}=0
 $$
 
-![fig3](mlm/13-3.png){: style="display:block; margin:0 auto; width:60%;"}
-_[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_
+내적이 $0$이므로, 두 공간은 직교한다.
