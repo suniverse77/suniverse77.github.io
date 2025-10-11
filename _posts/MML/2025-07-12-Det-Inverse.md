@@ -99,14 +99,39 @@ $$
 </details>
 <br>
 
-$3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+### 여인수 전개 (Cofactor Expansion)
+
+여인수 전개란 행렬식을 계산하는 기본적인 방법으로, 큰 행렬식을 작은 행렬식들로 분해해서 계산하는 과정이다.
+
+예를 들어, $3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
 
 $$
-A=\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}~\to~
-\text{det}(A)=
-a\begin{vmatrix}e&f\\h&i\end{vmatrix}
--b\begin{vmatrix}d&f\\g&i\end{vmatrix}
-+c\begin{vmatrix}d&e\\g&h\end{vmatrix}
+A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}~\to~
+\text{det}(A)=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13}
+$$
+
+위의 식에서 $C_{ij}$를 여인수 (Cofactor)라고 하며, 여인수는 아래와 같이 정의된다.
+
+$$
+C_{ij}=(-1)^{i+j}M_{ij}
+$$
+
+위의 식에서 $M_{ij}$를 소행렬식 (Minor)라고 한다. 소행렬식은 원본 행렬 $A$에서 $i$번째 행과 $j$번째 열을 제거한 부분행렬의 행렬식이다.
+
+예를 들어, $M_{11}$은 아래와 같이 계산된다.
+
+$$
+M_{11}=\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}
+=a_{22}a_{33}-a_{23}a_{32}
+$$
+
+즉, 위의 $3\times3$ 행렬식을 아래와 같이 전개할 수 있다.
+
+$$
+\text{det}(A)=a_{11}M_{11}-a_{12}M_{12}+a_{13}M_{13}
+=a_{11}\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}-
+a_{12}\begin{vmatrix}a_{21}&a_{23}\\a_{31}&a_{33}\end{vmatrix}
++a_{13}\begin{vmatrix}a_{21}&a_{22}\\a_{31}&a_{32}\end{vmatrix}
 $$
 
 3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
