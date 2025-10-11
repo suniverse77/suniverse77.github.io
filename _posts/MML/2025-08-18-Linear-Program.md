@@ -1,6 +1,6 @@
 ---
-title: "[최적화] 주성분 분석 (PCA)"
-date: 2025-08-18 00:00:00 +/-TTTT
+title: "[최적화] 수학적 최적화 (Mathematical Optimization)"
+date: 2025-08-19 00:00:00 +/-TTTT
 categories: [인공지능 수학, 최적화]
 tags: [최적화]
 math: true
@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-## Linear Programming
+## 선형 계획법 (LP - Linear Programming)
 
 목적함수와 제약조건이 모두 선형식으로 표현된 최적화 문제를 의미한다.
 
@@ -52,7 +52,7 @@ Dual problem은 위와 같이 정의된다.
 </div>
 </details>
 
-## Qudratic Programming
+## 2차 계획법 (Qudratic Programming)
 
 목적함수가 2차식이고 제약조건이 선형식으로 표현된 최적화 문제를 의미한다.
 
