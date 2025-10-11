@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 행렬이 만드는 공간"
+title: "[선형대수] 행렬의 네 가지 주요 부분 공간 (Four Fundamental Subspaces)"
 date: 2025-07-13 00:00:00 +/-TTTT
 categories: [인공지능 수학, 선형대수]
 tags: [선형대수]
@@ -7,6 +7,11 @@ math: true
 toc: true
 author: sunho
 ---
+
+![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처]](https://psh7286.tistory.com/entry/2%EC%9E%A5-%EB%84%A4-%EA%B0%80%EC%A7%80-%EA%B8%B0%EB%B3%B8%EC%A0%81%EC%9D%B8-%EB%B6%80%EB%B6%84-%EA%B3%B5%EA%B0%84)_
+
+위의 그림은 
 
 ## 열공간 (Column space)
 
@@ -65,7 +70,7 @@ $A\mathbf{x}=\mathbf{0}$은 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때�
 
 아래 그림의 왼쪽의 노란색 직선이 변환 후 오른쪽의 노란색 점 (원점)이 되었으므로, 노란색 직선은 영공간이다.
 
-![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](mlm/13-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 영공간의 차원을 **nullity**라고 한다.
@@ -113,9 +118,12 @@ $$
 
 </div>
 </details>
-<br>
 
-### 행공간과 영공간의 관계
+## 좌측 영공간 (Left Null space)
+
+행렬 $A$의 선형 변환을 통해 원점으로 도달하는 벡터 $\mathbf{x}$의 집합을 의미하며, 다른 말로 커널 (kernel)이라고 부른다.
+
+## 부분 공간 간의 관계
 
 아래의 수식을 통해 행공간과 영공간은 공간 상에서 서로 직교한다는 것을 알 수 있다.
 
@@ -126,5 +134,5 @@ A\mathbf{x}=\mathbf{0}~\to~
 \begin{bmatrix}0\\0\end{bmatrix}
 $$
 
-![fig2](mlm/13-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](mlm/13-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_
