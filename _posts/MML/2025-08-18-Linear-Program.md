@@ -1,6 +1,6 @@
 ---
 title: "[최적화] 주성분 분석 (PCA)"
-date: 2025-08-16 00:00:00 +/-TTTT
+date: 2025-08-18 00:00:00 +/-TTTT
 categories: [인공지능 수학, 최적화]
 tags: [최적화]
 math: true
