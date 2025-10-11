@@ -10,7 +10,7 @@ author: sunho
 
 ## 가우시안 함수 ()
 
-## 다변량 가우시안 함수 (Multi)
+## 다변량 가우시안 함수의 미분 (Multi)
 
 샘플 $X=\lbrace\mathbf{x}_1,\cdots\mathbf{x}_N\rbrace$ 가 있을 때, $\mathbf{x}\in\mathbb{R}^D$에 대한 가우시안 분포는 아래와 같은 식으로 표현된다.
 
