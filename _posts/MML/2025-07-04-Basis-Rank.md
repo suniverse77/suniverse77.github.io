@@ -456,7 +456,7 @@ $$
 ### Rank의 성질
 
 1. $\text{rank}(A)=\text{rank}(A^T)$
-2. $\text{rank}(AB)<\min\left(\text{rank}(A),\text{rank}(B)\right)$
+2. $\text{rank}(AB)\leq\min\left(\text{rank}(A),\text{rank}(B)\right)$
 3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">full rank</span>라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">rank-deficient</span>라고 한다.
 4. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
 

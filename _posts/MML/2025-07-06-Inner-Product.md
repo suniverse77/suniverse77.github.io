@@ -64,19 +64,21 @@ $$
 
 ## 두 벡터가 이루는 각도 (Angle)
 
+Inner product space에서 두 벡터가 이루는 각도는 아래와 같이 정의된다.
+
 $$
 \theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
 $$
 
-Inner product space에서 두 벡터가 이루는 각도는 위와 같이 정의된다.
-
 ## 외적 (Outer Product)
+
+두 벡터의 곱으로 행렬을 생성하는 연산을 외적이라고 한다.
 
 $$
 \mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
 $$
 
-두 벡터의 곱으로 행렬을 생성하는 연산을 외적이라고 한다.
+$\mathbf{0}$을 제외했을 때, 외적으로 생성된 행렬의 rank는 항상 1이다.
 
 ## 벡터곱 (Cross Product)
 
