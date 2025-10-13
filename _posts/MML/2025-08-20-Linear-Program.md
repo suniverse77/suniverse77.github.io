@@ -40,7 +40,7 @@ $$
 **1. 라그랑주 함수 정의**
     
 $$
-\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf c^\top\mathbf x+\boldsymbol\lambda^\top(A\mathbf x-\mathbf b)
+\vphantom{\Big(}\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf c^\top\mathbf x+\boldsymbol\lambda^\top(A\mathbf x-\mathbf b)
 $$
     
 **2. $\nabla\mathcal{L}=0$ 풀기**
@@ -57,7 +57,7 @@ $$
 **3. $\mathcal{L}(\mathbf x,\boldsymbol\lambda)$에 대입**
 
 $$
-\mathcal{D}(\boldsymbol\lambda)=-\mathbf b^\top\boldsymbol\lambda
+\vphantom{\Big(}\mathcal{D}(\boldsymbol\lambda)=-\mathbf b^\top\boldsymbol\lambda
 $$
 
 </div>
@@ -102,7 +102,7 @@ $$
 **2. $\nabla\mathcal{L}=0$ 풀기**
     
 $$
-\nabla_\mathbf x\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf x^\top Q+\mathbf c^\top+\boldsymbol\lambda^\top A=0~\to~\boldsymbol\lambda^\top A=-\mathbf x^\top Q+\mathbf c^\top
+\vphantom{\Big(}\nabla_\mathbf x\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf x^\top Q+\mathbf c^\top+\boldsymbol\lambda^\top A=0~\to~\boldsymbol\lambda^\top A=-\mathbf x^\top Q+\mathbf c^\top
 
 $$
     
