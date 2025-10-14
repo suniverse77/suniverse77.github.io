@@ -1,6 +1,6 @@
 ---
 title: "[확률] 공분산과 상관 계수"
-date: 2025-08-05 00:00:00 +/-TTTT
+date: 2025-08-07 00:00:00 +/-TTTT
 categories: [인공지능 수학, 확률]
 tags: [확률]
 math: true
@@ -21,6 +21,29 @@ $$
 - $\text{Cov}(X,Y)<0$ → $X$와 $Y$가 서로 다른 방향으로 증가 또는 감소한다.
 
 $X$와 $Y$가 독립이면 공분산이 0이며 역은 성립하지 않는다.
+
+### 공분산 행렬 (Covariance Matrix)
+
+공분산은 각 확률 변수 간의 함께 변하는 정도를 나타내는 값이다.
+
+다변량 확률변수의 분산을 공분산 행렬이라고 부르며, 항상 대칭 행렬이고 양의 반정정부호 (positive semi-definite)이다.
+
+$$
+\mathbb{V}[\mathbf X]=\text{Cov}(\mathbf X)=
+\mathbb{E}\left[(\mathbf{X}-\mathbb{E}[\mathbf{X}])(\mathbf{X}-\mathbb{E}[\mathbf{X}])^\top\right]=\Sigma_\mathbf X=
+\begin{bmatrix}
+\sigma_1^2&\sigma_{12}&\cdots&\sigma_{1D}\\
+\sigma_{21}&\sigma_2^2&\cdots&\sigma_{2D}\\
+\vdots&\vdots&\ddots&\vdots\\
+\sigma_{D1}&\sigma_{D2}&\cdots&\sigma_D^2
+\end{bmatrix}\in\mathbb{R}^{D\times D}
+$$
+
+각 원소는 서로 다른 확률 변수 간의 공분산을 나타내며, 대각 성분은 각 확률변수의 분산을 나타낸다.
+
+$$
+\sigma_{i,j}=\text{Cov}(X_i,X_j)=\mathbb{E}\left[(X_i-\mathbb{E}[X_i])(X_j-\mathbb{E}[X_j])\right]
+$$
 
 ## 상관 계수 (Correlation)
 
