@@ -67,7 +67,7 @@ $$
 P(A\cap B)=P(A,B)
 $$
 
-### 조건부 확률 (Conditional Probability)
+### 주변 확률 (Marginal Probability)
 
 결합 확률 분포에서 하나의 사건에만 관심을 두고 계산한 확률을 의미한다.
 
@@ -75,7 +75,7 @@ $$
 P(A)
 $$
 
-### 주변 확률 (Marginal Probability)
+### 조건부 확률 (Conditional Probability)
 
 어떤 사건 $B$가 일어났다는 조건 하에서 다른 사건 $A$가 일어날 확률을 의미한다.
 
@@ -87,17 +87,36 @@ $$
 <summary><font color='red'>Example 1</font></summary>
 <div markdown="1">
 
-<div align="center">
-
-| 열1 | 열2 | 열3 |
-|----|----|----|
-| 값1 | 값2 | 값3 |
-
-</div>
+![fig2](mlm/p1-2.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://blog.naver.com/vollollov/220975294633)_
 
 ---
 
+한 명을 선택했을 때 남성인 경우를 $A$, 완주한 경우를 $B$라고 하자.
 
+**결합 확률**
+
+남성이면서 완주한 사람의 확률
+
+$$
+P(A,B)=
+$$
+
+**주변 확률**
+
+한 명을 선택했을 때 남성일 확률
+
+$$
+P(A)=
+$$
+
+**조건부 확률**
+
+남성 중에서 완주한 사람
+
+$$
+
+$$
 
 </div>
 </details>
