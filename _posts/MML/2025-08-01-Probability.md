@@ -56,3 +56,44 @@ $$
 $$
 P(A,B)=p(A\mid B)P(B)=P(B\mid A)P(A)
 $$
+
+## 확률의 종류
+
+### 결합 확률 (Joint Probability)
+
+두 개의 사건이 동시에 일어날 확률을 의미한다.
+
+$$
+P(A\cap B)=P(A,B)
+$$
+
+### 조건부 확률 (Conditional Probability)
+
+결합 확률 분포에서 하나의 사건에만 관심을 두고 계산한 확률을 의미한다.
+
+$$
+P(A)=
+$$
+
+### 주변 확률 (Marginal Probability)
+
+어떤 사건 $B$가 일어났다는 조건 하에서 다른 사건 $A$가 일어날 확률을 의미한다.
+
+$$
+P(A\mid B)=\frac{P(A,B)}{P(B)}
+$$
+
+<details>
+<summary><font color='red'>Example 1</font></summary>
+<div markdown="1">
+
+| 열1 | 열2 | 열3 |
+|----|----|----|
+| 값1 | 값2 | 값3 |
+
+---
+
+
+
+</div>
+</details>
