@@ -87,13 +87,13 @@ $$
 <summary><font color='red'>Example 1</font></summary>
 <div markdown="1">
 
-<div align="center">
+<center>
 
 | 열1 | 열2 | 열3 |
 |----|----|----|
 | 값1 | 값2 | 값3 |
 
-</div>
+<center>
 
 ---
 
