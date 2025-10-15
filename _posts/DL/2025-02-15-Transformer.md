@@ -15,9 +15,7 @@ author: sunho
 ![fig1](dl/transformer/1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Attention Is All you Need_
 
-인코더는 
-
-디코더는 인코더가 전달한 의미 정보를 이용해 출력 문장을 생성하는 역할을 한다.
+인코더는 입력 문장을 이해하고 의미 정보를 요약하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
 
 예를 들어, 아래의 문제를 수행하는 트랜스포머 모델의 동작 방식은 아래와 같다.
 
@@ -43,11 +41,57 @@ _출처: Attention Is All you Need_
 
 이러한 과정을 반복하여 최종적으로 `'I am a student.'`라는 번역본을 완성한다.
 
-## 인코더 (Encoder)
+### 인코더 (Encoder)
 
+인코더의 핵심 구성요소는 다음과 같다.
 
+**Embedding**
 
-## 디코더 (Decoder)
+입력 문장을 여러 개의 토큰으로 나누고, 각 토큰을 벡터 형태로 변환한다. 이 과정을 임베딩 (Embedding)이라고 한다. 토큰은 단어가 될 수도 있고, 문자가 될 수도 있다. (편의상 '단어=토큰'으로 설명)
 
+이때 문장 내 단어의 순서 정보를 반영하기 위해, 각 단어 벡터에 위치 인코딩 (Positional Encoding)을 더한다.
 
-# 
+**Self-Attention**
+
+입력 문장 내 모든 단어가 서로 어떤 관계를 가지는지를 내적을 이용해 계산하며, 이 과정에서 단어 간의 문맥적 관계를 학습한다.
+
+**Feed-Forward Network**
+
+각 단어 벡터에 대해 개별적으로 수행되며, 비선형 변환을 통해 표현력을 강화한다.
+
+### 디코더 (Decoder)
+
+디코더의 핵심 구성요소는 다음과 같다.
+
+**Embedding**
+
+이전에 생성된 출력 단어를 벡터로 변환한 후, Positional Encoding을 더한다.
+
+**Masked Self-Attention**
+
+출력 문장 내 모든 단어가 서로 어떤 관계를 가지는지를 계산한다. 
+
+인코더와는 달리, 학습 과정에서 현재 시점 이후의 단어는 보지 못하도록 미래 단어를 마스킹 (masking)한다.
+
+**Encoder–Decoder Attention (Cross-Attention)**
+
+인코더가 생성한 입력 문장의 의미 벡터를 참고하여, 현재 생성 중인 단어가 입력의 어떤 부분과 관련이 깊은지를 학습한다.
+
+즉, 입력과 출력 간의 대응 관계를 학습하는 단계이다.
+
+**Feed-Forward Network**
+
+각 단어 벡터에 대해 개별적으로 수행되며, 비선형 변환을 통해 표현력을 강화한다.
+
+**Softmax Layer**
+
+각 단어 벡터를 소프트맥스 함수를 통해 확률 분포로 변환하며, 최종적으로 현재 시점에서 가장 확률이 높은 단어를 선택하여 출력한다.
+
+## Embedding
+
+![fig2](dl/transformer/2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
+
+## Attention
+
+## Feed-Forward Network
