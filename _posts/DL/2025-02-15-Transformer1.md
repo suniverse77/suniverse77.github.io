@@ -1,5 +1,5 @@
 ---
-title: "트랜스포머 (Transformer)"
+title: "[트랜스포머] 트랜스포머 구조"
 date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [CS231n]
@@ -12,7 +12,7 @@ author: sunho
 
 트랜스포머의 아키텍처는 아래와 같으며, 크게 인코더와 디코더로 이루어져 있다.
 
-![fig1](dl/transformer/1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](dl/transformer/1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Attention Is All you Need_
 
 인코더는 입력 문장을 이해하고 의미 정보를 요약하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
@@ -86,12 +86,3 @@ _출처: Attention Is All you Need_
 **Softmax Layer**
 
 각 단어 벡터를 소프트맥스 함수를 통해 확률 분포로 변환하며, 최종적으로 현재 시점에서 가장 확률이 높은 단어를 선택하여 출력한다.
-
-## Embedding
-
-![fig2](dl/transformer/2.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-## Attention
-
-## Feed-Forward Network
