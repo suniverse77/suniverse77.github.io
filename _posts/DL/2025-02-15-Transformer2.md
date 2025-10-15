@@ -21,13 +21,13 @@ $$
 **문자 단위로 분리**
 
 $$
-\text{I love playing football.}\to\left[~\text{``I"},\text{``~"},\text{l},\text{o},\text{v},\cdots,\text{.}~\right]
+\text{I love playing football.}\to\left[~``\text{``I"},\text{``~"},\text{l},\text{o},\text{v},\cdots,\text{.}~\right]
 $$
 
 **서브워드 (subword) 단위로 분리**
 
 $$
-\text{I love playing football.}\to\left[~\text{``I"},\text{love},\text{play},\text{\#\#ing},\text{foot},\text{\#\#ball},\text{.}~\right]
+\text{I love playing football.}\to\left[~\text{``I"},\text{love},\text{play},\text{\#\#ing},\text{foot},\#\#\text{\#\#ball},\text{.}~\right]
 $$
 
 이후 각 단어를 벡터로 변환하며, 이 과정을 임베딩이라고 한다.
@@ -35,11 +35,11 @@ $$
 ![fig1](dl/transformer/2-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
-컴퓨터는 텍스트를 직접 이해할 수 없고, 숫자 형태의 벡터만 계산할 수 있습니다.
-따라서 텍스트를 숫자로 바꾸기 위해, 먼저 모델이 학습 때 사용할 **단어 목록(사전, vocabulary)**을 미리 만들어 둡니다.
+컴퓨터는 텍스트를 직접 이해할 수 없고, 숫자 형태만 계산할 수 있다. 이 때문에, 먼저 모델이 학습 때 사용할 단어 목록인 사전 (vocabulary)을 미리 준비한다.
 
-모델이 한 번도 본 적 없는 단어가 입력되면,
-그 단어는 사전에 없기 때문에 UNK (unknown) 토큰으로 대체됩니다.
+만약 사전에 없는 단어가 입력되면, 해당 단어는 UNK (unknown) 토큰으로 대체된다.
+
+이후 학습을 통해 해당 단어의 벡터를 
 
 ![fig2](dl/transformer/2-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
