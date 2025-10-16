@@ -23,7 +23,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 이해하기 쉽게, 형용사에 의해서 명사의 정보가 업데이트된다고 생각하면 된다.
 
-![fig2](dl/transformer/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](dl/transformer/3-2.png){: style="display:block; margin:0 auto; width:65%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 Attention 연산은 아래와 같이 정의된다.
@@ -36,14 +36,16 @@ $$
 
 그럼 각각이 뭔지에 대해서 알아보자.
 
-### 쿼리, 키, 밸류 (Query, Key, Value)
+### 쿼리와 키 (Query, Key)
 
 먼저, Query와 Key는 각각 단어 임베딩에 Query 행렬 $W_Q\in\mathbb{R}^{e\times q}$, Key 행렬 $W_K\in\mathbb{R}^{e\times k}$을 곱해 만든다.
 
 $Q$와 $K$의 차원을 각각 $q$, $k$라고 했을 때, 일반적으로 임베딩 차원 $e$보다 훨씬 작게 설정한다.
 
 $$
-Q=W_QE\in\mathbb{R}^q~~,~~K=W_KE\in\mathbb{R}^k
+Q=W_QE=\begin{bmatrix}|&&|\\Q_1&\cdots&Q_n\\|&&|\end{bmatrix}\in\mathbb{R}^q
+~~,~~
+K=W_KE=\begin{bmatrix}|&&|\\K_1&\cdots&K_n\\|&&|\end{bmatrix}\in\mathbb{R}^k
 $$
 
 Query와 Key 행렬은 학습 가능한 파라미터로 이루어져 있으며, 임베딩 공간에 있는 단어 토큰을 쿼리 공간으로 매핑시켜주는 역할을 한다.
@@ -55,11 +57,31 @@ Query는 질문을 하는 , Key는 질문에 대해 답을 찾는 도구로 볼 
 
 예를 들어, Query가 '나를 수식하는 형용사 어딨어?'하고 물어보면 Key는 '여기 있어요.'
 
-![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:100%;"}
+이를 내적으로 표현한다.
+
+아래 그림에서 원의 크기는 내적값의 크기를 나타낸다. 보면 'fluffy'와 'blue'라는 형용사가 'creature'라는 명사와 관련이 있기 때문에 내적값이 큰 것을 확인할 수 있다. 이는 두 형용사가 'creature'에 집중하고 있다는 것을 나타낸다. 반대로 'the'라는 관사는 'creature'와 관련이 별로 없기 때문에 큰 음수값으로 나타나는 것을 확인할 수 있다.
+
+![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-## Self-Attention
+![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+
+![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+
+### 밸류 (Value)
+
+Value 역시 마찬가지로 각각 단어 임베딩에 Value 행렬 $W_V\in\mathbb{R}^{e\times v}$을 곱해 만든다.
+
+## Self-Attention과 Cross-Attention
+
+
+
+## Multi-Head Attention
+
+
 
 ## Masked Self-Attention
 
-##
+
