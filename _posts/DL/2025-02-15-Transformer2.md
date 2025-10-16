@@ -42,6 +42,8 @@ $$
 
 단어 임베딩은 각 단어를 고차원의 벡터로 표현하며, 이때 단어 임베딩의 차원을 임베딩 차원이라고 한다.
 
+즉, 단어 임베딩은 그 단어의 의미 정보만을 가지고 있는 고차원의 벡터이며, 위치 인코딩을 통해 단어의 위치 정보도 포함하고 있다. <span style="background-color:#fff5b1">단어 임베딩 자체만으로는 문맥적인 정보는 포함하지 않는다.</span>
+
 ![fig1](dl/transformer/2-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
@@ -61,6 +63,10 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQO
 
 이는 곧, 우리가 '여왕' 임베딩에 대한 정보가 없더라도, '왕' 임베딩에 노란색 벡터를 더함으로써 '여왕' 임베딩을 근사적으로 얻을 수 있다는 말이 된다.
 
+$$
+E(queen)
+$$
+
 즉, 이 공간에서 노란색 벡터의 방향은 '성별'에 대한 의미적 정보를 담고 있다고 볼 수 있다.
 
 ![fig4](dl/transformer/2-4.png){: style="display:block; margin:0 auto; width:50%;"}
@@ -77,3 +83,6 @@ $$
 \overrightarrow{\text{plur}}\cdot E(\text{dog})=-1.13~~,~~
 \overrightarrow{\text{plur}}\cdot E(\text{dogs})=3.40
 $$
+
+## 위치 인코딩 (Positional Encoding)
+
