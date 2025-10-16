@@ -10,6 +10,9 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [「*Transformers, the tech behind LLMs*」](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
 
+![fig0](dl/transformer/2-0.png){: style="display:block; margin:0 auto; width:70%;"}
+_출처: Attention Is All you Need_
+
 ## 토큰화 (Tokenization)
 
 임베딩 전, 입력 문장을 여러 개의 토큰 (token)으로 분리한다. 토큰은 문장을 구성하는 최소 의미 단위로, 여러 단위로 분리할 수 있다.

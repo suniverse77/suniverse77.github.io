@@ -10,6 +10,9 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [「*Attention in transformers, step-by-step*」](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7) 영상을 참고하였습니다.
 
+![fig0](dl/transformer/3-0.png){: style="display:block; margin:0 auto; width:70%;"}
+_출처: Attention Is All you Need_
+
 ## Attention
 
 이전 포스트에서 언급했듯이, 단어 임베딩만으로는 단어의 문맥적 의미를 파악할 수 없다. 이 문제를 해결하기 위해 도입한 것이 어텐션 메커니즘이다.
@@ -25,7 +28,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 형용사에 의해서 명사의 의미가 좀 더 구체적으로 변한다고 생각하면 더 이해하기 쉬울 것이다.
 
-아래 그림에서 명사 'creature'의 임베딩 $E_4$가 형용사 'fluffy'와 'blue'의 임베딩 $E_2,E_3$에 의해서 푸르고 복슬복슬한 생명체를 나타내는 새로운 임베딩 $E_4'$로 변환된다.
+아래 그림에서 명사 'creature'의 임베딩 $E_4$가 형용사 'fluffy'와 'blue'의 임베딩 $E_2,E_3$에 의해서 '파랗고 복슬복슬한 생명체'를 나타내는 새로운 임베딩 $E_4'$로 변환된다.
 
 ![fig2](dl/transformer/3-2.png){: style="display:block; margin:0 auto; width:65%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
@@ -97,9 +100,9 @@ $$
 \end{bmatrix}\in\mathbb{R}^{n\times n}
 $$
 
-Attention map의 각 행은 각 Query가 Key들과 얼마나 유사도를 가지는지를 의미한다.
+Attention map의 각 행은 해당 Query가 모든 Key들과 얼마나 유사한지를 나타낸다.
 
-![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ### 밸류 (Value)
@@ -114,22 +117,24 @@ Value 행렬도 학습 가능한 파라미터로 이루어져 있다.
 
 직관적으로 보면, Value는 해당 단어를 실제 만약 다른 임베딩이 현재 임베딩과 관련이 있다면 어떤 값을 더해줬을때 그 의미가 변하는지를 알려준다.
 
-![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:100%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
-
-![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 $$
 \left(QK^\top\right)V=
 \begin{bmatrix}
 (\mathbf{q}_1\mathbf{k}_1^\top)\mathbf{v}_1+(\mathbf{q}_1\mathbf{k}_2^\top)\mathbf{v}_2+\cdots+(\mathbf{q}_1\mathbf{k}_n^\top)\mathbf{v}_n\\
-(\mathbf{q}_2\mathbf{k}_1^\top)\mathbf{v}_1+(\mathbf{q}_2\mathbf{k}_2^\top)\mathbf{v}_2+\cdots+(\mathbf{q}_2\mathbf{k}_n^\top)\mathbf{v}_n\\
+\vdots\\
+(\mathbf{q}_4\mathbf{k}_1^\top)\mathbf{v}_1+(\mathbf{q}_4\mathbf{k}_2^\top)\mathbf{v}_2+\cdots+(\mathbf{q}_4\mathbf{k}_n^\top)\mathbf{v}_n\\
 \vdots\\
 (\mathbf{q}_n\mathbf{k}_1^\top)\mathbf{v}_1+(\mathbf{q}_n\mathbf{k}_2^\top)\mathbf{v}_2+\cdots+(\mathbf{q}_n\mathbf{k}_n^\top)\mathbf{v}_n
 \end{bmatrix}
-=\begin{bmatrix}\Delta\mathbf{e}_1\\\Delta\mathbf{e}_2\\\vdots\\\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
+=\begin{bmatrix}\Delta\mathbf{e}_1\\\vdots\\\Delta\mathbf{e}_4\\\vdots\\\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
+
+예를 들어, 'creature'에 해당하는 쿼리 벡터 $\mathbf{q}_4$는 형용사 'fluffy'와 'blue'와 의미적으로 연관성이 높기 때문에, 내적값 $\mathbf{q}_4\mathbf{k}_2^\top$와 $\mathbf{q}_4\mathbf{k}_3^\top$은 상대적으로 클 것이다.
+
+따라서 attention 결과 벡터 $\Delta\mathbf{e}_4$는 'fluffy'와 'blue'의 value 벡터 $\mathbf{v}_2$와 $\mathbf{v}_3$의 방향으로 더 큰 비중을 두어 결합된다. 이는 곧, '파랗고 복슬복슬한 생명체'와 같은 문맥적 의미를 반영하는 결과로 이어진다.
 
 여기서 $K=K_1+K_2+\cdots+K_n$
 
@@ -137,7 +142,7 @@ $$
 E'=E+\Delta E=\begin{bmatrix}\mathbf{e}_1+\Delta\mathbf{e}_1\\\mathbf{e}_2+\Delta\mathbf{e}_2\\\vdots\\\mathbf{e}_n+\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
 
-![fig8](dl/transformer/3-8.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ## Self-Attention과 Cross-Attention
