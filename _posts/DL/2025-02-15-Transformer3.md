@@ -12,67 +12,111 @@ author: sunho
 
 ## Attention
 
-앞선 포스트에서 언급했듯이, 단어 임베딩만으로는 각 단어의 문맥적 의미를 파악하지 못한다.
+이전 포스트에서 언급했듯이, 단어 임베딩만으로는 단어의 문맥적 의미를 파악할 수 없다. 이 문제를 해결하기 위해 도입한 것이 어텐션 메커니즘이다.
 
-attention block은 단어의 의미를 더 명확하게 하는 것뿐만 아니라 한 임베딩에 담긴 정보를 다른 임베딩으로 옮길 수 있게 도와준다.
+Attention은 각 단어의 의미를 더 정교하게 만드는 것뿐만 아니라, 하나의 임베딩이 다른 임베딩으로부터 필요한 정보를 선택적으로 받아들일 수 있도록 도와준다. 즉, 문맥에 따라 단어의 표현을 업데이트하는 역할을 한다.
 
-예를 들어, Tower라는 단어는 큰 건물이라는 일반적인 의미를 담고 있을 것이다. 하지만 그 앞에 Eiffel이라는 단어가 붙게 되면 Eiffel Tower라는 단어자체가 에펠탑과 관련된 방향으로 업데이트된다. 만약 앞에 Miniature라는 단어가 붙게 되면 이 벡터는 더이상 큰 의미와는 완전히 거리가 멀어지게 된다.
+예를 들어, 'Tower'라는 단어는 일반적으로 큰 건물을 의미한다. 하지만 그 앞에 'Eiffel'이라는 단어가 붙게 되면 'Eiffel Tower'라는 표현 자체가 '에펠탑'이라는 특정 대상을 나타내는 방향으로 업데이트된다.
+
+반대로 앞에 'Miniature'라는 단어가 붙게 되면, 해당 임베딩은 큰 건물의 의미와는 거리가 멀어지고 '작은 모형'의 의미 쪽으로 조정된다.
 
 ![fig1](dl/transformer/3-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-이해하기 쉽게, 형용사에 의해서 명사의 정보가 업데이트된다고 생각하면 된다.
+형용사에 의해서 명사의 의미가 좀 더 구체적으로 변한다고 생각하면 더 이해하기 쉬울 것이다.
+
+아래 그림에서 명사 'creature'의 임베딩 $E_4$가 형용사 'fluffy'와 'blue'의 임베딩 $E_2,E_3$에 의해서 푸르고 복슬복슬한 생명체를 나타내는 새로운 임베딩 $E_4'$로 변환된다.
 
 ![fig2](dl/transformer/3-2.png){: style="display:block; margin:0 auto; width:65%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-Attention 연산은 아래와 같이 정의된다.
+단어 임베딩을 행벡터로 볼 경우, Attention 연산은 아래와 같이 정의된다.
 
 $$
-\text{softmax}(\frac{QK^\top}{\sqrt d_k}V)
+\text{softmax}(\frac{QK^\top}{\sqrt d_k})V
 $$
 
-여기서 $Q$는 쿼리 (Query), $K$는 키 (Key), $V$는 밸류 (Value), $\sqrt{d_k}$는 의미한다.
+단어 임베딩을 열벡터로 볼 경우, Attention 연산은 아래와 같이 정의된다. (이 포스트에서는 이 경우에 대해서 정리하였다.)
+
+$$
+\text{softmax}(\frac{K^\top Q}{\sqrt d_k})V
+$$
+
+여기서 $Q$는 쿼리 (Query), $K$는 키 (Key), $V$는 밸류 (Value)를 의미한다. $\sqrt{d_k}$는 스케일링 계수로, 내적값이 지나치게 커지는 것을 방지한다.
 
 그럼 각각이 뭔지에 대해서 알아보자.
 
 ### 쿼리와 키 (Query, Key)
 
-먼저, Query와 Key는 각각 단어 임베딩에 Query 행렬 $W_Q\in\mathbb{R}^{e\times q}$, Key 행렬 $W_K\in\mathbb{R}^{e\times k}$을 곱해 만든다.
-
-$Q$와 $K$의 차원을 각각 $q$, $k$라고 했을 때, 일반적으로 임베딩 차원 $e$보다 훨씬 작게 설정한다.
+먼저, Query와 Key는 각각 단어 임베딩 $E$에 Query 행렬 $W_Q\in\mathbb{R}^{e\times q}$, Key 행렬 $W_K\in\mathbb{R}^{e\times k}$을 곱해 생성된다.
 
 $$
-Q=W_QE=\begin{bmatrix}|&&|\\Q_1&\cdots&Q_n\\|&&|\end{bmatrix}\in\mathbb{R}^q
+Q=W_QE=\begin{bmatrix}|&&|\\Q_1&\cdots&Q_n\\|&&|\end{bmatrix}\in\mathbb{R}^{q\times n}
 ~~,~~
-K=W_KE=\begin{bmatrix}|&&|\\K_1&\cdots&K_n\\|&&|\end{bmatrix}\in\mathbb{R}^k
+K=W_KE=\begin{bmatrix}|&&|\\K_1&\cdots&K_n\\|&&|\end{bmatrix}\in\mathbb{R}^{k\times n}
 $$
 
-Query와 Key 행렬은 학습 가능한 파라미터로 이루어져 있으며, 임베딩 공간에 있는 단어 토큰을 쿼리 공간으로 매핑시켜주는 역할을 한다.
+여기서 $n$은 입력 토큰 개수, $e$는 임베딩 차원, $q$와 $k$는 각각 Query와 Key의 차원을 의미한다. 일반적으로 $q,k<e$로 설정한다.
+
+Query와 Key 행렬은 모두 학습 가능한 파라미터로 이루어져 있으며, 임베딩 공간에 존재하는 단어 벡터를 쿼리 공간 (query space)과 키 공간 (key space)으로 매핑하는 역할을 한다.
 
 ![fig3](dl/transformer/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-Query는 질문을 하는 , Key는 질문에 대해 답을 찾는 도구로 볼 수 있다.
+직관적으로 보면, Query는 질문을 하는 도구, Key는 질문에 답을 제공하는 단서로 볼 수 있다.
 
-예를 들어, Query가 '나를 수식하는 형용사 어딨어?'하고 물어보면 Key는 '여기 있어요.'
+예를 들어, Query가 '나를 수식하는 형용사는 어디 있어?'라고 물어보면 Key는 '여기 있어요!' 또는 '저는 아니에요!'라고 답하는 셈이다.
 
-이를 내적으로 표현한다.
+이러한 과정은 내적 (dot product)을 통해 계산되며, 내적값이 클수록 두 단어가 서로 의미적으로 강하게 관련되어 있음을 의미한다.
 
-아래 그림에서 원의 크기는 내적값의 크기를 나타낸다. 보면 'fluffy'와 'blue'라는 형용사가 'creature'라는 명사와 관련이 있기 때문에 내적값이 큰 것을 확인할 수 있다. 이는 두 형용사가 'creature'에 집중하고 있다는 것을 나타낸다. 반대로 'the'라는 관사는 'creature'와 관련이 별로 없기 때문에 큰 음수값으로 나타나는 것을 확인할 수 있다.
+아래 그림에서 원의 크기는 내적값의 크기를 나타낸다. 'fluffy'와 'blue' 같은 형용사는 'creature'라는 명사와 의미적으로 연관되어 있어 큰 양수값을 갖는다. 이는 곧, 이 두 형용사가 'creature'에 더 집중하고 있다는 것을 의미한다. 반면, 'the'와 같은 관사는 'creature'와의 연관성이 낮아 내적값이 작거나 음수로 나타난다.
 
 ![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:80%;"}
+내적값을 통해 얻은 값은 실수 전체 범위를 가지기 때문에 음수나 매우 큰 양수 등이 섞여 있을 수 있다. 따라서 출력값을 정규화시키기 위해, 소프트맥스 함수를 이용하여 값들을 확률 분포 형태로 변환한다.
+
+이때 $K^\top Q$ 관점에서는 열 방향 (`axis=`)으로 소프트맥스 함수를 적용한다.
+
+![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+
+Query와 Key의 내적을 통해 생성된 행렬을 어텐션 맵 (Attention map)이라고 한다. Attention map은 문장 내에서 각 단어 쌍 간의 유사도 정보를 담고 있다.
+
+$$
+K^\top Q=
+\begin{bmatrix}
+K_1^\top Q_1&K_1^\top Q_2&\cdots&K_1^\top Q_n\\
+K_2^\top Q_1&K_2^\top Q_2&\cdots&K_2^\top Q_n\\
+\vdots&\vdots&\ddots&\vdots\\
+K_n^\top Q_1&K_n^\top Q_2&\cdots&K_n^\top Q_n
+\end{bmatrix}\in\mathbb{R}^{n\times n}
+$$
+
+Attention map의 크기는 입력 토큰의 개수 $n$의 제곱에 비례하므로,
+입력 길이가 길어질수록 연산량과 메모리 사용량이 빠르게 증가한다.
 
 ### 밸류 (Value)
 
 Value 역시 마찬가지로 각각 단어 임베딩에 Value 행렬 $W_V\in\mathbb{R}^{e\times v}$을 곱해 만든다.
+
+$$
+V=W_VE=\begin{bmatrix}|&&|\\V_1&\cdots&V_n\\|&&|\end{bmatrix}\in\mathbb{R}^q
+$$
+
+Value는 해당 단어를 실제 
+
+![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+
+![fig8](dl/transformer/3-8.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+
+![fig9](dl/transformer/3-9.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ## Self-Attention과 Cross-Attention
 
