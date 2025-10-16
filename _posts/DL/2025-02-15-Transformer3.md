@@ -10,7 +10,7 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [「*Attention in transformers, step-by-step*」](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7) 영상을 참고하였습니다.
 
-![fig0](dl/transformer/3-0.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig0](dl/transformer/3-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: Attention Is All you Need_
 
 ## Attention
@@ -70,7 +70,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 아래 그림은 단어 임베딩을 열벡터로 가정했기 때문에, $Q$와 $K$의 위치가 반대로 표현되어 있다.
 
-![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 Query와 Key의 내적을 통해 생성된 행렬을 어텐션 맵 (Attention map)이라고 한다. Attention map은 문장 내에서 각 단어 쌍 간의 유사도 정보를 담고 있다.
@@ -147,7 +147,7 @@ $$
 E'=E+\Delta E=\begin{bmatrix}\mathbf{e}_1+\Delta\mathbf{e}_1\\\mathbf{e}_2+\Delta\mathbf{e}_2\\\vdots\\\mathbf{e}_n+\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
 
-즉, 원래 단어 임베딩 $\mathbf{e}$에 Attention을 통해 얻은 변화량 $\Delta\mathbf{e}$를 더함으로써, 각 단어의 임베딩을 문맥적 의미를 반영한 새로운 임베딩으로 업데이트한다.
+이는 원래 단어 임베딩 $\mathbf{e}$에 attention을 통해 얻은 변화량 $\Delta\mathbf{e}$를 더함으로써, 각 단어의 임베딩을 문맥적 의미를 반영한 새로운 임베딩으로 업데이트하는 것이다.
 
 ![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
@@ -155,6 +155,8 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 ## Self-Attention과 Cross-Attention
 
 위에서 설명한 Attention 메커니즘은 Self-Attention이다. 이외에도 Cross-Attention이 있으며, 이 둘의 가장 큰 차이는 Query, Key, Value를 어디에서 가져오느냐이다.
+
+포스터 상단의 트랜스포머 구조에서 빨간색과 노란색 박스에서는 Self-Attention을, 초록색 박스에서는 Cross-Attention을 사용한다.
 
 ### Self-Attention
 
@@ -184,14 +186,14 @@ Masked Self-Attention은 기존 Self-Attention 구조에서 입력 시퀀스의 
 
 하나의 문장에서 여러 개의 학습 데이터를 생성할 수 있다. 예를 들어 'the fluffy blue creature roamed the verdant forest.'라는 문장이 있을 때, 모델이 'the' 다음에 올 단어를 예측하거나, 'the fluffy blue' 다음에 올 단어를 예측하도록 여러 단계의 학습 데이터를 만들 수 있다.
 
-![fig9](dl/transformer/3-9.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig9](dl/transformer/3-9.png){: style="display:block; margin:0 auto; width:55%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 하지만 이렇게 하려면 뒤쪽의 단어가 앞부분에 영향을 주지 않게 해야 한다. 만약 뒤쪽의 단어가 attention을 통해 앞 단어에 영향을 준다면, 모델이 정답을 미리 컨닝하는 문제가 발생하기 때문이다.
 
 따라서 Attention map에서 뒤쪽에 있는 토큰이 앞쪽에 있는 토큰에 영향을 주는 부분을 $0$으로 설정한다.
 
-![fig10](dl/transformer/3-10.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig10](dl/transformer/3-10.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 하지만 단순히 $0$으로 설정하면, 소프트맥스 함수를 적용했을 때 정규화 과정에 포함되어 완전히 무시되지 않는다. 따라서 소프트맥스 함수를 적용하기 전에 값을 $-\infty$로 설정하여, 소프트맥스 함수 적용 이후에 $0$이 되도록 한다.
@@ -209,7 +211,24 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 ## Multi-Head Attention
 
+Multi-Head Attention은 한 번의 Attention 연산 (Single-Head Attention)만으로는 문장 속 다양한 의미적 관계를 충분히 포착하기 어렵다는 한계를 해결하기 위해 고안된 구조이다.
 
+이 방식은 Attention 연산을 여러 개의 Head로 나누어 병렬적으로 수행함으로써, 모델이 문맥에 따라 단어의 의미가 어떻게 달라지는지를 여러 가지 관점에서 학습할 수 있도록 한다.
+
+예를 들어, 어떤 Head는 문장 내 문법적 관계를 학습하고, 다른 Head는 의미적 유사성이나 위치 관계를 학습할 수 있다.
+
+Head의 개수를 $H$로 설정하면, Head 하나의 차원은 $d_h=\frac{d}{H}$이다. 이때 $H$개의 Attention 연산을 병렬로 수행하며, 각 Head는 서로 다른 가중치 행렬 $W_Q^{(h)}, W_K^{(h)}, W_V^{(h)}$를 사용하여 서로 다른 표현 공간에서 정보를 추출한다.
+
+$$
+\Delta E^{(h)}=\text{Attention}(QW_Q^{(h)},KW_K^{(h)},VW_v^{(h)})\in\mathbb{R}^{n\times d_h}
+$$
+
+이후, 모든 Head에서 얻은 결과를 연결하여 원래의 임베딩에 더한다.
+
+$$
+E'=E+\text{Concat}\left(\Delta E^{(1)},\Delta E^{(2)},\Delta E^{(3)},\cdots\right)
+\in\mathbb{R}^{n\times(H\cdot d_h)}
+$$
 
 ![fig12](dl/transformer/3-12.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
