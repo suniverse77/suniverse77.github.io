@@ -104,10 +104,25 @@ Attention map의 크기는 입력 토큰의 개수 $n$의 제곱에 비례하므
 Value 역시 마찬가지로 각각 단어 임베딩에 Value 행렬 $W_V\in\mathbb{R}^{e\times v}$을 곱해 만든다.
 
 $$
-V=W_VE=\begin{bmatrix}|&&|\\V_1&\cdots&V_n\\|&&|\end{bmatrix}\in\mathbb{R}^q
+V=W_VE=\begin{bmatrix}&-V_1-&\\&\vdots&\\&-V_n-&\end{bmatrix}\in\mathbb{R}^{n\times v}
 $$
 
-Value는 해당 단어를 실제 
+Value 행렬도 학습 가능한 파라미터로 이루어져 있다.
+
+$$
+\left(K^\top Q\right)V=
+\begin{bmatrix}|&&|\\K^\top Q_1&\cdots&K^\top Q_n\\|&&|\end{bmatrix}
+\begin{bmatrix}&-V_1-&\\&\vdots&\\&-V_n-&\end{bmatrix}=
+\begin{bmatrix}
+|&&|\\
+\left(K^\top Q_1\right)V_1&\cdots&\left(K^\top Q_n\right)V_n\\
+|&&|
+\end{bmatrix}
+$$
+
+직관적으로 보면, Value는 해당 단어를 실제 
+
+만약 다른 임베딩이 현재 임베딩과 관련이 있다면 어떤 값을 더해줬을때 그 의미가 변하는지를 알려준다.
 
 ![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
