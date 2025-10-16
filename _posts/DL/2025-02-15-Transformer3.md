@@ -150,9 +150,29 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 ## Self-Attention과 Cross-Attention
 
+Attention 메커니즘에는 Self-Attention과 Cross-Attention이 있으며, 이 둘의 가장 큰 차이는 Query, Key, Value를 어디에서 가져오느냐이다.
 
+### Self-Attention
 
+Self-Attention은 $Q,K,V$를 모두 같은 입력에서 만든다.
 
+한 문장 내의 각 단어가 서로의 연관성을 보면서 문맥적 의미를 파악하는 구조이다.
+
+예를 들어, 
+
+![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처: 3Blue1Brown]](https://zzziito.tistory.com/56)_
+
+### Cross-Attention
+
+Cross-Attention은 $Q$는 하나의 입력, $K,V$는 다른 입력에서 만든다.
+
+서로 다른 두 입력 간의 관계를 학습하는 구조이다.
+
+예를 들어,
+
+![fig8](dl/transformer/3-8.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처: 3Blue1Brown]](https://zzziito.tistory.com/56)_
 
 ## Masked Self-Attention
 
