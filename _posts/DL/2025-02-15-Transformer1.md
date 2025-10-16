@@ -2,7 +2,7 @@
 title: "[트랜스포머] 트랜스포머 구조"
 date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, 딥러닝]
-tags: [CS231n]
+tags: [트랜스포머]
 math: true
 toc: true
 author: sunho

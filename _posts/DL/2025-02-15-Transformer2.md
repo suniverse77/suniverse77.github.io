@@ -2,13 +2,13 @@
 title: "[트랜스포머] 임베딩 (Embedding)"
 date: 2025-02-15 06:00:00 +/-TTTT
 categories: [AI, 딥러닝]
-tags: [CS231n]
+tags: [트랜스포머]
 math: true
 toc: true
 author: sunho
 ---
 
-해당 포스트는 3Blue1Brown님의 *Transformers, the tech behind LLMs* 영상을 참고하였습니다.
+해당 포스트는 3Blue1Brown님의 [「*Transformers, the tech behind LLMs*」](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
 
 ## 토큰화 (Tokenization)
 
@@ -36,7 +36,7 @@ $$
 
 만약 입력 문장에 사전에 없는 단어가 등장하면, 해당 단어는 UNK (unknown) 토큰으로 대체된다.
 
-## 임베딩 (Embedding)
+## 단어 임베딩 (Word Embedding)
 
 위와 같이 문장을 단어 단위로 분리한 뒤 각 단어를 숫자 벡터로 변환하는 과정을 임베딩이라고 하며, 이렇게 변환된 벡터를 단어 임베딩 (Word Embedding)이라고 부른다.
 
@@ -55,16 +55,25 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQO
 ![fig3](dl/transformer/2-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
-단어 임베딩은 아무렇게나 학습되는 것이 아니라, 각 단어마다 의미를 가지도록 학습된다.
+단어 임베딩은 아무렇게나 학습되는 것이 아니라, 각 단어의 의미를 반영하도록 학습된다.
 
-예를 들어, 아래 그림에서 남자 임베딩과 여자 임베딩의 차이 (노란색 벡터)는 왕 임베딩과 여왕 임베딩의 차이와 비슷할 것이다.
+예를 들어 아래 그림에서 '남자' 임베딩과 '여자' 임베딩의 차이 (노란색 벡터)는 '왕' 임베딩과 '여왕' 임베딩의 차이와 유사한 방향을 가진다.
 
-이 말은 우리가 여왕 임베딩에 대한 정보가 없을 때, 왕 임베딩에서 노란색 벡터를 더하면 여왕 임베딩을 얻을 수 있다는 말이 된다. 그리고 해당 공간에서 노란색 벡터의 방향은 성별에 대한 정보를 담고 있다고 볼 수 있다.
+이는 곧, 우리가 '여왕' 임베딩에 대한 정보가 없더라도, '왕' 임베딩에 노란색 벡터를 더함으로써 '여왕' 임베딩을 근사적으로 얻을 수 있다는 말이 된다.
+
+즉, 이 공간에서 노란색 벡터의 방향은 '성별'에 대한 의미적 정보를 담고 있다고 볼 수 있다.
 
 ![fig4](dl/transformer/2-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
-또 한가지 예로, 
+또 한가지 예로, 아래 그림에서 노란색 벡터의 방향은 '복수형'에 대한 의미적 정보를 담고 있다.
 
 ![fig5](dl/transformer/2-5.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
+
+실제로 확인해보면, $\overrightarrow{\text{plur}}$ 벡터와 복수형 단어 임베딩의 내적값이 단수형 단어 임베딩의 내적값보다 더 큰 것을 확인할 수 있을 것이다.
+
+$$
+\overrightarrow{\text{plur}}\cdot E(\text{dog})=-1.13~~,~~
+\overrightarrow{\text{plur}}\cdot E(\text{dogs})=3.40
+$$
