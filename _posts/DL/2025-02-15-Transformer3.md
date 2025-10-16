@@ -43,7 +43,7 @@ $$
 
 그럼 각각이 뭔지에 대해서 알아보자.
 
-### 쿼리와 키 (Query, Key)
+### Query & Key
 
 먼저, Query와 Key는 각각 단어 임베딩 $E$에 Query 행렬 $W_Q\in\mathbb{R}^{d_k\times q}$, Key 행렬 $W_K\in\mathbb{R}^{d_k\times k}$을 곱해 생성된다.
 
@@ -105,7 +105,7 @@ Attention map의 각 행은 해당 Query가 모든 Key들과 얼마나 유사한
 ![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
-### 밸류 (Value)
+### Value
 
 Value 역시 마찬가지로 각각 단어 임베딩에 Value 행렬 $W_V\in\mathbb{R}^{d\times d}$을 곱해 만든다.
 
@@ -115,10 +115,11 @@ $$
 
 Value 행렬도 학습 가능한 파라미터로 이루어져 있다.
 
-직관적으로 보면, Value는 해당 단어를 실제 만약 다른 임베딩이 현재 임베딩과 관련이 있다면 어떤 값을 더해줬을때 그 의미가 변하는지를 알려준다.
+직관적으로 보면, Value는 문장 내 다른 단어로부터 어떤 정보를 받아올지를 결정하는 벡터로 볼 수 있다.
 
-![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:90%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
+예를 들어, 'creature'에 해당하는 쿼리 벡터 $\mathbf{q}_4$는 형용사 'fluffy'와 'blue'와 의미적으로 연관성이 높기 때문에, 내적값 $\mathbf{q}_4\mathbf{k}_2^\top$와 $\mathbf{q}_4\mathbf{k}_3^\top$은 상대적으로 클 것이다.
+
+따라서 attention 결과 벡터 $\Delta\mathbf{e}_4$는 'fluffy'와 'blue'의 value 벡터 $\mathbf{v}_2$와 $\mathbf{v}_3$의 방향으로 더 큰 비중을 두어 결합된다. 이는 곧, 'creature'가 'fluffy'와 'blue' 단어의 정보를 받아와서 '파랗고 복슬복슬한 생명체'와 같은 문맥을 고려한 의미로 변환되는 것으로 볼 수 있다.
 
 $$
 \left(QK^\top\right)V=
@@ -132,27 +133,27 @@ $$
 =\begin{bmatrix}\Delta\mathbf{e}_1\\\vdots\\\Delta\mathbf{e}_4\\\vdots\\\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
 
-예를 들어, 'creature'에 해당하는 쿼리 벡터 $\mathbf{q}_4$는 형용사 'fluffy'와 'blue'와 의미적으로 연관성이 높기 때문에, 내적값 $\mathbf{q}_4\mathbf{k}_2^\top$와 $\mathbf{q}_4\mathbf{k}_3^\top$은 상대적으로 클 것이다.
+### Skip connection
 
-따라서 attention 결과 벡터 $\Delta\mathbf{e}_4$는 'fluffy'와 'blue'의 value 벡터 $\mathbf{v}_2$와 $\mathbf{v}_3$의 방향으로 더 큰 비중을 두어 결합된다. 이는 곧, '파랗고 복슬복슬한 생명체'와 같은 문맥적 의미를 반영하는 결과로 이어진다.
+포스터 상단의 트랜스포머 구조를 보면, `Add & Norm`이라는 블록이 존재한다.
 
-여기서 $K=K_1+K_2+\cdots+K_n$
+이는 [skip connection]과 [layer normalization]을 의미하며, 연산은 아래와 같다.
 
 $$
 E'=E+\Delta E=\begin{bmatrix}\mathbf{e}_1+\Delta\mathbf{e}_1\\\mathbf{e}_2+\Delta\mathbf{e}_2\\\vdots\\\mathbf{e}_n+\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
 
-![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:70%;"}
+즉, 원래 단어 임베딩 $\mathbf{e}$에 attention을 통해 얻은 변화량 $\Delta\mathbf{e}$를 더함으로써, 각 단어의 임베딩을 문맥적 의미를 반영한 새로운 임베딩으로 업데이트한다.
+
+![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ## Self-Attention과 Cross-Attention
 
 
 
-## Multi-Head Attention
-
 
 
 ## Masked Self-Attention
 
-
+## Multi-Head Attention
