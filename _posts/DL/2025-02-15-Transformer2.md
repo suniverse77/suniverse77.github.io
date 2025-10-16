@@ -15,13 +15,13 @@ author: sunho
 **단어 단위로 분리**
 
 $$
-\text{I love playing football.}\to\left[~\text{``I''},\text{ ``love''},\text{playing},\text{football},\text{.}~\right]
+\text{I love playing football.}\to\left[~\text{“I”},\"\text{ ``love''},\text{playing},\text{football},\text{.}~\right]
 $$
 
 **문자 단위로 분리**
 
 $$
-\text{I love playing football.}\to\left[~``\text{``I"},\text{``~"},\text{l},\text{o},\text{v},\cdots,\text{.}~\right]
+\text{I love playing football.}\to\left[~`'\text{'I'},\text{'~'},`\text{l}','\text{o}',\text{v},\cdots,\text{.}~\right]
 $$
 
 **서브워드 (subword) 단위로 분리**
@@ -36,7 +36,7 @@ $$
 
 ## 임베딩 (Embedding)
 
-분리된 각 단어를 벡터로 변환하며, 이 과정을 임베딩이라고 한다.
+분리된 각 단어를 벡터로 변환하며, 이 과정을 임베딩이라고 한다. 이렇게 변환된 벡터를 단어 임베딩 (Word Embedding)이라고 부른다.
 
 ![fig1](dl/transformer/2-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
