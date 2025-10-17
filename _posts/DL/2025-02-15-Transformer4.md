@@ -10,17 +10,20 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [「*How might LLMs store facts*」](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8) 영상을 참고하였습니다.
 
-![fig0](dl/transformer/4-0.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig0](dl/transformer/4-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: Attention Is All you Need_
 
-## Feed-Forward Network
+## Feed-Forward Network (FFN)
 
 Feed-Forward Network는 크게 Up-projection, Activation, Down-projection으로 이루어져 있다.
 
 ![fig1](dl/transformer/4-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
-각 벡터는 서로 대화하지 않고 독립적으로 작동한다. 독립적으로 동작한다는 것은 벡터마다 가중치 행렬이 따로 존재한다는 것이 아니라, 단어가 서로 대화하지 않는다는 뜻이다. 가중치 행렬은 모든 벡터가 공유한다.
+이 구조는 Attention layer를 통과한 각 입력 벡터 $\mathbf{e}_i$에 대해 독립적으로 적용된다.
+
+여기서 독립적으로 동작한다는 것은 각 단어 벡터가 서로 정보를 주고받지 않는다는 의미이지, 벡터마다 다른 가중치 행렬을 사용한다는 뜻이 아니다.
+즉, 모든 임베딩 벡터는 동일한 가중치 행렬 $W_{\uparrow},W_{\downarrow}$를 공유하며, 각 벡터는 별도로 FFN을 통과한다.
 
 ![fig2](dl/transformer/4-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
@@ -65,21 +68,19 @@ $$
 
 여기서 가중치 행렬 $W_{\downarrow}$의 크기는 $d_u\times d$이다.
 
-이 과정을 열 벡터의 선형 결합으로 해석할 수 있으며, 각 열 벡터 $\mathbf{w}_j$는 “뉴런 
-𝑗
-j”의 활성값 
-𝑦
-𝑗
-y
-j
+이 연산은 열 벡터의 선형 결합으로 해석할 수 있다.
 
-따라서, 활성값이 큰 뉴런은 출력 벡터에 더 큰 영향을 미치게 된다.
+각 열 벡터 $\mathbf{w}_j$는 $j$번째 뉴런과 대응되며, 그 활성값 $y_j$가 클수록 해당 방향의 벡터가 최종 출력 $\mathbf{z}_k$에 더 큰 영향을 미친다.
 
-예를 들어, 모델이 첫 번째 열 벡터를 농구 방향으로 만드는 법을 배웠다고 가정해보자. 만약 첫 번째 위치에 대한 뉴런이 활성화되면 이 열을 최종 결과에 추가한다는 뜻이다.
+이를 up-projection과 함께 생각해보자.
 
-즉, 해당 뉴런이 활성화되면 최종 결과에 무엇이 추가될지를 알려준다.
+예를 들어, 입력 벡터 $\mathbf{e}$가 'Michael Jordan’의 정보를 담고 있다고 하자. $W_{\uparrow}$의 첫 번째 행이 '농구 선수인가요?'라는 질문을 반영하고 있다면, 그에 대한 내적값 $y_1$ 값은 크게 나타날 것이다.
 
-![fig3](dl/transformer/4-3.png){: style="display:block; margin:0 auto; width:70%;"}
+이때 모델이 $W_{\downarrow}$의 첫 번째 열 벡터를 농구 개념과 관련된 방향으로 학습했다면, $y_1$ 값이 크기 때문에 해당 방향이 출력 벡터 $\mathbf{z}$에 많이 반영될 것이다.
+
+결과적으로 얻어진 벡터 $\mathbf{z}$는 원래 임베딩 $\mathbf{e}$에 더해지면서, 해당 단어의 표현을 '농구'라는 의미 방향으로 이동시키게 된다.
+
+![fig3](dl/transformer/4-3.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 예측 (Prediction)
@@ -100,13 +101,24 @@ $$
 \text{softmax}\left(W_O\mathbf{z}\right)\in\mathbb{R}^{V}
 $$
 
+![fig4](dl/transformer/4-4.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+
 ### Temperature
 
+MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
 
+![fig5](dl/transformer/4-5.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+
+MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+
+![fig6](dl/transformer/4-6.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
 MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
 
-![fig4](dl/transformer/4-4.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig7](dl/transformer/4-7.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
