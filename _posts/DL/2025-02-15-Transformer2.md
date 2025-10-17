@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-해당 포스트는 3Blue1Brown님의 ['*Transformers, the tech behind LLMs*'](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
+해당 포스트는 3Blue1Brown님의 [*'Transformers, the tech behind LLMs'*](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
 
 ![fig0](dl/transformer/2-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
@@ -89,18 +89,23 @@ $$
 
 ## 위치 인코딩 (Positional Encoding)
 
-Attention과 이런 블록들은 단순 점곱으로 이루어져있으며 위치에 대한 정보를 간과할 수 있다.
+트랜스포머의 Attention과 Feed-Forward 블록은 모두 순서 개념이 없는 dot product 연산으로 구성되어 있다.
+따라서 모델은 입력 토큰의 위치 정보를 스스로 인식할 수 없으며, 단어의 순서를 고려하지 않고 처리하게 되는 문제가 발생한다.
 
-각 토큰의 실제 위치를 고려하지 않는다. 
+이를 해결하기 위해, 각 토큰의 위치를 벡터 형태로 인코딩하여 입력 임베딩에 더해주는 방식을 사용한다.
+이 벡터를 위치 인코딩 (Positional Encoding)이라고 한다.
 
-1. 각각의 고유한 위치는 고유한 값을 가져야됨
-2. 위치값을 제어하는 기본 법칙이 있어야됨
-3. 토큰간 거리를 추정하는 능력
-4. 학습때 사용한 문장보다 더 긴 시퀀스를 발견하더라도 일반화할 수 있어야 함
+위치 인코딩이 갖춰야 할 조건은 아래와 같다.
 
-먼저 정의에 대해서 살펴보고 왜 이렇게 하는지 알아보자.
+- 모든 위치는 각각 고유한 값을 가져야 한다.
+- 위치 간의 관계를 표현하는 일정한 규칙이 존재해야 한다.
+- 두 위치 간의 거리를 추정할 수 있어야 한다.
+- 학습 시 본 적 없는 더 긴 문장에 대해서도 일반화가 가능해야 한다.
 
-위치 인코딩 (Sinusoidal Positional Encoding)은 아래와 같이 정의된다.
+이러한 요구를 만족하기 위해, 트랜스포머에서는 $\sin$ 함수와 $\cos$ 함수를 이용한
+Sinusoidal Positional Encoding을 사용한다.
+
+먼저 정의에 대해서 살펴보고 왜 이렇게 하는지 알아보자. Sinusoidal Positional Encoding은 아래와 같이 정의된다.
 
 $$
 PE(pos,2i)=\sin\left(\frac{pos}{10000^{2i/d}}\right)
@@ -110,18 +115,18 @@ $$
 PE(pos,2i+1)=\cos\left(\frac{pos}{10000^{2i/d}}\right)
 $$
 
-여기서 $d$는 고정된 임베딩 차원, $pos$는 토큰의 인덱스 $i$는 임베딩 차원의 인덱스를 의미한다.
+여기서 $d$는 고정된 임베딩 차원, $pos$는 토큰의 위치 인덱스 $i$는 임베딩 차원의 인덱스를 의미한다.
 
-차원 인덱스가 낮을수록 (앞쪽 차원일수록) 낮은 주파수의 함수를, 인덱스가 높을수록 (뒤쪽 차원일수록) 높은 주파수의 함수를 가진다.
+차원 인덱스가 낮을수록 (앞쪽 차원일수록) 낮은 주파수를, 인덱스가 높을수록 (뒤쪽 차원일수록) 높은 주파수를 사용한다.
 
-![fig6](dl/transformer/2-6.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig6](dl/transformer/2-6.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처: BrainDrain]](https://www.youtube.com/watch?v=T3OT8kqoqjc)_
 
-아래 그림에서 position을 $x$축, depth를 $y$축으로 보면, depth가 깊어질수록 주기가 길어지는 것을 확인할 수 있다.
+아래 그림에서 position을 $x$축, depth를 $y$축으로 볼 수 있으며, depth가 깊어질수록 주기가 길어지는 것을 확인할 수 있다.
 
 ![fig7](dl/transformer/2-7.png){: style="display:block; margin:0 auto; width:70%;"}
 
-예를 들어 임베딩 차원이 $d=8$이라면, 첫 번째 단어 $(pos=0)$와 두 번째 단어 $(pos=1)$의 아래와 같다.
+예를 들어 임베딩 차원이 $d=8$이라면, 첫 번째 단어 $(pos=0)$와 두 번째 단어 $(pos=1)$의 위치 인코딩은 아래와 같다.
 
 $$
 \mathbf{p}_0=
@@ -157,17 +162,19 @@ $$
 \end{bmatrix}\in\mathbb{R}^d
 $$
 
-최종적으로 더해서 임베딩 벡터를 만든다.
+최종 입력 벡터는 원래의 단어 임베딩 $\mathbf{e}_i$에 위치 인코딩 $\mathbf{p}_i$를 더하여 만든다.
 
 $$
 \mathbf{e}_i'=\mathbf{e}_i+\mathbf{p}_i
 $$
 
-concat하면 비용이 늘어나므로 단순히 더함
+Concat을 사용할 경우 차원이 불필요하게 증가하기 때문에 덧셈으로 처리한다.
 
-모델이 학습중 위치 정보를 추출하는 방법에 대한 직관을 개발할 것임
+덧셈을 통해 각 차원의 위치 신호가 단어 임베딩의 의미 공간에 자연스럽게 섞이게 되며, 모델은 학습 과정에서 이 패턴을 이용해 위치 관계를 유추하는 직관을 형성한다.
 
 ### 직관적 이해
+
+각 단어 임베딩의 차원이 $d=2$라고 가정하자.
 
 
 
