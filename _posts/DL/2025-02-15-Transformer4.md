@@ -87,38 +87,44 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQO
 
 최종 예측은 마지막 토큰의 벡터만 사용하여 수행한다.
 
-트랜스포머 모델의 목표는 주어진 문맥 다음에 올 **'바로 그 다음 단어'**를 예측하는 것입니다.
+모델의 마지막 layer에서 각 토큰의 벡터는 단순히 해당 단어의 의미만 담는 것이 아니라, 문장 전체의 문맥 정보를 응축하여 담고 있다.
 
-문맥의 집약체: 모델의 마지막 레이어에 있는 각 토큰의 벡터는 그 자체의 의미뿐만 아니라, 어텐션 메커니즘을 통해 문장 전체의 문맥 정보를 흡수한 결과물입니다.
+특히 마지막 토큰의 벡터는 '다음에 어떤 단어가 와야 할까'라는 질문에 대한 정보를 압축하고 있으며, 한 마디로 전체 문맥을 반영한 상태에서 다음 단어를 예측하기 위한 최종 표현이라 할 수 있다.
 
-최종 정보: 특히 마지막 토큰의 벡터는 문장 전체("Michael Jordan plays the sport of")를 모두 고려한 후, "이제 다음에 뭐가 와야 할까?"에 대한 모든 정보를 압축하여 담고 있는 최종 결과물입니다.
+이 벡터는 출력 가중치 행렬 $W_O\in\mathbb{R}^{V\times d}$를 통해
+Vocabulary에 존재하는 단어 개수인 $V$에 해당하는 차원으로 확장된다.
 
-마지막 layer의 벡터를 사전 크기의 벡터로 확장한다.
-
-이후 소프트맥스 함수를 적용해 각 단어에 대한 확률 분포로 변환한다. 이후 이 확률 분포에서 가장 높은 확률을 가진 단어(예: "basketball")가 최종 예측 결과로 선택됩니다.
+이후 소프트맥스 함수를 적용해 각 단어에 대한 확률 분포로 변환한다.
 
 $$
 \text{softmax}\left(W_O\mathbf{z}\right)\in\mathbb{R}^{V}
 $$
+
+이 확률 분포에서 가장 높은 확률을 가진 단어가 최종 예측 결과로 선택된다.
 
 ![fig4](dl/transformer/4-4.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ### Temperature
 
-MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+온도 (Temperature)는 소프트맥스로 변환된 확률 분포의 완만함을 결정하는 하이퍼파라미터이다.
 
-![fig5](dl/transformer/4-5.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+아래 수식에서 $T$가 temperature에 해당한다.
 
-MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+$$
+\text{softmax}=\frac{\exp\left(\frac{x_i}{T}\right)}{\sum_j\exp\left(\frac{x_j}{T}\right)}
+$$
 
-![fig6](dl/transformer/4-6.png){: style="display:block; margin:0 auto; width:70%;"}
+$T$가 작을수록 $\frac{x_i}{T}$ 값의 차이가 커지므로, 가장 큰 logit이 압도적으로 커지게 된다. 즉, 확률 분포가 날카로워진다.
+
+$T$가 클수록 $\frac{x_i}{T}$ 값의 차이가 완화되므로, 확률 분포가 완만해진다. 이 경우, 모델은 더 다양한 단어를 샘플링할 가능성이 높아져 창의적인 결과가 나오게 된다.
+
+![fig5](dl/transformer/4-5.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
-MLP는 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+FFN은 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
 
-![fig7](dl/transformer/4-7.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig6](dl/transformer/4-6.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
