@@ -1,5 +1,5 @@
 ---
-title: "[트랜스포머] 트랜스포머의 구조 (4) - Feed Forward Network"
+title: "[트랜스포머] 트랜스포머의 구조 4 - Feed Forward Network"
 date: 2025-02-15 18:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [트랜스포머]
@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-해당 포스트는 3Blue1Brown님의 [「*How might LLMs store facts*」](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8) 영상을 참고하였습니다.
+해당 포스트는 3Blue1Brown님의 ['*How might LLMs store facts*'](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8) 영상을 참고하였습니다.
 
 ![fig0](dl/transformer/4-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
