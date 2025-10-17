@@ -176,10 +176,19 @@ Concat을 사용할 경우 차원이 불필요하게 증가하기 때문에 덧�
 
 각 단어 임베딩의 차원이 $d=2$라고 가정하자.
 
+이때 임베딩 벡터의 두 차원을 각각 $x$축과 $y$축의 좌표로 볼 수 있다.
 
+$$
+\mathbf{p}_t=
+\begin{bmatrix}\sin\left(\frac{t}{10000^i}\right)\\\cos\left(\frac{t}{10000^i}\right)\end{bmatrix}=\begin{bmatrix}y\\x\end{bmatrix}
+$$
+
+위치 $t$가 증가함에 따라 벡터의 방향이 점진적으로 회전한다. 즉, 각 위치 벡터는 서로 다른 위상을 갖게 되며, 결과적으로 모든 단어가 2차원 평면에서 고유한 방향을 가지게 된다.
 
 ![fig8](dl/transformer/2-8.gif){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_
+
+이제 $d=6$으로 확장하면, 각 벡터는 6차원 공간에서 각각 고유한 방향을 가리킬 것이다.
 
 ![fig9](dl/transformer/2-9.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_
