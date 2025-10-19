@@ -77,7 +77,7 @@ Query와 Key의 내적을 통해 생성된 행렬을 어텐션 맵 (Attention ma
 
 $$
 QK^\top=
-\begin{bmatrix}
+\begin{bmatrix}\vphantom{\Big(}
 \mathbf{q}_1\mathbf{k}_1^\top&\mathbf{q}_1\mathbf{k}_2^\top&\cdots&\mathbf{q}_1\mathbf{k}_n^\top\\
 \mathbf{q}_2\mathbf{k}_1^\top&\mathbf{q}_2\mathbf{k}_2^\top&\cdots&\mathbf{q}_2\mathbf{k}_n^\top\\
 \vdots&\vdots&\ddots&\vdots\\
