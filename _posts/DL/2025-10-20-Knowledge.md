@@ -49,7 +49,7 @@ Student 모델이 결과뿐만 아니라 중간 과정까지 배우도록 하는
 
 ## 학습 방식에 따른 분류
 
-![fig2](dl/lightweight/1-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](dl/lightweight/1-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://www.britannica.com/technology/knowledge-distillation)_
 
 ### 오프라인 증류 (Offline Distillation)
