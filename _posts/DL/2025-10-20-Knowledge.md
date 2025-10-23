@@ -22,7 +22,7 @@ author: sunho
 
 ## 지식 전달 방식에 따른 분류
 
-![fig1](dl/lightweight/2-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](dl/lightweight/1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.researchgate.net/figure/a-The-generic-response-based-knowledge-distillation-b-The-generic-feature-based_fig3_369207253)_
 
 ### 응답 기반의 지식 증류 (Response-based KD)
@@ -49,9 +49,25 @@ Student 모델이 결과뿐만 아니라 중간 과정까지 배우도록 하는
 
 ## 학습 방식에 따른 분류
 
+![fig2](dl/lightweight/1-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://www.britannica.com/technology/knowledge-distillation)_
+
 ### 오프라인 증류 (Offline Distillation)
 
+Offline Distillation은 먼저 Teacher 모델을 학습시킨 후, Student 모델을 학습시키는 방법이다.
 
+학습이 완료된 Teacher 모델을 고정시킨 후, Student 모델이 Teacher 모델을 따라가도록 학습된다.
 
 ### 온라인 증류 (Online Distillation)
 
+Online Distillation은 Teacher 모델과 Student 모델이 동시에 학습하는 방법이다.
+
+학습의 매 단계마다, 아직 학습 중인 Teacher 모델이 자신의 현재 지식을 Student 모델에게 실시간으로 전달한다.
+
+### 자기 증류 (Self Distillation)
+
+Self Distillation은 하나의 모델 내에서 깊은 layer가 얕은 layer를, 또는 이전 epoch의 결과가 현재 epoch을 가르치는 방법이다. 
+
+즉, 깊은 layer 또는 이전 epoch에 학습된 네트워크가 Teacher 모델, 얕은 layer 또는 현재 epoch에 학습 중인 네트워크가 Student 모델의 역할을 한다.
+
+Teacher 모델이 필요없고, 예측의 일관성을 갖도록 강제한다는 점에서 장점이 존재한다.
