@@ -40,7 +40,7 @@ Dropout에서 사용되는 하이퍼파라미터 $p$는 뉴런이 제거될 확�
 
 매번 다른 뉴런이 꺼지기 때문에 일종의 앙상블 학습 효과를 낸다.
 
-![fig1](nn/3-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](dl/nn/3-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### 추론 단계에서의 Dropout
@@ -78,7 +78,7 @@ $$
 
 ## Normalization
 
-![fig2](nn/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](dl/nn/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization
