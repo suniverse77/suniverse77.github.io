@@ -1,7 +1,7 @@
 ---
-title: "[생성 모델] 확산 모델 (Diffusion Model)"
+title: "확산 모델 (Diffusion Model)"
 date: 2025-10-05 00:00:00 +/-TTTT
-categories: [AI, 딥러닝]
+categories: [AI, 생성 모델]
 tags: [생성 모델]
 math: true
 toc: true
