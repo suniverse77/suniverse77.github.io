@@ -10,8 +10,6 @@ author: sunho
 
 ## CNN에서의 Normalization
 
-Normalization은 데이터의 크기와 분포를 일정한 범위로 조정하는 task를 의미한다.
-
 ![fig1](cs231n/06-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 보통 normalization을 설명할 때 위의 그림을 자주 사용한다. 
