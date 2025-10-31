@@ -49,6 +49,8 @@ $$
 
 또한 모델이 학습 데이터의 '눈' 특징에 섞인 노이즈까지 증폭해서 학습하게 되면, 오버피팅으로 이어지게 된다.
 
+---
+
 </div>
 </details>
 
@@ -66,7 +68,7 @@ $$
 
 모델의 복잡도를 낮추고, 불필요한 특징이 많은 고차원 데이터에서 유용합니다.
 
-![fig1](ml/regular/1-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](ml/regular/1-1.png){: style="display:block; margin:0 auto; width:50%;"}
 
 ## L2 Regularization (Ridge)
 
@@ -79,3 +81,5 @@ $$
 2 정규화는 가중치를 0으로 만들기보다는, 전체적인 가중치 값을 0에 가깝게 작게 유지하도록 유도합니다. 가중치가 0이 되는 경우는 거의 없습니다.
 
 모델의 모든 특징을 사용하는 경향이 있으며, 가중치 값을 부드럽게(smooth) 분포시켜 일반화 성능을 높입니다. 가장 널리 사용되는 정규화 기법 중 하나입니다.
+
+![fig2](ml/regular/1-2.png){: style="display:block; margin:0 auto; width:50%;"}
