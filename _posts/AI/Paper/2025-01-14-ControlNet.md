@@ -1,8 +1,8 @@
 ---
 title: "[논문리뷰] Adding Conditional Control to Text-to-Image Diffusion Models"
-date: 2025-04-05 00:00:00 +/-TTTT
-categories: [논문리뷰, Multimodal]
-tags: [Diffusion, Image Generation]
+date: 2025-01-14 00:00:00 +/-TTTT
+categories: [AI, 논문리뷰]
+tags: [Multimodal, Diffusion, Image Generation]
 math: true
 toc: true
 author: sunho
