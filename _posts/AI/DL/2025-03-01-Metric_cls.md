@@ -75,6 +75,8 @@ $$
 
 암 진단 모델은 실제 암 환자 (**Positive**)를 정상 (**Negative**)으로 진단하면 안된다. 만약, 암 환자를 정상으로 진단한다면 $\text{FN}$이 증가하게 된다.
 
+간략하게, <span style="background-color:#FFE6E6">Precision은 얼마나 정확하게 예측하는지</span>, <span style="background-color:#C0FFFF">Recall은 얼마나 빠짐없이 찾아내는지</span>를 측정하는 지표이다.
+
 ### F1 Score
 
 F1 Score는 Precision과 Recall의 조화 평균이다.
