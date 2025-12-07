@@ -48,17 +48,29 @@ Classification에서는 이미지 단위로 계산한다.
 - 실제 클래스가 A가 아닌데, 모델이 다른 클래스로 예측한 경우 → **TN**
 - 실제 클래스가 A가 아닌데, 모델이 A로 예측한 경우 → **FP**
 
-![fig2](dl/metric/1-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](dl/metric/1-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://devopedia.org/confusion-matrix)_
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig3](dl/metric/1-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](dl/metric/1-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-matrix-f23c214a65d2)_
 
+클래스 A 기준 아래와 같이 계산할 수 있다.
 
+- **TP** = 50
+- **FN** = 10 + 0 = 10
+- **TN** = 80 + 70 + 15 + 10 = 175
+- **FP** = 5 + 2 = 7
+
+클래스 B 기준 아래와 같이 계산할 수 있다.
+
+- **TP** = 80
+- **FN** = 5 + 15 = 20
+- **TN** = 50 + 70 + 0 + 2 = 122
+- **FP** = 10 + 10 = 20
 
 ---
 
@@ -87,21 +99,20 @@ Object Detection에서는 Bounding Box 단위로 계산한다.
 
 - 해당 위치에 실제 객체 A가 존재하는데, ①, ②번 모두 만족한 경우
 
-**FN**
+**FN** → 놓친 경우
 
 - 해당 위치에 실제 객체 A가 존재하는데, 모델이 B로 예측한 경우
 - 해당 위치에 실제 객체 A가 존재하는데, 객체가 없다고 예측한 경우
+- 해당 위치에 실제 객체 A가 존재하고 ①번을 만족했지만, ②번을 만족하지 못한 경우
 
-**TN**
+**FP** → 오검출한 경우
 
-- 해당 위치에 실제 객체 B가 존재하는데, 모델이 B로 예측한 경우
-- 해당 위치가 배경인데, 객체가 없다고 예측한 경우
-
-**FP**
-
-- 해당 위치에 실제 객체 B가 존재하는데, 모델이 A로 예측한 경우
 - 해당 위치가 배경인데, 모델이 A로 예측한 경우
-- 해당 위치에 실제 객체 A가 존재하는데, ②번을 만족하지 못한 경우
+- 해당 위치에 실제 객체 B가 존재하는데, 모델이 A로 예측한 경우
+- 해당 위치에 실제 객체 A가 존재하고 ①번을 만족했지만, ②번을 만족하지 못한 경우
+- 중복 검출한 경우
+
+객체 탐지에서는 배경 영역은 매우 많기 때문에 **TN**은 계산하지 않는다.
 
 ## 혼동행렬 기반 성능 지표
 
