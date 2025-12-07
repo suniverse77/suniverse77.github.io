@@ -1,6 +1,6 @@
 ---
 title: "[평가지표] 생성 모델 성능 평가"
-date: 2025-03-01 12:00:00 +/-TTTT
+date: 2025-03-01 18:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [3D Vision]
 math: true
