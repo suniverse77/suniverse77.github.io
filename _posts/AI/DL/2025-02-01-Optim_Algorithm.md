@@ -1,61 +1,12 @@
 ---
-title: "[NN] 경사하강법 (Gradient Descent)"
-date: 2025-02-01 06:00:00 +/-TTTT
+title: "[NN] 최적화 기법"
+date: 2025-02-01 12:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [신경망]
 math: true
 toc: true
 author: sunho
 ---
-
-## 경사 하강법 (Gradient Descent)
-
-앞서, 모델은 학습을 통해 가중치를 업데이트한다고 했다. 그럼 어떤 기준과 방법으로 파라미터들을 업데이트할까?
-
-모델이 파라미터를 업데이트하는 기준은 손실 함수 $\mathcal{L}$의 값을 최소화하는 것이며, 이를 위해 그라디언트 정보를 이용한다.
-
-기본적인 업데이트 수식은 아래와 같다.
-
-$$
-w_{new}\leftarrow w_{old}-\alpha\nabla_w\mathcal{L}
-$$
-
-위의 수식에서 $\alpha$는 학습률 (Learning Rate)로, 한 번에 얼마나 이동할지인 보폭을 의미한다.
-
-그라디언트는 함수값이 증가하는 방향을 가리키는데, 우리는 손실을 줄여야 하므로 빼기 연산을 하여 업데이트한다.
-
-아래 그림에서 볼 수 있듯이 손실 함수의 최소값을 찾기 위해 그라디언트를 이용해 경사를 따라 내려가듯 가중치를 업데이트하며, 이 알고리즘을 경사 하강법이라고 부른다.
-
-![fig1](dl/nn/2-1.png){: style="display:block; margin:0 auto; width:100%;"}
-_[[출처]](https://blog.ex-em.com/1750)_
-
-### Gradient 계산 방법
-
-컴퓨터가 그라디언트를 계산하는 방법에는 크게 두 가지가 있다.
-
-#### Numerical gradient
-
-미분의 수학적 정의를 이용해 그라디언트의 근사치를 계산하는 방법이다.
-
-$$
-\frac{df(x)}{dx}=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}
-$$
-
-$h$가 완전한 0이 아니므로 근사치이며, 가중치 하나하나에 대해 두 가지 함수 $f(x+h)$, $f(x)$를 호출해야 하므로 매우 느리다.
-
-하지만 수식이 직관적이기 때문에 코드로 구현하기는 쉽다.
-
-#### Analytic gradient
-
-미적분학을 이용해 그라디언트를 계산하는 공식을 유도하여 구현하는 방법이다.
-
-$$
-f(x)=2x^3 ~\to~f'(x)=6x^2
-$$
-
-수학 공식을 직접 사용하기 때문에 오차가 없고, 한 번의 계산으로 모든 가중치에 대한 그라디언트를 얻을 수 있기 때문에 매우 빠르다.
-
-하지만 복잡한 모델의 그라디언트 공식을 유도하고 코드로 구현하는 것이 어렵다.
 
 ## 최적화 기법
 
@@ -73,7 +24,7 @@ SGD에는 몇 가지 문제점이 존재한다.
     
     손실 함수가 어떤 방향에서는 가파르고 다른 방향에서는 완만할 수가 있다. 이런 경우에 Gradient Descent는 경사를 따라 지그재그로 움직이며 진동하면서 천천히 수렴하게 된다.
     
-    ![fig2](dl/nn/2-2.png){: style="display:block; margin:0 auto; width:80%;"}
+    ![fig1](dl/nn/3-1.png){: style="display:block; margin:0 auto; width:80%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
     
     행렬의 condition number는 가장 큰 singular value와 가장 작은 singular value의 비율을 의미한다.
@@ -84,14 +35,14 @@ SGD에는 몇 가지 문제점이 존재한다.
 
     손실 함수의 지형에는 여러 개의 local minima와 saddle point가 존재한다. 특히 고차원 고차원 공간에서는 local minima보다 saddle point가 더 흔하며, Saddle point에서는 gradient가 0에 가까워져 학습이 정체될 수 있다.
     
-    ![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:70%;"}
+    ![fig2](dl/nn/3-2.png){: style="display:block; margin:0 auto; width:70%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
     
 3. Stochasticity
     
     미니배치를 사용하기 때문에 loss 값이 매 스텝마다 심하게 흔들릴 수 있다.
     
-    ![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:30%;"}
+    ![fig3](dl/nn/3-3.png){: style="display:block; margin:0 auto; width:30%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
 
 ### SGD + Momentum
