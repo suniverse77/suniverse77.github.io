@@ -1,6 +1,6 @@
 ---
 title: "[NN] 신경망에서의 Regularization과 Normalization"
-date: 2025-02-01 12:00:00 +/-TTTT
+date: 2025-02-02 00:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [CS231n]
 math: true
