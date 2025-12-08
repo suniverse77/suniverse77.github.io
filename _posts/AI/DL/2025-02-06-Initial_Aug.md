@@ -1,5 +1,5 @@
 ---
-title: "[CNN] CNN에서의 데이터 정규화"
+title: "[CNN] 가중치 초기화와 데이터 증강"
 date: 2025-02-06 00:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 tags: [CS231n]
@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-## Weight Initialization
+## 가중치 초기화 (Weight Initialization)
 
 가중치를 초기화하는 여러 가지 시도가 있었다.
 
@@ -41,7 +41,8 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
 
 입력과 가중치의 평균이 0이므로, 출력의 평균도 0이 된다. 하지만 ReLU 함수는 음수 영역을 제거하기 때문에 출력의 평균은 양수의 어떤 값이 된다. 하지만 출력의 분산이 작다는 것은 결국 0 근처에 모여있다는 뜻이기 때문에 평균 또한 0으로 수렴하게 된다. 
 
-![fig19](cs231n/06-19.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](dl/cnn/4-1.png){: style="display:block; margin:0 auto; width:100%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 시각화를 한 결과, 가중치의 평균과 표준편차가 점점 작아져 0에 수렴하는 것을 볼 수 있다.
 
@@ -68,7 +69,8 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
 
 위에서 말했듯이 ReLU 함수는 음수 영역을 제거하기 때문에 출력의 평균은 양수의 어떤 값이 되며, 분산이 크기 때문에 평균이 점점 큰 양수쪽으로 움직이게 된다.
 
-![fig20](cs231n/06-20.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig2](dl/cnn/4-2.png){: style="display:block; margin:0 auto; width:100%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 시각화를 한 결과, 가중치의 평균과 표준편차가 점점 커져 발산하는 것을 볼 수 있다.
 
@@ -94,25 +96,17 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
     hs.append(x)
 ```
 
-![fig21](cs231n/06-21.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](dl/cnn/4-3.png){: style="display:block; margin:0 auto; width:100%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 시각화를 한 결과, layer를 거쳐도 가중치의 평균과 표준편차가 유지되는 것을 볼 수 있다.
 
-# How to train CNNs?
-
-## Data Preprocessing for Image
-
-이미지에 대한 전처리는 매우 간단하다.
-
-각 RGB 채널의 평균과 표준편차를 계산해 normalizaiton을 수행하면 된다.
-
-특정 데이터셋에서 미리 계산된 값을 이용할 수도 있다. 가장 일반적인 것은 ImageNet의 평균과 표준편차를 이용하는 것이다.
-
-## Data Augmentation
+## 데이터 증강 (Data Augmentation)
 
 데이터 세트의 크기를 증가시키는 것으로, 오버피팅을 방지할 수 있다.
 
-![fig22](cs231n/06-22.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](dl/cnn/4-4.png){: style="display:block; margin:0 auto; width:100%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 데이터를 증강하는 방법에는 여러 가지가 있다.
 
@@ -120,7 +114,8 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
 
 이미지를 수평으로 뒤집는 방법이다.
 
-![fig23](cs231n/06-23.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](dl/cnn/4-5.png){: style="display:block; margin:0 auto; width:60%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Random crops and scales
 
@@ -134,16 +129,19 @@ for Din, Dout in zip(dims[:-1], dims[1:]):
 
 이 방법을 통해서 모델은 고양이의 얼굴만 크게 확대된 이미지, 몸통 일부만 보이는 이미지 등 다양한 상황을 학습할 수 있다.
 
-![fig24](cs231n/06-24.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig6](dl/cnn/4-6.png){: style="display:block; margin:0 auto; width:40%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Color Jitter
 
 이미지의 대비와 밝기 등 색상과 관련된 속성값을 랜덤하게 조절하는 방법이다.
 
-![fig25](cs231n/06-25.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig7](dl/cnn/4-7.png){: style="display:block; margin:0 auto; width:60%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Cutout
 
 이미지의 특정 영역을 랜덤으로 선택하여 검은색 또는 회색 사각형으로 가려버리는 방법이다.
 
-![fig26](cs231n/06-26.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig8](dl/cnn/4-8.png){: style="display:block; margin:0 auto; width:60%;"}
+_출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
