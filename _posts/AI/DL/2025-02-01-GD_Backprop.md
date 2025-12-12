@@ -81,12 +81,12 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 아래 그림에서 $x,y,z$가 스칼라인 경우이다.
 
-![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:0%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 **Upstream Gradient**
 
-출력 $z$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 
+노드의 출력 $z$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 
 
 역전파의 흐름상, 손실 함수 쪽에서 계산되어 현재 노드로 흘러들어오는 기울기이기 때문에 Upstream Gradient라고 부른다.
 
@@ -106,7 +106,7 @@ Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산되며
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ---
@@ -114,7 +114,7 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 </div>
 </details>
 
-
+#### ㄴ
 
 ![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
@@ -123,9 +123,97 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ### 입력이 벡터인 경우
 
-![fig6](dl/nn/2-6.png){: style="display:block; margin:0 auto; width:80%;"}
+아래 그림에서 $\mathbf{x},\mathbf{y},\mathbf{z}$가 벡터인 경우이다. 여기서 각 벡터의 차원은 $D_x,D_y,D_z$이다.
+
+![fig6](dl/nn/2-6.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
-벡터 함수
+**Upstream Gradient**
+
+노드의 출력 $\mathbf{z}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다.
+
+$$
+\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{D_z}
+$$
+
+$\frac{\partial L}{\partial \mathbf{z}}$의 각 요소는 $\mathbf{z}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+
+**Local Gradient**
+
+현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $\mathbf{z}$가 얼마나 변하는지를 나타낸다.
+
+$$
+\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{D_x\times D_z}
+~,~\frac{\partial \mathbf{z}}{\partial \mathbf{y}}\in\mathbb{R}^{D_y\times D_z}
+$$
+
+$\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 $\mathbf{z}$의 각 요소에 얼마나 영향을 미치는지를 나타낸다.
+
+이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
+
+**Downstream Gradient**
+
+노드의 입력 $\mathbf{x},\mathbf{y}$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값이다.
+
+$$
+\frac{\partial L}{\partial \mathbf{x}}=\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{D_z}
+$$
+
+$\frac{\partial L}{\partial \mathbf{z}}$의 각 요소는 $\mathbf{x}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+
+#### ReLU 함수에서의 역전파
+
+ReLU는 Element-wise 연산이기 때문에 $x_1$은 $z_1$에만 영향을 주고 $z_2, z_3$ 등에는 영향을 주지 않는다.
+
+따라서 Local Gradient는 대각선 성분만 값을 가지고 나머지는 모두 0인 대각 행렬이다.
+
+![fig7](dl/nn/2-7.png){: style="display:block; margin:0 auto; width:70%;"}
+_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
+
+결과적으로 역전파 때, 원래 입력이 양수였던 곳만 그라디언트가 남는다.
+
+$$
+\left(\frac{\partial L}{\partial \mathbf{x}}\right)_i=
+\begin{cases}
+\left(\frac{\partial L}{\partial \mathbf{z}}\right)_i&x_i>0\\
+0&\text{otherwise}
+\end{cases}
+$$
 
 ### 입력이 행렬인 경우
+
+아래 그림에서 $X,Y,Z$가 행렬인 경우이다. 여기서 각 행렬의 차원은 아래와 같다.
+
+$$
+X\in\mathbb{R}^{D_x\times M_x},D_y,D_z
+$$
+
+![fig8](dl/nn/2-8.png){: style="display:block; margin:0 auto; width:70%;"}
+_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
+
+**Upstream Gradient & Downstream Gradient**
+
+각 행렬 $X,Y,Z$의 요소가 손실 함수에 얼마나 영향을 미치는지를 나타내기 때문에 각 그라디언트의 크기는 아래와 같다.
+
+$$
+\frac{\partial L}{\partial X}\in\mathbb{R}^{D_x\times M_x}~,~
+\frac{\partial L}{\partial Y}\in\mathbb{R}^{D_y\times M_y}~,~
+\frac{\partial L}{\partial Z}\in\mathbb{R}^{D_z\times M_z}
+$$
+
+즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
+
+**Local Gradient**
+
+Local Gradient는 행렬 입력을 행렬 출력으로 미분한 값이기 때문에 4차원 텐서(Jacobian)이다.
+
+$$
+\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{D_x\times D_z}
+~,~\frac{\partial \mathbf{z}}{\partial \mathbf{y}}\in\mathbb{R}^{D_y\times D_z}
+$$
+
+$\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 $\mathbf{z}$의 각 요소에 얼마나 영향을 미치는지를 나타낸다.
+
+이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
+
+
