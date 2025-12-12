@@ -71,17 +71,17 @@ $$
 
 신경망의 연산은 덧셈, 곱셈 등의 일련의 기본 연산으로 구성되기 때문에 이를 아래와 같은 계산 그래프로 표현할 수 있다.
 
-![fig2](dl/nn/2-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](dl/nn/2-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 - **순전파 (Forward pass)**에서는 입력에서 출발해 그래프를 따라가면서 각 노드의 출력을 차례대로 계산하며, 최종적으로 손실 함수 값 $L$을 얻는다.
 - **역전파 (Backward pass)**에서는 출력에서 입력 방향으로 그래프를 거슬러 올라가면서 chain rule을 이용해 각 파라미터에 대한 손실의 기울기 $\nabla_WL$를 계산한다.
 
-### 입력이 스칼라인 경우
+### 1. 입출력이 모두 스칼라인 경우 (Scalar to Scalar)
 
 아래 그림에서 $x,y,z$가 스칼라인 경우이다.
 
-![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:0%;"}
+![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 **Upstream Gradient**
@@ -116,50 +116,88 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 #### ㄴ
 
-![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 
 
-### 입력이 벡터인 경우
+### 2. 벡터 입력과 스칼라 출력 (Vector to Scalar)
 
-아래 그림에서 $\mathbf{x},\mathbf{y},\mathbf{z}$가 벡터인 경우이다. 여기서 각 벡터의 차원은 $D_x,D_y,D_z$이다.
+$n$개의 노드에서 입력을 받아 1개의 값을 출력하는 단일 뉴런의 경우를 생각해보자.
 
-![fig6](dl/nn/2-6.png){: style="display:block; margin:0 auto; width:70%;"}
-_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
+입력 데이터 $\mathbf{x}$와 가중치 $\mathbf{w}$는 벡터이고, 이 둘의 내적을 통해 계산된 출력 $z$는 스칼라이다.
+
+$$
+\mathbf{x},\mathbf{w}\in\mathbb{R}^n~~,~~z=\mathbf{w}^\top\mathbf{x}
+$$
 
 **Upstream Gradient**
 
-노드의 출력 $\mathbf{z}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다.
+노드의 출력 $\mathbf{z}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 출력 $z$가 스칼라이므로, 이 값 또한 스칼라이다.
 
 $$
-\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{D_z}
+\frac{\partial L}{\partial z}\in\mathbb{R}
 $$
-
-$\frac{\partial L}{\partial \mathbf{z}}$의 각 요소는 $\mathbf{z}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
 
 **Local Gradient**
 
-현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $\mathbf{z}$가 얼마나 변하는지를 나타낸다.
+현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $z$가 얼마나 변하는지를 나타낸다.
 
 $$
-\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{D_x\times D_z}
-~,~\frac{\partial \mathbf{z}}{\partial \mathbf{y}}\in\mathbb{R}^{D_y\times D_z}
+\frac{\partial z}{\partial \mathbf{x}}\in\mathbb{R}^{n}
+~,~\frac{\partial z}{\partial \mathbf{w}}\in\mathbb{R}^{n}
 $$
 
-$\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 $\mathbf{z}$의 각 요소에 얼마나 영향을 미치는지를 나타낸다.
-
-이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
+Local Gradient의 각 요소는 입력 벡터의 각 요소가 출력 $z$에 얼마나 영향을 미치는지를 나타낸다.
 
 **Downstream Gradient**
 
-노드의 입력 $\mathbf{x},\mathbf{y}$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값이다.
+노드의 입력 $\mathbf{x},\mathbf{w}$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값으로, Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산된다.
 
 $$
-\frac{\partial L}{\partial \mathbf{x}}=\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{D_z}
+\frac{\partial L}{\partial \mathbf{x}}=\frac{\partial z}{\partial \mathbf{x}}\frac{\partial L}{\partial z}\in\mathbb{R}^{n}~~,~~
+\frac{\partial L}{\partial \mathbf{w}}=\frac{\partial z}{\partial \mathbf{w}}\frac{\partial L}{\partial z}\in\mathbb{R}^{n}
 $$
 
-$\frac{\partial L}{\partial \mathbf{z}}$의 각 요소는 $\mathbf{x}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+$\frac{\partial L}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+
+$\frac{\partial L}{\partial \mathbf{x}}$는 이전 layer로 계속해서 기울기를 전달하는 데 사용되며, $\frac{\partial L}{\partial \mathbf{w}}$는 해당 layer의 파라미터를 업데이트하는 데 사용된다.
+
+### 3. 입출력이 모두 벡터인 경우 (Vector to Vector)
+
+$n$개의 노드가 $m$개의 노드로 연결되는 경우를 생각해보자.
+
+입력 데이터 $\mathbf{x}$는 벡터, 가중치 $W$는 행렬이고, 이 둘의 내적을 통해 계산된 출력 $\mathbf{z}$는 벡터이다.
+
+$$
+\mathbf{x}\in\mathbb{R}^n,W\in\mathbb{R}^{m\times n}~~,~~\mathbf{z}=W\mathbf{x}\in\mathbb{R}^m
+$$
+
+**Upstream Gradient & Downstream Gradient**
+
+각 행렬 $X,Y,Z$의 요소가 손실 함수에 얼마나 영향을 미치는지를 나타내기 때문에 각 그라디언트의 크기는 아래와 같다.
+
+$$
+\frac{\partial L}{\partial \mathbf{x}}\in\mathbb{R}^n~,~
+\frac{\partial L}{\partial W}\in\mathbb{R}^{m\times n}~,~
+\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{m}
+$$
+
+즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
+
+**Local Gradient**
+
+Local Gradient는 입력 $X$의 모든 각각의 원소가 출력 $Z$의 모든 각각의 원소에 미치는 영향을 나타내므로, 4차원 텐서가 된다.
+
+$$
+\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{m\times n}
+~,~\frac{\partial \mathbf{z}}{\partial W}\in\mathbb{R}^{D_y\times D_z}
+$$
+
+이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
+
+### 4. 입출력이 행렬인 경우: 배치 처리 (Matrix to Matrix)
+
 
 #### ReLU 함수에서의 역전파
 
@@ -170,7 +208,7 @@ ReLU는 Element-wise 연산이기 때문에 $x_1$은 $z_1$에만 영향을 주�
 ![fig7](dl/nn/2-7.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
-결과적으로 역전파 때, 원래 입력이 양수였던 곳만 그라디언트가 남는다.
+결과적으로 역전파 때, 원래 입력이 양수였던 요소의 기울기만 그대로 전파되고, 음수였던 곳은 0이 된다.
 
 $$
 \left(\frac{\partial L}{\partial \mathbf{x}}\right)_i=
@@ -179,41 +217,3 @@ $$
 0&\text{otherwise}
 \end{cases}
 $$
-
-### 입력이 행렬인 경우
-
-아래 그림에서 $X,Y,Z$가 행렬인 경우이다. 여기서 각 행렬의 차원은 아래와 같다.
-
-$$
-X\in\mathbb{R}^{D_x\times M_x},D_y,D_z
-$$
-
-![fig8](dl/nn/2-8.png){: style="display:block; margin:0 auto; width:70%;"}
-_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
-
-**Upstream Gradient & Downstream Gradient**
-
-각 행렬 $X,Y,Z$의 요소가 손실 함수에 얼마나 영향을 미치는지를 나타내기 때문에 각 그라디언트의 크기는 아래와 같다.
-
-$$
-\frac{\partial L}{\partial X}\in\mathbb{R}^{D_x\times M_x}~,~
-\frac{\partial L}{\partial Y}\in\mathbb{R}^{D_y\times M_y}~,~
-\frac{\partial L}{\partial Z}\in\mathbb{R}^{D_z\times M_z}
-$$
-
-즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
-
-**Local Gradient**
-
-Local Gradient는 행렬 입력을 행렬 출력으로 미분한 값이기 때문에 4차원 텐서(Jacobian)이다.
-
-$$
-\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{D_x\times D_z}
-~,~\frac{\partial \mathbf{z}}{\partial \mathbf{y}}\in\mathbb{R}^{D_y\times D_z}
-$$
-
-$\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 $\mathbf{z}$의 각 요소에 얼마나 영향을 미치는지를 나타낸다.
-
-이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
-
-
