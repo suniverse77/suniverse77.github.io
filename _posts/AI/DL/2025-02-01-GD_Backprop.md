@@ -79,37 +79,52 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ### 입력이 스칼라인 경우
 
-스칼라 함수
+아래 그림에서 $x,y,z$가 스칼라인 경우이다.
 
 ![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
+
+**Upstream Gradient**
+
+출력 $z$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 
+
+역전파의 흐름상, 손실 함수 쪽에서 계산되어 현재 노드로 흘러들어오는 기울기이기 때문에 Upstream Gradient라고 부른다.
+
+**Local Gradient**
+
+현재 노드인 함수 $f$에서 입력 $x$가 변할 때 출력 $z$가 얼마나 변하는지를 나타낸다.
+
+다른 노드와 상관없이, 오직 현재 노드의 연산 과정만 고려하여 내부적으로 계산하기 때문에 Local Gradient라고 부른다.
+
+**Downstream Gradient**
+
+노드의 입력 $x,y$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값이다.
+
+Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산되며, 이 값을 입력 쪽으로 흘려보내기 때문에 Downstream Gradient라고 부른다.
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-
-
----
-
-</div>
-</details>
-
-<details>
-<summary><font color='#FF0000'>Example 2</font></summary>
-<div markdown="1">
-
-
+![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:80%;"}
+_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ---
 
 </div>
 </details>
-<br>
+
+
+
+![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:80%;"}
+_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 
 
 ### 입력이 벡터인 경우
+
+![fig6](dl/nn/2-6.png){: style="display:block; margin:0 auto; width:80%;"}
+_출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 벡터 함수
 
