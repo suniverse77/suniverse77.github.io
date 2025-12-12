@@ -86,7 +86,7 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 입력 데이터 $x$와 가중치 $w$는 스칼라이고, 이 둘의 내적을 통해 계산된 출력 $z$ 역시 스칼라이다.
 
 $$
-x,w\in\mathbb{R}~~,~~z=wx\in\mathbb{R}
+x,w\in\mathbb{R}~~,~~y=wx\in\mathbb{R}
 $$
 
 ![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:60%;"}
@@ -155,41 +155,41 @@ $n$개의 노드에서 입력을 받아 1개의 값을 출력하는 단일 뉴�
 
 ![fig7](dl/nn/2-7.png){: style="display:block; margin:0 auto; width:50%;"}
 
-입력 데이터 $\mathbf{x}$와 가중치 $\mathbf{w}$는 벡터이고, 이 둘의 내적을 통해 계산된 출력 $z$는 스칼라이다.
+입력 데이터 $\mathbf{x}$와 가중치 $\mathbf{w}$는 벡터이고, 이 둘의 내적을 통해 계산된 출력 $y$는 스칼라이다.
 
 $$
-\mathbf{x},\mathbf{w}\in\mathbb{R}^n~~,~~z=\mathbf{w}^\top\mathbf{x}
+\mathbf{x},\mathbf{w}\in\mathbb{R}^n~~,~~y=\mathbf{w}^\top\mathbf{x}
 $$
 
 **Upstream Gradient**
 
-노드의 출력 $\mathbf{z}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 출력 $z$가 스칼라이므로, 이 값 또한 스칼라이다.
+노드의 출력 $y$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 출력 $y$가 스칼라이므로, 이 값 또한 스칼라이다.
 
 $$
-\frac{\partial L}{\partial z}\in\mathbb{R}
+\frac{\partial L}{\partial y}\in\mathbb{R}
 $$
 
 **Local Gradient**
 
-현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $z$가 얼마나 변하는지를 나타낸다.
+현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $y$가 얼마나 변하는지를 나타낸다.
 
 $$
-\frac{\partial z}{\partial \mathbf{x}}\in\mathbb{R}^{n}
-~,~\frac{\partial z}{\partial \mathbf{w}}\in\mathbb{R}^{n}
+\frac{\partial y}{\partial \mathbf{x}}\in\mathbb{R}^{n}
+~~,~~\frac{\partial y}{\partial \mathbf{w}}\in\mathbb{R}^{n}
 $$
 
-Local Gradient의 각 요소는 입력 벡터의 각 요소가 출력 $z$에 얼마나 영향을 미치는지를 나타낸다.
+Local Gradient의 각 요소는 입력 벡터의 각 요소가 출력 $y$에 얼마나 영향을 미치는지를 나타낸다.
 
 **Downstream Gradient**
 
 노드의 입력 $\mathbf{x},\mathbf{w}$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값으로, Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산된다.
 
 $$
-\frac{\partial L}{\partial \mathbf{x}}=\frac{\partial z}{\partial \mathbf{x}}\frac{\partial L}{\partial z}\in\mathbb{R}^{n}~~,~~
-\frac{\partial L}{\partial \mathbf{w}}=\frac{\partial z}{\partial \mathbf{w}}\frac{\partial L}{\partial z}\in\mathbb{R}^{n}
+\frac{\partial L}{\partial \mathbf{x}}=\frac{\partial y}{\partial \mathbf{x}}\cdot\frac{\partial L}{\partial y}\in\mathbb{R}^{n}~~,~~
+\frac{\partial L}{\partial \mathbf{w}}=\frac{\partial y}{\partial \mathbf{w}}\cdot\frac{\partial L}{\partial y}\in\mathbb{R}^{n}
 $$
 
-$\frac{\partial L}{\partial \mathbf{x}}$의 각 요소는 $\mathbf{x}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+Downstream Gradient의 각 요소는 $\mathbf{x}$의 각 요소가 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
 
 $\frac{\partial L}{\partial \mathbf{x}}$는 이전 layer로 계속해서 기울기를 전달하는 데 사용되며, $\frac{\partial L}{\partial \mathbf{w}}$는 해당 layer의 파라미터를 업데이트하는 데 사용된다.
 
@@ -199,34 +199,43 @@ $n$개의 노드가 $m$개의 노드로 연결되는 경우를 생각해보자.
 
 ![fig8](dl/nn/2-8.png){: style="display:block; margin:0 auto; width:50%;"}
 
-입력 데이터 $\mathbf{x}$는 벡터, 가중치 $W$는 행렬이고, 이 둘의 내적을 통해 계산된 출력 $\mathbf{z}$는 벡터이다.
+입력 데이터 $\mathbf{x}$는 벡터, 가중치 $W$는 행렬이고, 이 둘의 내적을 통해 계산된 출력 $\mathbf{y}$는 벡터이다.
 
 $$
-\mathbf{x}\in\mathbb{R}^n,W\in\mathbb{R}^{m\times n}~~,~~\mathbf{z}=W\mathbf{x}\in\mathbb{R}^m
+\mathbf{x}\in\mathbb{R}^n,W\in\mathbb{R}^{m\times n}~~,~~\mathbf{y}=W\mathbf{x}\in\mathbb{R}^m
 $$
 
-**Upstream Gradient & Downstream Gradient**
+**Upstream Gradient**
 
-각 행렬 $X,Y,Z$의 요소가 손실 함수에 얼마나 영향을 미치는지를 나타내기 때문에 각 그라디언트의 크기는 아래와 같다.
+노드의 출력 $\mathbf{y}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다.
 
 $$
-\frac{\partial L}{\partial \mathbf{x}}\in\mathbb{R}^n~,~
-\frac{\partial L}{\partial W}\in\mathbb{R}^{m\times n}~,~
-\frac{\partial L}{\partial \mathbf{z}}\in\mathbb{R}^{m}
+\frac{\partial L}{\partial \mathbf{y}}\in\mathbb{R}^{m}
 $$
-
-즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
 
 **Local Gradient**
 
+현재 노드에서 입력 $\mathbf{x}$가 변할 때 출력 $\mathbf{y}$가 얼마나 변하는지를 나타낸다.
+
+$$
+\frac{\partial \mathbf{y}}{\partial \mathbf{x}}\in\mathbb{R}^{m\times n}
+~~,~~\frac{\partial \mathbf{y}}{\partial W}\in\mathbb{R}^{D_y\times D_z}
+$$
+
 Local Gradient는 입력 $X$의 모든 각각의 원소가 출력 $Z$의 모든 각각의 원소에 미치는 영향을 나타내므로, 4차원 텐서가 된다.
 
+이때, Local Gradient 행렬을 Jacobian Matrix라고 부른다.
+
+**Downstream Gradient**
+
+노드의 입력 $\mathbf{x},\mathbf{w}$가 최종 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+
 $$
-\frac{\partial \mathbf{z}}{\partial \mathbf{x}}\in\mathbb{R}^{m\times n}
-~,~\frac{\partial \mathbf{z}}{\partial W}\in\mathbb{R}^{D_y\times D_z}
+\frac{\partial L}{\partial \mathbf{x}}\in\mathbb{R}^n~~,~~
+\frac{\partial L}{\partial W}\in\mathbb{R}^{m\times n}
 $$
 
-이때, $\frac{\partial \mathbf{z}}{\partial \mathbf{x}}$ 행렬을 Jacobian Matrix라고 부른다.
+즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
 
 ### 4. 입출력이 행렬인 경우: 배치 처리 (Matrix to Matrix)
 
@@ -237,8 +246,37 @@ $B$개의 배치가 있고, 각 배치에서 $n$개의 노드가 $m$개의 노�
 입력 데이터 $X$는 행렬, 가중치 $W$는 4차원 텐서이고, 이 둘의 내적을 통해 계산된 출력 $Z$는 행렬이다.
 
 $$
-X\in\mathbb{R}^{n\times B},W\in\mathbb{R}^{(m\times B)\times(n\times B)}~~,~~\mathbf{z}=W\mathbf{x}\in\mathbb{R}^{m\times B}
+X\in\mathbb{R}^{n\times B},W\in\mathbb{R}^{(m\times B)\times(n\times B)}~~,~~Y=WX\in\mathbb{R}^{m\times B}
 $$
+
+**Upstream Gradient**
+
+노드의 출력 $\mathbf{y}$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다.
+
+$$
+\frac{\partial L}{\partial Y}\in\mathbb{R}^{m}
+$$
+
+**Local Gradient**
+
+현재 노드에서 입력 $X$가 변할 때 출력 $Y$가 얼마나 변하는지를 나타낸다.
+
+$$
+\frac{\partial Y}{\partial X}\in\mathbb{R}^{m\times n}
+~~,~~\frac{\partial Y}{\partial W}\in\mathbb{R}^{D_y\times D_z}
+$$
+
+
+**Downstream Gradient**
+
+노드의 입력 $X,W$가 최종 손실 함수에 얼마나 영향을 미치는지를 나타낸다.
+
+$$
+\frac{\partial L}{\partial X}\in\mathbb{R}^n~~,~~
+\frac{\partial L}{\partial W}\in\mathbb{R}^{m\times n}
+$$
+
+즉, 역전파를 할 때 기울기 행렬의 크기는 원래 변수의 크기와 동일하다.
 
 #### ReLU 함수에서의 역전파
 
