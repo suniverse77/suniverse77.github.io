@@ -79,34 +79,62 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ### 1. 입출력이 모두 스칼라인 경우 (Scalar to Scalar)
 
-아래 그림에서 $x,y,z$가 스칼라인 경우이다.
+1개의 노드에서 입력을 받아 1개의 값을 출력하는 단일 뉴런의 경우를 생각해보자.
 
 ![fig3](dl/nn/2-3.png){: style="display:block; margin:0 auto; width:50%;"}
+
+입력 데이터 $x$와 가중치 $w$는 스칼라이고, 이 둘의 내적을 통해 계산된 출력 $z$ 역시 스칼라이다.
+
+$$
+x,w\in\mathbb{R}~~,~~z=wx\in\mathbb{R}
+$$
+
+![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 **Upstream Gradient**
 
-노드의 출력 $z$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다. 
+노드의 출력 $y$가 최종 손실 함수 $L$에 얼마나 영향을 미치는지에 대한 값이다.
+
+$$
+\frac{\partial L}{\partial y}\in\mathbb{R}
+$$
 
 역전파의 흐름상, 손실 함수 쪽에서 계산되어 현재 노드로 흘러들어오는 기울기이기 때문에 Upstream Gradient라고 부른다.
 
 **Local Gradient**
 
-현재 노드인 함수 $f$에서 입력 $x$가 변할 때 출력 $z$가 얼마나 변하는지를 나타낸다.
+현재 노드에서 입력 $x$가 변할 때 출력 $y$가 얼마나 변하는지를 나타낸다.
+
+$$
+\frac{\partial y}{\partial x}\in\mathbb{R}~~,~~
+\frac{\partial y}{\partial w}\in\mathbb{R}
+$$
 
 다른 노드와 상관없이, 오직 현재 노드의 연산 과정만 고려하여 내부적으로 계산하기 때문에 Local Gradient라고 부른다.
 
 **Downstream Gradient**
 
-노드의 입력 $x,y$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값이다.
+노드의 입력 $x,w$가 최종 손실 함수에 얼마나 영향을 미치는지에 대한 값으로, Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산된다.
 
-Chain Rule에 의해 'Upstream Gradient $\times$ Local Gradient'로 계산되며, 이 값을 입력 쪽으로 흘려보내기 때문에 Downstream Gradient라고 부른다.
+$$
+\frac{\partial L}{\partial x}=\frac{\partial L}{\partial y}\cdot\frac{\partial y}{\partial x}\in\mathbb{R}~~,~~
+\frac{\partial L}{\partial w}=\frac{\partial L}{\partial y}\cdot\frac{\partial y}{\partial w}\in\mathbb{R}
+$$
+
+이 값을 입력 쪽으로 흘려보내기 때문에 Downstream Gradient라고 부른다.
+
+#### 역전파 과정
+
+$$
+\frac{\partial L}{\partial w}=\frac{\partial L}{\partial y}\cdot x
+$$
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig4](dl/nn/2-4.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ---
@@ -116,7 +144,7 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 #### ㄴ
 
-![fig5](dl/nn/2-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig6](dl/nn/2-6.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 
@@ -124,6 +152,8 @@ _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 ### 2. 벡터 입력과 스칼라 출력 (Vector to Scalar)
 
 $n$개의 노드에서 입력을 받아 1개의 값을 출력하는 단일 뉴런의 경우를 생각해보자.
+
+![fig7](dl/nn/2-7.png){: style="display:block; margin:0 auto; width:50%;"}
 
 입력 데이터 $\mathbf{x}$와 가중치 $\mathbf{w}$는 벡터이고, 이 둘의 내적을 통해 계산된 출력 $z$는 스칼라이다.
 
@@ -167,6 +197,8 @@ $\frac{\partial L}{\partial \mathbf{x}}$는 이전 layer로 계속해서 기울�
 
 $n$개의 노드가 $m$개의 노드로 연결되는 경우를 생각해보자.
 
+![fig8](dl/nn/2-8.png){: style="display:block; margin:0 auto; width:50%;"}
+
 입력 데이터 $\mathbf{x}$는 벡터, 가중치 $W$는 행렬이고, 이 둘의 내적을 통해 계산된 출력 $\mathbf{z}$는 벡터이다.
 
 $$
@@ -198,6 +230,15 @@ $$
 
 ### 4. 입출력이 행렬인 경우: 배치 처리 (Matrix to Matrix)
 
+$B$개의 배치가 있고, 각 배치에서 $n$개의 노드가 $m$개의 노드로 연결되는 경우를 생각해보자.
+
+![fig9](dl/nn/2-9.png){: style="display:block; margin:0 auto; width:50%;"}
+
+입력 데이터 $X$는 행렬, 가중치 $W$는 4차원 텐서이고, 이 둘의 내적을 통해 계산된 출력 $Z$는 행렬이다.
+
+$$
+X\in\mathbb{R}^{n\times B},W\in\mathbb{R}^{(m\times B)\times(n\times B)}~~,~~\mathbf{z}=W\mathbf{x}\in\mathbb{R}^{m\times B}
+$$
 
 #### ReLU 함수에서의 역전파
 
