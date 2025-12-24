@@ -20,7 +20,7 @@ _[[출처]](https://ko.wikipedia.org/wiki/%ED%95%80%ED%99%80_%EC%B9%B4%EB%A9%94%
 ![fig2](3d/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://mvje.tistory.com/81#google_vignette)_
 
-위의 그림처럼 실제 카메라의 이미지 이미지 평면은 렌즈 뒤 쪽에 존재하지만, 컴퓨터 비전에서는 수학적 편의를 위해 렌즈 앞쪽에 있는 가상의 이미지 평면을 사용한다.
+위의 그림처럼 실제 카메라의 이미지 이미지 평면은 렌즈 뒤 쪽에 존재하지만, 컴퓨터 비전에서는 수학적 편의를 위해 아래 그림처럼 렌즈 앞쪽에 있는 가상의 이미지 평면을 사용한다.
 
 ![fig3](3d/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://cho001.tistory.com/245)_
@@ -273,6 +273,11 @@ $$
 
 3차원 공간의 점을 2D 평면으로 투영할 때, 깊이가 다르더라도 같은 직선 (Ray) 상에 존재하면 동일한 픽셀로 투영된다.
 
+    Ray란 카메라 원점에서 시작해서, 이미지 평면의 픽셀을 통과해 3D 공간으로 뻗어 나가는 직선을 의미한다.
+
+    ![fig3](3d/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
+    _[[출처]](https://cho001.tistory.com/245)_
+
 즉, 2D 이미지로 변환되는 과정에서 깊이 정보가 소실된다.
 
 ![fig8](3d/3-8.png){: style="display:block; margin:0 auto; width:60%;"}
@@ -283,29 +288,29 @@ _[[출처]](https://www.mdpi.com/1424-8220/22/19/7540)_
 먼저, 전체 파이프라인은 아래와 같다.
 
 $$
-\tilde{P}_w=-R^\top t+D\cdot R^\top P_c=-R^\top t+D\cdot\left(R^\top K^{-1}\tilde{p}_n\right)
+\mathbf{\tilde{P}}_w=-R^\top\mathbf{t}+D\cdot\left(R^\top K^{-1}\mathbf{\tilde{p}}\right)
 $$
 
-1. 먼저 $K^{-1}$를 이용해 픽셀 단위를 걷어낸다. 이때, 결과 $\tilde{p}_n$은 Ray의 방향 벡터가 된다.
+1. $K^{-1}$를 곱해 픽셀 단위를 걷어낸다. 이때, 결과 $\tilde{p}_n$은 Ray의 방향 벡터가 된다.
 
     $$
-    \tilde{p}_n=K^{-1}\tilde{p}
+    \mathbf{\tilde{p}}_n=K^{-1}\mathbf{\tilde{p}}
     $$
 2. 3D 카메라 좌표로 돌려야하지만, 깊이를 모르기 때문에, 스칼라 값 $D$를 깊이 변수로 둔 직선의 방정식으로 표현한다.
 
     $$
-    P_c=D\cdot\tilde{p}_n
+    \mathbf{P}_c=D\cdot\mathbf{\tilde{p}}_n
     $$
-3. 카메라 좌표를 월드 좌표로 돌리기 위해, $P_c=R\tilde{P}_w+t$를 이용한다.
+3. 카메라 좌표를 월드 좌표로 돌리기 위해, $\mathbf{\tilde{P}}_c=R\mathbf{\tilde{P}}_w+\mathbf{t}$를 이용한다.
 
     $$
-    \tilde{P}_w=R^{-1}(P_c-t)=R^\top(P_c-t)
+    \mathbf{\tilde{P}}_w=R^{-1}(\mathbf{P}_c-\mathbf{t})=R^\top(\mathbf{P}_c-\mathbf{t})
     $$
 
-최종적으로 2D 픽셀 좌표를 3D 월드 좌표로 변환하는 전체 과정은 아래와 같다.
+위의 식을 정리하면 아래와 같다.
 
 $$
-\tilde{P}_w=-R^\top t+D\cdot R^\top P_c=-R^\top t+D\cdot\left(R^\top K^{-1}\tilde{p}_n\right)
+\mathbf{\tilde{P}}_w=-R^\top\mathbf{t}+D\cdot\left(R^\top K^{-1}\mathbf{\tilde{p}}\right)
 $$
 
 여기서 각 항의 의미는 다음과 같다.
