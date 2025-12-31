@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 행렬의 노름 (Norm)"
 date: 2025-07-18 00:00:00 +/-TTTT
-categories: [인공지능 수학, 선형대수]
+categories: [Mathmatics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true

@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 가우시안 함수의 미분"
 date: 2025-07-26 00:00:00 +/-TTTT
-categories: [인공지능 수학, 선형대수]
+categories: [Mathmatics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true

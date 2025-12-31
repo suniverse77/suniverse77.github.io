@@ -224,7 +224,7 @@ $$
 ![fig7](3d/3-7.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://searching-fundamental.tistory.com/77#google_vignette)_
 
-### 3D 월드 좌표 $\to$ 2D 이미지 픽셀 좌표
+### 3D 월드 좌표 $\to$ 2D 픽셀 좌표
 
 먼저, 전체 파이프라인은 아래와 같다.
 

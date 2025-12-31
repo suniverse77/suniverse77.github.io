@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 벡터 공간"
 date: 2025-07-02 00:00:00 +/-TTTT
-categories: [인공지능 수학, 선형대수]
+categories: [Mathmatics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
