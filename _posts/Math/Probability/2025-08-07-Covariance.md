@@ -1,7 +1,7 @@
 ---
 title: "[확률] 공분산과 상관 계수"
 date: 2025-08-07 00:00:00 +/-TTTT
-categories: [인공지능 수학, 확률]
+categories: [Mathmatics, 확률]
 tags: [확률]
 math: true
 toc: true

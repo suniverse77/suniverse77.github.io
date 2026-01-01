@@ -1,7 +1,7 @@
 ---
 title: "[최적화] 수학적 최적화 (Mathematical Optimization)"
 date: 2025-08-20 00:00:00 +/-TTTT
-categories: [인공지능 수학, 최적화]
+categories: [Mathmatics, 최적화]
 tags: [최적화]
 math: true
 toc: true

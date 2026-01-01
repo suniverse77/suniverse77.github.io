@@ -1,7 +1,7 @@
 ---
 title: "[트랜스포머] 트랜스포머의 구조 2 - 임베딩 (Embedding)"
 date: 2025-02-15 06:00:00 +/-TTTT
-categories: [AI, 딥러닝]
+categories: [AI, 트랜스포머]
 tags: [트랜스포머]
 math: true
 toc: true
