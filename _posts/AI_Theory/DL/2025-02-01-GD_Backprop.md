@@ -17,10 +17,10 @@ author: sunho
 기본적인 업데이트 수식은 아래와 같다.
 
 $$
-w_{new}\leftarrow w_{old}-\alpha\nabla_w\mathcal{L}
+\theta_{t+1}=\theta_t-\eta\nabla\mathcal{L}_\theta(\theta_t)
 $$
 
-위의 수식에서 $\alpha$는 학습률 (Learning Rate)로, 한 번에 얼마나 이동할지인 보폭을 의미한다.
+위의 수식에서 $\eta$는 학습률 (Learning Rate)로, 한 번에 얼마나 이동할지인 보폭을 의미한다.
 
 그라디언트는 함수값이 증가하는 방향을 가리키는데, 우리는 손실을 줄여야 하므로 빼기 연산을 하여 업데이트한다.
 
