@@ -1,14 +1,14 @@
 ---
-title: "[NN] 최적화 기법"
+title: "[NN] 옵티마이저 (Optimizer)"
 date: 2025-02-01 12:00:00 +/-TTTT
 categories: [AI Theory, 딥러닝]
-tags: [신경망]
+tags: [딥러닝, 옵티마이저]
 math: true
 toc: true
 author: sunho
 ---
 
-## 최적화 기법
+## 옵티마이저 (Optimizer)
 
 그라디언트를 이용해 파라미터를 업데이트하는 최적화 기법에는 여러 가지가 있다.
 

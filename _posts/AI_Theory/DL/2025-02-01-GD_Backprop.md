@@ -2,7 +2,7 @@
 title: "[NN] 경사 하강법과 역전파"
 date: 2025-02-01 06:00:00 +/-TTTT
 categories: [AI Theory, 딥러닝]
-tags: [신경망]
+tags: [딥러닝, 역전파]
 math: true
 toc: true
 author: sunho
