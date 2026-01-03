@@ -49,7 +49,7 @@ SGD에는 몇 가지 문제점이 존재한다.
 
 ### SGD + Momentum
 
-단순히 그라디언트만 이용해서 업데이트하는 대신, 관성까지 고려한 방법이다.
+단순히 그라디언트만 이용해서 업데이트하는 대신, 관성 (모멘텀)까지 고려한 방법이다.
 
 $$
 \theta_{t+1}=\theta_t-\eta m_t
@@ -96,9 +96,7 @@ $$
 \theta_{t+1}=\theta_t-\eta\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}
 $$
 
-$m_t$와 $v_t$는 각각 그라디언트의 1차 모멘트와 2차 모멘트로, 지수 가중 이동 평균 (EMA) 방식을 통해 추정된다.
-
-> 통계학에서 어떤 값의 평균을 1차 모멘트, 제곱의 평균을 2차 모멘트라고 부른다.
+$m_t$와 $v_t$는 각각 그라디언트의 모멘텀과 그라디언트 제곱의 평균으로, 지수 가중 이동 평균 (EMA) 방식을 통해 아래와 같이 계산된다.
 
 $$
 m_{t+1}=\beta_1m_t+(1-\beta_1)\nabla\mathcal{L}_\theta(\theta_t)
@@ -108,23 +106,36 @@ $$
 v_{t+1}=\beta_2v_t+(1-\beta_2)\left(\nabla\mathcal{L}_\theta(\theta_t)\right)^2
 $$
 
-Adam은 처음 시작할 때, $m_0$와 $v_0$를 $0$으로 초기화한다. 만약 $\beta_1=0.9$라면, 첫 번째 스텝에서 $m_1$은 실제 그라디언트의 값보다 매우 작아지게 된다.
+이때, $m_t$는 어떤 값 (여기서는 그라디언트)의 평균을 추정하므로 1차 모멘트, $v_t$는 어떤 값의 제곱의 평균을 추정하므로 2차 모멘트라고 부른다.
 
-$$
-m_1=0.9\cdot0+0.1\nabla\mathcal{L}_\theta(\theta_t)=0.1\nabla\mathcal{L}_\theta(\theta_t)
-$$
-
-따라서 학습 초기 $m_t$와 $v_t$가 $0$에 편향되는 것을 막기 위해 아래 식을 거친 후 업데이트에 사용한다.
+학습 초기 $m_t$와 $v_t$가 $0$에 편향되는 것을 막기 위해 아래 식을 거친 후 업데이트에 사용한다.
 
 $$
 \hat{m}_t=\frac{m_t}{1-\beta_1^t}~,~\hat{v}_t=\frac{v_t}{1-\beta_2^t}
 $$
 
-이 경우, 분모와 분자가 약분되어 아래와 같은 결과로 이어진다.
+<details>
+<summary><font color='#FF0000'>Why?</font></summary>
+<div markdown="1">
+
+Adam은 처음 시작할 때, $m_0$와 $v_0$를 $0$으로 초기화한다. 
+
+만약 $\beta_1=0.9$라면, 첫 번째 스텝에서 $m_1$은 실제 그라디언트의 값보다 매우 작아지게 된다.
+
+$$
+m_1=0.9\cdot0+0.1\nabla\mathcal{L}_\theta(\theta_t)=0.1\nabla\mathcal{L}_\theta(\theta_t)
+$$
+
+하지만 편향 보정을 사용할 경우, 분모와 분자가 약분되어 아래와 같은 결과로 이어진다.
 
 $$
 \hat{m}_1=\frac{m_1}{1-0.9}=\frac{0.1\nabla\mathcal{L}_\theta(\theta_t)}{0.1}=\nabla\mathcal{L}_\theta(\theta_t)
 $$
+
+---
+
+</div>
+</details>
 
 ### AdamW
 
