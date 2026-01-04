@@ -1,14 +1,14 @@
 ---
-title: "[트랜스포머] Attention 역전파"
+title: "[Attention] Attention layer에서의 역전파"
 date: 2025-12-20 0:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
-tags: [트랜스포머]
+tags: [트랜스포머, Attention]
 math: true
 toc: true
 author: sunho
 ---
 
-## Forward
+## Forward pass
 
 Attention layer에서 입력 $X\in\mathbb{R}^{n\times d}$에 대해, query, key, value는 아래와 같이 생성된다.
 
@@ -25,9 +25,9 @@ $$
 
 이를 계산 그래프로 나타내면 아래 그림과 같다.
 
-![fig1](AI/Transformer/Attention_Backprop-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](AI/Transformer/Attention_Backprop-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
-## Backward
+## Backward pass
 
 ### Value 파라미터 업데이트
 
@@ -49,12 +49,12 @@ $$
 
 ### Query, Key 파라미터 업데이트
 
-1. 행렬 $P$에 대한 그라디언트 계산
+1. Attention Map $P$에 대한 그라디언트 계산
 
     $$
     \frac{\partial\mathcal{L}}{\partial P}=\frac{\partial\mathcal{L}}{\partial O}\cdot\frac{\partial O}{\partial P}=\frac{\partial\mathcal{L}}{\partial O}\cdot V^\top
     $$
-2. Value 가중치에 대한 그라디언트 계산
+2. Attention Logits 행렬 $A$에 대한 그라디언트 계산
 
     $$
     \frac{\partial\mathcal{L}}{\partial A}=\frac{\partial\mathcal{L}}{\partial P}\cdot\frac{\partial P}{\partial A}=X^\top\cdot\frac{\partial\mathcal{L}}{\partial O}
