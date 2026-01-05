@@ -1,8 +1,8 @@
 ---
-title: "[3D Vision] 카메라 캘리브레이션"
+title: "[3D 비전] 카메라 캘리브레이션"
 date: 2025-12-16 06:00:00 +/-TTTT
 categories: [AI, 3D 비전]
-tags: [3D Vision]
+tags: [3D 비전]
 math: true
 toc: true
 author: sunho

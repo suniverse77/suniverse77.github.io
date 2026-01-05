@@ -57,7 +57,7 @@ $$
 2. Attention Logits 행렬 $A$에 대한 그라디언트 계산
 
     $$
-    \frac{\partial\mathcal{L}}{\partial A}=\frac{\partial\mathcal{L}}{\partial P}\cdot\frac{\partial P}{\partial A}=X^\top\cdot\frac{\partial\mathcal{L}}{\partial O}
+    \frac{\partial\mathcal{L}}{\partial A}=\frac{\partial\mathcal{L}}{\partial P}\cdot\frac{\partial P}{\partial A}
     $$
 3. Score 행렬 $S$에 대한 그라디언트 계산
 
