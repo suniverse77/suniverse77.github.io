@@ -1,6 +1,6 @@
 ---
 title: "[3D 비전] 사원수 회전 (Quaternion Rotation)"
-date: 2025-12-17 06:00:00 +/-TTTT
+date: 2025-12-17 00:00:00 +/-TTTT
 categories: [AI, 3D 비전]
 tags: [3D 비전]
 math: true
@@ -41,6 +41,10 @@ $$
 3차원 공간에서 어떤 벡터 $\mathbf{p}$를 단위 회전축 $\mathbf{u}=(u_x,u_y,u_z)$를 기준으로 반시계방향으로 $\theta$만큼 회전하는 회전 사원수 $q$는 아래와 같이 정의된다.
 
 $$
+q=(w,x,y,z)=\cos\left(\frac{\theta}{2}\right)+\sin\left(\frac{\theta}{2}\right)u_xi+\sin\left(\frac{\theta}{2}\right)u_yj+\sin\left(\frac{\theta}{2}\right)u_zk
+$$
+
+$$
 q=\cos\left(\frac{\theta}{2}\right)+\sin\left(\frac{\theta}{2}\right)(u_xi+u_yj+u_zk)
 $$
 
@@ -59,5 +63,23 @@ $$
 $$
 
 계산 결과 나온 $\mathbf{p}'_{quat}$의 벡터 부분 (허수부) $\mathbf{p}'$이 회전된 새로운 좌표가 된다.
+
+### 3차원 회전 행렬과의 관계
+
+단위 사원수 $\hat{q}=(w,x,y,z)$가 주어졌을 때, 이에 대응하는 $3 \times 3$ 회전 행렬 $R$은 아래와 같다.
+
+$$
+R=\begin{bmatrix} 
+1 - 2(y^2 + z^2) & 2(xy - wz) & 2(xz + wy) \\
+2(xy + wz) & 1 - 2(x^2 + z^2) & 2(yz - wx) \\
+2(xz - wy) & 2(yz + wx) & 1 - 2(x^2 + y^2) 
+\end{bmatrix}
+$$
+
+위 행렬은 사원수 연산 $\mathbf{p}' = q\mathbf{p}q^{-1}$을 수행한 결과와 동일한 회전 효과를 낸다.
+
+$$
+\mathbf{p}' = R\mathbf{p}
+$$
 
 ### 장점

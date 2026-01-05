@@ -1,6 +1,6 @@
 ---
-title: "[3D 비전] 카메라 캘리브레이션"
-date: 2025-12-16 06:00:00 +/-TTTT
+title: "[3D 비전] 카메라 캘리브레이션 (Camera Calibration)"
+date: 2025-12-16 00:00:00 +/-TTTT
 categories: [AI, 3D 비전]
 tags: [3D 비전]
 math: true
