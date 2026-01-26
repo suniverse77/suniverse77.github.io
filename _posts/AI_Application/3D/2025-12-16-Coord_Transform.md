@@ -21,7 +21,7 @@ _[[출처]](https://searching-fundamental.tistory.com/77#google_vignette)_
 - $\mathbf{p}=(u,v)$ : 2D 이미지 픽셀 좌표
 - $\tilde{\cdot}~$ : 각 좌표의 동차 좌표
 
-## Forward Projection: 3D $\to$ 2D
+## Projection: 3D $\to$ 2D
 
 3D 월드 좌표에 카메라 외부 행렬 $[R\mid\mathbf{t}]$와 카메라 내부 행렬 $K$를 순차적으로 곱하면 2D 픽셀 좌표로 변환이 가능하다.
 
@@ -64,7 +64,7 @@ $$
     K\begin{bmatrix}x\\y\\1\end{bmatrix}
     $$
 
-## Backward Projection: 2D $\to$ 3D
+## Unprojection: 2D $\to$ 3D
 
 반대로, 이미지 평면 상의 2D 픽셀 좌표 $(u,v)$가 실제 3D 세계의 어떤 지점에 존재했는지도 계산할 수 있다.
 
