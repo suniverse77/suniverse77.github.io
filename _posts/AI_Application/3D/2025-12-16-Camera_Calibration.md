@@ -153,7 +153,7 @@ v'=y\cdot f_y
 \end{aligned}
 $$
 
-![fig6](AI/3D/Camera_Calibration-6.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig6](AI/3D/Camera_Calibration-6.png){: style="display:block; margin:0 auto; width:60%;"}
 
 ### 주점 (Principal Point)
 

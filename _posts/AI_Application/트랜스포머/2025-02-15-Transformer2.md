@@ -10,7 +10,7 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [*'Transformers, the tech behind LLMs'*](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
 
-![fig0](dl/transformer/2-0.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig0](AI/Transformer/transformer2-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
 ## 토큰화 (Tokenization)
@@ -47,17 +47,17 @@ $$
 
 즉, 단어 임베딩은 그 단어의 의미 정보만을 가지고 있는 고차원의 벡터이며, 위치 인코딩을 통해 단어의 위치 정보도 포함하고 있다. <span style="background-color:#fff5b1">단어 임베딩 자체만으로는 문맥적인 정보는 포함하지 않는다.</span>
 
-![fig1](dl/transformer/2-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](AI/Transformer/transformer2-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 사전 내의 각 단어의 벡터로 변환된 사전을 임베딩 행렬 (Embedding Matrix) $W_E$ 라고 하며, 각 임베딩 벡터는 랜덤값에서 시작하여 학습을 통해 조정된다.
 
-![fig2](dl/transformer/2-2.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig2](AI/Transformer/transformer2-2.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 아래 그림은 고차원 공간의 단어 임베딩을 3차원 공간에서 시각화한 것이다.
 
-![fig3](dl/transformer/2-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](AI/Transformer/transformer2-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 단어 임베딩은 아무렇게나 학습되는 것이 아니라, 각 단어의 의미를 반영하도록 학습된다.
@@ -72,12 +72,12 @@ $$
 
 즉, 이 공간에서 노란색 벡터의 방향은 '성별'에 대한 의미적 정보를 담고 있다고 볼 수 있다.
 
-![fig4](dl/transformer/2-4.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig4](AI/Transformer/transformer2-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 또 한가지 예로, 아래 그림에서 노란색 벡터의 방향은 '복수형'에 대한 의미적 정보를 담고 있다.
 
-![fig5](dl/transformer/2-5.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig5](AI/Transformer/transformer2-5.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 실제로 확인해보면, $\overrightarrow{\text{plur}}$ 벡터와 복수형 단어 임베딩의 내적값이 단수형 단어 임베딩의 내적값보다 더 큰 것을 확인할 수 있을 것이다.
@@ -119,12 +119,12 @@ $$
 
 차원 인덱스가 낮을수록 (앞쪽 차원일수록) 낮은 주파수를, 인덱스가 높을수록 (뒤쪽 차원일수록) 높은 주파수를 사용한다.
 
-![fig6](dl/transformer/2-6.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig6](AI/Transformer/transformer2-6.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처: BrainDrain]](https://www.youtube.com/watch?v=T3OT8kqoqjc)_
 
 아래 그림에서 position을 $x$축, depth를 $y$축으로 볼 수 있으며, depth가 깊어질수록 주기가 길어지는 것을 확인할 수 있다.
 
-![fig7](dl/transformer/2-7.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig7](AI/Transformer/transformer2-7.png){: style="display:block; margin:0 auto; width:70%;"}
 
 예를 들어 임베딩 차원이 $d=8$이라면, 첫 번째 단어 $(pos=0)$와 두 번째 단어 $(pos=1)$의 위치 인코딩은 아래와 같다.
 
@@ -185,10 +185,10 @@ $$
 
 위치 $t$가 증가함에 따라 벡터의 방향이 점진적으로 회전한다. 즉, 각 위치 벡터는 서로 다른 위상을 갖게 되며, 결과적으로 모든 단어가 2차원 평면에서 고유한 방향을 가지게 된다.
 
-![fig8](dl/transformer/2-8.gif){: style="display:block; margin:0 auto; width:70%;"}
+![fig8](AI/Transformer/transformer2-8.gif){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_
 
 이제 $d=6$으로 확장하면, 각 벡터는 6차원 공간에서 각각 고유한 방향을 가리킬 것이다.
 
-![fig9](dl/transformer/2-9.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig9](AI/Transformer/transformer2-9.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_

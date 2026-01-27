@@ -10,7 +10,7 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [*'Attention in transformers, step-by-step'*](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7) 영상을 참고하였습니다.
 
-![fig0](dl/transformer/3-0.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig0](AI/Transformer/transformer3-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
 ## Attention
@@ -23,14 +23,14 @@ Attention은 각 단어의 의미를 더 정교하게 만드는 것뿐만 아니
 
 반대로 앞에 'Miniature'라는 단어가 붙게 되면, 해당 임베딩은 큰 건물의 의미와는 거리가 멀어지고 '작은 모형'의 의미 쪽으로 조정된다.
 
-![fig1](dl/transformer/3-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](AI/Transformer/transformer3-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 형용사에 의해서 명사의 의미가 좀 더 구체적으로 변한다고 생각하면 더 이해하기 쉬울 것이다.
 
 아래 그림에서 명사 'creature'의 임베딩 $E_4$가 형용사 'fluffy'와 'blue'의 임베딩 $E_2,E_3$에 의해서 '파랗고 복슬복슬한 생명체'를 나타내는 새로운 임베딩 $E_4'$로 변환된다.
 
-![fig2](dl/transformer/3-2.png){: style="display:block; margin:0 auto; width:65%;"}
+![fig2](AI/Transformer/transformer3-2.png){: style="display:block; margin:0 auto; width:65%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 단어 임베딩을 행벡터로 볼 경우, Attention 연산은 아래와 같이 정의된다.
@@ -57,7 +57,7 @@ $$
 
 Query와 Key 행렬은 모두 학습 가능한 파라미터로 이루어져 있으며, 임베딩 공간에 존재하는 단어 벡터를 쿼리 공간 (query space)과 키 공간 (key space)으로 매핑하는 역할을 한다.
 
-![fig3](dl/transformer/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](AI/Transformer/transformer3-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 직관적으로 보면, Query는 질문을 하는 도구, Key는 질문에 답을 제공하는 단서로 볼 수 있다.
@@ -70,7 +70,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQO
 
 아래 그림은 단어 임베딩을 열벡터로 가정했기 때문에, $Q$와 $K$의 위치가 반대로 표현되어 있다.
 
-![fig4](dl/transformer/3-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](AI/Transformer/transformer3-4.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 Query와 Key의 내적을 통해 생성된 행렬을 어텐션 맵 (Attention map)이라고 한다. Attention map은 문장 내에서 각 단어 쌍 간의 유사도 정보를 담고 있다.
@@ -106,7 +106,7 @@ Attention map의 각 행은 해당 Query가 모든 Key들과 얼마나 유사한
 
 아래 그림은 단어 임베딩을 열벡터로 가정했기 때문에, 소프트맥스 함수를 열 방향 (`axis=0`)으로 적용하는 것으로 표현되어 있다.
 
-![fig5](dl/transformer/3-5.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig5](AI/Transformer/transformer3-5.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ### Value
@@ -149,7 +149,7 @@ $$
 
 이는 원래 단어 임베딩 $\mathbf{e}$에 attention을 통해 얻은 변화량 $\Delta\mathbf{e}$를 더함으로써, 각 단어의 임베딩을 문맥적 의미를 반영한 새로운 임베딩으로 업데이트하는 것이다.
 
-![fig6](dl/transformer/3-6.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig6](AI/Transformer/transformer3-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ## Self-Attention과 Cross-Attention
@@ -166,7 +166,7 @@ Self-Attention은 $Q,K,V$를 모두 같은 입력에서 생성한다.
 
 예를 들어, `'The cat sat on the mat.'`에서 'cat'이 'mat' 또는 'sat'과 어떤 관계가 있는지를 학습함으로써 문장 내 의미적 연결성을 이해한다.
 
-![fig7](dl/transformer/3-7.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig7](AI/Transformer/transformer3-7.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://zzziito.tistory.com/56)_
 
 ### Cross-Attention
@@ -177,7 +177,7 @@ Cross-Attention은 $Q$는 하나의 입력, $K,V$는 다른 입력에서 생성�
 
 예를 들어 한국어 → 영어 번역을 수행하는 트랜스포머의 디코더에서, $Q$는 현재 생성 중인 영어 단어에서 오고, $K$와 $V$는 인코더가 처리한 한국어 문장 정보에서 온다. 이를 통해 원문과 번역문 간의 대응 관계를 학습한다.
 
-![fig8](dl/transformer/3-8.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig8](AI/Transformer/transformer3-8.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: 3Blue1Brown]](https://zzziito.tistory.com/56)_
 
 ## Masked Self-Attention
@@ -186,14 +186,14 @@ Masked Self-Attention은 기존 Self-Attention 구조에서 입력 시퀀스의 
 
 하나의 문장에서 여러 개의 학습 데이터를 생성할 수 있다. 예를 들어 'the fluffy blue creature roamed the verdant forest.'라는 문장이 있을 때, 모델이 'the' 다음에 올 단어를 예측하거나, 'the fluffy blue' 다음에 올 단어를 예측하도록 여러 단계의 학습 데이터를 만들 수 있다.
 
-![fig9](dl/transformer/3-9.png){: style="display:block; margin:0 auto; width:55%;"}
+![fig9](AI/Transformer/transformer3-9.png){: style="display:block; margin:0 auto; width:55%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 하지만 이렇게 하려면 뒤쪽의 단어가 앞부분에 영향을 주지 않게 해야 한다. 만약 뒤쪽의 단어가 attention을 통해 앞 단어에 영향을 준다면, 모델이 정답을 미리 컨닝하는 문제가 발생하기 때문이다.
 
 따라서 Attention map에서 뒤쪽에 있는 토큰이 앞쪽에 있는 토큰에 영향을 주는 부분을 $0$으로 설정한다.
 
-![fig10](dl/transformer/3-10.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig10](AI/Transformer/transformer3-10.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 하지만 단순히 $0$으로 설정하면, 소프트맥스 함수를 적용했을 때 정규화 과정에 포함되어 완전히 무시되지 않는다. 따라서 소프트맥스 함수를 적용하기 전에 값을 $-\infty$로 설정하여, 소프트맥스 함수 적용 이후에 $0$이 되도록 한다.
@@ -206,7 +206,7 @@ $$
 M_{ij}=\begin{cases}0&,~j\leq i\\-\infty&,~j>i\end{cases}
 $$
 
-![fig11](dl/transformer/3-11.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig11](AI/Transformer/transformer3-11.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
 
 ## Multi-Head Attention
@@ -230,5 +230,5 @@ E'=E+\text{Concat}\left(\Delta E^{(1)},\Delta E^{(2)},\Delta E^{(3)},\cdots\righ
 \in\mathbb{R}^{n\times(H\cdot d_h)}
 $$
 
-![fig12](dl/transformer/3-12.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig12](AI/Transformer/transformer3-12.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7)_
