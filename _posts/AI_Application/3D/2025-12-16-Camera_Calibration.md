@@ -129,7 +129,7 @@ $$
 
 초점 거리 $(f_x,f_y)$는 핀홀과 이미지 평면 사이의 거리를 픽셀 단위로 표현한 것이다.
 
-![fig5](AI/3D/3-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](AI/3D/Camera_Calibration-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://darkpgmr.tistory.com/32)_
 
 $$
