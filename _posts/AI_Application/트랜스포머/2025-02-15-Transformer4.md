@@ -10,14 +10,14 @@ author: sunho
 
 해당 포스트는 3Blue1Brown님의 [*'How might LLMs store facts'*](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8) 영상을 참고하였습니다.
 
-![fig0](AI/Transformer/transformer4-0.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig0](AI/Transformer/Transformer4-0.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
 ## Feed-Forward Network (FFN)
 
 Feed-Forward Network는 크게 Up-projection, Activation, Down-projection으로 이루어져 있다.
 
-![fig1](AI/Transformer/transformer4-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](AI/Transformer/Transformer4-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 이 구조는 Attention layer를 통과한 각 입력 벡터 $\mathbf{e}_i$에 대해 독립적으로 적용된다.
@@ -25,7 +25,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQO
 여기서 독립적으로 동작한다는 것은 각 단어 벡터가 서로 정보를 주고받지 않는다는 의미이지, 벡터마다 다른 가중치 행렬을 사용한다는 뜻이 아니다.
 즉, 모든 임베딩 벡터는 동일한 가중치 행렬 $W_{\uparrow},W_{\downarrow}$를 공유하며, 각 벡터는 별도로 FFN을 통과한다.
 
-![fig2](AI/Transformer/transformer4-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](AI/Transformer/Transformer4-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ### Up-projection
@@ -80,7 +80,7 @@ $$
 
 결과적으로 얻어진 벡터 $\mathbf{z}$는 원래 임베딩 $\mathbf{e}$에 더해지면서, 해당 단어의 표현을 '농구'라는 의미 방향으로 이동시키게 된다.
 
-![fig3](AI/Transformer/transformer4-3.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig3](AI/Transformer/Transformer4-3.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 예측 (Prediction)
@@ -102,7 +102,7 @@ $$
 
 이 확률 분포에서 가장 높은 확률을 가진 단어가 최종 예측 결과로 선택된다.
 
-![fig4](AI/Transformer/transformer4-4.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig4](AI/Transformer/Transformer4-4.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ### Temperature
@@ -119,12 +119,12 @@ $T$가 작을수록 $\frac{x_i}{T}$ 값의 차이가 커지므로, 가장 큰 lo
 
 $T$가 클수록 $\frac{x_i}{T}$ 값의 차이가 완화되므로, 확률 분포가 완만해진다. 이 경우, 모델은 더 다양한 단어를 샘플링할 가능성이 높아져 창의적인 결과가 나오게 된다.
 
-![fig5](AI/Transformer/transformer4-5.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig5](AI/Transformer/Transformer4-5.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
 FFN은 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
 
-![fig6](AI/Transformer/transformer4-6.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig6](AI/Transformer/Transformer4-6.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_

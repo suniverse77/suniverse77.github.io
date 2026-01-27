@@ -12,7 +12,7 @@ author: sunho
 
 트랜스포머의 아키텍처는 아래와 같으며, 크게 인코더와 디코더로 이루어져 있다.
 
-![fig1](AI/Transformer/transformer1-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](AI/Transformer/Transformer1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
 인코더는 입력 문장을 이해하고 의미 정보를 요약하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
