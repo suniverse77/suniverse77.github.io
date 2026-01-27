@@ -32,37 +32,11 @@ _[[출처]](https://cho001.tistory.com/245)_
 - **정규화 이미지 평면(Normalized Image Plane)**: 핀홀로부터 거리가 $1$인 가상의 평면
 - **초점 거리 (Focal Length, $f$)**: 핀홀과 이미지 평면 사이의 거리
 
-## 카메라 행렬
+## 카메라 외부 파라미터 (Camera Extrinsic Parameter)
 
-### 좌표계
+카메라 외부 파라미터는 3D 공간의 월드 좌표계를 기준으로 정의된 점들을 3D 공간의 카메라 좌표계로 변환하는 역할을 한다.
 
-각 좌표의 notation은 아래와 같이 표기하겠다.
-
-- $\mathbf{P}_w=(X_w,Y_w,Z_w)$ : 3D 월드 좌표
-- $\mathbf{P}_c=(X_c,Y_c,Z_c)$ : 3D 카메라 좌표
-- $\mathbf{p}_n=(x,y)$ : 2D 정규화 이미지 픽셀 좌표
-- $\mathbf{p}=(u,v)$ : 2D 이미지 픽셀 좌표
-- $\tilde{\cdot}~$ : 각 좌표의 동차 좌표
-
-**월드 좌표계**는 현실 세계의 한 점을 기준으로 정한 절대적인 좌표계를 의미한다.
-
-$$
-\mathbf{P}_w=\begin{bmatrix}X_w\\Y_w\\Z_w\end{bmatrix}
-$$
-
-**카메라 좌표계**는 카메라의 렌즈 중심을 원점으로 하고, 카메라가 바라보는 방향을 $z$축으로 하는 좌표계를 의미한다.
-
-$$
-\mathbf{P}_c=\begin{bmatrix}X_c\\Y_c\\Z_c\end{bmatrix}
-$$
-
-### 카메라 외부 파라미터 (Camera Extrinsic Parameter)
-
-카메라 외부 파라미터에는 회전 행렬 $R$과 이동 벡터 $\mathbf{t}$가 존재한다.
-
-$R$은 카메라가 어디를 바라보고 있고, $\mathbf{t}$는 카메라가 월드 좌표계에서 어디에 위치해 있는지를 나타낸다.
-
-회전과 이동을 합쳐 행렬 $[R\mid\mathbf{t}]$로 표현할 수 있으며, 이를 카메라 외부 파라미터 행렬이라고 부른다.
+카메라 외부 파라미터에는 회전 행렬 $R$과 이동 벡터 $\mathbf{t}$가 존재하며, 이들을 합친 $[R\mid\mathbf{t}]$ 행렬을 카메라 외부 파라미터 행렬이라고 부른다.
 
 $$
 [R\mid\mathbf{t}]=\begin{bmatrix}
@@ -72,44 +46,33 @@ r_{31}&r_{32}&r_{33}&t_3
 \end{bmatrix}
 $$
 
-3D 월드 좌표에 위 행렬을 곱함으로써, 3D 카메라 좌표로 변환할 수 있다.
+$R$은 카메라 좌표계가 월드 좌표계에 비해 얼마나 회전되어 있는지를, $\mathbf{t}$는 카메라 좌표계에서 바라본 월드 좌표계 원점의 위치를 의미한다.
+
+따라서 월드 좌표계에서 정의된 점 $\mathbf{P}_w$를 카메라 좌표계의 점 $\mathbf{P}_c$로 변환하기 위해서 아래의 식을 사용할 수 있다. 
 
 $$
-\begin{bmatrix}X_c\\Y_c\\Z_c\end{bmatrix}=
+\mathbf{P}_c=R\mathbf{P}_w+\mathbf{t}
+$$
+
+동차 좌표계를 사용하면, 회전과 이동 연산을 하나의 행렬 곱으로 처리할 수 있다.
+
+$$
+\begin{bmatrix}X_c\\Y_c\\Z_c\\1\end{bmatrix}=
 \begin{bmatrix}
 r_{11}&r_{12}&r_{13}&t_1\\
 r_{21}&r_{22}&r_{23}&t_2\\
-r_{31}&r_{32}&r_{33}&t_3
+r_{31}&r_{32}&r_{33}&t_3\\
+0&0&0&1
 \end{bmatrix}
 \begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}
-~\rightarrow~\mathbf{P}_c=[R\mid\mathbf{t}]\mathbf{\tilde{P}}_w
-$$
-
-위 연산은 아래 연산과 동일하다.
-
-$$
-\begin{bmatrix}X_c\\Y_c\\Z_c\end{bmatrix}=
-\begin{bmatrix}
-r_{11}&r_{12}&r_{13}\\
-r_{21}&r_{22}&r_{23}\\
-r_{31}&r_{32}&r_{33}
-\end{bmatrix}
-\begin{bmatrix}X_w\\Y_w\\Z_w\end{bmatrix}
-+\begin{bmatrix}t_1\\t_2\\t_3\end{bmatrix}
-~\rightarrow~
-\begin{cases}
-X_c=r_{11}X_w+r_{12}Y_w+r_{13}Z_w+t_1\\
-Y_c=r_{21}X_w+r_{22}Y_w+r_{23}Z_w+t_2\\
-Z_c=r_{31}X_w+r_{32}Y_w+r_{33}Z_w+t_3
-\end{cases}
 $$
 
 ![fig4](3d/3-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://mvje.tistory.com/81#google_vignette)_
 
-#### 회전 행렬 (Rotation)
+### 회전 행렬 (Rotation)
 
-회전 행렬 $R$은 월드 좌표계 축에 대한 카메라 좌표계 축의 회전을 의미한다.
+회전 행렬 $R$은 카메라 좌표계가 월드 좌표계에 비해 얼마나 회전되어 있는지를 의미한다.
 
 $$
 R=\begin{bmatrix}
@@ -119,29 +82,33 @@ r_{31}&r_{32}&r_{33}
 \end{bmatrix}
 $$
 
-회전 행렬은 직교 행렬이므로, 아래의 식이 성립한다.
+각 행 벡터는 월드 좌표계의 $x,y,z$ 축이 카메라 좌표계에서 어느 방향을 향하고 있는지를 나타내는 단위 벡터를 의미한다.
 
-$$
-R^{-1}=R^\top
-$$
+회전 행렬은 직교 행렬이므로, 항상 $R^\top R=I$를 만족한다.
 
-#### 이동 벡터 (Translation)
+### 이동 벡터 (Translation)
 
-이동 벡터 $t$는 월드 좌표계 원점을 카메라 좌표계로 옮기는 이동을 의미한다.
+이동 벡터 $t$는 카메라 좌표계에서 바라본 월드 좌표계 원점의 위치를 의미한다.
 
 $$
 \mathbf{t}=\begin{bmatrix}t_1\\t_2\\t_3\end{bmatrix}
 $$
 
-이는 카메라가 월드 좌표계 상에서 $(t_1, t_2, t_3)$ 위치에 있다는 의미이다.
+이는 월드 좌표계 원점이 카메라가 좌표계 상에서 $(x,y,z)=(t_1, t_2, t_3)$ 위치에 있다는 의미이다.
 
-### 카메라 내부 파라미터 (Camera Intrinsic Parameter)
+월드 좌표계에서 카메라가 어디에 있는지를 알고 싶다면 아래의 식을 사용해야 한다.
+
+$$
+C=-R^\top\mathbf{t}
+$$
+
+## 카메라 내부 파라미터 (Camera Intrinsic Parameter)
+
+카메라 내부 파라미터는 정규화 이미지 평면의 좌표를 실제 이미지 평면의 픽셀 좌표로 변환하는 역할을 한다.
 
 카메라 내부 파라미터는 렌즈와 이미지 센서의 물리적 특징을 나타내는 값들이다. 일반적으로 카메라 제조 공정에서 결정된다.
 
-카메라 내부 파라미터에는 초점 거리 $f$, 주점 $c$, 비대칭 계수 $s$가 존재한다.
-
-이들을 합쳐 행렬 $K$로 표현할 수 있으며, 이를 카메라 내부 파라미터 행렬이라고 부른다.
+카메라 내부 파라미터에는 초점 거리 $f$, 주점 $c$, 비대칭 계수 $s$가 존재하며, 이들을 합친 $K$ 행렬을 카메라 내부 파라미터 행렬이라고 부른다.
 
 $$
 K=\begin{bmatrix}
@@ -156,24 +123,9 @@ $$
 \begin{bmatrix}
 f_x&s&c_x\\0&f_y&c_y\\0&0&1
 \end{bmatrix}\begin{bmatrix}x\\y\\1\end{bmatrix}
-~\rightarrow~\mathbf{\tilde{p}}=K\mathbf{\tilde{p}}_n
 $$
 
-위 연산은 아래 연산과 동일하다. ($s=0$이라고 가정)
-
-$$
-\begin{bmatrix}u\\v\end{bmatrix}=
-\begin{bmatrix}f_x&0\\0&f_y\end{bmatrix}
-\begin{bmatrix}x\\y\end{bmatrix}+
-\begin{bmatrix}c_x\\c_y\end{bmatrix}
-~\rightarrow~
-\begin{cases}
-u=x\cdot f_x+c_x\\
-v=y\cdot f_y+c_y
-\end{cases}
-$$
-
-#### 초점 거리 (Focal Length)
+### 초점 거리 (Focal Length)
 
 초점 거리 $(f_x,f_y)$는 핀홀과 이미지 평면 사이의 거리를 픽셀 단위로 표현한 것이다.
 
@@ -194,17 +146,29 @@ $$
 
 정규화 이미지 평면은 핀홀에서 거리가 $1$인 가상의 평면이다. 하지만 실제 이미지가 맺히는 센서는 핀홀에서 $f$만큼 떨어져 있기 때문에, 삼각형의 닮음비에 의해 좌표 값에 $f$를 곱해줘야 한다.
 
-#### 주점 (Principal Point)
+$$
+\begin{aligned}
+u'=x\cdot f_x\\
+v'=y\cdot f_y
+\end{aligned}
+$$
+
+### 주점 (Principal Point)
 
 주점 $(c_x,c_y)$는 핀홀에서 이미지 센서에 내린 수선의 발이 맺히는 픽셀 좌표를 의미한다.
 
-일반적으로 이미지의 중심 $(\frac{W}{2},\frac{H}{2})$과 일치한다고 가정한다.
+조립 공정상의 오차로 인해 실제 렌즈의 중심축과 센서의 중심이 정확히 일치하지 않을 수 있어 보정이 필요하지만, 일반적으로 이미지의 중심 $(\frac{W}{2},\frac{H}{2})$과 일치한다고 가정한다.
 
-하지만 조립 공정상의 오차로 인해 실제 렌즈의 중심축과 센서의 중심이 정확히 일치하지 않을 수 있어 보정이 필요하다.
+정규화 이미지 평면의 원점은 렌즈의 중심에 위치하지만, 이미지 픽셀 좌표계의 원점은 이미지의 좌상단이다. 따라서 이미지 픽셀 좌표로 옮기기 위해서는 주점의 좌표만큼 평행 이동해야 한다.
 
-정규화 이미지 평면의 원점은 렌즈의 중심에 위치하지만, 컴퓨터 비전에서 다루는 이미지 픽셀 좌표계의 원점은 이미지의 좌상단이다. 따라서 주점의 좌표만큼 평행 이동해야 한다.
+$$
+\begin{aligned}
+u=u'+c_x\\
+v=v'+c_y
+\end{aligned}
+$$
 
-#### 비대칭 계수 (Skew Coefficient)
+### 비대칭 계수 (Skew Coefficient)
 
 비대칭 계수 $s$는 이미지 센서의 셀 격자 (Grid)가 직각이 아닐 때 발생하는 왜곡을 나타내며, $y$축이 $x$축에 대해 기울어진 정도를 의미한다.
 

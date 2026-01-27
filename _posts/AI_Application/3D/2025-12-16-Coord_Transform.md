@@ -21,26 +21,21 @@ _[[출처]](https://searching-fundamental.tistory.com/77#google_vignette)_
 - $\mathbf{p}=(u,v)$ : 2D 이미지 픽셀 좌표
 - $\tilde{\cdot}~$ : 각 좌표의 동차 좌표
 
+**월드 좌표계**는 현실 세계의 한 점을 기준으로 정한 절대적인 좌표계를 의미한다.
+
+$$
+\mathbf{P}_w=\begin{bmatrix}X_w\\Y_w\\Z_w\end{bmatrix}
+$$
+
+**카메라 좌표계**는 카메라의 렌즈 중심을 원점으로 하고, 카메라가 바라보는 방향을 $z$축으로 하는 좌표계를 의미한다.
+
+$$
+\mathbf{P}_c=\begin{bmatrix}X_c\\Y_c\\Z_c\end{bmatrix}
+$$
+
 ## Projection: 3D $\to$ 2D
 
 3D 월드 좌표에 카메라 외부 행렬 $[R\mid\mathbf{t}]$와 카메라 내부 행렬 $K$를 순차적으로 곱하면 2D 픽셀 좌표로 변환이 가능하다.
-
-이때, $R$과 $\mathbf{t}$는 월드 좌표의 점을 카메라 좌표의 점으로 변환하는 역할을 한다. (카메라 좌표에서 봤을 때 월드 좌표의 점)
-
-$$
-\mathbf{\tilde{p}}=K[R\mid\mathbf{t}]\mathbf{\tilde{P}}_w
-~\rightarrow~
-\begin{bmatrix}x\\y\\1\end{bmatrix}=
-\begin{bmatrix}
-f_x&s&c_x\\0&f_y&c_y\\0&0&1
-\end{bmatrix}
-\begin{bmatrix}
-r_{11}&r_{12}&r_{13}&t_1\\
-r_{21}&r_{22}&r_{23}&t_2\\
-r_{31}&r_{32}&r_{33}&t_3
-\end{bmatrix}
-\begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}
-$$
 
 각 과정은 아래와 같다.
 
