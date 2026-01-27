@@ -10,7 +10,7 @@ author: sunho
 
 카메라 행렬을 통해 3D 월드 좌표와 2D 이미지 픽셀 좌표 간의 변환이 가능하다.
 
-![fig7](3d/3-7.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](AI/3D/Coord_Transform-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://searching-fundamental.tistory.com/77#google_vignette)_
 
 각 좌표의 notation은 아래와 같이 표기하겠다.
@@ -69,7 +69,7 @@ $$
 
 즉, 해당 점에 대한 깊이 정보가 없다면, 2D 점을 하나의 특정한 3D 점으로 역변환할 수 없다.
 
-![fig8](3d/3-8.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](AI/3D/Coord_Transform-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.mdpi.com/1424-8220/22/19/7540)_
 
 따라서 카메라 원점에서 뻗어 나가는 직선 (Ray)의 방정식을 구하는 방식으로 접근해야 한다.
@@ -78,7 +78,7 @@ _[[출처]](https://www.mdpi.com/1424-8220/22/19/7540)_
 >
 > 아래 그림에서 노란색 직선이 Ray이다.
 > 
-> ![fig9](3d/3-9.png){: style="display:block; margin:0 auto; width:40%;"}
+> ![fig3](AI/3D/Coord_Transform-3.png){: style="display:block; margin:0 auto; width:40%;"}
 
 깊이를 알 수 없는 상태에서의 변환 과정은 아래와 같다.
 

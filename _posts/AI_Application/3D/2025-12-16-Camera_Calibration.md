@@ -12,17 +12,17 @@ author: sunho
 
 핀홀 카메라는 렌즈 없이 아주 작은 구멍 (핀홀)을 통해 빛을 받아들여 이미지를 맺는 가장 단순한 형태의 카메라이다. 이러한 원리 때문에 이미지 센서 (필름)에는 상하좌우가 뒤집힌 상이 맺힌다.
 
-![fig1](3d/3-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](AI/3D/Camera_Calibration-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처]](https://ko.wikipedia.org/wiki/%ED%95%80%ED%99%80_%EC%B9%B4%EB%A9%94%EB%9D%BC_%EB%AA%A8%EB%8D%B8)_
 
 실제 카메라에서는 렌즈를 통과한 빛이 렌즈 뒤쪽에 있는 이미지 센서에 맺히고, 이 센서의 표면이 물리적인 이미지 평면 역할을 한다.
 
-![fig2](3d/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](AI/3D/Camera_Calibration-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://mvje.tistory.com/81#google_vignette)_
 
 위의 그림처럼 실제 카메라의 이미지 이미지 평면은 렌즈 뒤 쪽에 존재하지만, 컴퓨터 비전에서는 수학적 편의를 위해 아래 그림처럼 렌즈 앞쪽에 있는 가상의 이미지 평면을 사용한다.
 
-![fig3](3d/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](AI/3D/Camera_Calibration-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://cho001.tistory.com/245)_
 
 주요 구성 요소는 아래와 같다.
@@ -67,7 +67,7 @@ r_{31}&r_{32}&r_{33}&t_3\\
 \begin{bmatrix}X_w\\Y_w\\Z_w\\1\end{bmatrix}
 $$
 
-![fig4](3d/3-4.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig4](AI/3D/Camera_Calibration-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://mvje.tistory.com/81#google_vignette)_
 
 ### 회전 행렬 (Rotation)
@@ -129,7 +129,7 @@ $$
 
 초점 거리 $(f_x,f_y)$는 핀홀과 이미지 평면 사이의 거리를 픽셀 단위로 표현한 것이다.
 
-![fig5](3d/3-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](AI/3D/3-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://darkpgmr.tistory.com/32)_
 
 $$
@@ -153,11 +153,16 @@ v'=y\cdot f_y
 \end{aligned}
 $$
 
+![fig6](AI/3D/Camera_Calibration-6.png){: style="display:block; margin:0 auto; width:100%;"}
+
 ### 주점 (Principal Point)
 
 주점 $(c_x,c_y)$는 핀홀에서 이미지 센서에 내린 수선의 발이 맺히는 픽셀 좌표를 의미한다.
 
 조립 공정상의 오차로 인해 실제 렌즈의 중심축과 센서의 중심이 정확히 일치하지 않을 수 있어 보정이 필요하지만, 일반적으로 이미지의 중심 $(\frac{W}{2},\frac{H}{2})$과 일치한다고 가정한다.
+
+![fig7](AI/3D/Camera_Calibration-7.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://physics.stackexchange.com/questions/11594/how-to-find-the-principal-point-in-an-image)_
 
 정규화 이미지 평면의 원점은 렌즈의 중심에 위치하지만, 이미지 픽셀 좌표계의 원점은 이미지의 좌상단이다. 따라서 이미지 픽셀 좌표로 옮기기 위해서는 주점의 좌표만큼 평행 이동해야 한다.
 
@@ -172,7 +177,7 @@ $$
 
 비대칭 계수 $s$는 이미지 센서의 셀 격자 (Grid)가 직각이 아닐 때 발생하는 왜곡을 나타내며, $y$축이 $x$축에 대해 기울어진 정도를 의미한다.
 
-![fig6](3d/3-6.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig8](AI/3D/Camera_Calibration-8.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://darkpgmr.tistory.com/32)_
 
 $$
