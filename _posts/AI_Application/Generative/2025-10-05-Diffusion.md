@@ -1,21 +1,19 @@
 ---
-title: "확산 모델 (Diffusion Model)"
+title: "[디퓨전 모델] 디퓨전 모델의 직관적 이해"
 date: 2025-10-05 00:00:00 +/-TTTT
 categories: [AI, 생성 모델]
-tags: [생성 모델]
+tags: [생성 모델, Diffusion]
 math: true
 toc: true
 author: sunho
 ---
 
-## 직관적 이해
-
-Diffusion 모델은 간단하게, 깨끗한 상태의 이미지를 점진적으로 파괴하여 무작위 노이즈로 만드는 과정을 역으로 학습함으로써, 노이즈에서 깨끗한 이미지로 복원해 나가는 방법을 배우는 생성 모델이다.
+디퓨전 모델 (Diffusion Model)은 간단하게, 깨끗한 상태의 이미지를 점진적으로 파괴하여 무작위 노이즈로 만드는 과정을 역으로 학습함으로써, 노이즈에서 깨끗한 이미지로 복원해 나가는 방법을 배우는 생성 모델이다.
 
 ![fig1](AI/Generative/Diffusion-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://www.researchgate.net/figure/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images_fig1_382128283)_
 
-### Forward process (Diffusion process)
+## Forward process (Diffusion process)
 
 Forward process는 깨끗한 상태의 이미지의 형체를 조금씩 깎아내면서 동시에 표준 가우시안 노이즈를 추가해서, 최종적으로 아무런 정보가 남지 않은 표준 가우시안 분포로 변환하는 과정이다.
 
@@ -36,7 +34,7 @@ Forward process는 이런 뾰족한 형태의 언덕을 표준 가우시안 분�
 ![fig3](AI/Generative/Diffusion-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-Ea6TrJQQjG9FIxQM3U0UFWgXCV0Z&index=2)_
 
-### Reverse process (Sampling)
+## Reverse process (Sampling)
 
 Reverse process는 무질서 상태의 표준 가우시안 분포에서 시작해서, 원래의 깨끗한 이미지로 복원해가는 과정이다.
 
@@ -56,11 +54,3 @@ _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-E
 실제 데이터는 전체 픽셀 공간에서 매우 좁은 영역을 차지하므로, 입자가 데이터와 멀리 떨어진 임의의 지점에 놓이면 어느 방향으로 가야 데이터 언덕이 나오는지 알 수 없는 상황이 발생한다.
 
 이를 해결하기 위해 $t=T$에서 지형 구조를 의도적으로 넓게 확장하여, 어느 위치에서든 높은 확률 지역을 찾아갈 수 있는 일반적인 방향 감각을 학습하도록 한다. 이렇게 대략적인 길을 따라가다가 $t=0$에 가까워질수록 급격히 뾰족해지는 언덕을 타고 데이터의 세밀한 특징을 찾아갈 수 있도록 한 것이다.
-
-## 수식적 정의
-
-### Forward process
-
-### Reverse process
-
-## 실제 코드 구현
