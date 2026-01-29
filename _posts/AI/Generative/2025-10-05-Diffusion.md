@@ -34,7 +34,7 @@ Forward process는 이런 뾰족한 형태의 언덕을 표준 가우시안 분�
 ![fig3](AI/Generative/Diffusion-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-Ea6TrJQQjG9FIxQM3U0UFWgXCV0Z&index=2)_
 
-## Reverse process (Sampling)
+## Reverse process (Denoising process)
 
 Reverse process는 무질서 상태의 표준 가우시안 분포에서 시작해서, 원래의 깨끗한 이미지로 복원해가는 과정이다.
 
