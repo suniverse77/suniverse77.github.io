@@ -1,5 +1,5 @@
 ---
-title: "[디퓨전 모델] 디퓨전 모델의 직관적 이해"
+title: "[생성 모델] 디퓨전 모델의 직관적 이해"
 date: 2025-10-05 00:00:00 +/-TTTT
 categories: [AI, 생성 모델]
 tags: [생성 모델, Diffusion]

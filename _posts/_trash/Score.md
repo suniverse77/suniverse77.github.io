@@ -1,13 +1,4 @@
----
-title: "[논문리뷰] Score-Based Generative Modeling through Stochastic Differential Equations"
-date: 2025-01-03 12:00:00 +/-TTTT
-categories: [AI, 논문리뷰]
-tags: [Diffusion, Image Generation]
-math: true
-toc: true
-author: sunho
-description: 📝 ICLR 2021
----
+
 
 [[Paper]](https://arxiv.org/abs/2011.13456)
 [[GitHub]](https://github.com/yang-song/score_sde)
