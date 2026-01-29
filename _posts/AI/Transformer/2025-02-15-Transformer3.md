@@ -137,6 +137,8 @@ $$
 =\begin{bmatrix}\Delta\mathbf{e}_1\\\vdots\\\Delta\mathbf{e}_4\\\vdots\\\Delta\mathbf{e}_n\end{bmatrix}\in\mathbb{R}^{n\times d}
 $$
 
+더 간단히 말하면, output 행렬의 첫 번째 행 벡터 $\Delta\mathbf{e}_1$은 <span style="background-color:#fff5b1">첫 번째 쿼리 $\mathbf{q}_1$이 나와 관련 있는 애들의 value 벡터만 가져와서 섞어 만든 새로운 나</span>라고 볼 수 있다.
+
 ### Skip connection
 
 포스터 상단의 트랜스포머 구조를 보면, `Add & Norm`이라는 블록이 존재한다.
