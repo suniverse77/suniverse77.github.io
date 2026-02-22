@@ -1,8 +1,8 @@
 ---
-title: "[지도학습] 푸리에 변환 (Fourier Transform)"
+title: "[신호 처리] 푸리에 변환 (Fourier Transform)"
 date: 2025-06-01 00:00:00 +/-TTTT
-categories: [AI, 머신러닝]
-tags: [머신러닝]
+categories: [Mathmatics, 신호 처리]
+tags: [신호 처리]
 math: true
 toc: true
 author: sunho
