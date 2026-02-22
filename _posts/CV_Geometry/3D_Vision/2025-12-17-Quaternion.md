@@ -1,7 +1,7 @@
 ---
 title: "[3D 비전] 사원수 회전 (Quaternion Rotation)"
 date: 2025-12-17 00:00:00 +/-TTTT
-categories: [AI, 3D 비전]
+categories: [Computer Vision & Geometry, 3D 비전]
 tags: [3D 비전]
 math: true
 toc: true
