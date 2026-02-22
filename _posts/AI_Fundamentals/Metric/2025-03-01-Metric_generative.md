@@ -1,5 +1,5 @@
 ---
-title: "[평가 지표] 생성 모델 성능 평가"
+title: "[평가 지표] 생성 모델 성능 평가 (IS / FID/ CLIP Score)"
 date: 2025-03-01 18:00:00 +/-TTTT
 categories: [AI Fundamentals, 평가 지표]
 tags: [평가 지표]

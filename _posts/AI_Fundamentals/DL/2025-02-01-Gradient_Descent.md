@@ -1,7 +1,7 @@
 ---
 title: "[NN] 경사 하강법 (Gradient Descent)"
 date: 2025-02-01 06:00:00 +/-TTTT
-categories: [AI Theory, 딥러닝]
+categories: [AI Fundamentals, 딥러닝]
 tags: [딥러닝, 역전파]
 math: true
 toc: true

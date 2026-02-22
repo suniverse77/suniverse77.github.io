@@ -1,7 +1,7 @@
 ---
 title: "[NN] 옵티마이저 (Optimizer)"
 date: 2025-02-01 12:00:00 +/-TTTT
-categories: [AI Theory, 딥러닝]
+categories: [AI Fundamentals, 딥러닝]
 tags: [딥러닝, 옵티마이저]
 math: true
 toc: true
