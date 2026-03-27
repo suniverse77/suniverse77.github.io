@@ -33,6 +33,19 @@ $$
 - **$P$ (Antecedent):** 가정이나 조건
 - **$Q$ (Consequent):** 결론
 
+이때 $P\rightarrow Q$는 $\lnot P\lor Q$으로 표현할 수 있다.
+
+### 진리표 (Truth Table)
+
+|$P$|$Q$|$P\rightarrow Q$|
+|---|---|---|
+|$0$|$0$|$1$
+|$0$|$1$|$1$
+|$1$|$0$|$0$
+|$1$|$1$|$1$
+
+- $P$가 `거짓`일 때, $P\rightarrow Q$는 항상 `참`
+- $P$가 `참`일 때, $P\rightarrow Q$는 $Q$의 진리값에 의해 결정
 
 ### 명제의 변형
 
