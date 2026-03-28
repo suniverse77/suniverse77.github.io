@@ -17,6 +17,8 @@ author: sunho
 반면 `a[0, 0]` 방법의 인덱싱은 한 번의 연산으로 행렬의 `[0, 0]` 위치 좌표를 계산하여 메모리에 직접 접근하기 때문에 더 효율적이다.
 
 ```python
+import torch
+
 a = torch.tensor([
     [0, 1, 2, 3],
     [4, 5, 6, 7]
@@ -35,6 +37,8 @@ print(a[0, 0])
 슬라이싱 또한 마찬가지이다.
 
 ```python
+import torch
+
 a = torch.tensor([
     [0, 1, 2, 3],
     [4, 5, 6, 7]
@@ -59,6 +63,8 @@ print(a[0, 1:3])
 원본 텐서 자체의 값을 직접 변경하는 In-place 연산을 해야할 때 좋다.
 
 ```python
+import torch
+
 a = torch.tensor([1, -2, 3, -4, 5])
 
 # 조건: a에서 0이하인 요소들 → 결과: 0으로 만들기
@@ -76,6 +82,8 @@ print(a)
 함수의 인자는 `(조건, 참일 때 값, 거짓일 때 값)`으로 구성되어 있다.
 
 ```python
+import torch
+
 a = torch.tensor([1, -2, 3, -4, 5])
 
 # 조건: a에서 0보다 큰 요소들 → 결과: 참이면 a, 거짓이면 0으로 만들기
@@ -105,6 +113,8 @@ print(b)
 ![fig2](Programming/PyTorch/Tensor_dim-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ```python
+import torch
+
 x = torch.randn([2, 3])
 y = torch.randn([2, 3])
 z = torch.randn([4, 3])
@@ -131,6 +141,8 @@ print(c.shape)
 ![fig3](Programming/PyTorch/Tensor_dim-3.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ```python
+import torch
+
 x = torch.randn([4, 3])
 y = torch.randn([4, 3])
 
@@ -148,6 +160,8 @@ print(b.shape)
 텐서 요소로 이루어진 리스트를 배치 텐서로 변환할 때, `stack` 함수를 이용할 수 있다.
 
 ```python
+import torch
+
 x = [
     torch.tensor([1, 2, 3]),
     torch.tensor([4, 5, 6]),
