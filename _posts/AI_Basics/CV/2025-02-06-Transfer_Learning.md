@@ -1,7 +1,7 @@
 ---
 title: "[CNN] 전이 학습 (Transfer Learning)"
 date: 2025-02-06 00:00:00 +/-TTTT
-categories: [AI Fundamentals, 컴퓨터 비전]
+categories: [AI Basics, 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true
@@ -14,7 +14,7 @@ author: sunho
 
 처음부터 모든 걸 학습하지 않기 때문에 빠르고 효율적인 학습이 가능하다.
 
-![fig1](dl/cnn/06-27.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](AI_Basics/CV/Transfer Learning-1.png){: style="display:block; margin:0 auto; width:90%;"}
 
 먼저 ImageNet에 대해 학습된 모델을 가져온다.
 
@@ -32,7 +32,7 @@ CNN의 경우 conv layer는 고정하고 마지막 분류기 layer만 새 데이
 
 주로 추가로 학습시킬 데이터셋이 클 때 사용한다.
 
-![fig2](dl/cnn/06-28.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig2](AI_Basics/CV/Transfer Learning-2.png){: style="display:block; margin:0 auto; width:90%;"}
 
 4가지 상황에 따른 학습 전략이 있다.
 

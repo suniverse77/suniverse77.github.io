@@ -1,7 +1,7 @@
 ---
 title: "[CNN] VGGNet & ResNet"
 date: 2025-02-07 00:00:00 +/-TTTT
-categories: [AI Fundamentals, 컴퓨터 비전]
+categories: [AI Basics, 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true
@@ -14,7 +14,7 @@ author: sunho
 
 ResNet을 기점으로 신경망의 layer가 매우 깊어진 것을 볼 수 있다.
 
-![fig12](cs231n/06-12.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig12](AI_Basics/CV/VGGNet_ResNet-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### VGGNet
 
@@ -22,11 +22,11 @@ VGGNet의 아키텍처는 아래와 같다.
 
 <span style="background-color:#fff5b1">3x3 conv (stride=1)만 사용</span>한 것이 가장 큰 특징이며, conv 연산 때는 공간적 크기를 보존하고 크기를 줄일 때는 pooling 연산을 수행하였다.
 
-![fig13](cs231n/06-13.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig13](AI_Basics/CV/VGGNet_ResNet-2.png){: style="display:block; margin:0 auto; width:80%;"}
 
 아래 그림에서 3x3 conv를 3번 사용하면 A3의 한 칸이 보는 영역이 Input의 7x7 영역인 것을 확인할 수 있다. 이는 7x7 conv를 1번 사용하는 것과 동일한 receptive field를 가지는 효과를 낸다.
 
-![fig14](cs231n/06-14.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig14](AI_Basics/CV/VGGNet_ResNet-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
 하지만 왜 3x3 conv를 3번 사용했을까? 정답은 동일한 receptive field를 가지지만 필요한 파라미터 수는 더 적기 때문이다.
 
@@ -39,19 +39,19 @@ VGGNet의 아키텍처는 아래와 같다.
 깊은 신경망은 얕은 신경망보다 표현력이 더 뛰어나야 하지만, 실제로 층이 깊어질수록 오히려 학습이 어려워지고 성능이 낮아지는 현상이 발생하였다.
 ResNet은 깊은 모델일수록 최적화하기 어렵다는 문제를 해결하기 위해 고안된 구조다.
 
-![fig15](cs231n/06-15.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig15](AI_Basics/CV/VGGNet_ResNet-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
 항등함수 (Identity Function)를 넣으면 모델을 최소한 얕은 모델만큼 좋아야한다. 
 
-![fig16](cs231n/06-16.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig16](AI_Basics/CV/VGGNet_ResNet-5.png){: style="display:block; margin:0 auto; width:100%;"}
 
 이를 이용해 항등 함수를 쉽게 학습할 수 있도록 skip connection을 추가하였다.
 
-![fig17](cs231n/06-17.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig17](AI_Basics/CV/VGGNet_ResNet-6.png){: style="display:block; margin:0 auto; width:80%;"}
 
 신경망은 여러 층을 통과하여 입력 $x$를 원하는 출력 $H(x)$로 매핑하는 것을 학습한다. ResNet에서는 $H(x)$를 직접 학습하는 대신 skip connection을 도입하여 잔차 $F(x)=H(x)-x$만 학습하도록 하였다.
 
-![fig18](cs231n/06-18.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig18](AI_Basics/CV/VGGNet_ResNet-7.png){: style="display:block; margin:0 auto; width:80%;"}
 
 잔차를 학습하는 것이 더 쉬운 이유는 2가지 관점으로 볼 수 있다.
 

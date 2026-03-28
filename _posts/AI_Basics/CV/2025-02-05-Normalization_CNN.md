@@ -1,7 +1,7 @@
 ---
 title: "[CNN] CNN에서의 데이터 정규화"
 date: 2025-02-05 12:00:00 +/-TTTT
-categories: [AI Fundamentals, 컴퓨터 비전]
+categories: [AI Basics, 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true
@@ -10,7 +10,7 @@ author: sunho
 
 ## CNN에서의 Normalization
 
-![fig1](dl/cnn/3-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](AI_Basics/CV/Normalization_CNN-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _출처: Stanford CS231n, Lecture 5 (Image Classification with CNNs)_
 
 보통 normalization을 설명할 때 위의 그림을 자주 사용한다. 
@@ -21,7 +21,7 @@ _출처: Stanford CS231n, Lecture 5 (Image Classification with CNNs)_
 
 ### Batch Normalization
 
-![fig2](dl/cnn/3-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](AI_Basics/CV/Normalization_CNN-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Batch Norm은 하나의 배치 내에서 각 채널 별로 정규화를 수행한다.
@@ -30,7 +30,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 batch norm을 수행하�
 
 ### Layer Normalization
 
-![fig3](dl/cnn/3-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](AI_Basics/CV/Normalization_CNN-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Layer Norm은 하나의 샘플에 대해서 정규화를 수행한다.
@@ -39,7 +39,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 layer norm을 수행하�
 
 ### Instance Normalization
 
-![fig4](dl/cnn/3-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](AI_Basics/CV/Normalization_CNN-4.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Istance Norm은 각 샘플마다 채널 별로 정규화를 수행한다.
@@ -48,7 +48,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 instance norm을 수행�
 
 ### Group Normalization
 
-![fig5](dl/cnn/3-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig5](AI_Basics/CV/Normalization_CNN-5.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Group Norm은 각 샘플마다 채널을 $G$개의 그룹으로 묶어 정규화를 수행한다.
