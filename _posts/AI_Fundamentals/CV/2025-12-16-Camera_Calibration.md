@@ -1,8 +1,8 @@
 ---
-title: "[3D 비전] 카메라 캘리브레이션 (Camera Calibration)"
+title: "[3차원 기하학] 카메라 캘리브레이션 (Camera Calibration)"
 date: 2025-12-16 00:00:00 +/-TTTT
-categories: [Computer Vision & Geometry, 3D 비전]
-tags: [3D 비전]
+categories: [AI_Fundamentals, 컴퓨터 비전]
+tags: [3차원 기하학]
 math: true
 toc: true
 author: sunho
