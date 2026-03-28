@@ -1,7 +1,7 @@
 ---
 title: "[NN] 경사 하강법 (Gradient Descent)"
 date: 2025-02-01 06:00:00 +/-TTTT
-categories: [AI Fundamentals, 딥러닝]
+categories: [AI Basics, 딥러닝]
 tags: [딥러닝, 역전파]
 math: true
 toc: true
@@ -26,7 +26,7 @@ $$
 
 아래 그림에서 볼 수 있듯이 손실 함수의 최소값을 찾기 위해 그라디언트를 이용해 경사를 따라 내려가듯 가중치를 업데이트하며, 이 알고리즘을 경사 하강법이라고 부른다.
 
-![fig1](dl/nn/2-1.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](AI_Basics/Metric/Gradient_Descent-1.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://blog.ex-em.com/1750)_
 
 ### Gradient 계산 방법
