@@ -389,7 +389,7 @@ $$
 
 즉, <span style="background-color:#fff5b1">기준점 하나 (특수해)와 방향 (동차해)만으로 $x+y=1$의 모든 해를 표현할 수 있다.</span>
 
-![fig1](mlm/9-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](Math/Linear_Algebra/Linear_Equation-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
 - 빨간색 직선은 $x+y=1$ 즉, 해공간을 나타낸다.
 - 파란색 직선은 $x+y=0$ 즉, 영공간인 동차해 $\mathbf{x}_h$를 나타낸다.

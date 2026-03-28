@@ -42,7 +42,7 @@ $$
 
 아래 그림은 $p$ 값에 따른 궤적의 변화를 나타낸다.
 
-![fig1](mlm/5-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Math/Linear_Algebra/Norm_Distance-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ### Norm의 조건

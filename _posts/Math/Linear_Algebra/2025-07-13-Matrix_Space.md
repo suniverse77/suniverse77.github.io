@@ -15,7 +15,7 @@ author: sunho
 - 영공간 (Null space)
 - 좌측 영공간 (Left Null space)
 
-![fig1](mlm/13-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Math/Linear_Algebra/Matrix_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://www.cs.utexas.edu/~flame/laff/alaff/chapter04-four-fundamental-spaces.html)_
 
 위의 그림은 행렬 $A\in\mathbb{R}^{m\times n}$에 대한 네 가지 주요 부분공간을 시각화한 것으로, 아래 내용을 보고 난 뒤에는 이해할 수 있을 것이다.
@@ -78,7 +78,7 @@ $$
 
 아래 그림의 왼쪽의 노란색 직선이 변환 후 오른쪽의 노란색 점 (원점)이 되었으므로, 노란색 직선은 영공간이다.
 
-![fig2](mlm/13-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Math/Linear_Algebra/Matrix_Space-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 ### 영공간의 성질
@@ -180,3 +180,6 @@ A\mathbf{x}=\mathbf{0}~\to~
 $$
 
 내적이 $0$이므로, 두 공간은 직교한다.
+
+![fig3](Math/Linear_Algebra/Matrix_Space-3.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_

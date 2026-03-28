@@ -19,7 +19,7 @@ $$
 
 행렬식의 기하학적 의미는 아래와 같다.
 
-![fig1](mlm/12-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Linear_Algebra/Det_Inverse-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 
 1. 행렬을 열 벡터의 집합으로 본다면, 두 열 벡터가 이루는 영역의 너비를 의미한다.
@@ -136,7 +136,7 @@ $$
 
 3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
 
-![fig2](mlm/12-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](Math/Linear_Algebra/Det_Inverse-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDeterminant-%EC%97%AC%EC%9D%B8%EC%9E%90cofactor-%EC%99%B8%EC%A0%81Cross-product)_
 
 ### 행렬식의 성질
@@ -194,7 +194,7 @@ $$\text{det}(A)=1\times(-2)=-2$$
 
 예를 들어, 어떤 행렬이 물체를 시계 방향으로 90도 회전시키는 역할을 한다면, 이 행렬의 역행렬은 물체를 반시계 방향으로 90도 회전시켜서 원래 위치로 되돌려놓는 역할을 한다.
 
-![fig3](mlm/10-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](Math/Linear_Algebra/Det_Inverse-3.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 역행렬은 정사각 행렬에 대해서만 정의되며, 정사각 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.

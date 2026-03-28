@@ -331,7 +331,7 @@ $$
 
 아래의 왼쪽 그림에서 $\mathbf{a}$들은 서로 직교하지 않았지만, 오른쪽 그림에서 $\mathbf{b}$들은 서로 직교한다. 
 
-![fig1](mlm/4-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Linear_Algebra/Basis_Rank-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
 
 <details>

@@ -25,7 +25,7 @@ Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf
 
 따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
 
-![fig1](mlm/7-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Linear_Algebra/Projection-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
@@ -63,7 +63,7 @@ $$
 
 기저 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
 
-![fig2](mlm/7-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](Math/Linear_Algebra/Projection-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
