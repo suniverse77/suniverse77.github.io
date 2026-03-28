@@ -26,7 +26,7 @@ SGD에는 몇 가지 문제점이 존재한다.
     
     손실 함수가 어떤 방향에서는 가파르고 다른 방향에서는 완만할 수가 있다. 이런 경우에 Gradient Descent는 경사를 따라 지그재그로 움직이며 진동하면서 천천히 수렴하게 된다.
     
-    ![fig1](AI_Basics/Metric/Optimizer-1.png){: style="display:block; margin:0 auto; width:80%;"}
+    ![fig1](AI_Basics/DL/Optimizer-1.png){: style="display:block; margin:0 auto; width:80%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
     
     행렬의 condition number는 가장 큰 singular value와 가장 작은 singular value의 비율을 의미한다.
@@ -37,14 +37,14 @@ SGD에는 몇 가지 문제점이 존재한다.
 
     손실 함수의 지형에는 여러 개의 local minima와 saddle point가 존재한다. 특히 고차원 고차원 공간에서는 local minima보다 saddle point가 더 흔하며, Saddle point에서는 gradient가 0에 가까워져 학습이 정체될 수 있다.
     
-    ![fig2](AI_Basics/Metric/Optimizer-2.png){: style="display:block; margin:0 auto; width:70%;"}
+    ![fig2](AI_Basics/DL/Optimizer-2.png){: style="display:block; margin:0 auto; width:70%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
     
 3. Stochasticity
     
     미니배치를 사용하기 때문에 loss 값이 매 스텝마다 심하게 흔들릴 수 있다.
     
-    ![fig3](AI_Basics/Metric/Optimizer-3.png){: style="display:block; margin:0 auto; width:30%;"}
+    ![fig3](AI_Basics/DL/Optimizer-3.png){: style="display:block; margin:0 auto; width:30%;"}
     _출처: Stanford CS231n, Lecture 3 (Regularization and Optimization)_
 
 ### SGD + Momentum
