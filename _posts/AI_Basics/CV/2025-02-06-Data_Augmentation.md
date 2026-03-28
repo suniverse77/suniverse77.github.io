@@ -36,19 +36,19 @@ _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 이 방법을 통해서 모델은 고양이의 얼굴만 크게 확대된 이미지, 몸통 일부만 보이는 이미지 등 다양한 상황을 학습할 수 있다.
 
-![fig6](dl/cnn/4-6.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig3](AI_Basics/CV/Data_Augmentation-3.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Color Jitter
 
 이미지의 대비와 밝기 등 색상과 관련된 속성값을 랜덤하게 조절하는 방법이다.
 
-![fig3](AI_Basics/CV/Data_Augmentation-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig4](AI_Basics/CV/Data_Augmentation-4.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Cutout
 
 이미지의 특정 영역을 랜덤으로 선택하여 검은색 또는 회색 사각형으로 가려버리는 방법이다.
 
-![fig4](AI_Basics/CV/Data_Augmentation-4.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](AI_Basics/CV/Data_Augmentation-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
