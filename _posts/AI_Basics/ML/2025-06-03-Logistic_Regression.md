@@ -1,0 +1,151 @@
+---
+title: "[지도 학습] 로지스틱 회귀 (Logistic Regression)"
+date: 2025-06-03 00:00:00 +/-TTTT
+categories: [AI Basics, 머신러닝]
+tags: [머신러닝, 지도 학습]
+math: true
+toc: true
+author: sunho
+---
+
+## 로지스틱 회귀 (Logistic Regression)
+
+로지스틱 회귀는 이름에 회귀가 들어있지만 실제로는 분류 (Classification) 문제를 푸는 모델이다.
+
+즉, 어떤 입력 $\mathbf{x}$가 주어졌을 때, 그 샘플이 특정 클래스에 속할 확률을 예측하는 모델이다.
+
+회귀와 분류의 차이는 아래와 같다.
+
+- **회귀**: 주택 가격, 기온처럼 연속적인 숫자 값을 예측하는 문제
+- **분류**: 개/고양이 구분 문제처럼 주어진 데이터가 어느 그룹에 속하는지 즉, 이산적인 클래스를 예측하는 문제
+
+선형 회귀에서 아래 식의 출력값 $y$는 실수 전체 범위의 값을 가질 수 있다.
+
+$$\vphantom{\Big(}
+y=\mathbf{w}^\top\mathbf{x}+b
+$$
+
+하지만 분류 문제에서는 샘플이 특정 클래스에 속할 확률을 예측해야 하므로, 출력값이 $(0,1)$ 사이의 확률로 제한되어야 한다.
+
+## 이진 분류 (Binary Classification)
+
+이진 분류는 주어진 데이터 샘플을 두 개의 클래스 $0,1$ 중 하나로 구분하는 문제를 의미한다.
+
+이진 분류에서는 실수 전체 범위의 출력값을 $(0,1)$ 사이로 변환시키기 위해, 시그모이드 (sigmoid) 함수를 사용한다. 시그모이드 함수는 아래와 같이 정의된다.
+
+$$
+\sigma(z)=\frac{1}{1+e^{-z}}\in[0,1]
+$$
+
+![fig1](AI_Basics/ML/Logistic_Regression-1.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://datasciencebeehive.tistory.com/80)_
+
+따라서 선형 함수의 결과 $z=\mathbf{w}^\top\mathbf{x}+b$를 시그모이드 함수에 입력하여 로지스틱 회귀의 최종 모델 식을 아래와 같이 정의할 수 있다.
+
+$$
+P(y=1\mid \mathbf{x})=\sigma(\mathbf{w}^\top\mathbf{x}+b)=\frac{1}{1+e^{-(\mathbf{w}^\top\mathbf{x}+b)}}
+$$
+
+위의 식의 출력값 $\hat{y}$는 해당 샘플이 클래스 1에 속할 확률을 의미한다.
+
+이때, 실수값과 확률값을 연결해주는 변수 $z$를 <span style="background-color:#fff5b1">로짓 (logit)</span>이라고 부른다.
+
+### 결정 경계 (Decision Boundary)
+
+모델이 예측한 확률 $p$를 바탕으로 최종 클래스를 결정한다. 일반적으로 확률이 $0.5$를 넘으면 클래스 1, 그렇지 않으면 클래스 0으로 분류한다.
+
+$$
+\begin{cases}
+p\geq0.5&\to\hat{y}=1\\
+p<0.5&\to\hat{y}=0
+\end{cases}
+$$
+
+왜 $0.5$를 기준으로 할까? 단순히 확률의 중앙값이기도 하지만, 이는 선형 모델의 결과값이 양수인지 음수인지를 가르는 기준과 일치하기 때문이다.
+
+$$
+\begin{cases}\vphantom{\Big(}
+\mathbf{w}^\top\mathbf{x}+b>0&\to p>0.5\\
+\mathbf{w}^\top\mathbf{x}+b<0&\to p<0.5\\
+\mathbf{w}^\top\mathbf{x}+b=0&\to p=0.5\\
+\end{cases}
+$$
+
+![fig2](AI_Basics/ML/Logistic_Regression-2.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://ploomber.io/blog/regression-101/)_
+
+이때 $p=0.5$가 되는 지점인 $\mathbf{w}^\top \mathbf{x}+b=0$을 결정 경계라고 부르며, 이진 분류에서는 두 클래스를 구분하는 직선이 된다.
+
+아래 그림은 특징 차원이 2차원인 입력 $\mathbf{x}\in\mathbb{R}^2$에 대해 분류한 결과이다. $x$축과 $y$축은 각각의 특징을 의미하고, $y$값은 색상으로 표현하였다.
+
+빨간색 영역 $(\mathbf{w}^\top\mathbf{x}+b<0)$은 클래스 0 $(\hat{y}=0)$, 초록색 영역 $(\mathbf{w}^\top\mathbf{x}+b>0)$은 클래스 1 $(\hat{y}=1)$에 속한다.
+
+![fig3](AI_Basics/ML/Logistic_Regression-3.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처]](https://ploomber.io/blog/regression-101/)_
+
+### 목적 함수 (Objective Function)
+
+이진 분류에서는 이진 크로스 엔트로피 (Binary Cross-Entropy)를 손실 함수로 사용한다.
+
+$$
+L_{\text{BCE}} = -\frac{1}{N}\sum_{i=1}^{N}
+\Big[y_i \log(\hat{y}_i) + (1 - y_i)\log(1 - \hat{y}_i)\Big]
+$$
+
+## 다중 분류 (Multiple Classification)
+
+다중 분류는 주어진 데이터 샘플을 여러 개의 클래스 중 하나로 구분하는 문제를 의미한다.
+
+각 클래스에 대해 해당 클래스일 확률을 계산하고, 가장 확률이 높은 클래스를 최종 예측으로 선택한다.
+
+다중 분류에서는 실수 전체 범위의 출력값을 $(0,1)$ 사이로 변환시키기 위해, 소프트맥스 (softmax) 함수를 사용한다. 소프트맥스 함수는 아래와 같이 정의된다.
+
+$$
+\text{softmax}(z_i)=\frac{e^{z_i}}{\sum_{j=1}^Ke^{z_j}}
+$$
+
+위의 식에서 $K$는 클래스의 개수를 의미한다.
+
+각 클래스 $i$에 해당할 확률은 아래와 같이 계산한다.
+
+$$
+P(y=i\mid\mathbf{x})=\frac{e^{\mathbf{w}_i^\top\mathbf{x}+b_i}}{\sum_{j=1}^Ke^{\mathbf{w}_j^\top\mathbf{x}+b_j}}
+$$
+
+즉, 모든 클래스에 대해 주어진 샘플이 해당 클래스일 확률 $p_i$를 계산한 뒤,
+그중 확률이 가장 높은 클래스를 예측값으로 결정한다.
+
+$$
+\hat{y}=\underset{i}{\arg\max}~p_i~
+$$
+
+### 결정 경계 (Decision Boundary)
+
+다중 분류에서의 결정 경계는 각 클래스 간의 결정 경계의 조합으로 형성된다. 즉, 클래스 개수에 따라 여러 개의 경계면이 형성된다.
+
+예를 들어, 클래스 $i$와 $j$의 결정 경계는 두 클래스의 확률이 같아지는 지점이 된다. 이는 곧, 두 클래스의 logit값이 같아지는 지점을 의미한다.
+
+$$\vphantom{\Big(}
+P(y=i)=P(y=j)~\to~\mathbf{w}_i^\top\mathbf{x}+b_i=\mathbf{w}_j^\top\mathbf{x}+b_j
+$$
+
+즉, 두 클래스 사이의 경계면은 아래와 같은 선형 방정식으로 표현된다.
+
+$$\vphantom{\Big(}
+(\mathbf{w}_i-\mathbf{w}_j)^\top\mathbf{x}+(b_i-b_j)=0
+$$
+
+아래 그림은 서로 다른 3개의 클래스에 대한 결정 경계를 보여준다.
+
+![fig4](AI_Basics/ML/Logistic_Regression-4.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[출처]](https://inria.github.io/scikit-learn-mooc/python_scripts/trees_classification.html)_
+
+### 목적 함수 (Objective Function)
+
+다중 분류에서는 각 샘플의 실제 클래스에 해당하는 확률을 최대화하기 위해
+크로스 엔트로피 손실 (Cross-Entropy Loss)을 사용한다.
+
+$$
+L_{\text{CE}} = -\frac{1}{N}\sum_{i=1}^{N}\sum_{k=1}^{K}
+y_{ik}\log(\hat{y}_{ik})
+$$

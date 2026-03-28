@@ -1,0 +1,145 @@
+---
+title: "[지도 학습] 의사결정 나무 (Decision Tree)"
+date: 2025-06-06 00:00:00 +/-TTTT
+categories: [AI Basics, 머신러닝]
+tags: [머신러닝, 지도 학습]
+math: true
+toc: true
+author: sunho
+---
+
+## 의사결정 나무 (Decision Tree)
+
+데이터의 각 특징 (feature)은 서로 다른 정보를 담고 있으며, Decision Tree는 이 특징을 기준으로 순차적으로 질문을 던지면서 최종 예측을 수행하는 알고리즘이다.
+
+이는 일종의 스무고개로 볼 수 있다.
+
+예를 들어, 입력 벡터 $\mathbf{x}\in\mathbb{R}^3$이 '날씨', '습도', '바람'의 세 가지 특징으로 구성되어 있고, 라벨 $y$가 '데이트 여부'를 나타내는 데이터셋을 생각해보자.
+
+![fig1](AI_Basics/ML/Decision_Tree.png){: style="display:block; margin:0 auto; width:40%;"}
+_[[출처: 신박AI]](https://www.youtube.com/watch?v=vutU-SLTZ-A)_
+
+Decision Tree는 이들 특징에 대해 순차적으로 질문을 던지며 답을 도출한다.
+
+아래 그림은 먼저 '날씨'가 어떤지 살펴보고, 그다음으로 '습도'와 '바람'의 상태를 차례로 확인하면서 최종적으로 데이트를 할지 말지를 판단하는 경우이다.
+
+![fig2](AI_Basics/ML/Decision_Tree-2.png){: style="display:block; margin:0 auto; width:40%;"}
+_[[출처: 신박AI]](https://www.youtube.com/watch?v=vutU-SLTZ-A)_
+
+Decision Tree (DT)는 분류와 회귀에서 모두 사용할 수 있다.
+
+## DT Classification
+
+분류 문제에서 Decision Tree는 위의 예시처럼 각 특징을 기준으로 데이터를 단계적으로 나누며, 이 과정은 입력 공간을 여러 구역으로 분할하는 것으로 볼 수 있다.
+
+각 분할은 특정 특징값에 대한 임계값을 기준으로 True와 False로 나눈다. 이러한 분할이 반복될수록 입력 공간은 점점 세밀하게 구분되고, 결과적으로 각 영역에 특정 클래스의 샘플들이 모이도록 결정된다.
+
+![fig3](AI_Basics/ML/Decision_Tree-3.png){: style="display:block; margin:0 auto; width:100%;"}
+_[[출처: 딥스푼]](https://www.youtube.com/watch?v=AyCTgUVvttU)_
+
+그렇다면 어떤 특징부터 질문해야 가장 효율적으로 분류할 수 있을까?
+
+이는 지니 불순도를 기준으로 결정한다.
+
+### 지니 불순도 (Gini Impurity)
+
+지니 불순도는 한 그룹에 여러 클래스가 얼마나 섞여 있는지를 측정하는 지표이다. 즉, 주어진 데이터가 얼마나 혼잡하게 섞여 있는지를 보여주는 척도이다.
+
+지니 불순도는 아래와 같이 정의된다.
+
+$$
+G=1-\sum_i(p_i)^2
+$$
+
+여기서 $p_i$는 해당 노드 내에서 클래스 $i$가 차지하는 비율이다.
+
+값이 $0$에 가까울수록 한 클래스만 존재하는 순수한 집합을 의미하고,
+값이 클수록 여러 클래스가 섞여 있음을 뜻한다.
+
+Decision Tree의 목표는 특정 클래스의 데이터만 모여있는 그룹을 만드는 것이다. 따라서 지니 불순도가 낮도록 순서를 결정한다.
+
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
+
+상단의 예시에서 지니 불순도를 계산해보자.
+
+$$\vphantom{\Big(}
+G=1-\left((p_{Yes})^2+(p_{No})^2\right)
+$$
+
+먼저 '날씨' 특징에 대한 지니 불순도 계산하면 아래와 같다.
+
+1. '맑음'에 대한 지니 불순도 계산
+
+    $$
+    G=1-\left((\frac{1}{3})^2+(\frac{2}{3})^2\right)\approx0.444
+    $$
+
+    '맑음'으로 선택했을 때 3개 중 Yes가 1개, No가 2개라는 뜻이다.
+
+2. '흐림'에 대한 지니 불순도 계산
+
+    $$
+    G=1-\left((\frac{2}{2})^2+(\frac{0}{2})^2\right)=0
+    $$
+
+3. '비'에 대한 지니 불순도 계산
+
+    $$
+    G=1-\left((\frac{2}{3})^2+(\frac{1}{3})^2\right)\approx0.444
+    $$
+
+따라서 날씨 전체에 대한 평균 지니 불순는 다음과 같다.
+
+$$
+G_{\text{날씨}}=\frac{3}{8}(0.444)+\frac{2}{8}(0)+\frac{3}{8}(0.444)=0.333
+$$
+
+동일한 방법으로 '습도'와 '바람'에 대한 지니 불순도를 계산하면 각각 $G_{\text{습도}}=0.4375~,~G_{\text{바람}}=0.4665$이다.
+
+세 특징 중 '날씨'의 지니 불순도가 가장 낮으므로, Decision Tree는 첫 번째 분할 기준으로 '날씨'를 선택하게 된다.
+
+---
+
+</div>
+</details>
+<br>
+
+하지만 Decision Tree는 데이터에 매우 민감하다는 단점이 있다.
+
+아래 그림을 보면, 데이터가 하나만 추가되었을 뿐인데 이전 그래프와 완전히 달라진 것을 볼 수 있다.
+
+![fig4](AI_Basics/ML/Decision_Tree-4.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처: 신박AI]](https://www.youtube.com/watch?v=vutU-SLTZ-A)_
+
+## DT Regression
+
+회귀 문제에서 Decision Tree는 데이터를 규칙에 따라 순차적으로 분할하면서 연속적인 숫자 값을 예측한다.
+
+회귀에서는 지니 불순도 대신, 예측 오차가 작아지는 지점을 기준으로 데이터를 분할한다. 일반적으로 MSE를 불순도 측도로 사용한다.
+
+DT Regression의 동작 과정은 아래와 같다.
+
+1. 모든 가능한 분할 지점에 대해 데이터를 나눠보면서 각 구간에 대해 평균값을 계산한다.
+2. 평균값을 해당 구간의 예측값 $\hat{y}_r$으로 설정한다. ($r$은 구간 인덱스를 의미)
+3. 각 그룹의 MSE 합이 가장 작아지는 지점을 최적의 분할 지점으로 선택한다.
+
+    $$
+    \text{MSE}_r=\frac{1}{n}\sum_{i=1}^n\left(y^{(i)}_r-\hat{y}_r\right)^2
+    $$
+4. 위 과정을 반복하면서 데이터 공간을 여러 구간으로 나눈다.
+
+최종적으로 모델이 완성되면, 각 구간의 예측값은 해당 구간 데이터의 평균값으로 정한다.
+
+예를 들어 새로운 데이터가 들어왔을 때 그 데이터가 구간1에 해당한다면, 그 데이터의 회귀 예측값은 구간1의 평균값으로 정해진다.
+
+![fig5](AI_Basics/ML/Decision_Tree-5.png){: style="display:block; margin:0 auto; width:100%;"}
+_[[출처: 딥스푼]](https://www.youtube.com/watch?v=AyCTgUVvttU)_
+
+결과적으로 모델의 예측 함수는 계단 형태를 띤게 된다. 이때 Tree의 깊이를 더 늘려서 세밀하게 분할할수록, 예측 곡선은 점점 곡선에 가까워진다.
+
+![fig6](AI_Basics/ML/Decision_Tree-6.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://scikit-learn.org/0.23/auto_examples/ensemble/plot_adaboost_regression.html)_
+
+
