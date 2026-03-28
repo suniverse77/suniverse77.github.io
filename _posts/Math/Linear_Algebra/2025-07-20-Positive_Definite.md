@@ -48,7 +48,7 @@ $$
 
 이를 3차원 공간 $(x_1,x_2,f)$에서 해석하면, 함수 $f(\mathbf{x})$는 항상 양수이기 때문에 위로 열린 그릇 모양의 곡면을 나타낸다.
 
-![fig1](mlm/19-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ### 내적 관점
 
@@ -62,7 +62,7 @@ $A$는 벡터 $\mathbf{x}$를 다른 방향으로 변환하지만, $A$가 양의
 
 즉, 벡터의 방향성을 어느정도 보존하는 선형 변환으로 볼 수 있다.
 
-![fig2](mlm/19-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Math/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
 
 <details>

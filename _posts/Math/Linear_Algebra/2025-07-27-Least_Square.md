@@ -20,7 +20,7 @@ $$
 
 예를 들어, 아래의 왼쪽 그림에서 모든 점을 완벽히 통과하는 직선은 찾을 수 없다. 따라서 오른쪽 그림처럼 여러 개의 직선을 그어 보면서, 각 점과의 오차가 가장 작아지는 직선을 찾는 과정으로 이해할 수 있다.
 
-![fig1](mlm/27-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Math/Linear_Algebra/Least_Square-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://darkpgmr.tistory.com/56)_
 
 이때 최소 제곱 해 (least squares solution)는 다음과 같다.
