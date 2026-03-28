@@ -16,7 +16,7 @@ author: sunho
 
 예를 들어, 입력 벡터 $\mathbf{x}\in\mathbb{R}^3$이 '날씨', '습도', '바람'의 세 가지 특징으로 구성되어 있고, 라벨 $y$가 '데이트 여부'를 나타내는 데이터셋을 생각해보자.
 
-![fig1](AI_Basics/ML/Decision_Tree.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](AI_Basics/ML/Decision_Tree-1.png){: style="display:block; margin:0 auto; width:40%;"}
 _[[출처: 신박AI]](https://www.youtube.com/watch?v=vutU-SLTZ-A)_
 
 Decision Tree는 이들 특징에 대해 순차적으로 질문을 던지며 답을 도출한다.
