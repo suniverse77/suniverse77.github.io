@@ -8,13 +8,13 @@ toc: true
 author: sunho
 ---
 
-먼저 칼만 필터에 앞서, 알아야할 개념이 있다.
+먼저 칼만 필터에 대해 공부하기에 앞서, 몇 가지 개념들을 간단하게 짚고 넘어가겠다.
 
-- **시스템 (System):** 
+**시스템 (System):**은 입력을 받아 자신만의 고유한 규칙에 따라 처리한 뒤, 출력을 내보내는 일종의 상자로 볼 수 있다. 수학적으로는 입력과 결과의 관계를 나타내는 법칙을 의미한다.
 
-**상태 (State)**는 시스템의 '과거'를 완벽히 요약하고 있어서, 현재 주어지는 입력만 알면 **'미래'를 완벽히 예측하기 위해 필요한 "최소한의 필수 변수 모음"**입니
-시스템의 미래를 예측하기 위해 반드시 알아야 하는 최소한의 핵심 변수(State Variable)들의 집합
-- **변수 (Variable):** 시스템 안에서 값이 변할 수 있는 모든 것을 통칭하는 아주 넓은 개념
+**변수 (Variable):**는 시스템 안에서 값이 변할 수 있는 모든 것을 통칭한다.
+
+**상태 (State)**는 변수의 하위 개념으로, 시스템의 미래를 예측하기 위해 반드시 알아야 하는 최소한의 핵심 변수들의 집합을 의미한다. 즉, 시스템의 과거에 대한 정보를 가지고 있어서, 현재 주어지는 입력과 상태를 알면 미래를 예측할 수 있다.
 
 ## 칼만 필터란?
 
@@ -58,12 +58,9 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 ![fig2](Math/Signal_System/Kalman_Filter-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
-## 알고리즘
+## 칼만 필터 알고리즘
 
-칼만 필터는 예측과 업데이트의 두 단계로 작동하며, 이 두 단계를 반복적으로 수행하여 시스템의 상태를 정확하게 추정한다.
-
-- 예측: 이전 상태를 바탕으로 다음 상태를 예측함
-- 업데이트: 실제 관측된 데이터를 기반으로 예측된 상태를 수정한다.
+### 개요
 
 칼만 필터는 다음과 같은 구성 요소로 이루어져 있다:
 
@@ -72,6 +69,19 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 관측 모델 (Observation Model): 실제로 관측된 데이터를 바탕으로 시스템의 상태를 추정하는 모델이다.
 노이즈 (Noise): 관측된 데이터의 불확실성을 나타내는 요소로, 보통 가우시안 분포를 따른다.
 
-![fig3](Math/Signal_System/Kalman_Filter-3.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
+엔진의 내부 온도 $T_{in}$이 얼마인지 궁금하다. 로켓의 전달되는 연료 흐름 $W_{fuel}$을 조절해야할지 판단할 근거가 되기 때문
 
+그러나 대신 $T_{ext}$를 측정할 수 있다.
+
+
+
+![fig3](Math/Signal_System/Kalman_Filter-3.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
+
+
+### 수학적 알고리즘
+
+칼만 필터는 예측과 업데이트의 두 단계로 작동하며, 이 두 단계를 반복적으로 수행하여 시스템의 상태를 정확하게 추정한다.
+
+- 예측: 이전 상태를 바탕으로 다음 상태를 예측함
+- 업데이트: 실제 관측된 데이터를 기반으로 예측된 상태를 수정한다.
