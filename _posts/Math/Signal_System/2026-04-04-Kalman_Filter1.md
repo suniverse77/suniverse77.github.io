@@ -38,7 +38,7 @@ author: sunho
 
 여기서 칼만 필터는 우리가 측정할 수 있는 값인 외부 온도라는 간접적인 단서와 시스템의 수학적 모델을 결합하여, 연소실 내부 온도 (우리가 진짜 알고 싶지만 잴 수 없는 값)를 정확하게 추정해낸다.
 
-![fig1](Math/Signal_System/Kalman_Filter-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Signal_System/Kalman_Filter1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 ### 노이즈와 한계가 있는 여러 센서 데이터를 융합하여 최적의 값을 찾아야 할 때
@@ -55,10 +55,12 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 여기서 칼만 필터는 불완전한 각 센서의 측정값들을 적절하게 융합해서 가장 최적화된 자동차의 현재 위치를 계산해낸다.
 
-![fig2](Math/Signal_System/Kalman_Filter-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](Math/Signal_System/Kalman_Filter1-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
-## 칼만 필터 알고리즘
+## 칼만 필터 개요
+
+### 칼만 필터 구성 요소
 
 먼저, 칼만 필터는 다음과 같은 구성 요소로 이루어져 있다.
 
@@ -70,7 +72,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 **노이즈 (Noise)**는 예측과 측정 과정에 개입하는 불확실성으로, 통계적으로 가우시안 분포를 따른다고 가정한한다. 예를 들어, 자동차가 갑자기 빙판길에 미끄러져 내비게이션의 위치 예측을 빗나가게 만드는 외부 변수나, 터널에 들어갔을 때 GPS 신호가 끊기는 센서 자체의 오류가 모두 여기에 해당된다.
 
-### 개요
+### 알고리즘 예시
 
 앞선 로켓 예시를 이어가겠다.
 
@@ -82,7 +84,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 이론적으로라면 내 컴퓨터가 계산한 **예측된 외부 온도** $\hat{T}\_{ext}$와 실제 센서로 읽어들인 **측정된 외부 온도** $T\_{ext}$는 완벽하게 똑같아야 한다. 하지만 현실에는 수학적 모델이 담아내지 못하는 미세한 변수들이 존재하기 때문에, 이 두 값 사이에는 항상 오차가 발생하게 된다.
 
-![fig3](Math/Signal_System/Kalman_Filter-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](Math/Signal_System/Kalman_Filter1-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 우리는 오차 $T_{ext}-\hat{T}_{ext}$를 다시 우리의 모델로 되돌려 보내고, 이를 바탕으로 모델 내부의 상태를 다시 수정하게 된다. 일종의 피드백 루프를 만드는 것이다.
@@ -101,5 +103,5 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, <span style="background-color:#fff5b1">오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.</span>
 
-![fig4](Math/Signal_System/Kalman_Filter-4.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig4](Math/Signal_System/Kalman_Filter1-4.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_

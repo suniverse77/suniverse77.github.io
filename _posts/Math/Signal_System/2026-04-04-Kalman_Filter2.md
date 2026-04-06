@@ -36,9 +36,9 @@ $$
 P_k^-=AP_{k-1}A^\top+Q
 $$
 
-아래 그림에서 $\hat{x}_{k}^-$는 수학적 모델을 통해 자동차가 $\hat{x}_{k-1}$에서 이동할 다음 위치를 의미하며, $P_k^-$는 이동할 위치가 존재할 범위를 의미한다.
+아래 그림에서 $\hat{x}\_{k}^-$는 수학적 모델을 통해 자동차가 이전 위치 $\hat{x}\_{k-1}$에서 이동할 다음 위치를 예측한 값이며, $P\_k^-$는 그 예측된 위치가 실제로 존재할 수 있는 오차 범위를 의미한다.
 
-![fig2](Math/Signal_System/Kalman_Filter2-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](Math/Signal_System/Kalman_Filter2-2.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 ### 보정 (Update) 단계
@@ -75,9 +75,9 @@ $$
 
 이렇게 업데이트된 $\hat{x}_k$와 $P_k$는 다음 스텝의 예측 단계를 위한 이전 값으로 전달되면서 재귀적인 루프를 형성한다.
 
-아래 그림에서
+아래 그림에서 $z_k$는 GPS와 같은 실제 센서를 통해 측정한 자동차의 위치를 의미한다. 칼만 필터를 거쳐 최종적으로 계산된 최적의 위치 $\hat{x}_k$는, 모델이 예측한 위치 $\hat{x}_k^-$와 센서가 측정한 위치 $z_k$ 사이의 조율된 지점에 형성된다.
 
-![fig3](Math/Signal_System/Kalman_Filter2-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](Math/Signal_System/Kalman_Filter2-3.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 ### 예시
@@ -89,7 +89,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 그렇다면 상태 변수는 아래와 같이 정의될 수 있다.
 
 $$
-u=a~~,~~x=\begin{bmatrix}p\\v\end{bmatrix}
+u=a~~,~~\mathbf{x}=\begin{bmatrix}p\\v\end{bmatrix}
 $$
 
 뉴턴의 운동 법칙에 따라 방정식은 아래와 같이 정의된다.
