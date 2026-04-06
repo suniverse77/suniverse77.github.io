@@ -1,6 +1,6 @@
 ---
-title: "[신호 및 시스템] 칼만 필터 (Kalman Filter)"
-date: 2025-06-01 00:00:00 +/-TTTT
+title: "[신호 및 시스템] 칼만 필터의 이해"
+date: 2026-04-01 00:00:00 +/-TTTT
 categories: [Mathmatics, 신호 및 시스템]
 tags: [신호 및 시스템]
 math: true
@@ -102,15 +102,4 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, <span style="background-color:#fff5b1">오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.</span>
 
 ![fig4](Math/Signal_System/Kalman_Filter-4.png){: style="display:block; margin:0 auto; width:50%;"}
-_[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
-
-### 수학적 알고리즘
-
-칼만 필터는 예측과 업데이트의 두 단계로 작동하며, 이 두 단계를 반복적으로 수행하여 시스템의 상태를 정확하게 추정한다.
-
-- 예측: 이전 상태를 바탕으로 다음 상태를 예측함
-- 업데이트: 실제 관측된 데이터를 기반으로 예측된 상태를 수정한다.
-
-
-![fig5](Math/Signal_System/Kalman_Filter-5.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
