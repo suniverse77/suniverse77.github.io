@@ -65,7 +65,7 @@ $$
 \hat{x}_k=\hat{x}_k^-+K_k(z_k-H\hat{x}_k^-)
 $$
 
-위 수식에서 $z_k - H\hat{x}_k^-$ 부분은 실제 센서 측정값 $z_k$와 모델이 예상한 측정값 $\hat{z}_k$ 간의 차이인 잔차 (Residual)를 의미한다. 즉, 이 잔차에 칼만 이득이라는 가중치를 곱하여 기존의 예측값을 보정하는 형태이다.
+위 수식에서 $z_k - H\hat{x}_k^-$ 부분은 실제 센서 측정값 $z_k$와 모델이 예상한 측정값 $\hat{z}_k=H\hat{x}_k^-$ 간의 차이인 잔차 (Residual)를 의미한다. 즉, 이 잔차에 칼만 이득이라는 가중치를 곱하여 기존의 예측값을 보정하는 형태이다.
 
 센서 측정값을 반영하여 현재 상태를 업데이트했으므로, 추정의 불확실성 또한 이전보다 줄어들게 된다. 이를 반영하여 최종적인 사후 오차 공분산 $P_k$를 계산한다.
 
@@ -84,7 +84,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해보자.
 
-![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:70%;"}
 
 그렇다면 상태 변수는 아래와 같이 정의될 수 있다.
 
