@@ -53,7 +53,7 @@ $$
 
 이러한 불확실성 속에서 최적의 추정치를 찾기 위해, 가장 먼저 칼만 이득 (Kalman Gain) $K_k$를 계산해야 한다.
 
-$$
+$$\vphantom{\Big(}
 K_k=P_k^-H^\top(HP_k^-H^\top+R)^{-1}
 $$
 
@@ -82,9 +82,9 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 ### 예시
 
-![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:50%;"}
-
 자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해보자.
+
+![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:50%;"}
 
 그렇다면 상태 변수는 아래와 같이 정의될 수 있다.
 
@@ -102,7 +102,7 @@ $$
 v_t=v_{t-1}+a\Delta t
 $$
 
-이를 $\hat{x}_k^-=A\hat{x}_{k-1}+Bu_k$ 형태로 나타내면 아래와 같다.
+이를 $\hat{x}\_k^-=A\hat{x}\_{k-1}+Bu\_k$ 형태로 나타내면 아래와 같다.
 
 $$
 \begin{bmatrix}p_t\\v_t\end{bmatrix}
@@ -115,3 +115,5 @@ $$
 $$
 z=\begin{bmatrix}1&0\end{bmatrix}\begin{bmatrix}p\\v\end{bmatrix}=p
 $$
+
+![fig5](Math/Signal_System/Kalman_Filter2-5.png){: style="display:block; margin:0 auto; width:50%;"}
