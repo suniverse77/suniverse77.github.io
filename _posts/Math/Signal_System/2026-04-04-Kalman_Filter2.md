@@ -12,7 +12,7 @@ author: sunho
 
 ![fig1](Math/Signal_System/Kalman_Filter2-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
-### 예측 (Prediction) 단계
+## 예측 (Prediction) 단계
 
 예측 단계에서는 센서의 측정값을 얻기 전에, 오직 수학적 모델만을 사용하여 다음 스텝의 상태를 미리 계산한다.
 
@@ -41,7 +41,7 @@ $$
 ![fig2](Math/Signal_System/Kalman_Filter2-2.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
-### 보정 (Update) 단계
+## 보정 (Update) 단계
 
 보정 단계에서는 새롭게 들어온 센서 측정값을 활용하여 앞서 구한 사전 예측값을 수정하고 보완한다.
 
@@ -80,19 +80,19 @@ $$
 ![fig3](Math/Signal_System/Kalman_Filter2-3.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
-### 예시
+## 자동차 주행 예시
 
-자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해보자.
+자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해 보자.
 
 ![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:70%;"}
 
-그렇다면 상태 변수는 아래와 같이 정의될 수 있다.
+이 시스템에서 우리가 추정해야 할 상태 벡터 $\mathbf{x}_t$와 시스템에 가해지는 제어 입력 $u_t$는 다음과 같이 정의된다.
 
 $$
-u=a~~,~~\mathbf{x}=\begin{bmatrix}p\\v\end{bmatrix}
+u_t=a~~,~~\mathbf{x}_t=\begin{bmatrix}p_t\\v_t\end{bmatrix}
 $$
 
-뉴턴의 운동 법칙에 따라 방정식은 아래와 같이 정의된다.
+뉴턴의 운동 법칙에 따라, $\Delta t$동안 변화한 현재 위치 $p_t$와 속도 $v_t$ 방정식은 다음과 같이 정의된다.
 
 $$
 p_t=p_{t-1}+v_{t-1}\Delta t+\frac{1}{2}a\Delta t^2
@@ -102,18 +102,40 @@ $$
 v_t=v_{t-1}+a\Delta t
 $$
 
-이를 $\hat{x}\_k^-=A\hat{x}\_{k-1}+Bu\_k$ 형태로 나타내면 아래와 같다.
+이 물리 방정식을 칼만 필터의 예측 수식인 $\hat{x}\_k^-=A\hat{x}\_{k-1}+Bu\_k$ 형태의 행렬식으로 변환하면 다음과 같다.
 
 $$
 \begin{bmatrix}p_t\\v_t\end{bmatrix}
 =\begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\end{bmatrix}
-+\begin{bmatrix}\frac{1}{2}a\Delta t^2\\\Delta t\end{bmatrix}a
++\begin{bmatrix}\frac{1}{2}\Delta t^2\\\Delta t\end{bmatrix}a
 $$
 
-또한 현재 GPS만 장착하고 있어서 센서가 위치 정보만 알려주고 속도 정보는 알려주지 않는다면, 측정값 $z$는 단일 스칼라값이 된다.
+또한 만약 자동차에 GPS만 장착되어 있어 센서가 위치 정보만 알려주고 속도는 측정할 수 없다면, 측정값 $z$는 단일 스칼라값이 된다. 이를 관측 수식 $z_k = H\mathbf{x}_k$으로 나타내면 다음과 같다.
 
 $$
-z=\begin{bmatrix}1&0\end{bmatrix}\begin{bmatrix}p\\v\end{bmatrix}=p
+z_t=\begin{bmatrix}1&0\end{bmatrix}\begin{bmatrix}p_t\\v_t\end{bmatrix}=p_t
 $$
+
+전체적인 시스템의 데이터 흐름을 블록도로 나타내면 아래와 같다.
 
 ![fig5](Math/Signal_System/Kalman_Filter2-5.png){: style="display:block; margin:0 auto; width:50%;"}
+
+### 예측 단계
+
+실제 주행 환경에서는 타이어의 미끄러짐, 바람 등 모델에 반영되지 않은 외란이 존재한다. 따라서 다음 시점의 상태를 예측할 때, 자동차의 위치와 속도는 단순히 점에서 점으로 이동하는 것이 아니라, 불확실성을 동반한 2차원 확률 분포 형태로 이동한다.
+
+이러한 불확실성이 추가되면서 예측의 오차 공분산은 $P_t^- = AP_{t-1}A^\top + Q$ 형태로 계산되어 불확실성 영역이 더욱 넓어지게 된다.
+
+![fig6](Math/Signal_System/Kalman_Filter2-6.png){: style="display:block; margin:0 auto; width:70%;"}
+
+이때 더해지는 프로세스 노이즈 공분산 행렬 $Q$는 다음과 같이 나타낼 수 있다.
+
+$$
+Q=\begin{bmatrix}\Sigma_{pp}&\Sigma_{pv}\\\Sigma_{vp}&\Sigma_{vv}\end{bmatrix}
+$$
+
+### 보정 단계
+
+$$
+K=\frac{}{}
+$$
