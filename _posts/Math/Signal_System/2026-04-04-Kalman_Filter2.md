@@ -10,7 +10,7 @@ author: sunho
 
 칼만 필터는 크게 예측과 보정의 두 단계를 끊임없이 반복하는 구조로 되어 있다.
 
-![fig1](Math/Signal_System/Kalman_Filter2-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Math/Signal_System/Kalman_Filter2-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ## 예측 (Prediction) 단계
 
