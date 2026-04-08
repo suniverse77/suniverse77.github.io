@@ -58,9 +58,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 ![fig2](Math/Signal_System/Kalman_Filter1-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
-## 칼만 필터 개요
-
-### 칼만 필터 구성 요소
+## 칼만 필터 구성 요소
 
 먼저, 칼만 필터는 다음과 같은 구성 요소로 이루어져 있다.
 
@@ -72,7 +70,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 **노이즈 (Noise)**는 예측과 측정 과정에 개입하는 불확실성으로, 통계적으로 가우시안 분포를 따른다고 가정한한다. 예를 들어, 자동차가 갑자기 빙판길에 미끄러져 내비게이션의 위치 예측을 빗나가게 만드는 외부 변수나, 터널에 들어갔을 때 GPS 신호가 끊기는 센서 자체의 오류가 모두 여기에 해당된다.
 
-### 알고리즘 예시
+## 알고리즘 예시
 
 앞선 로켓 예시를 이어가겠다.
 
