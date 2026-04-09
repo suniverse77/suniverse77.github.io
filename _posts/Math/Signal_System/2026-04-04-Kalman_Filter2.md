@@ -20,7 +20,7 @@ author: sunho
 
 이론적으로라면 모델이 계산한 외부 온도 $\hat{T}\_{\text{ext}}$와 실제 센서로 읽어들인 외부 온도 $T\_{\text{ext}}$는 완벽하게 똑같아야 한다. 하지만 현실에는 수학적 모델이 담아내지 못하는 노이즈와 센서 자체의 노이즈도 존재하기 때문에, 이 두 값 사이에는 항상 오차가 발생하게 된다.
 
-![fig3](Math/Signal_System/Kalman_Filter1-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](Math/Signal_System/Kalman_Filter2-1.png){: style="display:block; margin:0 auto; width:40%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 이 오차를 줄이기 위해 피드백 루프를 설계한다.
@@ -33,7 +33,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, <span style="background-color:#fff5b1">오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.</span>
 
-![fig4](Math/Signal_System/Kalman_Filter1-4.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig2](Math/Signal_System/Kalman_Filter2-2.png){: style="display:block; margin:0 auto; width:40%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 즉, 아래와 같이 요약할 수 있다.
@@ -46,9 +46,11 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 ## 수학적 알고리즘
 
+![fig3](Math/Signal_System/Kalman_Filter2-3.png){: style="display:block; margin:0 auto; width:100%;"}
+
 칼만 필터는 크게 예측과 보정의 두 단계를 끊임없이 반복하는 구조로 되어 있다.
 
-![fig1](Math/Signal_System/Kalman_Filter2-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](Math/Signal_System/Kalman_Filter2-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ### 예측 (Prediction) 단계
 
@@ -76,7 +78,7 @@ $$
 
 아래 그림에서 $\hat{x}\_{k}^-$는 수학적 모델을 통해 자동차가 이전 위치 $\hat{x}\_{k-1}$에서 이동할 다음 위치를 예측한 값이며, $P\_k^-$는 그 예측된 위치가 실제로 존재할 수 있는 오차 범위를 의미한다.
 
-![fig2](Math/Signal_System/Kalman_Filter2-2.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig5](Math/Signal_System/Kalman_Filter2-5.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 ### 보정 (Update) 단계
@@ -115,5 +117,5 @@ $$
 
 아래 그림에서 $z_k$는 GPS와 같은 실제 센서를 통해 측정한 자동차의 위치를 의미한다. 칼만 필터를 거쳐 최종적으로 계산된 최적의 위치 $\hat{x}_k$는, 모델이 예측한 위치 $\hat{x}_k^-$와 센서가 측정한 위치 $z_k$ 사이의 조율된 지점에 형성된다.
 
-![fig3](Math/Signal_System/Kalman_Filter2-3.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig6](Math/Signal_System/Kalman_Filter2-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
