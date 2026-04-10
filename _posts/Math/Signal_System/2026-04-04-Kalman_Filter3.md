@@ -1,5 +1,5 @@
 ---
-title: "[신호 및 시스템] 칼만 필터 3 - 수학적 원리"
+title: "[신호 및 시스템] 칼만 필터 3 - 확률 분포 관점"
 date: 2026-04-01 12:00:00 +/-TTTT
 categories: [Mathmatics, 신호 및 시스템]
 tags: [신호 및 시스템]
@@ -12,38 +12,48 @@ author: sunho
 
 ## 자동차 주행 예시
 
-자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해 보자.
+엑셀을 통해 자동차에 가속도 $a$가 가해지며, 우리는 자동차의 현재 위치 $p$와 속도 $v$를 알고 싶다고 가정해 보자.
+<br>
+그리고 자동차에 GPS와 속도계가 모두 장착되어 있어, 센서를 통해 위치 정보와 속도 정보를 함께 측정할 수 있다고 해보자.
 
 ![fig1](Math/Signal_System/Kalman_Filter3-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
 이 시스템에서 우리가 추정해야 할 상태 벡터 $\mathbf{x}_t$와 시스템에 가해지는 제어 입력 $u_t$는 다음과 같이 정의된다.
 
 $$
-u_t=a~~,~~\mathbf{x}_t=\begin{bmatrix}p_t\\v_t\end{bmatrix}
+u_t=a~~,~~\hat{\mathbf{x}}_t=\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
+\tag{1}
 $$
 
 뉴턴의 운동 법칙에 따라, $\Delta t$동안 변화한 현재 위치 $p_t$와 속도 $v_t$ 방정식은 다음과 같이 정의된다.
 
 $$
-p_t=p_{t-1}+v_{t-1}\Delta t+\frac{1}{2}a\Delta t^2
+\begin{aligned}
+\hat{p}_t&=\hat{p}_{t-1}+\hat{v}_{t-1}\Delta t+\frac{1}{2}a\Delta t^2
+\\
+\hat{v}_t&=\hat{v}_{t-1}+a\Delta t
+\end{aligned}
+\tag{2}
 $$
 
-$$
-v_t=v_{t-1}+a\Delta t
-$$
-
-이 물리 방정식을 칼만 필터의 예측 수식인 $\hat{x}\_k^-=A\hat{x}\_{k-1}+Bu\_k$ 형태의 행렬식으로 변환하면 다음과 같다.
+이 물리 방정식을 하나의 행렬로 표현하면 다음과 같은 상태 방정식으로 나타낼 수 있다.
 
 $$
-\begin{bmatrix}p_t\\v_t\end{bmatrix}
-=\begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}\begin{bmatrix}p_{t-1}\\v_{t-1}\end{bmatrix}
+\hat{\mathbf{x}}_t=A\hat{\mathbf{x}}_{t-1}+Bu_t
+~~\rightarrow~~
+\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
+=\begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}\begin{bmatrix}\hat{p}_{t-1}\\\hat{v}_{t-1}\end{bmatrix}
 +\begin{bmatrix}\frac{1}{2}\Delta t^2\\\Delta t\end{bmatrix}a
+\tag{3}
 $$
 
-또한 만약 자동차에 GPS와 속도계가 모두 장착되어 있어 센서가 위치 정보와 속도 정보를 함께 알려준다면, 측정값 $\mathbf{z}_t$는 상태 벡터와 동일한 2차원 벡터가 된다 이를 관측 수식 $z_k = Hx_k$으로 나타내면 다음과 같다.
+그리고 측정값 또한 다음과 같은 관측 방정식으로 나타낼 수 있다.
 
 $$
-\mathbf{z}_t=\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}p_t\\v_t\end{bmatrix}
+\hat{\mathbf{z}}_t=H\hat{\mathbf{x}}_t^-
+~~\rightarrow~~
+\mathbf{z}_t=\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
+\tag{4}
 $$
 
 전체적인 시스템의 데이터 흐름을 블록도로 나타내면 아래와 같다.
@@ -52,29 +62,44 @@ $$
 
 ### 예측 단계
 
-실제 주행 환경에서는 타이어의 미끄러짐, 바람 등 모델에 반영되지 않은 외란이 존재한다. 따라서 다음 시점의 상태를 예측할 때, 자동차의 위치와 속도는 단순히 점에서 점으로 이동하는 것이 아니라 (아래의 왼쪽 그림), 불확실성을 동반한 확률 분포 형태로 이동한다. (아래의 오른쪽 그림)
+실제 주행 환경에서는 타이어의 미끄러짐, 바람 등 모델에 반영되지 않은 외란이 존재한다. 
+<br>
+따라서 모델을 통해 예측한 자동차의 상태는 하나의 점이 될 수 없으며, 아래의 오른쪽 그림과 같이 오차 범위를 가지는 확률 분포 형태로 나타나게 된다.
 
 ![fig3](Math/Signal_System/Kalman_Filter3-3.png){: style="display:block; margin:0 auto; width:70%;"}
 
-이러한 불확실성이 추가되면서 예측의 오차 공분산은 $P_t^- = AP_{t-1}A^\top + Q$ 형태로 계산되어 불확실성 영역이 더욱 넓어지게 된다.
+위 그림을 보면 과거의 예측 상태 $\hat{\mathbf{x}}_{t-1}^-$보다 현재 예측한 상태 $\hat{\mathbf{x}}_{t}^-$의 불확실성이 더 커진 것을 확인할 수 있는데, 이는 매순간 모델이 알지 못하는 현실의 노이즈가 계속해서 누적되기 때문이다.
 
-이때 더해지는 프로세스 노이즈 공분산 행렬 $Q$는 다음과 같이 나타낼 수 있다.
+이러한 현상을 반영하여, 예측 단계에서 불확실성이 얼마나 커졌는지를 계산하는 수식이 아래의 오차 공분산 예측식이다.
+
+$$
+P_t^-=AP_{t-1}A^\top+Q_t
+\tag{5}
+$$
+
+이 식에서 기존의 오차 $AP_{t-1}A^\top$에 새롭게 더해지는 $Q_t$가 현실의 외란을 의미하는 프로세스 노이즈 공분산 (Process Noise Covariance)이다.
+<br>
+위치와 속도를 예측하는 현재 상황에서, $Q$는 다음과 같이 표현될 수 있다.
 
 $$
 Q=\begin{bmatrix}\Sigma_{pp}&\Sigma_{pv}\\\Sigma_{vp}&\Sigma_{vv}\end{bmatrix}
+\tag{6}
 $$
 
 ### 보정 단계
 
-센서로 측정한 값 $z_t$를 사용하기 전에, 먼저 우리가 추정한 prior state $\mathbf{x}_t^-$를 센서와 동일한 차원 (관측 공간)으로 변환해야 한다.
+센서의 측정값 $\mathbf{z}_t$를 사용하기 위해, 우리가 예측한 prior state $\hat{\mathbf{x}}_t^-$를 센서와 동일한 차원 (관측 공간)으로 변환해야 한다.
+<br>
+이를 위해 관측 행렬 $H$를 사용한다.
 
 $$
-\hat{\mathbf{z}}_t=H\mathbf{x}_t^-
+\hat{\mathbf{z}}_t=H\hat{\mathbf{x}}_t^-
+\tag{7}
 $$
 
 ![fig4](Math/Signal_System/Kalman_Filter3-4.png){: style="display:block; margin:0 auto; width:70%;"}
 
-실제 센서 측정값 역시 센서 자체의 물리적 노이즈를 포함하고 있다. 따라서 측정 노이즈 공분산 $R$을 가지는 확률 분포 (아래 그림의 초록색 타원) 형태로 존재하게 된다.
+실제 센서 측정값 역시 센서 자체의 물리적 노이즈를 포함하고 있기 때문에, 아래의 그림과 같이 확률 분포의 형태로 나타나게 된다.
 
 ![fig5](Math/Signal_System/Kalman_Filter3-5.png){: style="display:block; margin:0 auto; width:40%;"}
 
