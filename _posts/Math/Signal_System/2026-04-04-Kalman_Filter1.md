@@ -1,8 +1,8 @@
 ---
-title: "[신호 및 시스템] 칼만 필터 1 - 개요"
-date: 2026-04-01 00:00:00 +/-TTTT
+title: "[칼만 필터] Kalman Filter 1 - 개요"
+date: 2026-04-04 00:00:00 +/-TTTT
 categories: [Mathmatics, 신호 및 시스템]
-tags: [신호 및 시스템]
+tags: [칼만 필터]
 math: true
 toc: true
 author: sunho

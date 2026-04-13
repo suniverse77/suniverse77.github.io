@@ -1,8 +1,8 @@
 ---
-title: "[신호 및 시스템] 칼만 필터 2 - 알고리즘"
-date: 2026-04-01 06:00:00 +/-TTTT
+title: "[칼만 필터] Kalman Filter 2 - 알고리즘"
+date: 2026-04-04 06:00:00 +/-TTTT
 categories: [Mathmatics, 신호 및 시스템]
-tags: [신호 및 시스템]
+tags: [칼만 필터]
 math: true
 toc: true
 author: sunho
@@ -176,3 +176,7 @@ $$
 
 ![fig6](Math/Signal_System/Kalman_Filter2-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
+
+전체 과정을 그림으로 나타내면 아래와 같다.
+
+![fig7](Math/Signal_System/Kalman_Filter2-7.png){: style="display:block; margin:0 auto; width:90%;"}_출처: [Notes on Kalman Filter (KF, EKF, ESKF, IEKF, IESKF))](https://arxiv.org/abs/2406.06427)_
