@@ -102,11 +102,3 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 ![fig2](Math/Signal_System/Kalman_Filter1-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
-
-## 칼만 필터 구성 요소
-
-먼저, 칼만 필터는 다음과 같은 구성 요소로 이루어져 있다.
-
-**상태 전이 모델 (State Transition Model, $A,B$)**은 시스템의 상태가 시간에 따라 어떻게 변화하는지를 설명하는 수학적 계산 또는 물리 법칙을 의미한다. 예를 들어, 내비게이션이 "방금 시속 60km로 달리고 있었으니까, 1초 뒤에는 아마 16m쯤 앞으로 가 있겠네?"라고 다음 위치를 예측하는 과정이 여기에 해당된다.
-
-**관측 모델 (Observation Model, $H$)**은 실제 현실의 상태가 센서에 어떻게 찍히는지 변환해 주는 관계식을 의미한다. 예를 들어, 현실의 자동차는 3차원 공간에 존재하지만 GPS 센서는 이것을 단순히 위도와 경도라는 2차원 숫자로만 출력하는데, 이 3차원의 진짜 위치와 2차원의 센서 측정값 사이를 연결해 주는 수식이 여기에 해당된다.
