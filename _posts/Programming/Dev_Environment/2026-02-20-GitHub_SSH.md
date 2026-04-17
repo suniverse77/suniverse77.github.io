@@ -1,0 +1,112 @@
+---
+title: "[개발 환경] GitHub SSH 연결"
+date: 2025-12-17 00:00:00 +/-TTTT
+categories: [Programming, 개발 환경]
+tags: [개발 환경]
+math: true
+toc: true
+author: sunho
+---
+
+## 원격 저장소 & 로컬 저장소
+
+SSH 원격 연결을 하면 VS Code UI를 사용하는 내 PC에서 작성한 파일이 SSH 서버에 저장된다.
+
+`Git Push/Pull`을 통해 로컬 저장소의 파일들이 원격 저장소인 GitHub에 저장된다.
+
+- **원격 저장소:** GitHub
+- **로컬 저장소:** 내 컴퓨터 or SSH 서버
+
+## GitHub 계정에 SSH Key 등록
+
+1. **SSH Key 생성:** 아래 명령어 입력 후 엔터 연타
+
+    `ssh-keygen -t ed25519 -C "GitHub 이메일 주소"`
+
+2. **Public Key 복사:** 아래 명령어로 출력된 `ssh-ed25519`로 시작하는 긴 문자열을 드래그해서 복사
+
+    `cat ~/.ssh/id_ed25519.pub`
+
+3. SSH Key 등록
+
+    1. 우측 상단의 프로필 클릭하고 **settings** 클릭
+
+    ![fig1](Programming/Dev_Environment/GitHub_SSH-1.png){: style="display:block; margin:0 auto; width:80%;"}
+
+    2. **SSH 등록:** 왼쪽 메뉴의 **SSH and GPG Keys** 클릭하고 **New SSH key** 클릭
+
+    ![fig2](Programming/Dev_Environment/GitHub_SSH-2.png){: style="display:block; margin:0 auto; width:80%;"}
+
+## GitHub repository와 프로젝트 폴더 연결
+
+1. 깃허브에서 새 repository 생성
+
+2. 깃허브의 `<> Code` 버튼의 SSH 탭에서 `.git` 주소 복사
+
+    ![fig3](Programming/Dev_Environment/GitHub_SSH-3.png){: style="display:block; margin:0 auto; width:80%;"}
+
+3. VS Code 터미널의 프로젝트 폴더에서 아래 명령어 입력
+
+    `git init`
+
+    `git config --global user.name "본인 이름(자유)"`
+
+    `git config --global user.email "GitHub 이메일 주소"`
+
+    `git remote add origin {복사한 .git 주소}`
+
+4. **연결 확인**: 아래 명령어를 입력했을 때 등록한 주소가 보이면 연결 성공
+
+    `git remote -v`
+
+## 백업 (push)
+
+### 처음 push하는 경우
+
+1. 저장할 파일을 목록에 담기
+
+    `git add .`
+
+    > **`warning: adding embedded git repository: {폴더명}` 경고문이 발생한 경우**
+    >
+    > 이 경고문이 발생한 이유는 해당 폴더가 `git clone` 명령어를 통해 가져온 폴더이기 때문이다.
+    >
+    > 만약 무시하고 push한다면, 깃허브에 해당 폴더가 올라가긴 하지만, 안이 텅 빈 껍데기 폴더로 올라가게 된다. (깃허브에서는 화살표가 그려져 있는 폴더로 아이콘이 생성됨)
+    >
+    > 만약 해당 폴더 안의 파일들도 내 깃허브에 같이 백업하고 싶다면, 아래의 명령어를 순차적으로 실행하면 된다.
+    > 
+    > `rm -rf {폴더명}/.git`
+    >
+    > `git rm --cached {폴더명}`
+    >
+    > `git add .`
+    >
+    > 필요없다면, 바로 `git commit` 명령어로 넘어가면 된다.
+
+2. 버전 기록 (`" "`에는 작업 내용 요약하는 아무 말 작성)
+
+    `git commit -m "Initial backup from SSH server"`
+
+3. 브랜치 이름을 master에서 main으로 변경
+
+    `git branch -M main`
+
+4. 깃허브 서버로 내 파일 복사 (전송)
+
+    `git push -u origin main`
+
+    > **`! [rejected] main -> main (fetch first)` 에러가 발생한 경우**
+    >
+    > 이 에러가 발생한 이유는 처음 repository를 생성할 때, 'Add a README file' 체크박스를 선택했기 때문이다.
+    >
+    > 이 경우, 아래의 명령어로 강제 push를 하면 된다. (원래 GitHub에 있는 README 무시하고 덮어버림)
+    >
+    > `git push -u origin +main`
+
+### 이후 일상적인 push
+
+`git add .`
+
+`git commit -m "Backup from SSH server"`
+
+`git push`
