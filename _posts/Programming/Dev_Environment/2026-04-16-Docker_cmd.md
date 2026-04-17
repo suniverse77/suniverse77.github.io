@@ -61,7 +61,7 @@ author: sunho
 
     아래 예시에서 이미지 이름인 `vllm/vllm-openai:latest` 이후에 나오는 명령어들은 도커 옵션이 아니라, 해당 이미지 안의 VLLM 프로그램에게 전달되는 세부 지시사항이다.
 
-    ```
+    ```bash
     docker run -d \
         -p 1234:1234 \
         --name my_container \

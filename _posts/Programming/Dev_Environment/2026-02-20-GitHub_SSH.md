@@ -1,5 +1,5 @@
 ---
-title: "[개발 환경] GitHub SSH 연결"
+title: "[개발 환경] GitHub-SSH 연결"
 date: 2026-02-20 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경]
