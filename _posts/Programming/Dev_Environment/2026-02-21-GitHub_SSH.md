@@ -10,7 +10,7 @@ author: sunho
 
 VS Code로 SSH 서버에 원격 연결해 코딩할 때, 로컬 PC에서 코드를 편집하더라도 실제 파일 저장과 연산은 SSH 서버에서 수행된다.
 
-이 프로젝트를 GitHub로 관리할 경우, SSH 서버가 **로컬 저장소**가 되며, GitHub가 **원격 저장소**가 된다.
+이 프로젝트를 GitHub로 관리할 경우, Git의 입장에서는 SSH 서버가 **로컬 저장소**, GitHub가 **원격 저장소**가 된다.
 
 ## GitHub 계정에 SSH Key 등록
 
