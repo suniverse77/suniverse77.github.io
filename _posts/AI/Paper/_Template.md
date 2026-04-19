@@ -1,7 +1,7 @@
 ---
 title: "[논문리뷰] "
 date: 2026-03-21 00:00:00 +/-TTTT
-categories: [논문리뷰, Generative AI]
+categories: [AI, 논문리뷰]
 tags: [Diffusion, Video Generation]
 math: true
 toc: true
