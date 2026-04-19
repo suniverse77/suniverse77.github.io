@@ -8,6 +8,9 @@ toc: true
 author: sunho
 ---
 
+![fig1](Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:80%;"}
+_[[출처]](https://tech.ktcloud.com/)_
+
 ## 도커 이미지 관련 명령어
 
 | 명령어 | 설명 |
@@ -23,7 +26,7 @@ author: sunho
 
 다른 사람이 만들어둔 이미지는 주로 [Docker Hub](https://hub.docker.com/)에서 다운받을 수 있다.
 
-![fig1](Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig2](Programming/Dev_Environment/Docker_cmd-2.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ### **`docker build -t {빌드할 이미지 이름} {Dockerfile 경로}`**
 
@@ -33,7 +36,7 @@ author: sunho
 
 `docker images`는 현재 내 컴퓨터에 다운로드되어 있거나 직접 만든 도커 이미지들의 전체 목록과 용량을 보여주는 명령어다.
 
-![fig2](Programming/Dev_Environment/Docker_cmd-2.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](Programming/Dev_Environment/Docker_cmd-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ### **`docker rmi {제거할 이미지 ID 또는 이름}`**
 
@@ -47,9 +50,9 @@ author: sunho
 | :---: | :---: |
 | `docker run` | 이미지를 바탕으로 컨테이너 생성 및 실행 |
 | `docker ps` | 현재 실행 중인 컨테이너들의 목록, 상태, 생성 시간 등 출력 |
-| `docker exec` | 현재 실행 중인 컨테이너에 접속 |
 | `docker stop` | 실행 중인 컨테이너 중지 |
 | `docker rm` | 중지된 컨테이너를 내 컴퓨터에서 완전히 삭제 |
+| `docker exec` | 현재 실행 중인 컨테이너 내부에서 특정 명령어를 추가로 실행 |
 
 ### **`docker run {옵션} {사용할 이미지 이름}`**
 
@@ -99,7 +102,7 @@ author: sunho
 
 `docker ps`는 현재 실행 중인 컨테이너들의 목록, 상태, 생성 시간 등 출력하는 명령어다.
 
-![fig3](Programming/Dev_Environment/Docker_cmd-3.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](Programming/Dev_Environment/Docker_cmd-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
 아래는 `docker run` 명령어와 함께 사용할 수 있는 몇 가지 옵션이다.
 
@@ -112,11 +115,7 @@ author: sunho
 
 아래 사진을 보면 `-a` 옵션을 사용해서 중지된 컨테이너 (STATUS가 Exited)까지 출력되는 것을 확인할 수 있다.
 
-![fig4](Programming/Dev_Environment/Docker_cmd-4.png){: style="display:block; margin:0 auto; width:100%;"}
-
-### **`docker exec {옵션} {사용할 이미지 이름}`**
-
-
+![fig5](Programming/Dev_Environment/Docker_cmd-5.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ### **`docker stop {컨테이너 ID 또는 이름}`**
 
@@ -127,3 +126,11 @@ author: sunho
 `docker rm`은 중지된 컨테이너를 내 컴퓨터에서 완전히 삭제하는 명령어다.
 
 컨테이너가 중지되어야지 삭제할 수 있기 때문에, 먼저 `docker stop`을 이용해 삭제하려는 컨테이너를 중지해야 한다.
+
+### **`docker exec {옵션} {컨테이너 ID 또는 이름} {명령어}`**
+
+`docker exec`는 현재 실행 중인 컨테이너 내부에서 특정 명령어를 추가로 실행할 때 사용하는 명령어다.
+
+주로 터미널에서 컨테이너 내부에 접속하기 위해 `docker exec -it {컨테이너 ID 또는 이름} /bin/bash` 형태로 사용하며, 실시간 로그 파일을 확인하거나 설정값을 임시로 수정하는 등 이미지 빌드 없이 긴급한 디버깅 작업이 필요할 때 해당 명령어를 사용한다.
+
+![fig6](Programming/Dev_Environment/Docker_cmd-6.png){: style="display:block; margin:0 auto; width:100%;"}
