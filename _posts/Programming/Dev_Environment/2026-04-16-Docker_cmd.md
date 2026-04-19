@@ -17,7 +17,7 @@ author: sunho
 | `docker images` | 현재 존재하는 도커 이미지들의 전체 목록과 용량 출력 |
 | `docker rmi` | 사용하지 않는 도커 이미지 삭제 |
 
-### `docker pull {다운받을 이미지 이름}`
+### **`docker pull {다운받을 이미지 이름}`**
 
 `docker pull`은 다른 사람이 이미 만들어둔 이미지를 다운로드한다.
 
