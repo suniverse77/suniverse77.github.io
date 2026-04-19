@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-![fig1](Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://tech.ktcloud.com/)_
 
 ## 도커 이미지 관련 명령어
