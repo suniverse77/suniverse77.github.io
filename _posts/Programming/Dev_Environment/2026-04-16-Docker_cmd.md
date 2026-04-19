@@ -133,4 +133,4 @@ _[[출처]](https://tech.ktcloud.com/)_
 
 주로 터미널에서 컨테이너 내부에 접속하기 위해 `docker exec -it {컨테이너 ID 또는 이름} /bin/bash` 형태로 사용하며, 실시간 로그 파일을 확인하거나 설정값을 임시로 수정하는 등 이미지 빌드 없이 긴급한 디버깅 작업이 필요할 때 해당 명령어를 사용한다.
 
-![fig6](Programming/Dev_Environment/Docker_cmd-6.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig6](Programming/Dev_Environment/Docker_cmd-6.png){: style="display:block; margin:0 auto; width:70%;"}
