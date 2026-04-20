@@ -1,6 +1,6 @@
 ---
 title: "[개발 환경] 터미널과 쉘 (Shell)"
-date: 2026-02-15 00:00:00 +/-TTTT
+date: 2026-02-10 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경]
 math: true
