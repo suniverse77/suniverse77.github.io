@@ -1,6 +1,6 @@
 ---
-title: "[개발 환경] SSH 환경에서 로컬 프로젝트와 GitHub 연결"
-date: 2026-02-21 00:00:00 +/-TTTT
+title: "[개발 환경] VSCode - SSH 환경에서 로컬과 GitHub 연결"
+date: 2026-02-21 06:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경]
 math: true
