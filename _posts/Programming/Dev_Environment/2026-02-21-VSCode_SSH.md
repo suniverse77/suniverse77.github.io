@@ -1,5 +1,5 @@
 ---
-title: "[VSCode] SSH 연결"
+title: "[VS Code] SSH 연결"
 date: 2026-02-21 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경]
@@ -62,8 +62,10 @@ author: sunho
 
 1. VS Code 좌측 하단 구석에 있는 **><** 모양을 클릭하거나, 좌측 메뉴의 **원격 탐색기 (Remote Explorer)** 아이콘을 클릭한다.
 2. 상단의 메뉴에서 **Connect to Host... (호스트에 연결...)**를 선택한다.
-3. 접속하고자 하는 서버의 별명을 클릭한다.
-4. 새로운 VS Code 창이 열리면서 상단에 서버의 운영체제를 묻는 창이 나타나면, 선택한다. (보통 **Linux** 선택)
+
+    ![fig3](Programming/Dev_Environment/VSCode_SSH-3.png){: style="display:block; margin:0 auto; width:80%;"}
+3. 접속하고자 하는 서버를 클릭한다.
+4. 새로운 VS Code 창이 열리고, 상단에 뜨는 목록에서 접속할 서버의 운영체제를 선택한다. (보통 **Linux** 선택)
 5. 비밀번호를 묻는 프롬프트가 뜨면, 서버 비밀번호를 입력하고 엔터를 누른다. (입력 시 화면에 아무것도 안 보이는 것이 정상)
 
 좌측 하단에 **SSH: MyServer**라고 뜨면 접속에 성공한 것이다.
@@ -73,8 +75,8 @@ author: sunho
 
 좌측에서 **폴더 열기 (Open Folder)**를 클릭하거나 상단의 **파일(File) > 폴더 열기(Open Folder)**를 클릭하면, 화면 중앙 상단에 경로 입력창이 나타난다.
 
+이제 원격 서버에서 작업할 디렉토리 경로를 입력하고 **확인 (OK)**을 누르면, 원격 서버의 파일들이 VS Code 좌측 탐색기 (Explorer)에 나타나게 된다.
+
 ![fig4](Programming/Dev_Environment/VSCode_SSH-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ![fig5](Programming/Dev_Environment/VSCode_SSH-5.png){: style="display:block; margin:0 auto; width:80%;"}
-
-이제 원격 서버에서 작업할 디렉토리 경로를 입력하고 **확인 (OK)**을 누르면, 원격 서버의 파일들이 VS Code 좌측 탐색기 (Explorer)에 나타나게 된다.
