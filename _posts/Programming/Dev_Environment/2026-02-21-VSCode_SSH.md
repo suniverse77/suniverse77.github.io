@@ -14,7 +14,7 @@ author: sunho
 
 ### 1. 'Remote - SSH' 확장 프로그램 설치
 
-먼저 로컬 컴퓨터의 VS Code에 원격 접속을 도와주는 확장 프로그램인 'Remote - SSH' 설치해야 한다.
+먼저 로컬 컴퓨터의 VS Code에 원격 접속을 도와주는 확장 프로그램인 **Remote - SSH**를 설치해야 한다.
 <br>
 설치 방법은 다음과 같다.
 
@@ -61,14 +61,22 @@ author: sunho
 이제 설정한 정보로 원격 서버에 접속해 볼 차례이다.
 
 1. VS Code 좌측 하단 구석에 있는 **><** 모양을 클릭하거나, 좌측 메뉴의 **원격 탐색기 (Remote Explorer)** 아이콘을 클릭한다.
-2. 상단의 메뉴에서 **Connect to Host... (호스트에 연결...)**를 선택한다.
 
     ![fig3](Programming/Dev_Environment/VSCode_SSH-3.png){: style="display:block; margin:0 auto; width:80%;"}
+2. 상단의 메뉴에서 **Connect to Host... (호스트에 연결...)**를 선택한다.
+
+    ![fig4](Programming/Dev_Environment/VSCode_SSH-4.png){: style="display:block; margin:0 auto; width:80%;"}
 3. 접속하고자 하는 서버를 클릭한다.
+
+    ![fig5](Programming/Dev_Environment/VSCode_SSH-5.png){: style="display:block; margin:0 auto; width:80%;"}
 4. 새로운 VS Code 창이 열리고, 상단에 뜨는 목록에서 접속할 서버의 운영체제를 선택한다. (보통 **Linux** 선택)
+
+    ![fig6](Programming/Dev_Environment/VSCode_SSH-6.png){: style="display:block; margin:0 auto; width:80%;"}
 5. 비밀번호를 묻는 프롬프트가 뜨면, 서버 비밀번호를 입력하고 엔터를 누른다. (입력 시 화면에 아무것도 안 보이는 것이 정상)
 
 좌측 하단에 **SSH: MyServer**라고 뜨면 접속에 성공한 것이다.
+
+![fig7](Programming/Dev_Environment/VSCode_SSH-7.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### 4. 작업 폴더 열기
 서버에는 접속했지만, 아직 특정 폴더를 연 상태는 아니다.
@@ -77,6 +85,6 @@ author: sunho
 
 이제 원격 서버에서 작업할 디렉토리 경로를 입력하고 **확인 (OK)**을 누르면, 원격 서버의 파일들이 VS Code 좌측 탐색기 (Explorer)에 나타나게 된다.
 
-![fig4](Programming/Dev_Environment/VSCode_SSH-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig8](Programming/Dev_Environment/VSCode_SSH-8.png){: style="display:block; margin:0 auto; width:80%;"}
 
-![fig5](Programming/Dev_Environment/VSCode_SSH-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig9](Programming/Dev_Environment/VSCode_SSH-9.png){: style="display:block; margin:0 auto; width:80%;"}
