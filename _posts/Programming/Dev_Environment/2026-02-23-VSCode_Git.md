@@ -8,11 +8,21 @@ toc: true
 author: sunho
 ---
 
+VS Code에서는 터미널에 명령어를 직접 치지 않아도, 자체 내장된 **Source Control** 탭과 **Git Graph** 확장 프로그램을 통해 시각적으로 쉽게 Git을 관리할 수 있다.
+
+## Source Control
+
+VS Code 내장 기능으로, 좌측 **Source Control** 탭을 통해 이용할 수 있다.
+
+크게 Repositories, Changes, Graph 탭으로 구분되어 있다.
+
+![fig1](Programming/Dev_Environment/VSCode_Git-.png){: style="display:block; margin:0 auto; width:100%;"}
+
 VS Code의 확장 프로그램인 **Git Graph**를 사용하면, Git의 작업 내역 (History, Branch, Merge)을 한눈에 볼 수 있다.
 <br>
 또한 마우스 클릭만으로 `commit`, `push`와 같은 Git 명령어를 실행할 수 있다.
 
-### 그래프 보는 법
+## Git Graph 확장 프로그램
 
 Git Graph는 2가지 방법으로 확인할 수 있다.
 
