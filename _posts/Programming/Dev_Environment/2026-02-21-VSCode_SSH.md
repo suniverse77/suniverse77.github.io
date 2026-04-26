@@ -76,7 +76,7 @@ author: sunho
 
 좌측 하단에 **SSH: MyServer**라고 뜨면 접속에 성공한 것이다.
 
-![fig7](Programming/Dev_Environment/VSCode_SSH-7.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig7](Programming/Dev_Environment/VSCode_SSH-7.png){: style="display:block; margin:0 auto; width:60%;"}
 
 ### 4. 작업 폴더 열기
 서버에는 접속했지만, 아직 특정 폴더를 연 상태는 아니다.
@@ -85,6 +85,6 @@ author: sunho
 
 이제 원격 서버에서 작업할 디렉토리 경로를 입력하고 **확인 (OK)**을 누르면, 원격 서버의 파일들이 VS Code 좌측 탐색기 (Explorer)에 나타나게 된다.
 
-![fig8](Programming/Dev_Environment/VSCode_SSH-8.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig8](Programming/Dev_Environment/VSCode_SSH-8.png){: style="display:block; margin:0 auto; width:100%;"}
 
-![fig9](Programming/Dev_Environment/VSCode_SSH-9.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig9](Programming/Dev_Environment/VSCode_SSH-9.png){: style="display:block; margin:0 auto; width:100%;"}
