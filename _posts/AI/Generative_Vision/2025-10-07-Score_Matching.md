@@ -1,8 +1,8 @@
 ---
-title: "[생성 모델] Score Matching"
+title: "[Diffusion] Score Matching"
 date: 2025-10-08 00:00:00 +/-TTTT
-categories: [AI, 생성 모델]
-tags: [생성 모델, Diffusion]
+categories: [AI, 비전 생성 모델]
+tags: [Diffusion]
 math: true
 toc: true
 author: sunho

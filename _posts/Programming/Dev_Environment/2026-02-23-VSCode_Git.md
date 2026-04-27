@@ -2,7 +2,7 @@
 title: "[VS Code] VS Code에서 쉽게 Git 관리"
 date: 2026-02-23 06:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
-tags: [VS Code]
+tags: [VS Code, Git]
 math: true
 toc: true
 author: sunho
@@ -16,7 +16,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (초록색 박스)을
 
 크게 `REPOSITORIES`, `CHANGES`, `GRAPH` 탭 (빨간색 박스)으로 구분되어 있다.
 
-![fig1](Programming/Dev_Environment/VSCode_Git-.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](Programming/Dev_Environment/VSCode_Git-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 - **`REPOSITORIES`**
 
