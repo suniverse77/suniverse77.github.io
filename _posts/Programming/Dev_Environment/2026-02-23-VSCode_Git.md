@@ -26,7 +26,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (초록색 박스)을
 
     우측의 점 3개 아이콘 (분홍색 박스)을 클릭하면, 세부 메뉴 (분홍색 화살표)가 나타난다.
 
-    ![fig2](Programming/Dev_Environment/VSCode_Git-2.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig2](Programming/Dev_Environment/VSCode_Git-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
     - `Pull, Push` 버튼 (노란색 박스)을 누르면 세부 메뉴가 한번 더 나타난다.
 
@@ -64,7 +64,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (초록색 박스)을
 
     각 commit을 클릭하면 아래처럼 해당 commit 때 수정된 파일 목록을 보여주고, 파일을 클릭하면 파일 내에서 어느 부분이 수정되었는지도 보여준다.
 
-    ![fig4](Programming/Dev_Environment/VSCode_Git-4.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig4](Programming/Dev_Environment/VSCode_Git-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 
 ## Git Graph (확장 프로그램)
