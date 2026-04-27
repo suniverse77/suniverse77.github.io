@@ -1,8 +1,8 @@
 ---
-title: "[트랜스포머] 트랜스포머의 구조 2 - 임베딩 (Embedding)"
+title: "[트랜스포머 모델] 트랜스포머의 구조 2 - 임베딩 (Embedding)"
 date: 2025-02-15 06:00:00 +/-TTTT
-categories: [AI, LLM]
-tags: [트랜스포머]
+categories: [AI, 트랜스포머]
+tags: [트랜스포머 모델]
 math: true
 toc: true
 author: sunho
