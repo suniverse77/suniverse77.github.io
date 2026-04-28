@@ -8,9 +8,11 @@ toc: true
 author: sunho
 ---
 
-HPO는 HyperParameter Optimization의 약자로, 모델의 하이퍼파라미터를 최적화하는 알고리즘을 의미한다.
+HPO (HyperParameter Optimization)는 머신러닝 모델의 최적 성능을 끌어내기 위해 하이퍼파라미터를 튜닝하는 알고리즘을 말한다
 
-주로 사람이 직접 하이퍼파라미터를 튜닝하는 데 시간이 많이 걸리기 때문에, 알고리즘을 이용한다.
+수많은 하이퍼파라미터 조합을 사람이 일일이 테스트하는 것은 엄청난 시간과 비용이 소모되는 비효율적인 작업이다.
+<br>
+따라서 보다 효율적으로 탐색하기 위해 다양한 HPO 알고리즘을 활용한다.
 
 ## Grid Search
 
@@ -20,7 +22,7 @@ HPO는 HyperParameter Optimization의 약자로, 모델의 하이퍼파라미터
 <br>
 사용자가 Learning Rate 후보로 `[0.1, 0.01, 0.001]`을, Batch Size 후보로 `[16, 32, 64]`를 입력하면, 컴퓨터가 알아서 모든 경우의 수를 곱해서 총 9번의 실험을 진행한다.
 
-![fig1](AI/Methodologies/Grid_Random-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](AI/Methodologies/Grid_Random-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
 파라미터 종류가 늘어날수록 테스트해야 할 조합이 기하급수적으로 늘어나게 되고, 진짜 최적값이 사용자가 정한 간격 사이에 있다면 최적값을 찾지 못한다는 단점이 존재한다.
 
@@ -30,7 +32,7 @@ HPO는 HyperParameter Optimization의 약자로, 모델의 하이퍼파라미터
 
 Grid Search와 달리, 사용자는 하이퍼파라미터를 찾을 연속적인 구간과 테스트할 횟수를 지정해야 한다.
 
-![fig2](AI/Methodologies/Grid_Random-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](AI/Methodologies/Grid_Random-2.png){: style="display:block; margin:0 auto; width:40%;"}
 
 Random Search가 Grid Search보다 효율적인 상황이 있다.
 
