@@ -24,11 +24,11 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
     <br>
     여러 프로젝트를 동시에 열어 작업할 때, 어떤 프로젝트의 변경 사항을 관리할지 선택할 수 있다.
 
-    우측의 점 3개 아이콘 (<span style="color:pink">분홍색 박스</span>)을 클릭하면, 세부 메뉴 (<span style="color:pink">분홍색 화살표</span>)가 나타난다.
+    우측의 점 3개 아이콘 (<span style="color:violet">분홍색 박스</span>)을 클릭하면, 세부 메뉴 (<span style="color:violet">분홍색 화살표</span>)가 나타난다.
 
     ![fig2](Programming/Dev_Environment/VSCode_Git-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
-    - `Pull, Push` 버튼 (<span style="color:yellow">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
+    - `Pull, Push` 버튼 (<span style="color:gold">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
 
         메뉴에서 `Pull` 또는 `Push`를 클릭해 현재 로컬 브랜치의 Upstream 브랜치와 연결하거나, `Pull from...` 또는 `Push to...`를 클릭해 원하는 브랜치와 연결할 수 있다.
 
@@ -36,7 +36,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
         ![fig3](Programming/Dev_Environment/VSCode_Git-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
-    - `Branch` 버튼 (<span style="color:yellow">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
+    - `Branch` 버튼 (<span style="color:gold">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
 
         메뉴에서 `Create Branch`를 클릭해 현재 브랜치를 기준으로 새 브랜치를 생성하거나, `Create Branch From...`을 클릭해 원하는 브랜치를 기준으로 새 브랜치를 생성할 수 있다.
 
@@ -48,7 +48,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
     <br>
     터미널의 명령어들을 마우스 클릭만으로 간단하게 실행할 수 있다.
 
-    `+` 아이콘 (yellowgreen </span>초록색 원</span>)을 누르면 수정된 모든 파일을 한 번에 추가하는 `git add .`수정된 모든 파일을 한 번에 추가한다.
+    `+` 아이콘 (<span style="color:lightgreen">초록색 원</span>)을 누르면 수정된 모든 파일을 한 번에 추가하는 `git add .`수정된 모든 파일을 한 번에 추가한다.
     <br>
     이후 commit 메시지를 적고 commit 버튼 (<span style="color:orange">주황색 박스</span>)을 누르면 `git commit -m "<commit 메시지>"`를 실행한 것과 완벽하게 동일하게 커밋이 완료된다.
     <br>
@@ -56,7 +56,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
      ![fig4](Programming/Dev_Environment/VSCode_Git-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
-    `CHANGES`에서도 점 3개 아이콘 (<span style="color:pink">분홍색 박스</span>)을 통해 `REPOSITORIES`와 동일한 기능을 수행할 수 있다.
+    `CHANGES`에서도 점 3개 아이콘 (<span style="color:violet">분홍색 박스</span>)을 통해 `REPOSITORIES`와 동일한 기능을 수행할 수 있다.
 
 - **`GRAPH`**
 

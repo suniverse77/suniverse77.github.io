@@ -59,16 +59,24 @@ _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 ### 글자색
 
 <span style="color:red"> red </span>
-<span style="color:#ffd33d"> yellow </span>
-<span style="color:blue"> blue </span>
 <span style="color:brown"> brown </span>
 <span style="color:orange"> orange </span>
+<span style="color:yellow"> yellow </span>
+<span style="color:gold"> gold </span>
+
 <span style="color:green"> green </span>
-<span style="color:violet"> violet </span>
 <span style="color:yellowgreen"> yellowgreen </span>
+<span style="color:lightgreen"> lightgreen </span>
+
+<span style="color:blue"> blue </span>
+<span style="color:skyblue"> skyblue </span>
+
+<span style="color:pink"> pink </span>
+<span style="color:violet"> violet </span>
 <span style="color:blueviolet"> blueviolet </span>
-<span style="color:gray"> gray</span>
 <span style="color:indigo"> indigo </span>
+
+<span style="color:gray"> gray</span>
 
 ## LaTex 수식 여백 늘리기
 
