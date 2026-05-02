@@ -110,7 +110,7 @@ $$
 
 $$
 \text{Activation Memory}=
-\text{Token Embeddings}+\text{Positional Embeddings}+\text{Transformer Layer}
+\text{Token Embed}+\text{Positional Embed}+\text{Transformer Layer}
 \approx 56.45\text{ GB}
 $$
 
