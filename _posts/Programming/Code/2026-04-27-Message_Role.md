@@ -103,30 +103,75 @@ messages = [
 <br>
 단순히 모델이 텍스트를 생성하는 것을 넘어, 실제 외부 환경과 데이터를 주고받으며 동작할 수 있게 연결해 주는 다리 역할을 한다.
 
-<span style="color:red">`tool` 역할의 메시지는 단독으로 쓰이지 않고, 반드시 LLM (`assistant`)이 먼저 `"어떤 도구를 사용하겠다"`고 요청한 이후에 사용된다.</span>
+### assistant의 tool_calls key
+
+LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 `tool_calls` 키 자체가 존재하지 않는다.
+
+```python
+# 일반 대화 시 (tool_calls 생략)
+{
+    "role": "assistant", 
+    "content": "현재 서울의 날씨는 맑습니다."
+}
+```
+
+하지만 모델이 외부 도구를 써야겠다라고 판단한 순간, `tool_calls`라는 키가 생겨나고 리스트가 채워진다.
+<br>
+이때 도구를 호출하는 데 집중하느라, 보통 `content` 값은 `None`이 된다.
+
+```python
+# 도구 호출 시 (tool_calls 생성, content는 None)
+{
+    "role": "assistant", 
+    "content": None, 
+    "tool_calls": [
+        {
+            "id": "call_123", 
+            "type": "function", 
+            "function": {"name": "get_weather", "arguments": "{\"location\": \"Seoul\"}"}
+        }
+    ]
+}
+```
+
+<span style="color:red">즉, `tool` 역할의 메시지는 단독으로 쓰이지 않고, 반드시 LLM (`assistant`)이 먼저 `"어떤 도구를 사용하겠다"`고 요청한 이후에 사용된다.</span>
+
+### tool 메시지 구성 요소
 
 `tool` 메시지 객체는 필수적으로 다음 세 가지 키를 가져야 한다.
 
-- role: "tool"로 고정합니다. 이 메시지가 외부 도구의 실행 결과임을 명시합니다.
-- tool_call_id: 매우 중요한 식별자입니다. 직전에 assistant가 도구를 호출할 때 발급했던 고유 ID 값(예: call_abc123xyz)을 그대로 넣어주어야 합니다. 모델이 동시에 여러 개의 도구를 호출했을 때, 이 결과값이 어떤 호출에 대한 답변인지 매칭해 주는 역할을 합니다.
-- content: 외부 프로그램이나 함수를 실행하고 얻은 실제 결과값을 문자열(String) 형태로 담습니다. 주로 JSON 형식의 문자열이 많이 사용됩니다
+- `role`
+
+    `"tool"`로 고정해서, 이 메시지가 외부 도구의 실행 결과임을 명시한다.
+- `tool_call_id`
+
+    직전에 `assistant`가 도구를 호출할 때 발급했던 고유 ID 값을 그대로 넣어주어야 한다. 
+    <br>
+    모델이 동시에 여러 개의 도구를 호출했을 때, 이 결과값이 어떤 호출에 대한 답변인지 매칭해 주는 역할을 한다.
+- `content`
+
+    외부 프로그램이나 함수를 실행하고 얻은 실제 결과값을 문자열 `str` 형태로 담는다.
+    <br>
+    주로 JSON 형식의 문자열이 많이 사용된다.
 
 ```python
 {
     "role": "tool", 
-    "tool_call_id": "call_abc123xyz", # 어떤 도구 호출에 대한 결과인지 식별하는 ID
+    "tool_call_id": "call_abc123xyz",
     "content": "{\"location\": \"Seoul\", \"temperature\": \"24°C\", \"weather\": \"Sunny\"}"
 }
 ```
 
-ool 메시지가 실제 대화 흐름에서 어떻게 위치하는지 보여주는 것이 좋습니다. tool 메시지는 보통 아래와 같은 4단계 사이클 속에서 등장합니다.
+### tool 메시지 사용 예시
+
+tool 메시지는 보통 아래와 같은 4단계 사이클 속에서 등장한다.
 
 ```python
 messages = [
     # 1. 사용자의 질문
     {"role": "user", "content": "지금 서울 날씨 어때?"},
     
-    # 2. 모델의 도구 호출 (LLM: "get_weather 함수를 실행해야겠다! ID는 call_123이야.")
+    # 2. 모델의 도구 호출
     {
         "role": "assistant", 
         "content": None, 
@@ -139,14 +184,14 @@ messages = [
         ]
     },
     
-    # 3. 외부 도구 실행 결과 전달 (개발자/시스템: "call_123의 실행 결과는 이거야!")
+    # 3. 외부 도구 실행 결과 전달
     {
         "role": "tool", 
         "tool_call_id": "call_123", # 위의 ID와 반드시 일치해야 함
         "content": "{\"temperature\": 24, \"condition\": \"Sunny\"}"
     },
     
-    # 4. 최종 답변 (LLM: 전달받은 결과를 바탕으로 자연스러운 문장 생성)
+    # 4. 전달 받은 결과를 바탕으로 최종 답변 생성
     {"role": "assistant", "content": "현재 서울의 날씨는 맑고 기온은 24도입니다."}
 ]
 ```
