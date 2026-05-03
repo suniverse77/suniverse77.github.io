@@ -109,6 +109,10 @@ for epoch in range(num_epochs):
         TPU                         # Google TPU를 사용할 때
     ```
 
+<details>
+<summary><font color='#0000FF'>No distributed training 선택한 경우</font></summary>
+<div markdown="1">
+
 - GPU가 있어도 CPU로만 학습할 것인지 묻는 질문
 
     거의 항상 `NO`를 선택하면 된다.
@@ -153,3 +157,94 @@ for epoch in range(num_epochs):
         bf16
         fp8
     ```
+
+---
+
+</div>
+</details>
+<br>
+
+<details>
+<summary><font color='#0000FF'>multi-GPU 선택한 경우</font></summary>
+<div markdown="1">
+
+일반적으로 `multi-GPU`를 선택하고, `DeepSpeed`, `Megatron-LM`, `FSDP`를 모두 `NO`로 설정하면 자동으로 DDP로 동작한다.
+
+- 몇 개의 머신을 사용할지 묻는 질문
+
+    일반적으로 서버 한 대에서 GPU 여러 장을 쓰는 경우라면 그냥 엔터를 눌러 1을 선택하면 된다.
+
+    ```bash
+    How many different machines will you use (use more than 1 for multi-node training)? [1]:
+    ```
+
+- 분산 학습 중 오류를 실시간으로 체크할지 묻는 질문
+
+    `NO`는 오류 체크를 하지 않아 속도가 빠르며, 안정적인 환경에서 권장한다.
+    <br>
+    `yes`는 매 분산 연산마다 오류를 체크해서 속도가 느려지지만, 디버깅할 때 유용하다.
+
+    ```bash
+    Should distributed operations be checked while running for errors? This can avoid timeout issues but will be slower. [yes/NO]:
+    ```
+
+- `torch dynamo`로 학습 스크립트를 최적화할 것인지 묻는 질문
+
+    처음 세팅하거나 안정성을 원한다면 `NO`를 권장한다. (`yes`는 속도 향상을 기대할 수 있지만 호환성 문제가 생길 수도 있음)
+
+    ```bash
+    Do you wish to optimize your script with torch dynamo?[yes/NO]:
+    ```
+
+- DeepSpeed를 사용할 것인지 묻는 질문
+
+    메모리 부족 문제가 없다면 `NO`를 권장한다. (모델이 매우 커서 단일 GPU에 올라가지 않을 때 사용)
+
+    ```bash
+    Do you want to use DeepSpeed? [yes/NO]:
+    ```
+
+- FSDP를 사용할 것인지 묻는 질문
+
+    ```bash
+    Do you want to use FullyShardedDataParallel? [yes/NO]:
+    ```
+
+- Megatron-LM을 사용할지 묻는 질문
+
+    ```bash
+    Do you want to use Megatron-LM ? [yes/NO]:
+    ```
+
+- 분산 학습에 사용할 GPU 수를 입력하는 질문
+
+    ```bash
+    How many GPU(s) should be used for distributed training? [1]:
+    ```
+
+- 학습에 사용할 GPU를 ID로 지정하는 질문
+
+    - `all` (기본값, 엔터만 누르면 됨): 서버에 있는 모든 GPU를 사용
+    - `0` : GPU 0번 하나만 사용
+    - `0,1,2,3` : GPU 0~3번 사용
+
+    ```bash
+    What GPU(s) (by id) should be used for training on this machine as a comma-seperated list? [all]:
+    ```
+
+- 혼합 정밀도(mixed precision) 학습 방식을 선택하는 질문
+
+    ```bash
+    Do you wish to use FP16 or BF16 (mixed precision)?                                                       
+    Please select a choice using the arrow or number keys, and selecting with enter
+    ➔  no
+        fp16
+        bf16
+        fp8
+    ```
+
+---
+
+</div>
+</details>
+<br>

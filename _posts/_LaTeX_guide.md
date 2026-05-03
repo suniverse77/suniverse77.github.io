@@ -24,7 +24,7 @@ _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 ## 토글 생성
 
 <details>
-<summary><font color='#FF0000'>Example</font></summary>
+<summary><font color='#0000FF'>Example</font></summary>
 <div markdown="1">
 
 ---
