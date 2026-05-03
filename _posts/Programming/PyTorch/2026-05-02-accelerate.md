@@ -162,7 +162,6 @@ for epoch in range(num_epochs):
 
 </div>
 </details>
-<br>
 
 <details>
 <summary><font color='#0000FF'>multi-GPU 선택한 경우</font></summary>
