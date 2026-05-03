@@ -8,118 +8,241 @@ toc: true
 author: sunho
 ---
 
-PyTorch에는 GPU 병렬 처리를 위한 두 가지 방식 (DP, DDP)이 있다.
-
-기본적으로 두 방식 모두 각 GPU마다 모델의 가중치를 무조건 하나씩 올려두어야 한다.
-
-따라서 모델 자체는 GPU 1대에 충분히 올라가지만 Batch Size가 커서 OOM (Out of Memory)이 발생하는 경우에는 해결이 가능하지만, 모델 자체가 커서 OOM이 발생하는 경우에는 해결하지 못한다.
-
-## DataParallel (DP)
-
-DP는 하나의 컴퓨터 (Single Node) 내에서 여러 GPU를 사용할 수 있게 하는 방식이다.
-
-동작 방식은 아래와 같다.
-
-1. 전체 배치 데이터를 쪼개서 각 GPU에 나누어 준다.
-2. Master GPU (일반적으로 0번 GPU)에 있는 모델의 가중치를 나머지 모든 GPU로 복사한다.
-3. 각 GPU가 할당받은 데이터로 순전파 연산을 수행한다.
-4. 각 GPU의 출력 결과를 Master GPU로 모두 모은다.
-5. Master GPU가 loss를 계산하고 역전파 및 가중치 업데이트를 진행한다.
-
-구현이 단순하지만, 결과를 모으고 loss를 계산하는 과정이 Master GPU에 집중되기 때문에, Master GPU의 메모리만 꽉 차고 나머지 GPU는 놀고 있는 병목 현상이 발생한다.
+기본적으로 모델 학습 코드는 다음으로 가정하겠다.
 
 ```python
 import torch
 import torch.nn as nn
+from torch.utils.data import DataLoader
 
-model = nn.Linear(10, 2)
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-model = nn.DataParallel(model)  # DP 적용
-model = model.cuda()
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(10, 2)
+
+    def forward(self, x):
+        return self.fc(x)
+
+model = Model().to(device)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+criterion = nn.MSELoss()
+
+dataset = MyDataset()
+train_loader = DataLoader(dataset, batch_size=32, shuffle=True)
+
+num_epochs = 5
+
+for epoch in range(num_epochs):
+    model.train()
+    
+    for x, y in train_loader:
+        x, y = x.to(device), y.to(device)
+        
+        optimizer.zero_grad()
+        y_pred = model(x)
+        loss = criterion(y_pred, y)
+        loss.backward()
+        optimizer.step()
 ```
 
-## DistributedDataParallel (DDP)
+## DP (Data Parallel)
 
-DDP는 여러 대의 컴퓨터 (Multi Node)에 있는 수많은 GPU까지 묶어서 사용할 수 있게 하는 방식이다.
-
-동작 방식은 아래와 같다.
-
-1. 전체 배치 데이터를 쪼개서 각 GPU에 나누어 준다.
-2. Master GPU (일반적으로 0번 GPU)에 있는 모델의 가중치를 나머지 모든 GPU로 복사한다.
-3. 각 GPU는 할당받은 데이터로 순전파와 역전파 연산을 독립적으로 수행하여 자신만의 그라디언트를 계산한다.
-4. Master GPU로 데이터를 모으지 않고, 각 GPU가 계산한 그라디언트만 서로 교환하여 더한다.
-5. 이후 각 GPU는 서로 동일하게 업데이트된 모델 가중치를 가지게 된다.
-
-DP와 달리, Master GPU로 데이터를 모으는 과정이 없어 모든 GPU가 메모리를 균등하게 사용한다.
+일반적인 파이썬 스크립트 실행하듯 `python script.py`로 실행하면 된다.
 
 ```python
 import torch
 import torch.nn as nn
+from torch.utils.data import DataLoader
+# DDP 구현: 추가적으로 모듈 import 및 alias 설정
+from torch.nn.parallel import DataParallel as DP
+
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(10, 2)
+
+    def forward(self, x):
+        return self.fc(x)
+
+# ---------------------------------------------------------
+# DDP 구현: 모델 생성 및 DDP Wrapping
+# ---------------------------------------------------------
+model = Model().to(device)
+
+# 사용 가능한 GPU가 1개보다 많으면, DP 모듈로 모델을 감싸 분산 학습이 가능하도록 설정
+if torch.cuda.device_count() > 1:
+    print(f"Let's use {torch.cuda.device_count()} GPUs!")
+    model = DP(model)
+
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+criterion = nn.MSELoss()
+
+dataset = MyDataset()
+train_loader = DataLoader(dataset, batch_size=32, shuffle=True)
+
+num_epochs = 5
+
+for epoch in range(num_epochs):
+    model.train()
+    
+    for x, y in train_loader:
+        x, y = x.to(device), y.to(device)
+        
+        optimizer.zero_grad()
+        y_pred = model(x)
+        loss = criterion(y_pred, y)
+        loss.backward()
+        optimizer.step()
+```
+
+## DDP (Distributed Data Parallel)
+
+DDP는 터미널에서 torchrun 모듈을 사용하여 실행해야 합니다. 예를 들어 2개의 GPU를 사용한다면 아래와 같이 실행합니다.
+`torchrun --nproc_per_node=2 script.py`
+
+> **명령어: `python` vs `torchrun`**
+>
+> `python`은 단 1개의 파이썬 프로세스만 실행한다.
+>
+> 반면, `torchrun`은 지정한 GPU 개수만큼 독립적인 파이썬 프로세스를 동시에 여러 개 실행한다.
+    <br>
+    예를 들어 `torchrun --nproc_per_node=4 script.py`라고 실행하면, 내부적으로 python script.py가 4개 동시에 실행되는 것과 같다.
+>
+>` torchrun`은 실행되는 각 파이썬 프로세스에 `LOCAL_RANK` (현재 컴퓨터 내 GPU 번호), `WORLD_SIZE` (전체 GPU 개수) 등의 환경 변수를 자동으로 주입해 주기 때문에, `os.environ["LOCAL_RANK"]`를 통해 번호를 쉽게 가져올 수 있다.
+
+```python
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
+# DDP 구현: 추가적으로 모듈 import 및 alias 설정
 import torch.distributed as dist
+from torch.utils.data.distributed import DistributedSampler
 from torch.nn.parallel import DistributedDataParallel as DDP
+
+# ---------------------------------------------------------
+# DDP 구현: DDP 통신 환경 초기화
+# ---------------------------------------------------------
+# 프로세스 간 통신 채널 설정
+dist.init_process_group(backend='nccl')
+
+# torchrun이 설정한 환경 변수에서 현재 프로세스의 로컬 GPU 번호 획득
+local_rank = int(os.environ["LOCAL_RANK"])
+torch.cuda.set_device(local_rank)
+device = torch.device(f'cuda:{local_rank}')
+
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(10, 2)
+
+    def forward(self, x):
+        return self.fc(x)
+
+# ---------------------------------------------------------
+# DDP 구현: 모델 생성 및 DDP Wrapping
+# ---------------------------------------------------------
+model = Model().to(device)
+
+# DDP 모듈로 모델을 감싸 분산 학습이 가능하도록 설정
+model = DDP(model, device_ids=[local_rank])
+
+# ---------------------------------------------------------
+# DDP 구현: 데이터 로더 및 분산 샘플러 설정
+# ---------------------------------------------------------
+dataset = MyDataset()
+
+# 전체 데이터셋이 각 GPU에 겹치지 않게 분배되도록 Sampler 설정
+sampler = DistributedSampler(dataset)
+
+# sampler를 사용할 때는 shuffle=False로 설정 (sampler가 알아서 섞어줌)
+train_loader = DataLoader(dataset, batch_size=32, sampler=sampler)
+
+num_epochs = 5
+
+# ---------------------------------------------------------
+# DDP 구현: 분산 학습 훈련 loop
+# ---------------------------------------------------------
+for epoch in range(num_epochs):
+    # 매 epoch마다 Sampler에 현재 epoch을 전달해야 데이터 셔플링이 정상 작동함
+    sampler.set_epoch(epoch)
+    model.train()
+    
+    for x, y in train_loader:
+        x, y = x.to(device), y.to(device)
+        
+        optimizer.zero_grad()
+        y_pred = model(x)
+        loss = criterion(y_pred, y)
+        loss.backward()
+        optimizer.step()
+
+# ---------------------------------------------------------
+# DDP 구현: 리소스 정리
+# ---------------------------------------------------------
+# 모든 학습이 완료된 후 프로세스 간 통신 그룹을 종료하여 메모리 및 자원 해제
+dist.destroy_process_group()
+```
+
+## FSDP (Fully Sharded Data Parallel)
+
+```python
+import os
+import torch
+import torch.nn as nn
 from torch.utils.data import DataLoader
 from torch.utils.data.distributed import DistributedSampler
+import torch.distributed as dist
+# 💡 FSDP 임포트
+from torch.distributed.fsdp import FullyShardedDataParallel as FSDP
 
-def train(rank, world_size):
-    # 각 프로세스가 통신할 수 있게 설정
-    dist.init_process_group(backend="nccl", rank=rank, world_size=world_size)
-    
-    # 현재 프로세스 (rank)에 맞는 GPU 할당
-    torch.cuda.set_device(rank)
-    
-    # 모델 정의 및 현재 할당된 GPU로 이동
-    model = nn.Linear(10, 2).cuda(rank)
-    
-    # DDP 적용
-    model = DDP(model, device_ids=[rank])
-    
-    # 각 GPU가 다른 데이터를 봐야 하므로, DistributedSampler 사용 필수
-    dataset = MyDataset()
-    sampler = DistributedSampler(dataset, num_replicas=world_size, rank=rank)
-    
-    # DataLoader에 sampler를 전달
-    dataloader = DataLoader(dataset, batch_size=32, sampler=sampler)
+# 분산 학습 환경 초기화
+dist.init_process_group(backend='nccl')
+local_rank = int(os.environ["LOCAL_RANK"])
+torch.cuda.set_device(local_rank)
+device = torch.device(f'cuda:{local_rank}')
 
-    # ... 이후 모델 학습 루프 진행 ...
+class Model(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.fc = nn.Linear(10, 2)
 
-    # 학습 종료 후 프로세스 그룹 해제
-    dist.destroy_process_group()
+    def forward(self, x):
+        return self.fc(x)
+
+# 💡 FSDP 래핑: DDP와 달리 모델을 디바이스로 미리 옮기지 않고(CPU 상태에서) FSDP로 감쌉니다.
+# FSDP가 알아서 적절한 GPU로 파라미터를 샤딩(분할)하여 올려줍니다.
+model = Model()
+model = FSDP(model)
+
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+criterion = nn.MSELoss()
+
+dataset = MyDataset()
+
+# 데이터 분배를 위한 설정
+sampler = DistributedSampler(dataset)
+train_loader = DataLoader(dataset, batch_size=32, sampler=sampler)
+
+num_epochs = 5
+
+for epoch in range(num_epochs):
+    sampler.set_epoch(epoch)
+    model.train()
+    
+    for x, y in train_loader:
+        # FSDP 환경에서도 데이터는 각 로컬 디바이스로 직접 보내야 합니다.
+        x, y = x.to(device), y.to(device)
+        
+        optimizer.zero_grad()
+        y_pred = model(x)
+        loss = criterion(y_pred, y)
+        loss.backward()
+        optimizer.step()
+
+# 분산 환경 정리
+dist.destroy_process_group()
 ```
-
-### Multi-processing
-
-Multi-processing을 이해하기 전, 먼저 프로세스와 스레드에 대해 간단히 이해해야 한다.
-
-**프로세스 (Process)**
-
-먼저 프로그램 (program)이란 컴퓨터에서 실행 할 수 있는 파일을 의미한다.
-
-프로세스는 이 프로그램을 실행시킨 것, 즉 프로그램이 실행되고 있는 상태를 의미한다.
-(예: 파이썬 스크립트 실행, 크롬 브라우저 켜기 등)
-
-각 프로세스는 독립된 메모리 공간 (작업 공간)을 할당받는다.
-
-**스레드 (Thread)**
-
-스레드는 하나의 프로세스 내에서 작업의 흐름을 의미한다. (쉽게 말해 작업을 수행하는 일꾼)
-
-하나의 프로세스 안에 있는 스레드들은 해당 프로세스의 메모리 공간을 서로 공유하며 일한다.
-
-만약 하나의 프로세스에 스레드가 하나만 존재한다면, 크롬 브라우저를 실행했을 때 파일을 다운로드하면서 동시에 다른 탭에서 웹서핑을 하는 것이 불가능했을 것이다.
-
-즉, 스레드 수가 많을 수록 (Multi-Thread) 동시에 할 수 있는 작업의 수가 증가하게 된다.
-
-![fig1](Programming/PyTorch/DDP-1.png){: style="display:block; margin:0 auto; width:80%;"}
-_[[출처]](https://www.go-cloudsec.com/2024/07/14/350/)_
-
-**Multi-processing**
-
-Multi-processing은 이름 그대로 스레드의 개수를 늘리는 게 아니라, 아예 프로세스를 여러 개 동시에 가동하는 방식이다.
-
-일반적으로는 Multi-Thread가 효율적이지만, 파이썬에는 치명적인 약점이 있다. 파이썬은 프로세스 내에 스레드가 아무리 많아도, 한 번에 오직 하나의 스레드만 파이썬 코드를 실행할 수 있다는 규칙을 가지고 있다.
-
-이를 파이썬 GIL (Global Interpreter Lock)이라고 한다.
-
-따라서 하나의 프로세스 내에서 여러 스레드가 GPU를 나눠서 컨트롤하려는 DP는 GIL에 가로막혀 온전한 병렬 처리를 하지 못해 속도가 느려진다.
-
-반면, GPU마다 하나의 프로세스를 할당시키는 DDP는 GIL의 간섭을 받지 않으므로 연산 속도가 훨씬 빠르다.
