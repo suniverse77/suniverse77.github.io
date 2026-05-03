@@ -103,9 +103,47 @@ messages = [
 <br>
 단순히 모델이 텍스트를 생성하는 것을 넘어, 실제 외부 환경과 데이터를 주고받으며 동작할 수 있게 연결해 주는 다리 역할을 한다.
 
+### tool 전달
+
+도구를 사용하기 위해서는, 사전에 LLM에게 사용 가능한 함수 이름 (`name`)과 해당 함수에 대한 설명 (`description`)을 전달해야 한다.
+<br>
+이후 LLM은 `description`을 보고 어떤 도구를 사용할지 결정한다.
+
+```python
+# 모델이 사용할 수 있는 도구와 설명을 사전에 정의
+TOOLS = [
+    {
+        "type": "function",
+        "function": {
+            "name": "get_weather",
+            "description": "특정 도시의 현재 날씨와 기온을 조회합니다.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "location": {
+                        "type": "string",
+                        "description": "도시 이름 (예: Seoul, Busan)"
+                    }
+                },
+                "required": ["location"]
+            }
+        }
+    }   
+]
+
+# API 호출할 때, TOOLS를 전달
+response = client.chat.completions.create(
+    model="gpt-4o",
+    messages=[
+        {"role": "user", "content": "오늘 서울 날씨 어때?"}
+    ],
+    tools=TOOLS
+)
+```
+
 ### assistant의 tool_calls key
 
-LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 `tool_calls` 키 자체가 존재하지 않는다.
+LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 `tool_calls` key 자체가 존재하지 않는다.
 
 ```python
 # 일반 대화 시 (tool_calls 생략)
@@ -115,7 +153,7 @@ LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 
 }
 ```
 
-하지만 모델이 외부 도구를 써야겠다라고 판단한 순간, `tool_calls`라는 키가 생겨나고 리스트가 채워진다.
+하지만 모델이 외부 도구를 써야겠다라고 판단한 순간, `tool_calls`라는 key가 생겨나고 리스트가 채워진다.
 <br>
 이때 도구를 호출하는 데 집중하느라, 보통 `content` 값은 `None`이 된다.
 
@@ -133,6 +171,8 @@ LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 
     ]
 }
 ```
+
+이때 `function` key의 `name`은 실행할 외부 함수의 이름, `arguments`는 해당 함수에 전달할 파라미터가 담긴다.
 
 <span style="color:red">즉, `tool` 역할의 메시지는 단독으로 쓰이지 않고, 반드시 LLM (`assistant`)이 먼저 `"어떤 도구를 사용하겠다"`고 요청한 이후에 사용된다.</span>
 
@@ -160,6 +200,42 @@ LLM이 도구를 사용하지 않고 단순히 텍스트로만 대답할 때는 
     "tool_call_id": "call_abc123xyz",
     "content": "{\"location\": \"Seoul\", \"temperature\": \"24°C\", \"weather\": \"Sunny\"}"
 }
+```
+
+### 실제 tool 실행
+
+LLM은 스스로 코드를 실행할 수 없기 때문에, 실제 함수의 실행은 개발자가 작성한 파이썬 코드 쪽에서 이루어져야 한다.
+
+```python
+import json
+
+# 사전에 정의한 파이썬 함수
+def get_weather(location):
+    return f"{location}의 현재 온도는 24도, 맑음입니다."
+
+def add_calculator(x, y):
+    return f"{x} + {y} = {x+y}"
+
+# 문자열로 실제 파이썬 함수를 호출할 수 있도록, 사전에 딕셔너리로 매핑해 둠
+available_functions = {
+    "get_weather": get_weather, 
+    "add_calculator": add_calculator
+}
+
+# response_message.tool_calls[0] 에 LLM의 판단 결과가 들어있음
+tool_call = response_message.tool_calls[0]
+
+function_name = tool_call.function.name          # 값: "get_weather"
+raw_arguments = tool_call.function.arguments     # 값: '{"location": "Seoul"}' (문자열)
+
+# 어떤 함수를 실행할지 딕셔너리에서 찾기
+function_to_call = available_functions[function_name]
+
+# 문자열로 된 파라미터를 파이썬 딕셔너리로 변환
+parsed_arguments = json.loads(raw_arguments) 
+
+# 함수 실행
+function_result = function_to_call(**parsed_arguments)
 ```
 
 ### tool 메시지 사용 예시
