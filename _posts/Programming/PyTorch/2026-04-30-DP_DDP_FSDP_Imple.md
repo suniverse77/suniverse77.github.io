@@ -227,6 +227,8 @@ dist.destroy_process_group()
 
 ## FSDP (Fully Sharded Data Parallel)
 
+DDP와 동일하게 터미널에서 `torchrun` 모듈을 사용하여 실행하면 된다.
+
 ```python
 import os
 import torch
@@ -295,3 +297,5 @@ for epoch in range(num_epochs):
 # ---------------------------------------------------------
 dist.destroy_process_group()
 ```
+
+### FSDP 추가 설정
