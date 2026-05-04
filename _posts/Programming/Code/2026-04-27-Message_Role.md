@@ -109,6 +109,11 @@ messages = [
 <br>
 이후 LLM은 `description`을 보고 어떤 도구를 사용할지 결정한다.
 
+`parameters`는 함수 실행 시 LLM이 전달해야 할 인자들의 규칙을 정의하는 곳이다.
+
+- `properties` : 함수에 필요한 개별 매개변수들의 이름, 타입, 그리고 설명을 정의하는 곳
+- `required` : properties 중에서 도구 실행 시 절대 빠지면 안 되는 필수 매개변수들의 이름 목록 (배열 형태)
+
 ```python
 # 모델이 사용할 수 있는 도구와 설명을 사전에 정의
 TOOLS = [

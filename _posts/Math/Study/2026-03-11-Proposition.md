@@ -1,7 +1,7 @@
 ---
 title: "[논리학] 명제 (Proposition)"
 date: 2026-03-11 00:00:00 +/-TTTT
-categories: [Mathmatics, 논리학]
+categories: [Mathmatics, Study]
 tags: [논리학]
 math: true
 toc: true
