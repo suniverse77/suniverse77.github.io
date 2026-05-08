@@ -12,7 +12,7 @@ author: sunho
 <br>
 빛은 전자기파로, 진행 방향에 수직으로 진동하며 나아간다.
 
-![fig1](Math/Study/Polarization-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](Math/Study/Polarization-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 > **전자기파 (Electromagnetic Wave)란?**
 >
@@ -24,23 +24,31 @@ author: sunho
     그리고 이 두 개가 만들어내는 평면에 수직인 방향으로 전자기파가 전진한다.
 > - 전자기파는 아무것도 없는 (매질이 없는) 진공 우주 공간에서도, 스스로 전기와 자기를 만들어내며 빛의 속도로 나아갈 수 있다.
 
-태양광이나 전등 빛 등의 자연광은 모든 방향으로 불규칙하게 진동하는
+태양광이나 전등 빛 등의 자연광은 모든 방향으로 불규칙하게 진동한다.
+<br>
+즉, 진행 방향과 90도로 수직인 2차원 평면 안에서의 모든 방향으로 진동하며, 이를 **비편광 (Unpolarized light)**라고 한다.
 
-태양광이나 전등 빛 등의 자연광은 모든 방향으로 불규칙하게 진동하는 **비편광 (Unpolarized light)**이다.
-
-![fig2](Math/Study/Polarization-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Math/Study/Polarization-2.png){: style="display:block; margin:0 auto; width:30%;"}
 
 ## 편광이란?
 
-편광은 특정한 한 방향으로만 진동하는 빛을 의미한다.
+편광은 특정한 방향으로만 진동하는 빛을 의미한다.
 
 편광은 주로 반사에 의해 발생한다.
 
-하지만 이 빛이 유리나 금속 등 매끄러운 표면에 반사되거나 특정 필터를 통과하면, 빛이 특정한 한 방향으로만 진동하게 되는데 이를 **편광 (Polarized light)**이라고 한다.
+태양이나 전등에서 나오는 빛이 강물이나 도로 표면에 부딪혀 반사될 때, 표면과 나란한 가로 방향 (↔)의 빛만 반사된다.
+<br>
+즉, 평평한 바닥에서 반사된 빛은 항상 가로 방향으로만 출렁인다.
+
+![fig3](Math/Study/Polarization-3.png){: style="display:block; margin:0 auto; width:60%;"}
 
 이때, 편광 각도는 전기장이 진동하는 방향을 기준으로 삼는다.
 
-![fig3](Math/Study/Polarization-3.png){: style="display:block; margin:0 auto; width:60%;"}_[[출처]](https://blog.envision.co.kr/62)_
+### 편광 필터
+
+편광 필터는 특정 편광을 차단한다.
+
+![fig4](Math/Study/Polarization-4.png){: style="display:block; margin:0 auto; width:60%;"}_[[출처]](https://blog.envision.co.kr/62)_
 
 위 그림을 보면 가로 필터 (≡)에 빛이 들어올 때, 세로 방향의 진동 (↕)만 통과되는 것을 볼 수 있다.
 
@@ -52,7 +60,7 @@ author: sunho
 
 
 
-## 반사와 편광
+## 카메라와 편광
 
 반사는 빛을 편광시키는 '자연 현상(원인)'이고, 편광 필터는 그렇게 편광된 빛을 통제하는 '도
 
