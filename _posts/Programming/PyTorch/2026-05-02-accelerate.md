@@ -14,7 +14,7 @@ author: sunho
 <br>
 이 덕분에 하나의 파이썬 스크립트로 내 컴퓨터, 대형 서버 어디서든 코드 수정 없이 학습을 돌릴 수 있다.
 
-### accelerate 적용
+## 학습 코드에 accelerate 적용
 
 먼저 터미널에서 `pip install accelerate`를 실행해서, `accelerate` 라이브러리를 설치해야 한다.
 
@@ -76,11 +76,23 @@ for epoch in range(num_epochs):
         optimizer.step()
 ```
 
-### accelerate 설정 및 실행
+## accelerate 설정 및 실행
 
-터미널에서 `accelerate config` 명령어를 실행하면 머신 대수, GPU 개수, 분산 학습 방식 등을 묻는 프롬프트가 나타난다. 이때 사용자가 선택한 답변들은 `~/.cache/huggingface/accelerate/default_config.yaml` 파일로 시스템에 저장된다.
+`accelerate`는 아래 명령어로 실행할 수 있다.
 
-설정을 마치고 `accelerate launch script.py`를 실행하면, 앞서 저장한 설정 파일을 읽어와 내부적으로 환경 변수를 자동 세팅한다.
+```bash
+accelerate launch train.py
+```
+
+이때 분산 학습에 필요한 설정 파일이 함께 전달되어야 하는데, 이 설정 파일을 만드는 방법은 크게 2가지가 있다.
+
+### 1. accelerate config 명령어 사용
+
+터미널에서 `accelerate config` 명령어를 실행하면 머신 대수, GPU 개수, 분산 학습 방식 등을 묻는 프롬프트가 차례로 나타난다.
+<br>
+질문에 모두 답하고 나면, 응답한 내용이 `~/.cache/huggingface/accelerate/default_config.yaml` 경로에 자동으로 저장된다.
+<br>
+이후 별도의 인자 없이 `accelerate launch train.py`만 실행해도, 앞서 저장된 기본 설정 파일을 자동으로 읽어와 분산 학습 환경 변수를 세팅해준다.
 
 이후 파이썬 코드 내에서 `Accelerator()` 객체가 생성될 때 이 환경 변수들을 읽어오며, `prepare()` 함수가 호출되면 해당 설정 정보를 바탕으로 모델과 학습 환경을 알맞게 구성해 준다.
 
@@ -247,3 +259,54 @@ for epoch in range(num_epochs):
 </div>
 </details>
 <br>
+
+### 2. config.yaml 파일을 직접 작성
+
+원하는 위치에 `yaml` 파일을 직접 만든 뒤, 실행할 때 `--config_file` 인자로 경로를 명시적으로 넘겨주는 방법이다.
+
+```bash
+accelerate launch --config_file ./config.yaml train.py
+```
+
+`accelerate` 설정 파일에서 사용 가능한 주요 키는 다음과 같다.
+
+| Key |	Value / Type | 설명 |
+| :---: | :---: | :---: |
+| `compute_environment` | `LOCAL_MACHINE` / `AMAZON_SAGEMAKER` | 실행 환경 |
+| `distributed_type` | `NO` / `MULTI_GPU` / `MULTI_CPU` / `FSDP` / `DEEPSPEED` / `MEGATRON_LM` / `XLA` / `TPU` |  분산 학습 방식 |
+| `mixed_precision` | `no` / `fp16` / `bf16` / `fp8` | 혼합정밀도 |
+| `num_machines` | `int` | 머신 대수 |
+| `num_processes` | `int` | 전체 프로세스 수 (보통 GPU 총 개수) |
+| `gpu_ids` | `str` (`all` 또는 `0,1,3` 등) | 사용할 GPU 지정 |
+| `machine_rank` | `int` | 멀티노드일 때 현재 머신의 rank (0부터) |
+| `main_process_ip` | `str`	| 멀티노드 마스터 노드 IP |
+| `main_process_port` | `int` | 마스터 노드 포트 |
+
+- `mixed_precision`를 `NO`로 설정하면, 혼합 정밀도를 사용하지 않고 전부 `fp32`로 사용해서 학습한다.
+- 이때 `distributed_type`에서 선택한 값에 따라, 해당 방식에 맞는 설정 블록 (`fsdp_config`, `deepspeed_config` 등)을 추가적으로 작성해줘야 한다.
+    
+    ```yaml
+    compute_environment: LOCAL_MACHINE
+    distributed_type: FSDP
+    fsdp_config:
+        # fsdp 설정 값...
+    ```
+
+#### FSDP 설정 (`fsdp_config`)
+
+| Key |	Value / Type | 설명 |
+| :---: | :---: | :---: |
+| `fsdp_sharding_strategy` | FULL_SHARD / SHARD_GRAD_OP / NO_SHARD / HYBRID_SHARD / HYBRID_SHARD_ZERO2 | 샤딩 전략 |
+fsdp_auto_wrap_policy	TRANSFORMER_BASED_WRAP / SIZE_BASED_WRAP / NO_WRAP	자동 wrap 정책
+fsdp_transformer_layer_cls_to_wrap	str (콤마 구분)	wrap할 레이어 클래스명 (예: LlamaDecoderLayer)
+fsdp_min_num_params	int	SIZE_BASED_WRAP일 때 최소 파라미터 수
+fsdp_backward_prefetch	BACKWARD_PRE / BACKWARD_POST / NO_PREFETCH	역전파 prefetch 시점
+fsdp_forward_prefetch	bool	순전파 prefetch 여부
+fsdp_state_dict_type	FULL_STATE_DICT / SHARDED_STATE_DICT / LOCAL_STATE_DICT	체크포인트 저장 방식
+fsdp_offload_params	bool	CPU offload 여부
+fsdp_cpu_ram_efficient_loading	bool	rank 0에서만 모델 로드 후 분산 여부
+fsdp_sync_module_states	bool	모듈 상태 동기화 여부
+fsdp_use_orig_params	bool	원본 파라미터 유지 (LoRA, freeze 등에 필수)
+fsdp_activation_checkpointing	bool	활성화 체크포인팅 여부
+fsdp_reshard_after_forward	bool	FSDP 2에서 사용 여부
+fsdp_version	1 / 2	FSDP 버전
