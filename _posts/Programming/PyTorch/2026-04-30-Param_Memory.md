@@ -59,7 +59,7 @@ $$
 
 활성화는 입력 데이터가 모델의 각 layer를 통과하면서, 행렬 곱셈이나 비선형 함수 등의 연산을 거친 후 나오는 중간 계산 결과값들을 의미한다.
 
-고정된 크기를 갖는 파라미터 메모리와 달리, 활성화 메모리는 입력 크기 (Batch size, Context length, Image size 등)에 정비례해서 커진다.
+고정된 크기를 갖는 파라미터 메모리와 달리, 활성화 메모리는 입력 크기 (<span style="background-color:#fff5b1">Batch size</span>, Context length, Image size 등)에 정비례해서 커진다.
 
 #### Token Embedding 메모리
 
