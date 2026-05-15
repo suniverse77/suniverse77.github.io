@@ -85,3 +85,7 @@ $$\vphantom{\big(}$$
 $$\vphantom{\Big(}$$
 
 $$\vphantom{\Bigg(}$$
+
+## 문장 형식
+
+- 명령어 실행
