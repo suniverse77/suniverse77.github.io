@@ -1,5 +1,5 @@
 ---
-title: "[논리학] 명제 (Proposition)"
+title: "[논리학] 명제 논리 (Proposition Logic, PL)"
 date: 2026-03-11 00:00:00 +/-TTTT
 categories: [Mathmatics, Study]
 tags: [논리학]
@@ -8,7 +8,11 @@ toc: true
 author: sunho
 ---
 
-## 명제 (Proposition)
+## 명제 논리란?
+
+명제 논리는 명제들을 기호로 다루며 추론하는 논리 체계를 의미한다.
+
+### 명제
 
 명제란 `참`인지 `거짓`인지를 판별할 수 있는 문장이나 식을 의미한다.
 
@@ -22,7 +26,7 @@ author: sunho
 - "수학은 재미있다." (주관적 판단임)
 - "철수는 키가 크다." (기준이 불분명함)
 
-## 조건명제 (Conditional Proposition)
+### 조건명제 (Conditional Proposition)
 
 조건명제란 두 명제 $P$와 $Q$가 있을 때, 아래의 형태로 연결된 명제를 의미한다.
 
