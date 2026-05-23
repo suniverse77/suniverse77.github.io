@@ -45,25 +45,25 @@ $$
 
 여기서 우항의 쉼표는 논리곱(AND)을 의미한다.
 <br>
-즉, $\alpha_1, \alpha_2, \cdots, \alpha_n$이 모두 참이면 $\alpha_h$가 참이 된다는 뜻이다.
-<br>
-우리가 흔히 규칙이라고 부르는 것처럼, 전제 조건인 $\lbrace\alpha_1, \alpha_2, \cdots, \alpha_n\rbrace$이 모두 만족될 때 결과인 $\alpha_h$가 도출된다고 생각하면 된다.
+즉, 식 (2)는 $\alpha_1, \alpha_2, \cdots, \alpha_n$이 모두 참이면 $\alpha_h$가 참이 된다는 뜻이다.
 	
 이때 결론에 해당하는 $\alpha_h$을 Head, 조건들에 해당하는 $\lbrace\alpha_2,\cdots,\alpha_n\rbrace$를 Body라고 부른다.
 
 - $Head(r)=\alpha_r$
 - $Body(r)=\lbrace\alpha_1, \alpha_2, \cdots, \alpha_n\rbrace$
 
-예를 들어, `x가 사람이고 100살이면 죽는다`라는 규칙을 아래와 같이 표현할 수 있다.
+예를 들어, 3개의 atom $\alpha_1:\text{사람}(x)$ , $\alpha_2:\text{100살}(x)$ , $\alpha_3:\text{죽는다}(x)$를 가정해 보자.
+<br>
+이때 `x가 사람이고 100살이면, 죽는다`라는 규칙을 아래와 같이 표현할 수 있다.
 
 $$
 \text{죽는다}(x)\leftarrow\text{사람}(x),\text{100살}(x)
 $$
 
-### 논리 프로그램과 사실 집합
+## 논리 프로그램과 사실 집합
 
-논리 프로그램(Logic Program)은 논리 프로그래밍에서 다루는 것으로, 규칙들의 집합으로 정의된다.
-
+논리 프로그램(Logic Program)은 논리 프로그래밍에서 다루는 것으로, <span style="background-color:#fff5b1">규칙들의 집합</span>으로 정의된다.
+<br>
 논리 프로그램 $P$는 개발자가 사전에 정의하여 컴퓨터에 입력해 둔 Knowledge Base이다.
 
 $$
@@ -71,7 +71,7 @@ P:=\lbrace r_1,r_2,\dots,r_n\rbrace
 \tag{3}
 $$
 
-사실 집합 $I$는 Immediate Consequence Operator이 증명 과정을 거쳐, 해당 명제는 `참`이라고 판단하여 모아둔 결과물을 의미한다.
+사실 집합 $I$는 현재 시점에서 Immediate Consequence Operator가 `참`이라고 판단한 명제를 모아둔 결과물을 의미한다.
 
 $$
 I=\lbrace \alpha_1,\alpha_2,\dots,\alpha_n\rbrace
@@ -87,18 +87,18 @@ Immediate Consequence Operator는 논리 프로그램에서 현재 알고 있는
 어떤 논리 프로그램 $P$가 주어졌고 현재 참이라고 가정하는 Fact들의 집합을 $I$라고 할 때, $T_P(I)$는 다음과 같이 정의된다.
 
 $$
-T_P(I) = \{ \alpha_h \mid \alpha_h \leftarrow \alpha_1, \dots, \alpha_n \in \text{ground}(P) \text{ 이고 } \{\alpha_1, \dots, \alpha_n\} \subseteq I \}
-\tag{4}
+T_P(I) = \{ \alpha_h \mid \alpha_h \leftarrow \alpha_1, \dots, \alpha_n \in \text{ground}(P) \land \{\alpha_1, \dots, \alpha_n\} \subseteq I \}
+\tag{5}
 $$
 
-위 식을 쉽게 설명하면, 규칙의 조건들이 모두 현재 알고 있는 Fact라면, 그 규칙의 결론 $\alpha_h$를 새로운 Fact로 인정하고 결과 집합에 넣는다는 의미이다.
+이는 $T_P$가 현재 검사하고 있는 규칙의 조건들이 모두 현재의 사실 집합 $I$에 포함된다면, 그 규칙의 결론 $\alpha_h$를 사실 집합에 추가한다는 의미이다.
 
 $T_P$의 동작 과정은 아래와 같다.
 
-1. $T_P$는 논리 프로그램 $P$에 정의되어 있는 모든 규칙 $\lbrace r_1,r_2,\dots,r_k\rbrace$를 순회한다.
+1. 논리 프로그램 $P$에 정의되어 있는 모든 규칙 $\lbrace r_1,r_2,\dots,r_k\rbrace$를 순회한다.
 2. 각 규칙의 조건들 $\lbrace \alpha_1,\alpha_2,\dots,\alpha_n\rbrace$이 현재의 사실 집합 $I$ 내에 포함되어 있는지 확인한다.
 
-    이때 하나라도 $I$에 없다면, 다음 규칙으로 넘어간다.
+    이때 하나라도 $I$에 포함되지 않는다면, 다음 규칙으로 넘어간다.
 3. 2번의 검사를 통과했다면, 해당 규칙의 결론 $\alpha_h$를 $I$에 담는다.
 
 #### 예시
@@ -116,7 +116,7 @@ P = {
 
 1. **초기 상태 $I_0$**
 
-    초기에는 아무것도 모르는 백지상태이므로 사실 집합이 공집합이다.
+    초기에는 사실 집합이 공집합이다.
 
     $$
     I_0=\emptyset
@@ -129,11 +129,11 @@ P = {
     ```
 2. **첫 번째 추론 $I_1 = T_P(I_0)$**
 
-    첫 번째 규칙 `r_1`의 조건은 현재의 사실 집합에 포함된다. → $\emptyset \subseteq I_0$
+    첫 번째 규칙 `r1`의 조건은 현재의 사실 집합에 포함된다. → $\emptyset \subseteq I_0$
     <br>
     따라서 해당 규칙의 결론 `사람(철수)`를 $I$에 담는다.
 
-    두 번째 규칙 `r_2`의 조건은 현재의 사실 집합에 포함되지 않으므로 건너뛴다.
+    두 번째 규칙 `r2`의 조건은 현재의 사실 집합에 포함되지 않으므로 건너뛴다.
 
     $$
     I_1=\text{사람(철수)}
