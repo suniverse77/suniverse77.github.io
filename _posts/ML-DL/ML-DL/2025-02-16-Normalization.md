@@ -25,7 +25,7 @@ Standardization (표준화), Min-Max Scaling 등의 기법이 존재한다.
 | 배치 |
 
 
-![fig1](AI/ML-DL//Normalization-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](AI/ML-DL/Normalization-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization
