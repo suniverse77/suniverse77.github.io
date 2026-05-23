@@ -1,8 +1,8 @@
 ---
 title: "[딥러닝] 옵티마이저 (Optimizer)"
-date: 2025-02-13 12:00:00 +/-TTTT
+date: 2025-02-14 12:00:00 +/-TTTT
 categories: [AI, 머신러닝 / 딥러닝]
-tags: [딥러닝, 옵티마이저]
+tags: [딥러닝, 옵티마이저, 모델 학습]
 math: true
 toc: true
 author: sunho

@@ -1,32 +1,19 @@
 ---
-title: "[딥러닝] 역전파 (Backpropagation)"
-date: 2025-02-12 00:00:00 +/-TTTT
+title: "[딥러닝] 계산 그래프 (Computational Graphs)"
+date: 2025-02-13 00:00:00 +/-TTTT
 categories: [AI, 머신러닝 / 딥러닝]
-tags: [딥러닝, 역전파]
+tags: [딥러닝, 모델 학습]
 math: true
 toc: true
 author: sunho
 ---
 
-## 역전파 (Backpropagation)
+신경망의 연산은 덧셈, 곱셈 등의 일련의 기본 연산으로 분해할 수 있다.
 
-실제 신경망에는 파라미터가 매우 많다.
-
-앞선 방법으로 그라디언트를 계산하려면 매번 새로운 손실 함수에 대해 $\nabla_\theta\mathcal{L}$을 계산해야하기 때문에 매우 비효율적이다.
-
-그렇다면 컴퓨터는 복잡한 신경망에서 어떻게 효율적으로 그라디언트를 계산할 수 있을까?
-
-계산 그래프와 연쇄 법칙 (Chain Rule)을 이용해 구한다.
-
-### 계산 그래프 (Computational Graphs)
-
-신경망의 연산은 덧셈, 곱셈 등의 일련의 기본 연산으로 구성되기 때문에 이를 아래와 같은 계산 그래프로 표현할 수 있다.
+계산 그래프는 이를 노드로 표현한 것이다.
 
 ![fig1](AI_Basics/DL/Backprop-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
-
-- **순전파 (Forward pass)**에서는 입력에서 출발해 그래프를 따라가면서 각 노드의 출력을 차례대로 계산하며, 최종적으로 손실 함수 값 $\mathcal{L}$을 얻는다.
-- **역전파 (Backward pass)**에서는 출력에서 입력 방향으로 그래프를 거슬러 올라가면서 chain rule을 이용해 각 파라미터에 대한 손실의 기울기 $\nabla_\theta\mathcal{L}$를 계산한다.
 
 ### 연쇄 법칙 (Chain Rule)
 
