@@ -10,7 +10,7 @@ author: sunho
 
 ## 논리 프로그래밍이란?
 
-논리 프로그래밍은 1차 논리(FOL)를 실제 컴퓨터 프로그램으로 구현한 프로그래밍 패러다임이다.
+논리 프로그래밍은 1차 논리(FOL)를 실제 컴퓨터 프로그램으로 구현한 것이다.
 
 | 용어 | 의미 | 표현 |
 | :---: | :---: | :---: |
@@ -23,7 +23,7 @@ author: sunho
 | Immediate Consequence Operator | 규칙으로부터 새로운 Fact를 추론하는 연산자 | $T_P$ |
 
 - Atom은 더 이상 논리적으로 분해되지 않는 가장 기본적인 논리 단위이다.
-- 논리 프로그래밍에서는 긍정 형태의 Ground Atom을 **Fact**라고 부른다.
+- 논리 프로그래밍에서는 <span style="background-color:#fff5b1">긍정 형태의 Ground Atom을 **Fact**라고 부른다.</span>
 
     즉 Fact는 아무런 전제 조건 없이 그 자체로 항상 참인 명제를 의미하므로, 조건부가 비어있는 규칙 $\alpha\leftarrow$ 형태로 해석할 수 있다.
 
@@ -76,7 +76,7 @@ $$
 $$
 I=\lbrace \alpha_1,\alpha_2,\dots,\alpha_n\rbrace
 \tag{4}
-$$999999999999999999
+$$
 	
 ### Immediate Consequence Operator
 
@@ -119,7 +119,7 @@ P = {
     초기에는 아무것도 모르는 백지상태이므로 사실 집합이 공집합이다.
 
     $$
-    I_0=\empty
+    I_0=\emptyset
     $$
 
     ```python
