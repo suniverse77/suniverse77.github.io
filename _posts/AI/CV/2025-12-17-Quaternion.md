@@ -1,7 +1,7 @@
 ---
 title: "[3차원 기하학] 사원수 회전 (Quaternion Rotation)"
 date: 2025-12-17 00:00:00 +/-TTTT
-categories: [AI Basics, 컴퓨터 비전]
+categories: [AI, 컴퓨터 비전]
 tags: [컴퓨터 비전, 3차원 기하학]
 math: true
 toc: true

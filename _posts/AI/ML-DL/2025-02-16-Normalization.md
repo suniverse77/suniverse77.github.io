@@ -20,18 +20,13 @@ Standardization (표준화), Min-Max Scaling 등의 기법이 존재한다.
 
 각 layer의 <span style="background-color:#fff5b1">출력을 안정적인 분포</span>로 맞춰서 학습이 발산하지 않고 빠르게 수렴하도록 한다.
 
-| | Batch Normalization | Layer Normalization |
-| :---: | :---: | :---: |
-| 배치 |
-
-
 ![fig1](AI/ML-DL/Normalization-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization
 
-<span style="background-color:#fff5b1">배치를 기준으로 수행된다.</span>
-
+이름 그대로 <span style="background-color:#fff5b1">정규화 과정에 배치가 포함된다.</span>
+<br>
 하나의 배치 내에서 모든 샘플에 걸친 각 feature의 평균과 분산을 구한다.
 
 배치 크기가 너무 작으면, 평균과 분산이 매우 불안정해져서 성능이 오히려 떨어질 수도 있다.
@@ -53,8 +48,8 @@ $$
 
 ### Layer Normalization
 
-<span style="background-color:#fff5b1">배치와 독립적으로 수행된다.</span>
-
+<span style="background-color:#fff5b1">정규화 과정이 배치와 독립적으로 하나의 데이터 내에서만 수행된다.</span>
+<br>
 모든 feature에 걸친 각 샘플의 평균과 분산을 구한다.
 
 배치 크기에 전혀 영향을 받지 않기 때문에, 배치 크기가 작거나 트랜스포머처럼 시퀀스 길이가 샘플마다 달라 배치를 묶기 애매할 때도 안정적으로 작동한다.

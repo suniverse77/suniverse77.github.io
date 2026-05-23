@@ -146,7 +146,7 @@ _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 이러한 현상을 방지하기 위해 학습 때 출력값에 $\frac{1}{1-p}$를 곱해서 학습과 추론 때의 출력 분포가 동일하도록 맞춘다.
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'>Example 2</font></summary>
 <div markdown="1">
 
 $p=0.5$의 Dropout 적용했을 때, 신경망의 출력값은 $2$가 된다.

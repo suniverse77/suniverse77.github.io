@@ -1,7 +1,7 @@
 ---
 title: "[CNN] VGGNet & ResNet"
 date: 2025-02-07 00:00:00 +/-TTTT
-categories: [AI Basics, 컴퓨터 비전]
+categories: [AI, 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true

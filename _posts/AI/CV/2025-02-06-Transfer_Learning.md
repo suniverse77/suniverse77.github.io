@@ -1,7 +1,7 @@
 ---
 title: "[CNN] 전이 학습 (Transfer Learning)"
 date: 2025-02-06 00:00:00 +/-TTTT
-categories: [AI Basics, 컴퓨터 비전]
+categories: [AI, 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true
