@@ -89,3 +89,7 @@ $$\vphantom{\Bigg(}$$
 ## 문장 형식
 
 - 명령어 실행
+
+## 수식
+
+$$y = wx, \quad \text{where } x, w \in \mathbb{R}$$
