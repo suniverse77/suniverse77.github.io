@@ -1,7 +1,7 @@
 ---
 title: "[지도 학습] 로지스틱 회귀 (Logistic Regression)"
-date: 2025-06-03 00:00:00 +/-TTTT
-categories: [AI Basics, 머신러닝]
+date: 2025-01-17 00:00:00 +/-TTTT
+categories: [AI, 머신러닝 / 딥러닝]
 tags: [머신러닝, 지도 학습]
 math: true
 toc: true

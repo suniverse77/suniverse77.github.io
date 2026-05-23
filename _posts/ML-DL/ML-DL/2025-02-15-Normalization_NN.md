@@ -1,7 +1,7 @@
 ---
-title: "[NN] 신경망에서의 Regularization과 Normalization"
-date: 2025-02-02 00:00:00 +/-TTTT
-categories: [AI Basics, 딥러닝]
+title: "[딥러닝] 신경망에서의 Regularization과 Normalization"
+date: 2025-02-15 00:00:00 +/-TTTT
+categories: [AI, 머신러닝 / 딥러닝]
 tags: [딥러닝, 정규화]
 math: true
 toc: true

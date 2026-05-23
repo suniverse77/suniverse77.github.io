@@ -1,7 +1,7 @@
 ---
 title: "[정규화] Regularization"
-date: 2025-06-07 00:00:00 +/-TTTT
-categories: [AI Basics, 머신러닝]
+date: 2025-01-21 00:00:00 +/-TTTT
+categories: [AI, 머신러닝 / 딥러닝]
 tags: [머신러닝, 정규화]
 math: true
 toc: true
