@@ -20,6 +20,32 @@ _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 ![fig1](cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 
+----------------------------------------------------------------------
+
+## LaTex 수식
+
+### 여백 늘리기
+
+$$\vphantom{\big(}$$
+
+$$\vphantom{\Big(}$$
+
+$$\vphantom{\Bigg(}$$
+
+### 수식 형식
+
+$$
+y=wx
+,\quad\text{where }x,w\in\mathbb{R}
+$$
+
+----------------------------------------------------------------------
+
+## 문장 형식
+
+- 명령어 실행
+
+----------------------------------------------------------------------
 
 ## 토글 생성
 
@@ -37,6 +63,8 @@ _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 | :---: | :---: |
 | #FF0000 | 빨간색 |
 | #0000FF | 파란색 |
+
+----------------------------------------------------------------------
 
 ## 글 꾸미기
 
@@ -77,19 +105,3 @@ _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 <span style="color:indigo"> indigo </span>
 
 <span style="color:gray"> gray</span>
-
-## LaTex 수식 여백 늘리기
-
-$$\vphantom{\big(}$$
-
-$$\vphantom{\Big(}$$
-
-$$\vphantom{\Bigg(}$$
-
-## 문장 형식
-
-- 명령어 실행
-
-## 수식
-
-$$y = wx, \quad \text{where } x, w \in \mathbb{R}$$
