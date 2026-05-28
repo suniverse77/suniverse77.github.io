@@ -47,6 +47,7 @@ $$
 
 $$
 P(A,B)=p(A\mid B)P(B)=P(B\mid A)P(A)
+\tag{1}
 $$
 
 ### 전체 확률의 법칙 (Law of Total Probability)
@@ -55,73 +56,10 @@ $$
 
 $$
 P(A)=\sum_{i=1}^n P(A,B_i)=\sum_{i=1}^NP(A\mid B_i)P(B_i)
+\tag{2}
 $$
 
 이때 $P(A,B_i)$는 서로 배반인 사건이다.
 
 ![fig2](Math/Probability/Prob-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.handsonsystem.com/blog.php?slug=probability-theory)_
-
-## 확률의 종류
-
-### 결합 확률 (Joint Probability)
-
-두 개의 사건이 동시에 일어날 확률을 의미한다.
-
-$$
-P(A\cap B)=P(A,B)
-$$
-
-### 주변 확률 (Marginal Probability)
-
-결합 확률 분포에서 하나의 사건에만 관심을 두고 계산한 확률을 의미한다.
-
-$$
-P(A)
-$$
-
-### 조건부 확률 (Conditional Probability)
-
-어떤 사건 $B$가 일어났다는 조건 하에서 다른 사건 $A$가 일어날 확률을 의미한다.
-
-$$
-P(A\mid B)=\frac{P(A,B)}{P(B)}
-$$
-
-<details>
-<summary><font color='red'>Example 1</font></summary>
-<div markdown="1">
-
-![fig3](Math/Probability/Prob-3.png){: style="display:block; margin:0 auto; width:40%;"}
-_[[출처]](https://blog.naver.com/vollollov/220975294633)_
-
----
-
-한 명을 선택했을 때 남성인 경우를 $A$, 완주한 경우를 $B$라고 하자.
-
-**결합 확률**
-
-남성이면서 완주한 사람의 확률
-
-$$
-P(A,B)=
-$$
-
-**주변 확률**
-
-한 명을 선택했을 때 남성일 확률
-
-$$
-P(A)=
-$$
-
-**조건부 확률**
-
-남성 중에서 완주한 사람
-
-$$
-
-$$
-
-</div>
-</details>

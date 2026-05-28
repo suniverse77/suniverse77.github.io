@@ -16,6 +16,7 @@ author: sunho
 
 $$
 P(A,B)=P(A)P(B)
+\tag{1}
 $$
 
 두 사건이 독립이라는 것과 동시에 일어날 수 없다는 다른 의미이다.
@@ -28,12 +29,14 @@ $$
 
 $$
 P(A,B\mid C)=P(A\mid C)P(B\mid C)
+\tag{2}
 $$
 
 $A$ 와 $B$가 독립이라고 해서, $C$가 발생했을 때에도 $A$와 $B$가 독립인 것은 아니다.
 
 $$
 A\perp\!\!\!\perp B\nrightarrow A\perp\!\!\!\perp B\mid C
+\tag{3}
 $$
 
 <details>
@@ -76,6 +79,7 @@ $C$가 발생했을 때 $A$와 $B$가 독립이라고 해서, $A$ 와 $B$가 독
 
 $$
 A\perp\!\!\!\perp B\mid C\nrightarrow A\perp\!\!\!\perp B
+\tag{4}
 $$
 
 <details>
@@ -96,4 +100,5 @@ $$
 
 $$
 P(A,B)=\emptyset
+\tag{5}
 $$
