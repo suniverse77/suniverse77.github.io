@@ -1,7 +1,7 @@
 ---
 title: "[딥러닝] 딥러닝 모델의 학습"
 date: 2025-02-11 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝]
+categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [딥러닝, 모델 학습]
 math: true
 toc: true

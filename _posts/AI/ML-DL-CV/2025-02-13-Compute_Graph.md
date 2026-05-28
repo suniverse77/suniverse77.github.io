@@ -1,7 +1,7 @@
 ---
 title: "[딥러닝] 계산 그래프 (Computational Graphs)"
 date: 2025-02-13 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝]
+categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [딥러닝, 모델 학습]
 math: true
 toc: true

@@ -1,12 +1,12 @@
 ---
-title: "[논문리뷰] "
+title: "[논문리뷰] Efficient Diffusion Model for Image Restoration by Residual Shifting"
 date: 2026-03-21 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
 tags: [Paper Review, ]
 math: true
 toc: true
 author: sunho
-description: 📝 2020
+description: 📝 TPAMI 2025
 ---
 
 [[Paper]]()

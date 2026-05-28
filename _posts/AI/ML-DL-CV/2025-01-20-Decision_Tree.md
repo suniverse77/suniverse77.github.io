@@ -1,7 +1,7 @@
 ---
 title: "[지도 학습] 의사결정 나무 (Decision Tree)"
 date: 2025-01-20 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝]
+categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [머신러닝, 지도 학습]
 math: true
 toc: true

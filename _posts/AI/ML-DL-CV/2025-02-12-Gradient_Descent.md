@@ -1,7 +1,7 @@
 ---
 title: "[딥러닝] 경사 하강법 (Gradient Descent)"
 date: 2025-02-12 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝]
+categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [딥러닝, 모델 학습]
 math: true
 toc: true

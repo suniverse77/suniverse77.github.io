@@ -1,8 +1,8 @@
 ---
 title: "[3차원 기하학] 2D ↔ 3D 좌표계 변환"
 date: 2025-12-16 06:00:00 +/-TTTT
-categories: [AI, 컴퓨터 비전]
-tags: [컴퓨터 비전, 3차원 기하학]
+categories: [Mathmatics, Study]
+tags: [3차원 기하학]
 math: true
 toc: true
 author: sunho
