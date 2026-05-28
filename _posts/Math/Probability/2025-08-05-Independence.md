@@ -1,6 +1,6 @@
 ---
 title: "[확률] 독립"
-date: 2025-08-02 00:00:00 +/-TTTT
+date: 2025-08-05 00:00:00 +/-TTTT
 categories: [Mathmatics, 확률]
 tags: [확률]
 math: true
