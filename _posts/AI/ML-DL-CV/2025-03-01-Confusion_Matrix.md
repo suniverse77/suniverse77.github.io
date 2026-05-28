@@ -1,7 +1,7 @@
 ---
 title: "[평가 지표] 혼동행렬 (Confusion Matrix)"
 date: 2025-03-01 00:00:00 +/-TTTT
-categories: [AI, 평가 지표]
+categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [평가 지표]
 math: true
 toc: true
