@@ -1,5 +1,5 @@
 ---
-title: "[지도 학습] 의사결정 나무 (Decision Tree)"
+title: "[머신러닝] Decision Tree"
 date: 2025-01-20 00:00:00 +/-TTTT
 categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [머신러닝, 지도 학습]
@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-## 의사결정 나무 (Decision Tree)
+## Decision Tree
 
 데이터의 각 특징 (feature)은 서로 다른 정보를 담고 있으며, Decision Tree는 이 특징을 기준으로 순차적으로 질문을 던지면서 최종 예측을 수행하는 알고리즘이다.
 

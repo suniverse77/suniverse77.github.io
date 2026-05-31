@@ -1,5 +1,5 @@
 ---
-title: "[CNN] CNN에서의 데이터 정규화"
+title: "[컴퓨터 비전] CNN에서의 데이터 정규화"
 date: 2025-02-22 00:00:00 +/-TTTT
 categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [컴퓨터 비전, CNN]

@@ -1,5 +1,5 @@
 ---
-title: "[지도 학습] 선형 회귀 (Linear Regression)"
+title: "[머신러닝] 선형 회귀 (Linear Regression)"
 date: 2025-01-16 00:00:00 +/-TTTT
 categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
 tags: [머신러닝, 지도 학습]
