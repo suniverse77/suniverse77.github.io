@@ -50,7 +50,7 @@ _[[출처]](https://www.researchgate.net/figure/Bias-variance-trade-off-of-class
 <br>
 이 경우, 학습 데이터를 오차 없이 완벽하게 맞출 수 있는 곡선이 무한히 많이 생겨나게 된다.
 
-![fig5](AI/ML-DL/Double_Descent-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig5](AI/ML-DL/Double_Descent-5.png){: style="display:block; margin:0 auto; width:70%;"}
 
 결론적으로 모델을 계속 키울수록 모델이 선택할 수 있는 후보군이 넓어지기 때문에, 노이즈에 덜 민감한 훨씬 부드러운 해를 찾아내기가 쉬워진다.
 <br>
