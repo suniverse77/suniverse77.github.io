@@ -22,9 +22,14 @@ author: sunho
 
 ![fig2](AI/ML-DL/Model_Train-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
-만약 학습 데이터셋에 데이터가 1000개 있고, 배치 크기를 25로 설정했다고 해보자.
-<br>
-이 경우 1번의 epoch을 완료하기 위해 총 40번의 step이 이루어진다.
+학습 데이터셋 크기가 $N$, 배치 크기가 $B$일 때, 1번의 epoch을 완료하기 위해 실행되는 step 수는 다음과 같이 계산된다.
+
+$$
+\text{step}=\frac{N}{B}
+\tag{1}
+$$
+
+예를 들어 학습 데이터셋에 데이터가 1000개 있고 배치 크기를 25로 설정했다면, 1번의 epoch에는 총 40번의 step이 이루어진다.
 
 ## 배치 크기와 학습 시간의 관계
 
