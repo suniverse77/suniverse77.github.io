@@ -1,5 +1,5 @@
 ---
-title: "[PyTorch] GPU 분산 학습 2 - DP / DDP / FSDP 개념"
+title: "[PyTorch] GPU 분산 학습 1 - DP / DDP / FSDP 개념"
 date: 2026-04-30 06:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 tags: [PyTorch, GPU 분산 학습]

@@ -1,8 +1,8 @@
 ---
-title: "[Hugging Face] accelerate 라이브러리"
+title: "[PyTorch] Hugging Face - accelerate 라이브러리"
 date: 2026-05-02 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
-tags: [Hugging Face, GPU 분산 학습]
+tags: [PyTorch, Hugging Face, GPU 분산 학습]
 math: true
 toc: true
 author: sunho
