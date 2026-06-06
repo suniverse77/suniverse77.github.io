@@ -87,11 +87,7 @@ $$
 
 ## 부동소수점 종류
 
-부동소수점(Floating Point)은 크게 세 가지 요소로 구성된다.
-
-- **부호(Sign):** 양수/음수를 결정
-- **지수부(Exponent):** 숫자의 표현 범위(Range)를 결정
-- **가수부(Mantissa/Fraction):** 숫자의 정밀도(Precision)를 결정
+부동소수점 포맷에는 `FP32`, `FP16` 외에도 딥러닝 연산에 최적화된 설계된 `BF16`, `TF32`같은 형식도 존재한다.
 
 아래는 한 눈에 보는 비교 표이다.
 
@@ -100,7 +96,10 @@ $$
 | `FP32` | $32$ | $1$ | $8$ | $23$ |
 | `FP16` | $16$ | $1$ | $5$ | $10$ |
 | `BF16` | $16$ | $1$ | $8$ | $7$ |
-| `TF32` | $32$ (입력) | $1$ | $8$ | $10$ |
+| `TF32` | $32$ (입력), $19$ (연산) | $1$ | $8$ | $10$ |
+
+![fig2](Programming/PyTorch/Floating_Point-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)_
 
 ### FP32 (Floating Point, 32-bit)
 
@@ -146,7 +145,7 @@ $$
 \text{부호 1bit} + \text{지수 8bit} + \text{가수 19bit}
 $$
 
-데이터 입출력은 기존처럼 `FP32`로 받지만, 내부 Tensor Core에서 연산할 때만 `TF32` 방식으로 동작한다.
+데이터 입출력은 기존처럼 `FP32`로 받지만, 내부 Tensor Core에서 연산할 때만 19bit의 `TF32` 방식으로 동작한다.
 <br>
 즉, `FP32`의 넓은 범위와 `FP16`의 정밀도를 합친 하이브리드 포맷이다.
 
