@@ -1,8 +1,8 @@
 ---
-title: "[파이토치] 파이토치에서 자주 발생하는 런타임 에러"
-date: 2026-05-31 00:00:00 +/-TTTT
-categories: [Programming, 파이토치]
-tags: [파이토치]
+title: "[PyTorch] 파이토치에서 자주 발생하는 런타임 에러"
+date: 2026-03-10 00:00:00 +/-TTTT
+categories: [Programming, 파이토치 (PyTorch)]
+tags: [PyTorch]
 math: true
 toc: true
 author: sunho
