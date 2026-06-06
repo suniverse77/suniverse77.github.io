@@ -19,7 +19,7 @@ author: sunho
     - 그래픽 렌더링이나 딥러닝에서의 단순 연산을 전담
     - 개별 코어가 처리할 수 있는 명령의 복잡도는 CPU보다 낮지만, 하나의 칩에 수천~수만 개 이상이 탑재됨
 
-![fig1](Programming/PyTorch/CUDA_Tensor_Core-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Programming/PyTorch/CUDA_Tensor_Core-1.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://www.researchgate.net/figure/CPU-vs-GPU-architecture-each-blue-square-represents-one-core_fig1_323281068)_
 
 ## CUDA Core vs Tensor Core
@@ -43,7 +43,7 @@ CUDA Core와 Tensor Core는 모두 GPU 코어이다.
 <br>
 예를 들어 모델이 '이 사진이 강아지일 확률은 85.1234567%야.'라고 할 필요 없이, '85.1%야.'라고만 해도 강아지를 분류하는 데 아무런 지장이 없다.
 <br>
-따라서 Tesnor Core는 `FP16`, `BF16` 등의 가벼운 데이터 포맷을 사용해서 불필요한 정밀도를 과감히 버리도록 설계되었다.
+따라서 Tensor Core는 `FP16`, `BF16` 등의 가벼운 데이터 포맷을 사용해서 불필요한 정밀도를 과감히 버리도록 설계되었다.
 
 ### 쿠다 코어 (CUDA Core)
 
