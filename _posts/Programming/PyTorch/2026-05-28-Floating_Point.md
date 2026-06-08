@@ -89,6 +89,9 @@ $$
 
 부동소수점 포맷에는 `FP32`, `FP16` 외에도 딥러닝 연산에 최적화된 설계된 `BF16`, `TF32`같은 형식도 존재한다.
 
+![fig2](Programming/PyTorch/Floating_Point-2.png){: style="display:block; margin:0 auto; width:50%;"}
+_[[출처]](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)_
+
 아래는 한 눈에 보는 비교 표이다.
 
 | 포맷 | 총 비트 수 | 부호 비트 수 | 지수 비트 수 | 가수 비트 수 |
@@ -97,9 +100,6 @@ $$
 | `FP16` | $16$ | $1$ | $5$ | $10$ |
 | `BF16` | $16$ | $1$ | $8$ | $7$ |
 | `TF32` | $32$ (입력), $19$ (연산) | $1$ | $8$ | $10$ |
-
-![fig2](Programming/PyTorch/Floating_Point-2.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처]](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)_
 
 ### FP32 (Floating Point, 32-bit)
 
@@ -142,7 +142,7 @@ $$
 엔비디아가 Ampere 아키텍처부터 도입한 독특한 포맷이다.
 
 $$
-\text{부호 1bit} + \text{지수 8bit} + \text{가수 19bit}
+\text{부호 1bit} + \text{지수 8bit} + \text{가수 10bit}
 $$
 
 데이터 입출력은 기존처럼 `FP32`로 받지만, 내부 Tensor Core에서 연산할 때만 19bit의 `TF32` 방식으로 동작한다.

@@ -1,8 +1,8 @@
 ---
-title: "[트랜스포머 모델] 트랜스포머의 구조 1 - 개요"
+title: "[트랜스포머] 트랜스포머의 구조 1 - 개요"
 date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
-tags: [트랜스포머 모델]
+tags: [트랜스포머]
 math: true
 toc: true
 author: sunho
