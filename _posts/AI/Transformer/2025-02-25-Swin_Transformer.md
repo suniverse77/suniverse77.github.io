@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-**📄 관련 논문:** [[Swin Transformer: Hierarchical Vision Transformer using Shifted Windows]](https://arxiv.org/abs/2103.14030)
+**📄 관련 논문:** [ICCV 2021] [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030)
 
 ## ViT의 한계점
 
