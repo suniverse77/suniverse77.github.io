@@ -8,6 +8,8 @@ toc: true
 author: sunho
 ---
 
+**📄 관련 논문:** [NeurIPS 2017] [Attention Is All you Need](https://arxiv.org/abs/1706.03762)
+
 ## Overview
 
 트랜스포머의 아키텍처는 아래와 같으며, 크게 인코더와 디코더로 이루어져 있다.
