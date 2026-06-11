@@ -1,12 +1,4 @@
----
-title: "[트랜스포머] 트랜스포머의 구조 3 - Attention"
-date: 2025-02-15 12:00:00 +/-TTTT
-categories: [AI, 트랜스포머]
-tags: [트랜스포머]
-math: true
-toc: true
-author: sunho
----
+
 
 해당 포스트는 3Blue1Brown님의 [*'Attention in transformers, step-by-step'*](https://www.youtube.com/watch?v=eMlx5fFNoYc&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=7) 영상을 참고하였습니다.
 
