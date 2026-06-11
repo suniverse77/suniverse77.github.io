@@ -110,21 +110,83 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQO
 
 ### Attention
 
-Attention은 각 단어의 의미를 더 정교하게 만드는 것뿐만 아니라, 하나의 임베딩이 다른 임베딩으로부터 필요한 정보를 선택적으로 받아들일 수 있도록 도와준다. 즉, 문맥에 따라 단어의 표현을 업데이트하는 역할을 한다.
+Attention은 현재 문맥을 반영하여, 각 단어의 의미를 더 정교하게 만드는 역할을 한다.
+
+$$
+E'=\text{Attention}(E),\quad\text{where }E=\begin{bmatrix}\mathbf{e}_1,&\mathbf{e}_2,&\cdots,&\mathbf{e}_N\end{bmatrix}
+$$
+
+예를 들어, 아래 그림에서 `creature`에 해당하는 임베딩 $\mathbf{e}_4$는 문맥에서 주변 단어인 `fluffy`와 `blue` 임베딩에 의해서 파랗고 복슬복슬한 생명체를 의미하는 새로운 임베딩 $\mathbf{e}_4'$로 변환된다.
+
+![fig7](AI/Transformer/Transformer-7.png){: style="display:block; margin:0 auto; width:80%;"}
+
+그렇다면 Attention이 실제로 어떻게 수행되는지 알아보자.
+
+먼저, Attention 연산은 다음과 같이 정의된다.
 
 $$
 \text{Attention}(Q,K,V)=\text{softmax}\left(\frac{QK^\top}{\sqrt d_k}\right)V
 \tag{3}
 $$
 
-여기서 $Q$는 Query, $K$는 Key, $V$는 Value를 의미한다.
+여기서 $Q$는 Query, $K$는 Key, $V$는 Value를 의미하며, 아래와 같이 토큰 임베딩에 가중치 행렬을 곱해 만들어진다.
 
-### Multi-Head Attention
+$$
+Q=E\cdot W_Q\in\mathbb{R}^{N\times D}\quad,\quad
+K=E\cdot W_K\in\mathbb{R}^{N\times D}\quad,\quad
+V=E\cdot W_V\in\mathbb{R}^{N\times D}
+\tag{4}
+$$
 
+#### Attention Map
 
+직관적으로 보면, Query는 질문, Key는 답변으로 볼 수 있다.
+
+예를 들어 Query가 `나를 수식하는 형용사는 어디 있어?`라고 물어보면, Key는 `여기 있어요!` 또는 `저는 아니에요`라고 답하는 셈이다.
+
+이 과정은 $Q$와 $K$의 내적을 통해 계산되며, 내적값이 클수록 두 토큰이 서로 의미적으로 강하게 연관되어 있음을 의미한다.
+
+![fig8](AI/Transformer/Transformer-8.png){: style="display:block; margin:0 auto; width:80%;"}
+
+내적 연산을 통해 얻은 값은 실수 전체 범위를 가지기 때문에, 음수나 매우 큰 양수 등이 섞여 있을 수 있다.
+<br>
+따라서 출력값을 정규화시키기 위해, Softmax 함수를 이용하여 값들을 확률 분포 형태로 변환한다.
+
+이때 행 방향 (axis=1)으로 소프트맥스 함수를 적용한다.
+
+![fig9](AI/Transformer/Transformer-9.png){: style="display:block; margin:0 auto; width:60%;"}
 
 ### Self-Attention & Cross-Attention
 
+$Q,K,V$를 어디에서 추출하느냐에 따라 크게 Self-Attention과 Cross-Attention으로 분류할 수 있다.
+
+#### Self-Attention
+
+Self-Attention은 $Q,K,V$를 모두 동일한 입력 시퀀스에서 생성하는 방식이다.
+
+이는 단일 문장 내에 존재하는 각 단어들이 서로 어떤 연관성을 가지는지 스스로 계산하여, 문맥적 의미를 파악하도록 하는 구조이다.
+
+예를 들어, `The cat sat on the mat.`이라는 문장이 주어졌을 때, `cat` 이라는 단어가 `mat` 또는 `sat`과 얼마나 강한 관계를 맺고 있는지 가중치를 통해 학습함으로써 문장 전체의 논리적, 의미적 연결성을 깊이 있게 이해한다.
+
+#### Cross-Attention
+
+Cross-Attention은 $Q$를 하나의 입력에서, $K,V$를 또 다른 독립적인 입력에서 생성하여 서로 교차시키는 방식이다.
+
+이는 서로 다른 두 개의 domain 간의 의미적 대응 관계를 매핑하고 학습하도록 하는 구조이다.
+
+예를 들어 한국어를 영어로 번역하는 경우, $Q$는 디코더가 현재까지 생성한 영어 단어 정보에서 추출되고, $K$ 와 $V$ 는 인코더의 원본 한국어 문장에서 추출된다.
+<br>
+결과적으로 디코더는 다음 영어 단어를 정확하게 예측하기 위해 한국어 원문의 어느 부분에 Attention해야 하는지를 학습하게 된다.
+
+### Multi-Head Attention
+
+식 (3)의 Attention 수식을 살펴보면, 분모에 $\sqrt{d_k}$가 있는 것을 확인할 수 있다.
+
+$$
+Q=E\cdot W_Q\in\mathbb{R}^{N\times D}\quad,\quad
+K=E\cdot W_K\in\mathbb{R}^{N\times D}\quad,\quad
+V=E\cdot W_V\in\mathbb{R}^{N\times D}
+$$
 
 
 ### Masked Self-Attention
