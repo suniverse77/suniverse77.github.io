@@ -10,17 +10,11 @@ author: sunho
 
 **📄 관련 논문:** [NeurIPS 2017] [Attention Is All you Need](https://arxiv.org/abs/1706.03762)
 
-해당 포스트는 3Blue1Brown님의 [*'Transformers, the tech behind LLMs'*](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
-
-![fig0](AI/Transformer/Transformer2-0.png){: style="display:block; margin:0 auto; width:40%;"}
-
-1. Tokenization
-
 ## Input 단계
 
 컴퓨터는 인간의 언어인 텍스트를 직접 이해할 수 없고 오직 숫자 형태의 데이터만 연산할 수 있다.
 <br>
-따라서 자연어 문장을 모델에 입력하기 전, 텍스트를 컴퓨터가 처리할 수 있는 숫자로 변환하는 과정이 선행되어야 하는데, 이러한 작업을 임베딩(Embedding)이라고 한다.
+따라서 자연어 문장을 모델에 입력하기 전, 텍스트를 컴퓨터가 처리할 수 있는 숫자로 변환하는 과정이 필요하다.
 
 ![fig0](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
@@ -58,75 +52,36 @@ author: sunho
 
 ### 토큰 임베딩 (Token Embedding)
 
-모델을 학습시키기 전, 시스템 내부에는 거대한 실수 행렬이 하나 생성되는데, 이 행렬을 임베딩 행렬이라고 부른다.
+앞서 토큰화 과정으로 얻은 정수 ID는 단지 단어 사전에 등록된 인덱스 번호일 뿐이므로, 그 자체만으로는 모델 내부에서 유의미한 연산을 수행할 수 없다.
+<br>
+따라서 정수 ID를 연속적인 실수 벡터로 변환하는 과정이 필요한데, 이 역할을 수행하는 행렬을 임베딩 행렬이라고 부른다.
 
-$$
+$$\vphantom{\Big(}
 W_E\in\mathbb{R}^{N_{\text{word}}\times D}
 \tag{1}
 $$
 
-여기서 $N_{\text{word}}$는 Vocabulary에 존재하는 전체 단어 개수, $D$는 하나의 토큰을 표현할 차원의 크기를 의미한다.
-
-토큰화를 거쳐 단어가 정수 ID로 바뀌었다는 것은, 해당 단어가 단어 사전에서 몇 번째에 위치하는지 '인덱스 ( 번호 )' 를 얻었다는 뜻이다.
-
-토큰화로 얻은 정수 ID를 실수 벡터로 변환하는 과정은 아래와 같다.
+여기서 $N_{\text{word}}$는 Vocabulary에 존재하는 전체 토큰 개수, $D$는 하나의 토큰을 표현할 차원의 크기를 의미한다.
 
 예를 들어 토큰화를 통해 `love` 라는 단어가 정수 ID `1`로 변환되었다면, 모델은 임베딩 행렬의 1번째 행에 저장되어 있는 벡터를 그대로 가져온다.
 <br>
-이렇게 가져온 벡터가 바로 `love`의 임베딩 벡터가 된다.
+이렇게 추출된 벡터가 바로 `love`의 임베딩 벡터가 된다.
 
 ![fig3](AI/Transformer/Transformer-3.png){: style="display:block; margin:0 auto; width:80%;"}
 
-수학적으로는 이 과정이 정수 ID 를 원-핫 벡터 ( One-hot Vector ) 로 만든 뒤 임베딩 행렬과 행렬 곱셈을 하는 것과 완전히 동일하다. 하지만 컴퓨터 연산 속도를 높이기 위해, 실제 구현에서는 곱셈 연산을 하지 않고 단순히 인덱스를 통해 행을 찾아 출력하는 룩업 테이블 방식을 사용한다.
+초기 생성 시 임베딩 행렬의 가중치는 무작위 실수 값으로 채워져 있지만, 학습을 통해 점차 단어의 고유한 의미를 반영하도록 최적화된다.
 
+아래 그림은 $D=3$인 경우의 토큰 임베딩 공간을 시각화한 예시이다.
 
+![fig4](AI/Transformer/Transformer-4.png){: style="display:block; margin:0 auto; width:60%;"}
 
+토큰 임베딩이 학습이 성공적으로 완료되었다면, 단어 간의 의미적 관계가 벡터 연산으로 성립하게 된다.
 
-위와 같이 문장을 단어 단위로 분리한 뒤 각 단어를 숫자 벡터로 변환하는 과정을 임베딩이라고 하며, 이렇게 변환된 벡터를 단어 임베딩 (Word Embedding)이라고 부른다.
-
-단어 임베딩은 각 단어를 고차원의 벡터로 표현하며, 이때 단어 임베딩의 차원을 임베딩 차원이라고 한다.
-
-즉, 단어 임베딩은 그 단어의 의미 정보만을 가지고 있는 고차원의 벡터이며, 위치 인코딩을 통해 단어의 위치 정보도 포함하고 있다. <span style="background-color:#fff5b1">단어 임베딩 자체만으로는 문맥적인 정보는 포함하지 않는다.</span>
-
-![fig1](AI/Transformer/Transformer2-1.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-사전 내의 각 단어의 벡터로 변환된 사전을 임베딩 행렬 (Embedding Matrix) $W_E$ 라고 하며, 각 임베딩 벡터는 랜덤값에서 시작하여 학습을 통해 조정된다.
-
-![fig2](AI/Transformer/Transformer2-2.png){: style="display:block; margin:0 auto; width:90%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-아래 그림은 고차원 공간의 단어 임베딩을 3차원 공간에서 시각화한 것이다.
-
-![fig3](AI/Transformer/Transformer2-3.png){: style="display:block; margin:0 auto; width:50%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-단어 임베딩은 아무렇게나 학습되는 것이 아니라, 각 단어의 의미를 반영하도록 학습된다.
-
-예를 들어 아래 그림에서 '남자' 임베딩과 '여자' 임베딩의 차이 (노란색 벡터)는 '왕' 임베딩과 '여왕' 임베딩의 차이와 유사한 방향을 가진다.
-
-이는 곧, 우리가 '여왕' 임베딩에 대한 정보가 없더라도, '왕' 임베딩에 노란색 벡터를 더함으로써 '여왕' 임베딩을 근사적으로 얻을 수 있다는 말이 된다.
-
-$$
-E(\text{queen})\approx E(\text{king})+\left(E(\text{woman})-E(\text{man})\right)
-$$
-
-즉, 이 공간에서 노란색 벡터의 방향은 '성별'에 대한 의미적 정보를 담고 있다고 볼 수 있다.
-
-![fig4](AI/Transformer/Transformer2-4.png){: style="display:block; margin:0 auto; width:50%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-또 한가지 예로, 아래 그림에서 노란색 벡터의 방향은 '복수형'에 대한 의미적 정보를 담고 있다.
-
-![fig5](AI/Transformer/Transformer2-5.png){: style="display:block; margin:0 auto; width:50%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
-
-실제로 확인해보면, $\overrightarrow{\text{plur}}$ 벡터와 복수형 단어 임베딩의 내적값이 단수형 단어 임베딩의 내적값보다 더 큰 것을 확인할 수 있을 것이다.
-
-$$
-\overrightarrow{\text{plur}}\cdot E(\text{dog})=-1.13~~,~~
-\overrightarrow{\text{plur}}\cdot E(\text{dogs})=3.40
-$$
+위의 그림처럼 `여왕` 임베딩과 `왕` 임베딩의 차이인 $E(\text{queen})-E(\text{king})$는 `여자` 임베딩과 `남자` 임베딩의 차이인 $E(\text{woman})-E(\text{man})$와 유사한 방향과 크기를 가질 것이다.
+<br>
+이를 통해 두 벡터의 차이를 나타내는 주황색 벡터는 `여성성` 이라는 특정한 성별의 의미를 담고 있음을 알 수 있다.
+<br>
+이는 곧 우리가 `여왕` 임베딩에 대한 정보가 없더라도, `왕` 임베딩에 주황색 벡터를 더함으로써 `여왕` 임베딩을 근사적으로 얻을 수 있다는 말이 된다.
 
 ### 위치 인코딩 (Positional Encoding)
 
