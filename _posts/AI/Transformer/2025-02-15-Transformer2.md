@@ -8,38 +8,79 @@ toc: true
 author: sunho
 ---
 
+**📄 관련 논문:** [NeurIPS 2017] [Attention Is All you Need](https://arxiv.org/abs/1706.03762)
+
 해당 포스트는 3Blue1Brown님의 [*'Transformers, the tech behind LLMs'*](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6) 영상을 참고하였습니다.
 
 ![fig0](AI/Transformer/Transformer2-0.png){: style="display:block; margin:0 auto; width:40%;"}
-_출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
-## 토큰화 (Tokenization)
+1. Tokenization
 
-임베딩 전, 입력 문장을 여러 개의 토큰 (token)으로 분리한다. 토큰은 문장을 구성하는 최소 의미 단위로, 여러 단위로 분리할 수 있다.
+## Input 단계
 
-**단어 단위로 분리**
+컴퓨터는 인간의 언어인 텍스트를 직접 이해할 수 없고 오직 숫자 형태의 데이터만 연산할 수 있다.
+<br>
+따라서 자연어 문장을 모델에 입력하기 전, 텍스트를 컴퓨터가 처리할 수 있는 숫자로 변환하는 과정이 선행되어야 하는데, 이러한 작업을 임베딩(Embedding)이라고 한다.
+
+![fig0](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:40%;"}
+
+### 토큰화 (Tokenization)
+
+토큰화는 연속된 문자열을 특정한 기준에 따라 모델이 처리할 수 있는 최소 의미 단위로 분리하는 작업을 의미한다.
+
+이때, 분리된 각각의 조각을 토큰(Token)이라고 부른다.
+<br>
+토큰을 분리하는 기준에 따라 크게 세 가지 방식으로 나눌 수 있다.
+
+- **단어 단위 토큰화:** 띄어쓰기나 구두점을 기준으로 문장을 분리하는 방식이다.
+
+    ```
+    I love playing football. -> I / love / playing / football / .
+    ```
+
+- **문자 단위 토큰화:** 텍스트를 개별 알파벳이나 문자 단위로 모두 쪼개는 방식이다.
+
+    ```
+    I love playing football. -> I /  / l / o / v / ... / b / a / l / l / .
+    ```
+
+- **서브워드(Subword) 단위 토큰화:** 자주 등장하는 단어는 하나의 토큰으로 유지하고, 희귀 단어나 복합어는 더 작은 의미 단위인 Subword로 쪼개는 방식이다. 현대 트랜스포머 기반 모델에서 표준으로 채택하는 방식이다.
+
+    ```
+    I love playing football. -> I / love / play / ##ing / foot / ##ball / .
+    ```
+
+이렇게 생성된 토큰들은 이후 Vocabulary의 목록을 참조하여 각각 고유한 정수 ID로 매핑된다. (Vocabulary는 미리 정의해놓은 단어 모음집임)
+
+만약 입력된 토큰이 Vocabulary에 존재하지 않는다면, 해당 단어는 `UNK` (Unknown) 토큰으로 대체된다.
+
+![fig0](AI/Transformer/Transformer-2.png){: style="display:block; margin:0 auto; width:80%;"}
+
+### 토큰 임베딩 (Token Embedding)
+
+모델을 학습시키기 전, 시스템 내부에는 거대한 실수 행렬이 하나 생성되는데, 이 행렬을 임베딩 행렬이라고 부른다.
 
 $$
-\text{I love playing football.}\to\left[~\text{“I”},\text{“love”},\text{“playing”},\text{“football”},\text{“.”}~\right]
+W_E\in\mathbb{R}^{N_{\text{word}}\times D}
+\tag{1}
 $$
 
-**문자 단위로 분리**
+여기서 $N_{\text{word}}$는 Vocabulary에 존재하는 전체 단어 개수, $D$는 하나의 토큰을 표현할 차원의 크기를 의미한다.
 
-$$
-\text{I love playing football.}\to\left[~\text{“I”},\text{“~”},\text{“l”},\text{“o”},\text{“v”},\cdots,\text{“l”},\text{“l”}\text{“.”}~\right]
-$$
+토큰화를 거쳐 단어가 정수 ID로 바뀌었다는 것은, 해당 단어가 단어 사전에서 몇 번째에 위치하는지 '인덱스 ( 번호 )' 를 얻었다는 뜻이다.
 
-**서브워드 (subword) 단위로 분리**
+토큰화로 얻은 정수 ID를 실수 벡터로 변환하는 과정은 아래와 같다.
 
-$$
-\text{I love playing football.}\to\left[~\text{“I”},\text{“love”},\text{“play”},\text{“##ing”},\text{“foot”},\text{“##ball”},\text{“.”}~\right]
-$$
+예를 들어 토큰화를 통해 `love` 라는 단어가 정수 ID `1`로 변환되었다면, 모델은 임베딩 행렬의 1번째 행에 저장되어 있는 벡터를 그대로 가져온다.
+<br>
+이렇게 가져온 벡터가 바로 `love`의 임베딩 벡터가 된다.
 
-컴퓨터는 텍스트를 직접 이해할 수 없고, 숫자 형태로만 계산할 수 있다. 따라서 모델을 학습하기 전에, 학습 과정에서 사용할 단어들의 목록인 사전 (vocabulary)을 미리 정의해야 한다.
+![fig3](AI/Transformer/Transformer-3.png){: style="display:block; margin:0 auto; width:80%;"}
 
-만약 입력 문장에 사전에 없는 단어가 등장하면, 해당 단어는 UNK (unknown) 토큰으로 대체된다.
+수학적으로는 이 과정이 정수 ID 를 원-핫 벡터 ( One-hot Vector ) 로 만든 뒤 임베딩 행렬과 행렬 곱셈을 하는 것과 완전히 동일하다. 하지만 컴퓨터 연산 속도를 높이기 위해, 실제 구현에서는 곱셈 연산을 하지 않고 단순히 인덱스를 통해 행을 찾아 출력하는 룩업 테이블 방식을 사용한다.
 
-## 단어 임베딩 (Word Embedding)
+
+
 
 위와 같이 문장을 단어 단위로 분리한 뒤 각 단어를 숫자 벡터로 변환하는 과정을 임베딩이라고 하며, 이렇게 변환된 벡터를 단어 임베딩 (Word Embedding)이라고 부른다.
 
@@ -87,7 +128,7 @@ $$
 \overrightarrow{\text{plur}}\cdot E(\text{dogs})=3.40
 $$
 
-## 위치 인코딩 (Positional Encoding)
+### 위치 인코딩 (Positional Encoding)
 
 트랜스포머의 Attention과 Feed-Forward 블록은 모두 순서 개념이 없는 dot product 연산으로 구성되어 있다.
 따라서 모델은 입력 토큰의 위치 정보를 스스로 인식할 수 없으며, 단어의 순서를 고려하지 않고 처리하게 되는 문제가 발생한다.
