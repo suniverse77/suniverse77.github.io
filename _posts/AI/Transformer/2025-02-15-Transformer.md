@@ -12,7 +12,35 @@ author: sunho
 
 ## Overview
 
+트랜스포머의 아키텍처는 아래와 같으며, 크게 인코더와 디코더로 이루어져 있다.
+
 ![fig1](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
+
+인코더는 입력 문장을 이해하고 의미 정보를 요약하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
+
+예를 들어, 아래의 문제를 수행하는 트랜스포머 모델의 동작 방식은 아래와 같다.
+
+**질문에 답을 해주는 모델**
+
+`'오늘 날씨 어때?'`라는 질문을 하면 해당 문장은 인코더의 입력으로 들어간다. 인코더는 질문의 의미를 파악하여 하나의 요약본인 문맥 벡터 (Context Vector)를 출력한다.
+
+디코더는 인코더가 전달한 문맥 벡터를 바탕으로, 답변의 가장 적절한 첫 번째 단어 `'오늘'`을 출력한다.
+
+이후 디코더는 지금까지 생성된 단어 `'오늘'`을 다시 입력으로 받아, 질문과 현재까지의 출력 `'오늘 날씨 어때?' + '오늘'`을 함께 고려하여 다음에 올 단어 `'서울의'`를 출력한다.
+
+그다음 디코더는 `'오늘 날씨 어때? + '오늘 서울의'`를 함께 고려하여 다음 단어 `'날씨는'`을 출력한다.
+
+이러한 과정을 반복하여 최종적으로 `'오늘 서울의 날씨는 화창합니다.'`라는 답변을 완성한다.
+
+**번역 모델**
+
+번역 모델도 위의 과정과 동일하다.
+
+한글 → 영어 번역에서 `'나는 학생이다.'`라는 문장이 인코더의 입력으로 들어오면, 디코더는 `'I'`를 출력한다.
+
+이후 디코더는 `'나는 학생이다.' + 'I'`를 함께 고려하여 다음에 올 단어 `'am'`을 출력한다.
+
+이러한 과정을 반복하여 최종적으로 `'I am a student.'`라는 번역본을 완성한다.
 
 ## Input 단계
 
@@ -323,3 +351,47 @@ $$
 이후 Softmax 함수가 적용되면 $e^{-\infty}$는 완전히 $0$이 되기 때문에, 미래 토큰과의 연결 고리를 수학적으로 완벽하게 차단할 수 있다.
 
 ## Output 단계
+
+최종 예측은 마지막 토큰의 벡터만 사용하여 수행한다.
+
+모델의 마지막 layer에서 각 토큰의 벡터는 단순히 해당 단어의 의미만 담는 것이 아니라, 문장 전체의 문맥 정보를 응축하여 담고 있다.
+
+특히 마지막 토큰의 벡터는 '다음에 어떤 단어가 와야 할까'라는 질문에 대한 정보를 압축하고 있으며, 한 마디로 전체 문맥을 반영한 상태에서 다음 단어를 예측하기 위한 최종 표현이라 할 수 있다.
+
+이 벡터는 출력 가중치 행렬 $W_O\in\mathbb{R}^{V\times d}$를 통해
+Vocabulary에 존재하는 단어 개수인 $V$에 해당하는 차원으로 확장된다.
+
+이후 소프트맥스 함수를 적용해 각 단어에 대한 확률 분포로 변환한다.
+
+$$
+\text{softmax}\left(W_O\mathbf{z}\right)\in\mathbb{R}^{V}
+$$
+
+이 확률 분포에서 가장 높은 확률을 가진 단어가 최종 예측 결과로 선택된다.
+
+![fig4](AI/Transformer/Transformer4-4.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+
+### Temperature
+
+온도 (Temperature)는 소프트맥스로 변환된 확률 분포의 완만함을 결정하는 하이퍼파라미터이다.
+
+아래 수식에서 $T$가 temperature에 해당한다.
+
+$$
+\text{softmax}=\frac{\exp\left(\frac{x_i}{T}\right)}{\sum_j\exp\left(\frac{x_j}{T}\right)}
+$$
+
+$T$가 작을수록 $\frac{x_i}{T}$ 값의 차이가 커지므로, 가장 큰 logit이 압도적으로 커지게 된다. 즉, 확률 분포가 날카로워진다.
+
+$T$가 클수록 $\frac{x_i}{T}$ 값의 차이가 완화되므로, 확률 분포가 완만해진다. 이 경우, 모델은 더 다양한 단어를 샘플링할 가능성이 높아져 창의적인 결과가 나오게 된다.
+
+![fig5](AI/Transformer/Transformer4-5.png){: style="display:block; margin:0 auto; width:90%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+
+## 파라미터 개수
+
+FFN은 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+
+![fig6](AI/Transformer/Transformer4-6.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
