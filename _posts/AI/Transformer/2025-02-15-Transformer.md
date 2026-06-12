@@ -16,13 +16,19 @@ author: sunho
 
 ![fig1](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
 
-인코더는 입력 문장을 이해하고 의미 정보를 요약하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
+### 인코더
+
+인코더는 입력 문장을 이해하고 의미 정보를 요약하는 역할을 한다.
 
 예를 들어, 아래의 문제를 수행하는 트랜스포머 모델의 동작 방식은 아래와 같다.
 
 **질문에 답을 해주는 모델**
 
 `'오늘 날씨 어때?'`라는 질문을 하면 해당 문장은 인코더의 입력으로 들어간다. 인코더는 질문의 의미를 파악하여 하나의 요약본인 문맥 벡터 (Context Vector)를 출력한다.
+
+### 디코더
+
+하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
 
 디코더는 인코더가 전달한 문맥 벡터를 바탕으로, 답변의 가장 적절한 첫 번째 단어 `'오늘'`을 출력한다.
 
@@ -314,9 +320,10 @@ $$
 
 $$
 \text{MHA}(Q,K,V)=\text{Concat}(\text{head}_1,\cdots,\text{head}_h)W^O
-,\quad\text{where }\text{head}_i=\text{Attention}(Q_i,K_i,V_i)
 \tag{10}
 $$
+
+여기서 $\text{head}_i$는 각 Head에서의 Attention 연산 $\text{Attention}(Q_i,K_i,V_i)$를 의미한다.
 
 ### Masked Self-Attention
 
@@ -352,46 +359,78 @@ $$
 
 ## Output 단계
 
-최종 예측은 마지막 토큰의 벡터만 사용하여 수행한다.
+Transformer Block을 모두 통과한 출력 벡터들은 다음 단어를 예측하기 위해 Linear layer와 Softmax 함수를 거친다.
 
-모델의 마지막 layer에서 각 토큰의 벡터는 단순히 해당 단어의 의미만 담는 것이 아니라, 문장 전체의 문맥 정보를 응축하여 담고 있다.
+![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:40%;"}
 
-특히 마지막 토큰의 벡터는 '다음에 어떤 단어가 와야 할까'라는 질문에 대한 정보를 압축하고 있으며, 한 마디로 전체 문맥을 반영한 상태에서 다음 단어를 예측하기 위한 최종 표현이라 할 수 있다.
+Autoregressive 모델을 기준으로, 각 위치의 출력 토큰은 다음에 올 토큰의 확률 분포를 예측하는 데 사용된다.
+<br>
+학습 때와 달리 추론 단계에서는 새로운 문장을 한 단어씩 순차적으로 생성해야 하므로, 가장 마지막 토큰의 출력 벡터만 사용하여 최종 예측을 수행한다.
 
-이 벡터는 출력 가중치 행렬 $W_O\in\mathbb{R}^{V\times d}$를 통해
-Vocabulary에 존재하는 단어 개수인 $V$에 해당하는 차원으로 확장된다.
+Transformer Block의 출력 행렬을 $Z\in\mathbb{R}^{N\times D}$라고 해보자.
+<br>
+이 행렬의 마지막 행 벡터인 $\mathbf{z}_N$은 이전까지의 전체 문맥을 깊이 있게 고려했을 때, 다음에 어떤 단어가 와야 하는가에 대한 핵심 단서를 압축한 최종 Representation이라고 할 수 있다.
 
-이후 소프트맥스 함수를 적용해 각 단어에 대한 확률 분포로 변환한다.
+이 마지막 벡터 $\mathbf{z}_N$은 먼저 Linear layer를 통과해 Vocabulary에 존재하는 전체 단어의 개수 $V$만큼 차원이 확장된다.
 
 $$
-\text{softmax}\left(W_O\mathbf{z}\right)\in\mathbb{R}^{V}
+\text{Logits}_N=\mathbf{z}_N\cdot W_O
+,\quad\text{where }W_O\in\mathbb{R}^{D\times V}
+\tag{13}
 $$
 
-이 확률 분포에서 가장 높은 확률을 가진 단어가 최종 예측 결과로 선택된다.
+이 행렬 곱 연산을 통해 도출된 Logits은 사전에 등록된 각 단어가 다음 자리에 올 가능성을 나타내는  Raw Score다.
 
-![fig4](AI/Transformer/Transformer4-4.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+이후 Softmax 함수를 적용하여 이 점수들을 전체 합이 1이 되는 확률 분포로 변환한다.
+
+$$
+P_N=\text{softmax}\left(\text{Logits}_N\right)\in\mathbb{R}^{V}
+\tag{14}
+$$
+
+즉, $P_N$은 사전에 존재하는 $V$개의 단어 각각이 바로 다음 토큰으로 등장할 실제 확률값을 담은 벡터를 의미한다.
+
+결과적으로 이 확률 분포에서 가장 높은 확률 값을 가진 토큰이 최종적인 다음 토큰으로 선택된다.
+
+$$
+y=\argmax(P)
+\tag{15}
+$$
+
+![fig13](AI/Transformer/Transformer-13.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### Temperature
 
-온도 (Temperature)는 소프트맥스로 변환된 확률 분포의 완만함을 결정하는 하이퍼파라미터이다.
+Temperature는 Softmax 함수를 통과한 최종 확률 분포의 완만함을 조절하여, 모델이 출력하는 텍스트의 다양성을 제어하는 하이퍼파라미터다.
 
-아래 수식에서 $T$가 temperature에 해당한다.
+기본 Softmax 수식의 지수 부분에 Temperature $T$를 나누어주는 형태로 적용된다.
 
 $$
 \text{softmax}=\frac{\exp\left(\frac{x_i}{T}\right)}{\sum_j\exp\left(\frac{x_j}{T}\right)}
+\tag{16}
 $$
 
-$T$가 작을수록 $\frac{x_i}{T}$ 값의 차이가 커지므로, 가장 큰 logit이 압도적으로 커지게 된다. 즉, 확률 분포가 날카로워진다.
+여기서 $x_i$ 는 각각의 로짓 값을 의미한다.
 
-$T$가 클수록 $\frac{x_i}{T}$ 값의 차이가 완화되므로, 확률 분포가 완만해진다. 이 경우, 모델은 더 다양한 단어를 샘플링할 가능성이 높아져 창의적인 결과가 나오게 된다.
+- **$T<1$인 경우:** $\frac{x_i}{T}$의 값들 사이의 수학적 격차가 원래보다 훨씬 커져, 확률 분포가 매우 뾰족해진다.
+- **$T>1$인 경우:** $\frac{x_i}{T}$ 값들 사이의 수학적 격차가 줄어들어, 확률 분포가 완만해진다. 이 경우에 원래 점수가 낮아 무시되었을 단어들도 선택될 가능성이 상대적으로 높아지며, <span style="background-color:#fff5b1">결과적으로 모델은 더 다양한 단어들을 샘플링할 수 있게 되어 창의적인 문장을 생성하게 된다.</span>
 
-![fig5](AI/Transformer/Transformer4-5.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig14](AI/Transformer/Transformer-14.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
-FFN은 트랜스포머 전체 파라미터의 약 $2/3$를 차지한다.
+아래 그림은 GPT-3 모델을 기준으로 트랜스포머 블록 내부의 layer가 차지하는 파라미터의 개수를 나타낸다.
 
-![fig6](AI/Transformer/Transformer4-6.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
+
+그림에서 확인할 수 있듯, FFN은 트랜스포머 전체 파라미터의 약 $2/3$ 를 차지할 정도로 압도적인 비중을 갖는다.
+
+FFN의 파라미터 규모가 거대한 이유는, 네트워크 내부에서 차원을 대폭 확장했다가 다시 축소하는 2-Layer 구조를 띠고 있기 때문이다.
+<br>
+구체적으로는 모델의 기본 차원을 Hidden layer에서 4배 크기로 확장한 후, 이를 다시 원래 차원으로 축소하는 연산을 거친다.
+
+따라서 모델 차원이 $D=512$인 비교적 작은 트랜스포머 모델을 가정하더라도, 이 두 Linear layer를 구성하는 가중치 행렬의 파라미터 개수는 $2\times(512\times(512\times4))=2,097,152$로 약 2M개에 달하게 된다.
+
+![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:60%;"}
