@@ -368,12 +368,13 @@ P_N=\text{softmax}\left(\text{Logits}_N\right)\in\mathbb{R}^{V}
 \tag{14}
 $$
 
-즉, $P_N$은 사전에 존재하는 $V$개의 단어 각각이 바로 다음 토큰으로 등장할 실제 확률값을 담은 벡터를 의미한다.
+즉, $\mathbf{p}_N$은 사전에 존재하는 $V$개의 단어 각각이 바로 다음 토큰으로 등장할 실제 확률값을 담은 벡터를 의미한다.
 
 결과적으로 이 확률 분포에서 가장 높은 확률 값을 가진 토큰이 최종적인 다음 토큰으로 선택된다.
 
 $$
-y=\text{argmax}(P)
+\hat{y}=\underset{i}{\arg\max}(p_i)
+,\quad\text{where }p_i\in P
 \tag{15}
 $$
 

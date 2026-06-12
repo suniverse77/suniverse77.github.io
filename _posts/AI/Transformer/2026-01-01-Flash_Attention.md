@@ -22,6 +22,8 @@ author: sunho
 
 GPU 메모리 종류는 크게 HBM과 SRAM으로 나눌 수 있다.
 
+![fig1](AI/Transformer/Positional_Enc-1.png){: style="display:block; margin:0 auto; width:60%;"}
+
 #### HBM (High Bandwidth Memory)
 
 HBM은 여러 개의 DRAM (Dynamic RAM) 칩을 수직으로 쌓아 올린 형태이다.
