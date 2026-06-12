@@ -16,37 +16,17 @@ author: sunho
 
 ![fig1](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
 
-### 인코더
+- **인코더:** 입력 문장의 맥락과 단어 간의 연관성을 이해해서, 문맥 정보를 반영한 Context Vector를 생성하는 역할을 한다.
+- **디코더:** 인코더가 전달한 Context Vector와 자신이 이전에 직접 생성한 단어들을 참고해서, 다음에 올 적절한 단어를 순차적으로 생성하는 역할을 한다.
 
-인코더는 입력 문장을 이해하고 의미 정보를 요약하는 역할을 한다.
+한글을 영어로 번역하는 번역 모델을 예로 들겠다.
 
-예를 들어, 아래의 문제를 수행하는 트랜스포머 모델의 동작 방식은 아래와 같다.
+1. `나는 학생이다.`라는 문장이 인코더의 입력으로 들어간다.
+2. 인코더는 단어 간의 문맥을 분석하여, `나는 학생이다.`의 정보를 압축한 Context Vector를 만든다.
+3. 디코더는 문장의 시작을 알리는 `<BOS>` 토큰과 함께 인코더의 Context Vector를 전달받아, 첫 번째 번역 단어 `I`를 출력한다.
+4. 이후 디코더는 인코더가 전달해 둔 Context Vector와 자신이 방금 생성한 `I`를 함께 고려하여, 두 번째 번역 단어 `am`을 출력한다.
 
-**질문에 답을 해주는 모델**
-
-`'오늘 날씨 어때?'`라는 질문을 하면 해당 문장은 인코더의 입력으로 들어간다. 인코더는 질문의 의미를 파악하여 하나의 요약본인 문맥 벡터 (Context Vector)를 출력한다.
-
-### 디코더
-
-하며, 디코더는 인코더가 전달한 의미 정보를 이용해 적절한 출력 문장을 생성한다.
-
-디코더는 인코더가 전달한 문맥 벡터를 바탕으로, 답변의 가장 적절한 첫 번째 단어 `'오늘'`을 출력한다.
-
-이후 디코더는 지금까지 생성된 단어 `'오늘'`을 다시 입력으로 받아, 질문과 현재까지의 출력 `'오늘 날씨 어때?' + '오늘'`을 함께 고려하여 다음에 올 단어 `'서울의'`를 출력한다.
-
-그다음 디코더는 `'오늘 날씨 어때? + '오늘 서울의'`를 함께 고려하여 다음 단어 `'날씨는'`을 출력한다.
-
-이러한 과정을 반복하여 최종적으로 `'오늘 서울의 날씨는 화창합니다.'`라는 답변을 완성한다.
-
-**번역 모델**
-
-번역 모델도 위의 과정과 동일하다.
-
-한글 → 영어 번역에서 `'나는 학생이다.'`라는 문장이 인코더의 입력으로 들어오면, 디코더는 `'I'`를 출력한다.
-
-이후 디코더는 `'나는 학생이다.' + 'I'`를 함께 고려하여 다음에 올 단어 `'am'`을 출력한다.
-
-이러한 과정을 반복하여 최종적으로 `'I am a student.'`라는 번역본을 완성한다.
+이러한 예측 과정을 계속 반복하여 `I am a student.` 라는 최종 번역 문장을 완성하며, 문장의 끝을 알리는 `<EOS>` 토큰을 예측하면 생성을 완전히 종료한다.
 
 ## Input 단계
 
@@ -210,6 +190,8 @@ $$
 
 이후 조정된 내적값에 행 방향으로 Softmax 함수를 적용하여, 전체 합이 1이 되는 확률 분포 형태로 값들을 정규화한다.
 
+![fig9](AI/Transformer/Transformer-9.png){: style="display:block; margin:0 auto; width:60%;"}
+
 $$
 \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)=
 \begin{bmatrix}
@@ -220,8 +202,6 @@ $$
 \end{bmatrix}\in\mathbb{R}^{N\times N}
 \tag{5}
 $$
-
-![fig9](AI/Transformer/Transformer-9.png){: style="display:block; margin:0 auto; width:60%;"}
 
 이렇게 Softmax 함수를 통과하여 각 단어가 다른 단어에 얼마나 집중해야 하는지를 0과 1 사이의 비율로 나타낸 결과물을 Attention map이라고 한다.
 
@@ -393,7 +373,7 @@ $$
 결과적으로 이 확률 분포에서 가장 높은 확률 값을 가진 토큰이 최종적인 다음 토큰으로 선택된다.
 
 $$
-y=\argmax(P)
+y=\text{argmax}(P)
 \tag{15}
 $$
 
@@ -422,7 +402,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQO
 
 아래 그림은 GPT-3 모델을 기준으로 트랜스포머 블록 내부의 layer가 차지하는 파라미터의 개수를 나타낸다.
 
-![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 그림에서 확인할 수 있듯, FFN은 트랜스포머 전체 파라미터의 약 $2/3$ 를 차지할 정도로 압도적인 비중을 갖는다.
@@ -433,4 +413,4 @@ FFN의 파라미터 규모가 거대한 이유는, 네트워크 내부에서 차
 
 따라서 모델 차원이 $D=512$인 비교적 작은 트랜스포머 모델을 가정하더라도, 이 두 Linear layer를 구성하는 가중치 행렬의 파라미터 개수는 $2\times(512\times(512\times4))=2,097,152$로 약 2M개에 달하게 된다.
 
-![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:30%;"}
