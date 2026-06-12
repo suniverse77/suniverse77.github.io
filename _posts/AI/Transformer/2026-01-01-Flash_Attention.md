@@ -49,12 +49,18 @@ Standard Attention의 GPU 메모리 계층 간 데이터 이동 과정은 다음
 1. HBM에서 $Q,K,V$ 행렬의 일부를 SRAM으로 가져와 $S=QK^\top$ 연산을 수행한다. (Read)
 2. 수행된 $S$ 조각을 HBM으로 이동한다. (Write)
 3. 1~2 과정을 $S$가 완성될 때까지 반복한다.
+
+    ![fig2](AI/Transformer/Flash_Attention-2.png){: style="display:block; margin:0 auto; width:80%;"}
 4. HBM에서 $S$의 일부 row를 SRAM으로 가져와 Softmax 연산을 수행한다. (Read)
 5. $P$ 조각을 HBM으로 이동한다. (Write)
 6. 4~5 과정을 $P$가 완성될 때까지 반복한다.
+
+    ![fig3](AI/Transformer/Flash_Attention-3.png){: style="display:block; margin:0 auto; width:80%;"}
 7. HBM에서 $V$와 $P$ 행렬의 일부를 SRAM으로 가져와 $O=PV$ 연산을 수행한다. (Read)
 8. 수행된 $O$ 조각을 HBM으로 이동한다. (Write)
-3. 1~2 과정을 $O$가 완성될 때까지 반복한다.
+9.  1~2 과정을 $O$가 완성될 때까지 반복한다.
+
+    ![fig4](AI/Transformer/Flash_Attention-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 연산을 조각별로 Tiling하는 이유는 SRAM의 크기가 작기 때문이다.
 
@@ -72,4 +78,6 @@ Standard Attention의 GPU 메모리 계층 간 데이터 이동 과정은 다음
 
 ## Flash Attention
 
-Flash Attention에서는 Tiling Softmax (Online Softmax)를 구현하여 
+Flash Attention에서는 Tiling Softmax (Online Softmax)를 구현하여, 기존 Softmax 함수의 I/O 병목을 줄였다.
+
+
