@@ -1,8 +1,8 @@
 ---
-title: "[Diffusion] 디퓨전 모델의 직관적 이해"
+title: "[비전 생성 모델] 디퓨전 모델의 직관적 이해"
 date: 2025-10-05 00:00:00 +/-TTTT
 categories: [AI, 비전 생성 모델]
-tags: [Diffusion]
+tags: [비전 생성 모델, Diffusion]
 math: true
 toc: true
 author: sunho
