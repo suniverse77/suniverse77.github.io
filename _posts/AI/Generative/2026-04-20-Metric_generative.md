@@ -1,6 +1,6 @@
 ---
 title: "[평가 지표] 생성 모델 성능 평가 (IS / FID/ CLIP Score)"
-date: 2025-04-20 18:00:00 +/-TTTT
+date: 2026-04-20 18:00:00 +/-TTTT
 categories: [AI, 비전 생성 모델]
 tags: [평가 지표]
 math: true
