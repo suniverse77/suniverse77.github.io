@@ -338,11 +338,13 @@ $$
 <br>
 이후 Softmax 함수가 적용되면 $e^{-\infty}$는 완전히 $0$이 되기 때문에, 미래 토큰과의 연결 고리를 수학적으로 완벽하게 차단할 수 있다.
 
+![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:50%;"}
+
 ## Output 단계
 
 Transformer Block을 모두 통과한 출력 벡터들은 다음 단어를 예측하기 위해 Linear layer와 Softmax 함수를 거친다.
 
-![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig13](AI/Transformer/Transformer-13.png){: style="display:block; margin:0 auto; width:40%;"}
 
 Autoregressive 모델을 기준으로, 각 위치의 출력 토큰은 다음에 올 토큰의 확률 분포를 예측하는 데 사용된다.
 <br>
@@ -379,7 +381,7 @@ $$
 \tag{16}
 $$
 
-![fig13](AI/Transformer/Transformer-13.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig14](AI/Transformer/Transformer-14.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### Temperature
 
@@ -397,14 +399,14 @@ $$
 - **$T<1$인 경우:** $\frac{x_i}{T}$의 값들 사이의 수학적 격차가 원래보다 훨씬 커져, 확률 분포가 매우 뾰족해진다.
 - **$T>1$인 경우:** $\frac{x_i}{T}$ 값들 사이의 수학적 격차가 줄어들어, 확률 분포가 완만해진다. 이 경우에 원래 점수가 낮아 무시되었을 단어들도 선택될 가능성이 상대적으로 높아지며, <span style="background-color:#fff5b1">결과적으로 모델은 더 다양한 단어들을 샘플링할 수 있게 되어 창의적인 문장을 생성하게 된다.</span>
 
-![fig14](AI/Transformer/Transformer-14.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
 아래 그림은 GPT-3 모델을 기준으로 트랜스포머 블록 내부의 layer가 차지하는 파라미터의 개수를 나타낸다.
 
-![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 그림에서 확인할 수 있듯, FFN은 트랜스포머 전체 파라미터의 약 $2/3$ 를 차지할 정도로 압도적인 비중을 갖는다.
@@ -415,4 +417,4 @@ FFN의 파라미터 규모가 거대한 이유는, 네트워크 내부에서 차
 
 따라서 모델 차원이 $D=512$인 비교적 작은 트랜스포머 모델을 가정하더라도, 이 두 Linear layer를 구성하는 가중치 행렬의 파라미터 개수는 $2\times(512\times(512\times4))=2,097,152$로 약 2M개에 달하게 된다.
 
-![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig17](AI/Transformer/Transformer-17.png){: style="display:block; margin:0 auto; width:30%;"}
