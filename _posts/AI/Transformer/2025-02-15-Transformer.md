@@ -338,7 +338,7 @@ $$
 <br>
 이후 Softmax 함수가 적용되면 $e^{-\infty}$는 완전히 $0$이 되기 때문에, 미래 토큰과의 연결 고리를 수학적으로 완벽하게 차단할 수 있다.
 
-![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:40%;"}
 
 ## Output 단계
 
