@@ -102,46 +102,6 @@ $$
 </details>
 <br>
 
-### 여인수 전개 (Cofactor Expansion)
-
-여인수 전개란 행렬식을 계산하는 기본적인 방법으로, 큰 행렬식을 작은 행렬식들로 분해해서 계산하는 과정이다.
-
-예를 들어, $3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
-
-$$
-A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}~\to~
-\text{det}(A)=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13}
-$$
-
-위의 식에서 $C_{ij}$를 여인수 (Cofactor)라고 하며, 여인수는 아래와 같이 정의된다.
-
-$$
-C_{ij}=(-1)^{i+j}M_{ij}
-$$
-
-위의 식에서 $M_{ij}$를 소행렬식 (Minor)라고 한다. 소행렬식은 원본 행렬 $A$에서 $i$번째 행과 $j$번째 열을 제거한 부분행렬의 행렬식이다.
-
-예를 들어, $M_{11}$은 아래와 같이 계산된다.
-
-$$
-M_{11}=\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}
-=a_{22}a_{33}-a_{23}a_{32}
-$$
-
-즉, 위의 $3\times3$ 행렬식을 아래와 같이 전개할 수 있다.
-
-$$
-\text{det}(A)=a_{11}M_{11}-a_{12}M_{12}+a_{13}M_{13}
-=a_{11}\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}-
-a_{12}\begin{vmatrix}a_{21}&a_{23}\\a_{31}&a_{33}\end{vmatrix}
-+a_{13}\begin{vmatrix}a_{21}&a_{22}\\a_{31}&a_{32}\end{vmatrix}
-$$
-
-3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
-
-![fig2](Math/Linear_Algebra/Det_Inverse-2.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDeterminant-%EC%97%AC%EC%9D%B8%EC%9E%90cofactor-%EC%99%B8%EC%A0%81Cross-product)_
-
 ### 행렬식의 성질
 
 1. $\text{det}(AB)=\text{det}(A)\text{det}(B)$
@@ -186,6 +146,45 @@ $$\text{det}(A)=1\times(-2)=-2$$
 </div>
 </details>
 
+### 여인수 전개 (Cofactor Expansion)
+
+여인수 전개란 행렬식을 계산하는 기본적인 방법으로, 큰 행렬식을 작은 행렬식들로 분해해서 계산하는 과정이다.
+
+예를 들어, $3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+
+$$
+A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\\a_{31}&a_{32}&a_{33}\end{bmatrix}~\to~
+\text{det}(A)=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13}
+$$
+
+위의 식에서 $C_{ij}$를 여인수 (Cofactor)라고 하며, 여인수는 아래와 같이 정의된다.
+
+$$
+C_{ij}=(-1)^{i+j}M_{ij}
+$$
+
+위의 식에서 $M_{ij}$를 소행렬식 (Minor)라고 한다. 소행렬식은 원본 행렬 $A$에서 $i$번째 행과 $j$번째 열을 제거한 부분행렬의 행렬식이다.
+
+예를 들어, $M_{11}$은 아래와 같이 계산된다.
+
+$$
+M_{11}=\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}
+=a_{22}a_{33}-a_{23}a_{32}
+$$
+
+즉, 위의 $3\times3$ 행렬식을 아래와 같이 전개할 수 있다.
+
+$$
+\text{det}(A)=a_{11}M_{11}-a_{12}M_{12}+a_{13}M_{13}
+=a_{11}\begin{vmatrix}a_{22}&a_{23}\\a_{32}&a_{33}\end{vmatrix}-
+a_{12}\begin{vmatrix}a_{21}&a_{23}\\a_{31}&a_{33}\end{vmatrix}
++a_{13}\begin{vmatrix}a_{21}&a_{22}\\a_{31}&a_{32}\end{vmatrix}
+$$
+
+3차원에서는 평행육면체 (parallelepiped)의 부피 또는 변환 후 부피의 변화율을 의미한다.
+
+![fig2](Mathematics/Linear_Algebra/Det_Inverse-2.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDeterminant-%EC%97%AC%EC%9D%B8%EC%9E%90cofactor-%EC%99%B8%EC%A0%81Cross-product)_
 
 ## 역행렬 (Inverse Matrix)
 
@@ -197,14 +196,15 @@ $$\text{det}(A)=1\times(-2)=-2$$
 
 예를 들어, 어떤 행렬이 물체를 시계 방향으로 90도 회전시키는 역할을 한다면, 이 행렬의 역행렬은 물체를 반시계 방향으로 90도 회전시켜서 원래 위치로 되돌려놓는 역할을 한다.
 
-![fig3](Math/Linear_Algebra/Det_Inverse-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](Mathematics/Linear_Algebra/Det_Inverse-3.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
-역행렬은 정사각 행렬에 대해서만 정의되며, 정사각 행렬 중에서도 역행렬이 존재하는 행렬을 가역 행렬 (Invertible Matrix)이라고 한다.
+역행렬은 정사각 행렬에 대해서만 정의되며, 정사각 행렬 중에서도 역행렬이 존재하는 행렬을 **가역 행렬 (Invertible Matrix)**이라고 한다.
+
 $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의미를 가진다.
 
 - $\text{det}(A)\neq0$
-- $\text{rank}(A)=n$ ($A$가 full-rank)
+- $\text{rank}(A)=n$ ($A$가 Full-Rank)
 
     만약 $\text{rank}(A)<n$ 이면, 변환 후 출력 공간의 차원이 줄어들어 정보를 복원할 수 없게 된다.
 
@@ -304,7 +304,7 @@ $$
 의사 역행렬 $A^{+}$는 역행렬의 개념을 일반화한 행렬을 의미한다.
 즉, $A$가 정사각 행렬, 가역 행렬이 아닐 때에도 정의된다.
 
-$A\in\mathbb{R}^{m\times n}$가 $m>n$이고 full-rank일 때, 의사 역행렬은 아래와 같이 정의된다.
+$A\in\mathbb{R}^{m\times n}$가 $m>n$이고 Full-Rank일 때, 의사 역행렬은 아래와 같이 정의된다.
 
 $$
 A^{+}=(A^\top A)^{-1}A^\top

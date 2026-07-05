@@ -8,25 +8,24 @@ toc: true
 author: sunho
 ---
 
-해당 포스트는 3Blue1Brown님의 영상을 바탕으로 정리하였습니다.
-
-[Youtube - 3Blue1Brown](https://www.youtube.com/watch?v=35ESC-g49fY&list=PL7x3-Ea6TrJR095LxHtu7MgS0vpli1XZv&index=4)
+해당 포스트는 [3Blue1Brown](https://www.youtube.com/watch?v=35ESC-g49fY&list=PL7x3-Ea6TrJR095LxHtu7MgS0vpli1XZv&index=4)님의 영상을 바탕으로 정리하였습니다.
 
 ## 선형 변환 (Linear Transformation)
 
-변환 (Transformation)은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
+변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
 
-![fig1](Math/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 변환이라는 단어를 사용한 이유는 입력 벡터가 특정 규칙에 따라 움직이는 기하학적 이동을 연상하기 쉽기 때문이다.
 
-선형 변환은 선형성을 만족하는 특별한 변환을 의미하며, 아래의 특징을 가지고 있다.
+선형 변환은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 아래의 특징을 가지고 있다.
 
 **대수적 정의**
 
 $$
 T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
+\tag{1}
 $$
 
 1. 두 벡터를 먼저 더한 후 변환한 결과는, 각각을 변환한 후 더한 결과와 같다.
@@ -45,29 +44,47 @@ $$
 1. 변환 전의 모든 직선은 변환 후에도 휘어지지 않고 직선으로 유지된다.
 2. 원점은 변환 후에도 원점에 위치한다.
 
-<span style="background-color:#fff5b1">행렬은 일종의 공간 변환으로 해석할 수 있다.</span>
-
 ## 행렬로 표현한 선형 변환
 
-행렬을 열벡터 또는 행벡터들의 집합으로 볼 수도 있지만, 선형 변환을 수행하는 함수로도 볼 수 있다.
+행렬을 열벡터 또는 행벡터들의 집합으로 볼 수도 있지만, <span style="background-color:#fff5b1">선형 변환을 수행하는 함수로도 볼 수 있다.</span>
 
-여기서 [rank](https://suniverse77.github.io/posts/Basis/)에 대해 다시 집고 가자.
+예를 들어, 행렬 $A \in \mathbb{R}^{m \times n}$를 $n$차원 벡터를 $m$차원 벡터로 보내는 선형 변환으로 볼 수 있다.
 
-Rank의 의미는 변환 후 출력의 차원수 즉, 열공간의 차원수이다.
-변환 후 출력이 직선 (1차원)이면 변환 행렬의 rank는 1, 평면 (2차원)이라면 rank는 2이다.
+$$
+AX=Y
+\tag{2}
+$$
 
-이때 rank가 입력 차원과 같으면, 변환을 거쳐도 공간이 찌그러지지 않고 원래의 차원을 그대로 유지한다는 뜻이다.
+### Rank와 변환의 관계
 
-선형 변환은 변환 후에도 원점이 고정이어야하기 때문에 열공간은 항상 영벡터를 포함한다.
+행렬 $A$의 rank는 선형 변환 후 만들어질 수 있는 출력 공간의 차원을 의미한다.
+<br>
+즉, rank는 $A$의 열공간의 차원이다.
 
-- Full-rank인 경우, 오직 영벡터만이 변환 후 영벡터가 된다.
-- Full-rank가 아닌 경우, 일부 벡터들도 변환후 영벡터가 될 수 있다.
+$$
+text{rank}(A)=\dim(\text{Col}(A))
+\tag{3}
+$$
 
-    예를 들어 2차원 공간이 직선으로 붕괴되면, 원래 다른 방향으로 뻗어 있던 직선 위의 벡터들이 변환 후 원점으로 모이게 된다.
+예를 들어 $A$가 2차원 벡터를 2차원 벡터로 변환하는 행렬이라고 하자.
 
-    3차원 공간이 평면으로 붕괴되면, 모두 원점에 도달하는 벡터로 가득 찬 직선이 존재
+- **$\text{rank}(A)=2$:** 출력이 2차원 평면 전체를 채울 수 있다. (차원 유지)
+- **$\text{rank}(A)=1$:** 출력이 1차원 직선 위에만 존재한다. (차원 압축)
+- **$\text{rank}(A)=0$:** 모든 입력 벡터가 원점으로 이동한다. (붕괴)
 
-    3차원 공간이 직선으로 붕괴하면 모두 원점에 도달하는 벡터로 가득 찬 평면이 존재
+위 케이스를 다시 정리하면 다음과 같이 정리할 수 있다.
+
+- **$A$가 Full-Rank:** 오직 영벡터만이 변환 후 영벡터가 된다.
+- **$A$가 Rank-Deficient:** 영벡터가 아닌 일부 벡터들이 변환후 영벡터가 된다.
+
+즉, rank가 작아질수록 선형 변환은 공간을 더 낮은 차원의 공간으로 압축하거나 붕괴시킨다.
+
+또한 선형 변환은 항상 원점을 원점으로 보내기 때문에, $A$의 열공간은 항상 영벡터를 포함한다.
+
+$$
+A\mathbf{0}=\mathbf{0}
+\tag{3}
+$$
 
 ### 2차원 선형 변환
 
@@ -75,7 +92,7 @@ Rank의 의미는 변환 후 출력의 차원수 즉, 열공간의 차원수이�
 
 행렬의 각 열 벡터는 원래 기저 벡터 $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$의 도달 좌표로 볼 수 있다.
 
-![fig2](Math/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 위 그림에서 $\hat{\mathbf{i}}$와 $\hat{\mathbf{j}}$가 각각 $(1,-2)$ , $(3,0)$에 도달했으므로, 변환 행렬 $A$는 아래와 같이 표현할 수 있다.
@@ -84,7 +101,9 @@ $$
 A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}
 $$
 
-임의의 벡터 $\mathbf{v}$가 변환 후 도달하는 벡터 $\mathbf{v}'$은 $\mathbf{i}'$ ( $\hat{\mathbf{i}}$의 도달 벡터)과 $\mathbf{j}'$ ( $\hat{\mathbf{j}}$의 도달 벡터)의 선형 결합으로 표현할 수 있다. 이는 기저 벡터의 도달 위치만 안다면 $\mathbf{v}$의 도달 위치를 유추할 수 있다는 의미이다.
+임의의 벡터 $\mathbf{v}$가 변환 후 도달하는 벡터 $\mathbf{v}'$은 $\mathbf{i}'$ ( $\hat{\mathbf{i}}$의 도달 벡터)과 $\mathbf{j}'$ ( $\hat{\mathbf{j}}$의 도달 벡터)의 선형 결합으로 표현할 수 있다.
+<br>
+이는 기저 벡터의 도달 위치만 안다면 $\mathbf{v}$의 도달 위치를 유추할 수 있다는 의미이다.
 
 예를 들어 벡터 $\mathbf{v}$가 아래와 같이 주어졌있을 때, 두 기저 벡터의 선형 결합으로 표현할 수 있다.
 
@@ -136,7 +155,9 @@ $$
 
 즉, 벡터의 각 좌표를 계수로 삼아 행렬의 열벡터를 선형 결합한 것이 곱셈의 본질이다.
 
-마찬가지로 여러 개의 벡터를 동시에 변환하고 싶다면, 그 벡터들을 모아 행렬로 만들면 된다. 이것이 행렬곱을 정의하는 방식이다.
+마찬가지로 여러 개의 벡터를 동시에 변환하고 싶다면, 그 벡터들을 모아 행렬로 만들면 된다.
+<br>
+이것이 행렬곱을 정의하는 방식이다.
 
 $$
 \begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}\color{red}e&\color{blue}f\\\color{red}g&\color{blue}h\end{bmatrix}
@@ -172,7 +193,7 @@ $$
 
 이 변환은 반시계 방향으로 90º 회전시키는 역할을 수행한다.
 
-![fig3](Math/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 ### 3차원 선형 변환
@@ -184,9 +205,12 @@ _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#ti
 비정사각행렬은 공간의 차원을 변환하는 역할을 한다.
 
 $m\times n$ 행렬은 $n$차원 공간의 벡터를 $m$차원 공간으로 변환한다.
-즉, 행렬에서 열이 입력 공간의 차원, 행이 변환 후 출력 공간의 차원을 의미한다.
+<br>
+즉, <span style="background-color:#fff5b1">행렬에서 열이 입력 공간의 차원, 행이 변환 후 출력 공간의 차원을 의미</span>한다.
 
-예를 들어 $3\times2$ 행렬은 2차원 공간의 벡터를 3차원 공간으로 옮긴다. 하지만 옮겨진 벡터는 3차원 공간을 채우는 것이 아니라, 3차원 공간에서 원점을 가로지르는 2차원 평면 위에 놓이게 된다.
+예를 들어 $3\times2$ 행렬은 2차원 공간의 벡터를 3차원 공간으로 옮긴다.
+<br>
+하지만 옮겨진 벡터는 3차원 공간을 채우는 것이 아니라, 3차원 공간에서 원점을 가로지르는 2차원 평면 위에 놓이게 된다.
 
 $$
 \begin{bmatrix}2&1\\1&3\\3&2\end{bmatrix}

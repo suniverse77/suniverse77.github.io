@@ -15,7 +15,7 @@ author: sunho
 - 영공간 (Null space)
 - 좌측 영공간 (Left Null space)
 
-![fig1](Math/Linear_Algebra/Matrix_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](Mathematics/Linear_Algebra/Matrix_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://www.cs.utexas.edu/~flame/laff/alaff/chapter04-four-fundamental-spaces.html)_
 
 위의 그림은 행렬 $A\in\mathbb{R}^{m\times n}$에 대한 네 가지 주요 부분공간을 시각화한 것으로, 아래 내용을 보고 난 뒤에는 이해할 수 있을 것이다.
@@ -32,10 +32,11 @@ A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
 C(A)=\text{span}(\begin{bmatrix}1\\3\\5\end{bmatrix},\begin{bmatrix}2\\4\\6\end{bmatrix})\subseteq\mathbb{R}^3
 $$
 
-열공간의 차원은 행렬 $A$의 rank와 같다.
+열공간의 차원은 행렬 $A$의 Rank와 같다.
 
 $$
 \text{dim}\left(C(A)\right)=\text{rank}(A)=r
+\tag{1}
 $$
 
 ## 행공간 (Row space)
@@ -50,35 +51,38 @@ A=\begin{bmatrix}1&2\\3&4\\5&6\end{bmatrix}
 C(A^\top)=\text{span}(\begin{bmatrix}1&2\end{bmatrix},\begin{bmatrix}3&4\end{bmatrix},\begin{bmatrix}5&6\end{bmatrix})\subseteq\mathbb{R}^2
 $$
 
-행공간의 차원은 행렬 $A$의 rank와 같다.
+행공간의 차원은 행렬 $A$의 Rank와 같다.
 
 $$
 \text{dim}\left(C(A^\top)\right)=\text{rank}(A)=r
+\tag{2}
 $$
 
 ## 영공간 (Null space)
 
-영공간 $N(A)$는 $A\mathbf{x}=\mathbf{0}$의 모든 해 집합을 의미하며, 다른 말로 커널 (kernel)이라고 부른다.
+영공간 $N(A)$는 $A\mathbf{x}=\mathbf{0}$의 모든 해 집합을 의미하며, 다른 말로 커널 (Kernel)이라고 부른다.
 
 해 집합은 행벡터의 차원과 같기 때문에 영공간은 공간은 $\mathbb{R}^n$의 부분 공간이다.
 
 $$
 N(A)=\lbrace\mathbf{x}\in\mathbb{R}^n\mid A\mathbf{x}=\mathbf{0}\rbrace
 \subseteq\mathbb{R}^n
+\tag{3}
 $$
 
-영공간의 차원을 **nullity**라고 부르며, [차원 정리](https://suniverse77.github.io/posts/Linear-Mapping/#%EC%B0%A8%EC%9B%90-%EC%A0%95%EB%A6%AC-rank-nullity-theorem)에 따라 아래와 같다.
+영공간의 차원을 **Nullity**라고 부르며, [차원 정리](https://suniverse77.github.io/posts/Linear-Mapping/#%EC%B0%A8%EC%9B%90-%EC%A0%95%EB%A6%AC-rank-nullity-theorem)에 따라 아래와 같다.
 
 $$
 \text{nullity}(A)=\text{dim}\left(N(A)\right)
 =n-r
+\tag{4}
 $$
 
 기하학적으로 봤을 때, 영공간은 행렬 $A$의 선형 변환을 통해 원점으로 도달하는 벡터 $\mathbf{x}$의 집합이며, 항상 $\mathbf{x}=\mathbf{0}$을 포함하기 때문에 공간 상에서 원점을 지나는 직선 또는 평면으로 표현된다.
 
 아래 그림의 왼쪽의 노란색 직선이 변환 후 오른쪽의 노란색 점 (원점)이 되었으므로, 노란색 직선은 영공간이다.
 
-![fig2](Math/Linear_Algebra/Matrix_Space-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Mathematics/Linear_Algebra/Matrix_Space-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 
 ### 영공간의 성질
@@ -129,12 +133,14 @@ $$
 
 $$
 N(A^\top)=\lbrace\mathbf{y}\in\mathbb{R}^m\mid A^\top\mathbf{y}=\mathbf{0}\rbrace\subseteq\mathbb{R}^m
+\tag{5}
 $$
 
 좌측 영공간의 차원은 아래와 같다.
 
 $$
 \text{dim}\left(N(A^\top)\right)=m-r
+\tag{6}
 $$
 
 행렬 $A$의 관점에서 봤을 때, $\mathbf{y}^\top A=\mathbf{0}^\top$는 벡터가 행렬의 왼쪽에 곱해지므로 좌측 영공간이라고 부른다.
@@ -149,6 +155,7 @@ $$
 
 $$
 N(A)=C(A^\top)^\perp
+\tag{7}
 $$
 
 아래의 식을 통해 직교성을 간단하게 확인할 수 있다.
@@ -167,6 +174,7 @@ $$
 
 $$
 N(A^\top)=C(A)^\perp
+\tag{8}
 $$
 
 아래의 식을 통해 직교성을 간단하게 확인할 수 있다.
@@ -181,5 +189,5 @@ $$
 
 내적이 $0$이므로, 두 공간은 직교한다.
 
-![fig3](Math/Linear_Algebra/Matrix_Space-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](Mathematics/Linear_Algebra/Matrix_Space-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2020/11/17/four_fundamental_subspaces.html)_
