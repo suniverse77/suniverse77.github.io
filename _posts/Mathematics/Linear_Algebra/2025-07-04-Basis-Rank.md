@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 기저, 랭크와 차원"
+title: "[선형대수] 기저 & 차원 & 랭크"
 date: 2025-07-04 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -10,7 +10,7 @@ author: sunho
 
 ## 기저 (Basis)
 
-벡터 공간의 기저란, 공간 전체를 span할 수 있는 선형 독립인 벡터들의 집합을 말한다.
+벡터 공간의 기저란, <span style="background-color:#fff5b1">공간 전체를 span할 수 있는 선형 독립인 벡터들의 집합</span>을 말한다.
 
 즉, 벡터 공간 $V$를 span하는 가장 작은 집합 $B$를 $V$의 기저라고 부르며, 이는 특정 공간에서 좌표축 역할을 하는 벡터들의 집합이다.
 
@@ -88,6 +88,7 @@ $$
 
 $$
 \mathbf{b}_i\cdot\mathbf{b}_j=0~,~(i\not=j)
+\tag{1}
 $$
 
 직교 기저가 중요한 이유는 2가지가 있다.
@@ -100,10 +101,11 @@ $$
 \mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
 ~~,~~
 c_i=\frac{\mathbf{v}\cdot\mathbf{b}_i}{\lVert\mathbf{b}_i\rVert}
+\tag{2}
 $$
 
 <details>
-<summary><font color='#0000FF'>공식 유도</font></summary>
+<summary><font color='#0000FF'>식 (2) 유도</font></summary>
 <div markdown="1">
 
 $$
@@ -187,6 +189,7 @@ $$
 1&(i=j)\\
 0&(i\not=j)
 \end{cases}
+\tag{3}
 $$
 
 #### 정규 직교 기저가 중요한 이유
@@ -199,6 +202,7 @@ $$
 \mathbf{v}=\sum_{i=1}^N c_i\mathbf{b}_i
 ~~,~~
 c_i=\mathbf{v}\cdot\mathbf{b}_i
+\tag{4}
 $$
 
 <details>
@@ -246,6 +250,7 @@ $$
 
 $$
 \text{proj}_U(\mathbf{v})=BB^\top\mathbf{v}
+\tag{5}
 $$
 
 <details>
@@ -275,125 +280,6 @@ $$
 </div>
 </details>
 
-### 그람-슈미트 과정 (Gram-Schmidt process)
-
-그람 슈미트 과정을 통해 기저 $B=\lbrace\mathbf{a}_1,\dots,\mathbf{a}_N\rbrace$를 정규 직교 기저 $B'=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_N\rbrace$로 변환할 수 있다.
-
-3차원 공간에서 그람 슈미트 과정은 아래와 같다.
-
-**1. 첫 번째 정규 직교 기저 구하기**
-
-먼저 기저 벡터에서 하나의 기준 벡터 $\mathbf{w}_1$를 설정한 후, 해당 벡터를 정규화한다. ($\mathbf{a}_1$를 기준 벡터 설정)
-
-$$
-\mathbf{w}_1=\mathbf{a}_1
-~\to~
-\mathbf{b}_1=\frac{\mathbf{w}_1}{\lVert\mathbf{w}_1\rVert}
-$$
-
-**2. 두 번째 정규 직교 기저 구하기**
-
-두 번째 기저 벡터 $\mathbf{a}_2$에서 $\mathbf{w}_1$ 방향의 성분 $\mathbf{w}_1^{\shortparallel}$을 제거하여, $\mathbf{w}_1$에 수직인 벡터 $\mathbf{w}_2$를 찾는다.
-
-$$
-\mathbf{a}_2=\mathbf{w}_1^{\shortparallel}+\mathbf{w}_2
-$$
-
-$\mathbf{a}_1^{\shortparallel}$은 $\mathbf{a}_2$를 $\mathbf{a}_1$으로 정사영시킨 벡터이므로, 아래와 같이 $\mathbf{w}_2$를 구할 수 있다.
-
-$$
-\mathbf{w}_2=\mathbf{w}_2-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_2)
-=\mathbf{w}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
-$$
-
-이후 정규화하여 두 번째 기저 $\mathbf{b}_2$를 구한다.
-
-$$
-\mathbf{b}_2=\frac{\mathbf{w}_2}{\lVert\mathbf{w}_2\rVert}
-$$
-
-**3. 세 번째 정규 직교 기저 구하기**
-
-세 번째 기저 벡터 $\mathbf{a}_3$에서 $\mathbf{w}_1$과 $\mathbf{w}_2$ 방향의 성분을 제거하여, $\mathbf{w}_1$과 $\mathbf{w}_2$가 span하는 공간에 수직인 벡터 $\mathbf{w}_3$를 찾는다.
-
-$$
-\mathbf{w}_3=\mathbf{w}_3-\text{proj}_{\mathbf{w}_1}(\mathbf{a}_3)-\text{proj}_{\mathbf{w}_2}(\mathbf{a}_3)
-=\mathbf{w}_3
--\frac{\mathbf{w}_1\cdot\mathbf{a}_3}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
--\frac{\mathbf{w}_2\cdot\mathbf{a}_3}{\mathbf{w}_2\cdot\mathbf{w}_2}\mathbf{w}_2
-$$
-
-이후 정규화하여 세 번째 기저 $\mathbf{b}_3$를 구한다.
-
-$$
-\mathbf{b}_3=\frac{\mathbf{w}_3}{\lVert\mathbf{w}_3\rVert}
-$$
-
-아래의 왼쪽 그림에서 $\mathbf{a}$들은 서로 직교하지 않았지만, 오른쪽 그림에서 $\mathbf{b}$들은 서로 직교한다. 
-
-![fig1](Math/Linear_Algebra/Basis_Rank-1.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
-
-<details>
-<summary><font color='#FF0000'>Example 5</font></summary>
-<div markdown="1">
-
-$$
-\mathbf{a}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}~,~
-\mathbf{a}_2=\begin{bmatrix}1\\3\\2\end{bmatrix}~,~
-\mathbf{a}_3=\begin{bmatrix}2\\0\\1\end{bmatrix}
-$$
-
----
-
-**1. 첫 번째 정규 직교 기저 구하기**
-
-$$
-\mathbf{w}_1=\mathbf{a}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}
-$$
-
-$$
-\mathbf{b}_1=\frac{\mathbf{w}_1}{\lVert\mathbf{w}_1\rVert}=
-\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}
-$$
-
-**2. 두 번째 정규 직교 기저 구하기**
-
-$$
-\mathbf{w}_2=\mathbf{a}_2-\frac{\mathbf{w}_1\cdot\mathbf{a}_2}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1
-=\begin{bmatrix}-1\\1\\2\end{bmatrix}
-$$
-
-$$
-\mathbf{b}_2=\frac{\mathbf{w}_2}{\lVert\mathbf{w}_2\rVert}=
-\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}
-$$
-
-**3. 세 번째 정규 직교 기저 구하기**
-
-$$
-\mathbf{w}_3=\mathbf{a}_3-\frac{\mathbf{w}_1\cdot\mathbf{a}_3}{\mathbf{w}_1\cdot\mathbf{w}_1}\mathbf{w}_1-\frac{\mathbf{w}_2\cdot\mathbf{a}_3}{\mathbf{w}_2\cdot\mathbf{w}_2}\mathbf{w}_2
-=\begin{bmatrix}1\\-1\\1\end{bmatrix}
-$$
-
-$$
-\mathbf{b}_3=\frac{\mathbf{w}_2}{\lVert\mathbf{w}_2\rVert}=
-\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}
-$$
-
-최종적으로 얻은 정규 직교 기저는 아래와 같다.
-
-$$
-\mathbf{a}_1=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}~,~
-\mathbf{a}_2=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}~,~
-\mathbf{a}_3=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}
-$$
-
----
-
-</div>
-</details>
-
 ## 차원 (Dimension)
 
 벡터 공간 $V$의 기저의 개수를 $V$의 차원이라고 부른다.
@@ -416,18 +302,19 @@ $$
 
 $$
 U\subseteq V \implies \text{dim}(U)\leq \text{dim}(V)
+\tag{6}
 $$
 
-## 계수 (Rank)
+## Rank
 
-Rank는 행렬에서 선형 독립인 행 또는 열의 최대 개수를 의미한다.
+Rank는 <span style="background-color:#fff5b1">행렬에서 선형 독립인 행 또는 열의 최대 개수</span>를 의미한다.
 
 열 벡터로 이루어진 행렬 $A$에서는 선형 독립인 열의 개수를 의미하므로, 열 벡터들이 span하는 공간의 최대 차원을 나타낸다.
 
 가우스 소거법을 적용 후 변환된 REF 형태의 행렬에서 0이 아닌 행 또는 열의 개수가 rank이다.
 
 <details>
-<summary><font color='#FF0000'>Example 6</font></summary>
+<summary><font color='#FF0000'>Example 5</font></summary>
 <div markdown="1">
   
 $$
@@ -457,14 +344,14 @@ $$
 
 1. $\text{rank}(A)=\text{rank}(A^T)$
 2. $\text{rank}(AB)\leq\min\left(\text{rank}(A),\text{rank}(B)\right)$
-3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">full rank</span>라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 <span style="background-color:#fff5b1">rank-deficient</span>라고 한다.
+3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 **full rank**라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 **rank-deficient**라고 한다.
 4. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
 
    변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
 5. $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})$인 경우에만, $A\mathbf{x}=\mathbf{b}$의 해를 구할 수 있다.
 
 <details>
-<summary><font color='#FF0000'>Example 7</font></summary>
+<summary><font color='#FF0000'>Example 6</font></summary>
 <div markdown="1">
 
 $$

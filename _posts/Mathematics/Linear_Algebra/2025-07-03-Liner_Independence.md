@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 선형 독립"
 date: 2025-07-03 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -16,6 +16,7 @@ author: sunho
 
 $$
 \mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
+\tag{1}
 $$
 
 예를 들어, 2차원 평면에서 벡터는 두 기저 벡터의 선형 결합으로 표현할 수 있다.
@@ -32,13 +33,13 @@ $$
 
 2차원 공간에서 $\mathbf{v}$와 $\mathbf{w}$의 span은 두 벡터의 모든 선형 결합의 집합 $a\mathbf{v}+b\mathbf{w}$이다.
 
-아래의 예에서는 두 벡터가 일렬로 있기 때문에 span한 결과는 1차원 직선이 된다.
+예를 들어, 아래의 두 벡터는 서로 평행하기 때문에 span한 결과는 1차원 직선이 된다.
 
 $$
 \text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}2\\0\end{bmatrix})=\mathbb{R}^1
 $$
 
-아래의 예에서는 두 벡터가 일렬로 있지 않기 때문에 span한 결과는 2차원 평면이 된다.
+반면, 아래의 두 벡터는 서로 평행하지 않기 때문에 span한 결과가 2차원 평면이 된다.
 
 $$
 \text{span}(\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix})=\mathbb{R}^2
@@ -50,6 +51,7 @@ $$
 
 $$
 \mathbf{0}=\lambda_1\mathbf{v}_1+\cdots+\lambda_n\mathbf{v}_n
+\tag{2}
 $$
 
 을 만족하는 스칼라 $\lambda_1,\cdots,\lambda_n$이 오직 $\lambda_1=\cdots=\lambda_2=0$일 때만 존재한다면 (trivial solution만 존재한다면), 이 벡터 집합을 선형 독립이라고 한다.
@@ -58,14 +60,13 @@ $$
 
 즉, 선형 독립이란 집합 내의 어떤 벡터도 다른 벡터들의 조합으로 만들어지지 않는다는 것을 의미한다.
 
-<span style="background-color:#fff5b1">선형 독립은 해당 벡터들이 span할 수 있는 공간의 차원과 연관
-</span>되어 있기 때문에 중요하다.
+<span style="background-color:#fff5b1">선형 독립은 해당 벡터들이 span할 수 있는 공간의 차원과 연관</span>되어 있기 때문에 중요하다.
 
 예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다. 따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다. 이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
 
 반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다. 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
-![fig1](Math/Linear_Algebra/Linear_Independence-1.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](Mathematics/Linear_Algebra/Linear_Independence-1.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처]](https://deep-learning-study.tistory.com/301)_
 
 위 그림에서 왼쪽은 $\mathbf{w}$가 $\mathbf{u}$와 $\mathbf{v}$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.
