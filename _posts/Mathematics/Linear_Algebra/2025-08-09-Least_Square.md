@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 최소 제곱법 (Least Square Method)"
-date: 2025-07-27 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+date: 2025-08-09 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true

@@ -8,9 +8,7 @@ toc: true
 author: sunho
 ---
 
-## 사영 (Projection)
-
-### 벡터 위로의 사영 (Projection onto a vector)
+## 벡터 위로의 사영 (Projection onto a vector)
 
 Basis가 $\mathbf{b}$인 직선 벡터 공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 다음과 같이 정의된다.
 
@@ -56,11 +54,12 @@ $$
 </div>
 </details>
 
-### 부분공간 위로의 사영 (Projection onto general subspace)
+## 부분공간 위로의 사영 (Projection onto general subspace)
 
 $$
 \vphantom{\Big(}
 \text{proj}_U(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
+\tag{2}
 $$
 
 기저 집합이 $B$인 벡터 부분공간 $U$가 있을 때, 벡터 $\mathbf{x}$의 $U$ 위로의 정사영 $\text{proj}_U(\mathbf{x})$는 위와 같이 정의된다.
@@ -69,7 +68,7 @@ $$
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
-<summary><font color='blue'>공식 유도</font></summary>
+<summary><font color='blue'>식 (2) 유도</font></summary>
 <div markdown="1">
 
 **1. $\text{proj}_U(\mathbf{x})$는 $U$ 내의 벡터이기 때문에 basis들의 선형 결합으로 표현될 수 있다.**
@@ -113,6 +112,7 @@ $\mathbf{x}$의 정사영은 $U$의 기저들의 선형 결합으로 표현될 �
 
 $$
 \text{proj}_U(\mathbf{x})=B\boldsymbol\lambda
+\tag{3}
 $$
 
 <details>

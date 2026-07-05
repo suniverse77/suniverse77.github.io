@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 행렬의 네 가지 주요 부분공간 (Four Fundamental Subspaces)"
-date: 2025-07-13 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+date: 2025-07-23 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true

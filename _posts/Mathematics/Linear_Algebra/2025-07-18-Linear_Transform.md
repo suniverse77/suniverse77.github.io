@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 선형 변환"
-date: 2025-07-10 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+date: 2025-07-18 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true

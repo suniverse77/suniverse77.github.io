@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 연립 선형 방정식"
-date: 2025-07-09 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+date: 2025-07-17 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -22,7 +22,7 @@ x_1+x_2+x_3=3\\x_1-x_2+2x_2=2\\2x_1+x_3=1
 =\begin{bmatrix}3\\2\\1\end{bmatrix}
 $$
 
-이때 변수 벡터 $\mathbf{x}$를 $\mid$ (bar)로 표현해서, 하나의 행렬로 나타낸 것을 첨가 행렬 (Augmented Matrix)이라고 부른다.
+이때 변수 벡터 $\mathbf{x}$를 $\mid$ (bar)로 표현해서, 하나의 행렬로 나타낸 것을 **첨가 행렬 (Augmented Matrix)**이라고 부른다.
 
 $$
 \begin{bmatrix}1&1&1\\1&-1&2\\2&0&1\end{bmatrix}
@@ -389,7 +389,7 @@ $$
 
 즉, <span style="background-color:#fff5b1">기준점 하나 (특수해)와 방향 (동차해)만으로 $x+y=1$의 모든 해를 표현할 수 있다.</span>
 
-![fig1](Math/Linear_Algebra/Linear_Equation-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](Mathematics/Linear_Algebra/Linear_Equation-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
 - 빨간색 직선은 $x+y=1$ 즉, 해공간을 나타낸다.
 - 파란색 직선은 $x+y=0$ 즉, 영공간인 동차해 $\mathbf{x}_h$를 나타낸다.

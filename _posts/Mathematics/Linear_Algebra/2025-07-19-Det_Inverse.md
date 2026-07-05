@@ -1,7 +1,7 @@
 ---
 title: "[선형대수] 행렬식과 역행렬"
-date: 2025-07-12 00:00:00 +/-TTTT
-categories: [Mathmatics, 선형대수]
+date: 2025-07-19 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
 toc: true
@@ -19,11 +19,11 @@ $$
 
 행렬식의 기하학적 의미는 아래와 같다.
 
-![fig1](Math/Linear_Algebra/Det_Inverse-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](Mathematics/Linear_Algebra/Det_Inverse-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 
-1. 행렬을 열 벡터의 집합으로 본다면, 두 열 벡터가 이루는 영역의 너비를 의미한다.
-2. 행렬을 변환으로 본다면, 변환에 의해 늘어나는 영역의 너비 변화율을 의미한다.
+1. 행렬을 열 벡터의 집합으로 본다면, <span style="background-color:#fff5b1">두 열 벡터가 이루는 영역의 너비</span>를 의미한다.
+2. 행렬을 변환으로 본다면, <span style="background-color:#fff5b1">변환에 의해 늘어나는 영역의 너비 변화율</span>을 의미한다.
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
@@ -51,9 +51,12 @@ $$
 </details>
 <br>
 
-행렬식이 0이라는 것은 변환에 의해 공간 전체가 직선 또는 한점으로 찌그러진다는 것을 의미한다. 이 경우 다시 정보를 복원할 수 없기 때문에 역행렬이 존재하지 않는다.
+행렬식이 0이라는 것은 변환에 의해 공간 전체가 직선 또는 한점으로 찌그러진다는 것을 의미한다.
+<br>
+이 경우 다시 정보를 복원할 수 없기 때문에 역행렬이 존재하지 않는다.
 
 이해하기 쉽게 생각해보면, 행렬식이 0이라는 것은 어떤 숫자에 0을 곱하는 것과 같다.
+<br>
 예를 들어, 숫자 3에 0을 곱하면 0이 된다. 이렇게 0이 되어 버린 결과만 가지고는 원래 숫자가 3이었는지 아니면 다른 어떤 숫자였는지 다시 알아낼 수가 없다.
 
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.

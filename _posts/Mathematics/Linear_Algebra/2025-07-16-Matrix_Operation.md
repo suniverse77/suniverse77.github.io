@@ -1,0 +1,175 @@
+---
+title: "[선형대수] 행렬의 기본 연산"
+date: 2025-07-16 00:00:00 +/-TTTT
+categories: [Mathematics, 선형대수]
+tags: [선형대수]
+math: true
+toc: true
+author: sunho
+---
+
+## 행렬 덧셈
+
+행렬의 덧셈은 같은 위치의 성분끼리 더하면 된다.
+
+$$
+\begin{bmatrix}1&2\\3&4\end{bmatrix}+
+\begin{bmatrix}5&6\\7&8\end{bmatrix}=
+\begin{bmatrix}6&8\\10&12\end{bmatrix}
+$$
+
+## 행렬곱 (Matrix Multiplication)
+
+$$
+C=AB
+$$
+
+행렬곱을 할 때는 반드시 앞 행렬의 열 개수와 뒤 행렬의 행 개수가 동일해야 한다.
+
+$$
+A\in\mathbb{R}^{m\times n}~,~B\in\mathbb{R}^{n\times k}
+~\to~ C\in\mathbb{R}^{m\times k}
+$$
+
+행렬곱을 바라보는 3가지 관점이 있다. (앞 행렬을 $A$, 뒤 행렬을 $B$라고 표현)
+
+**1. 내적**
+
+$A$의 $i$번째 행 벡터와 $B$의 $j$번째 열 벡터의 내적으로 계산할 수 있다.
+
+$$
+C=AB~,~c_{ij}=\sum_{k=1}^na_{ik}b_{kj}
+$$
+
+<details>
+<summary><font color='#FF0000'>Example 1</font></summary>
+<div markdown="1">
+
+$$
+A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~
+B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}
+$$
+
+---
+
+$$
+A=\begin{bmatrix}a_{11}&a_{12}&a_{13}\\a_{21}&a_{22}&a_{23}\end{bmatrix}~,~
+B=\begin{bmatrix}b_{11}&b_{12}\\b_{21}&b_{22}\\b_{31}&b_{32}\end{bmatrix}~,~
+C=\begin{bmatrix}c_{11}&c_{12}\\c_{21}&c_{22}\end{bmatrix}
+$$
+
+- $c_{11}=a_{11}b_{11}+a_{12}b_{21}+a_{13}b_{31}~\rightarrow~13=2\cdot3+3\cdot1+1\cdot4$
+- $c_{12}=a_{11}b_{12}+a_{12}b_{22}+a_{13}b_{32}~\rightarrow~10=2\cdot2+3\cdot0+1\cdot6$
+- $c_{21}=a_{21}b_{11}+a_{22}b_{21}+a_{23}b_{31}~\rightarrow~14=4\cdot3+2\cdot1+0\cdot4$
+- $c_{22}=a_{21}b_{12}+a_{22}b_{22}+a_{23}b_{32}~\rightarrow~8=4\cdot2+2\cdot0+0\cdot6$
+
+$$
+C=\begin{bmatrix}13&10\\14&8\end{bmatrix}
+$$
+
+---
+
+</div>
+</details>
+<br>
+
+**2. 앞 행렬의 열 벡터들의 선형 결합**
+
+$B$의 각 열은 $A$의 열 벡터의 선형 결합 계수를 의미한다.
+
+즉, $C$의 각 열 벡터는 $A$의 열 벡터들을 선형 결합하여 얻어진다.
+
+<details>
+<summary><font color='#FF0000'>Example 2</font></summary>
+<div markdown="1">
+
+$$
+A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~
+B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}
+$$
+
+---
+
+$A$와 $C$를 열 벡터로 표현
+
+$$
+A=\begin{bmatrix}|&|&|\\\mathbf{a}_1&\mathbf{a}_2&\mathbf{a}_3\\|&|&|\end{bmatrix}
+~,~
+C=\begin{bmatrix}|&|\\\mathbf{c}_1&\mathbf{c}_2\\|&|\end{bmatrix}
+$$
+
+1. $C$의 첫 번째 열 벡터
+
+$$
+\mathbf{c}_1=3\cdot \mathbf{a}_1+1\cdot \mathbf{a}_2+4\cdot \mathbf{a}_3
+=\begin{bmatrix}13\\14\end{bmatrix}
+$$
+
+2. $C$의 두 번째 열 벡터
+
+$$
+\mathbf{c}_2=2\cdot \mathbf{a}_1+0\cdot \mathbf{a}_2+3\cdot \mathbf{a}_3
+=\begin{bmatrix}10\\8\end{bmatrix}
+$$
+
+---
+
+</div>
+</details>
+<br>
+
+**3. 뒤 행렬 행 벡터들의 선형 결합**
+
+$A$의 각 행은 $B$의 행 벡터의 선형 결합 계수를 의미한다.
+
+즉, $C$의 각 행 벡터는 $B$의 행 벡터들을 선형 결합하여 얻어진다.
+
+<details>
+<summary><font color='#FF0000'>Example 3</font></summary>
+<div markdown="1">
+
+$$
+A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~
+B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}
+$$
+
+---
+
+$B$와 $C$를 행 벡터로 표현
+
+$$
+B=\begin{bmatrix}-\mathbf{b}_1-\\-\mathbf{b}_2-\\-\mathbf{b}_3-\end{bmatrix}
+~,~
+C=\begin{bmatrix}-\mathbf{c}_1-\\-\mathbf{c}_2-\end{bmatrix}
+$$
+
+1. $C$의 첫 번째 행 벡터
+
+$$
+\mathbf{c}_1=
+\begin{bmatrix}13&10\end{bmatrix}=2\cdot \mathbf{b}_1+3\cdot \mathbf{b}_2+1\cdot \mathbf{b}_3
+$$
+
+2. $C$의 두 번째 행 벡터
+
+$$
+\mathbf{c}_2=
+\begin{bmatrix}14&8\end{bmatrix}=4\cdot \mathbf{b}_1+2\cdot \mathbf{b}_2+0\cdot \mathbf{b}_3
+$$
+
+---
+
+</div>
+</details>
+
+
+## 전치 (Transpose)
+
+행렬의 열과 행을 바꾸는 연산을 의미한다.
+
+### 전치의 성질
+
+- $(A^\top)^\top=A$
+- $(A+B)^\top=A^\top+B^\top$
+- $(AB)^\top=B^\top A^\top$
+- $(A^\top)^{-1}=(A^{-1})^\top=A^{-\top}$

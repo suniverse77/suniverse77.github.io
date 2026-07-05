@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 그람-슈미트 과정 (Gram-Schmidt process)"
-date: 2025-07-04 06:00:00 +/-TTTT
+date: 2025-07-08 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
