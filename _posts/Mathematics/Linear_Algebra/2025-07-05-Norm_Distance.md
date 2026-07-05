@@ -55,15 +55,15 @@ _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ### Norm의 조건
 
-1. Absolutely homogeneous
+1. **Absolutely homogeneous**
 
    $\lVert\lambda\mathbf{x}\rVert=\lambda\lVert\mathbf{x}\rVert$
 
-2. Triangle inequality
+2. **Triangle inequality**
 
    $\lVert\mathbf{x}+\mathbf{y}\rVert\leq\lVert\mathbf{x}\rVert+\lVert\mathbf{y}\rVert$
 
-3. Positive definite
+3. **Positive definite**
 
    $\lVert\mathbf{x}\rVert\geq0$
 
@@ -103,15 +103,15 @@ $$
 
 ### Distance의 조건
 
-1. Symmetric
+1. **Symmetric**
 
    $d(\mathbf{x},\mathbf{y})=d(\mathbf{y},\mathbf{x})$
 
-2. Triangle inequality
+2. **Triangle inequality**
 
    $d(\mathbf{x},\mathbf{z})\leq d(\mathbf{x},\mathbf{y})+d(\mathbf{y},\mathbf{z})$
 
-3. Positive definite
+3. **Positive definite**
 
    $d(\mathbf{x},\mathbf{y})\geq0$
 
