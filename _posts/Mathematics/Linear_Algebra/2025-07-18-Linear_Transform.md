@@ -8,8 +8,6 @@ toc: true
 author: sunho
 ---
 
-해당 포스트는 [3Blue1Brown](https://www.youtube.com/watch?v=35ESC-g49fY&list=PL7x3-Ea6TrJR095LxHtu7MgS0vpli1XZv&index=4)님의 영상을 바탕으로 정리하였습니다.
-
 ## 선형 변환 (Linear Transformation)
 
 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
@@ -86,14 +84,19 @@ A\mathbf{0}=\mathbf{0}
 \tag{3}
 $$
 
-### 2차원 선형 변환
+### 2차원 선형 변환 예시
 
-2차원 공간에서 선형 변환은 $2\times2$ 행렬로 표현된다.
+2차원 벡터를 2차원 벡터로 변환하는 선형 변환은 $2\times2$ 행렬로 표현된다.
+
+예를 들어, 유클리드 좌표계에 존재하는 벡터 $\mathbf{x}=2\mathbf{i}+2\mathbf{j}$에 아래의 선형 변환 $A$를 적용했다고 해보자.
+
+$$
+A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}
+$$
 
 행렬의 각 열 벡터는 원래 기저 벡터 $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$의 도달 좌표로 볼 수 있다.
 
 ![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:60%;"}
-_[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 위 그림에서 $\hat{\mathbf{i}}$와 $\hat{\mathbf{j}}$가 각각 $(1,-2)$ , $(3,0)$에 도달했으므로, 변환 행렬 $A$는 아래와 같이 표현할 수 있다.
 
@@ -195,10 +198,6 @@ $$
 
 ![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
-
-### 3차원 선형 변환
-
-3차원 공간에서의 선형 변환은 변환이 $3\times3$ 행렬로 표현된다는 것 외에는 2차원 선형 변환과 큰 차이가 없다.
 
 ### 비정사각행렬 (Non-square Matrix)
 
