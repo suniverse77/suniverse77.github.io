@@ -62,7 +62,7 @@ $$
 즉, rank는 $A$의 열공간의 차원이다.
 
 $$
-text{rank}(A)=\dim(\text{Col}(A))
+\text{rank}(A)=\dim(\text{Col}(A))
 \tag{3}
 $$
 
