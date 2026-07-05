@@ -16,11 +16,11 @@ author: sunho
 
 기저는 아래와 같이 표현 가능하다.
 
-- $B$는 $V$의 minimal generating set이다. 
+- $B$는 $V$의 **Minimal generating set**이다. 
 
    벡터를 하나라도 제거하면 더 이상 $V$ 전체를 생성할 수 없다는 뜻이다.
 
-- $B$는 $V$의 maximally linearly independent set이다.
+- $B$는 $V$의 **Maximally linearly independent set**이다.
 
    벡터를 하나라도 추가하면 선형 독립성이 깨진다는 뜻이다.
 
@@ -84,7 +84,7 @@ $$
 
 ### 직교 기저 (Orthogonal Basis)
 
-기저를 이루는 벡터들이 서로 직교(orthogonal)하는 경우, 직교 기저라고 부른다.
+기저를 이루는 벡터들이 서로 직교하는 경우, 직교 기저라고 부른다.
 
 $$
 \mathbf{b}_i\cdot\mathbf{b}_j=0~,~(i\not=j)
@@ -344,7 +344,7 @@ $$
 
 1. $\text{rank}(A)=\text{rank}(A^T)$
 2. $\text{rank}(AB)\leq\min\left(\text{rank}(A),\text{rank}(B)\right)$
-3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 **full rank**라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 **rank-deficient**라고 한다.
+3. $A\in\mathbb{R}^{m\times n}$에 대해 $\text{rank}(A)=\min(m,n)$의 경우 $A$를 **Full Rank**라고 하며, $\text{rank}(A)<\min(m,n)$의 경우 $A$를 **Rank-Deficient**라고 한다.
 4. 정방 행렬 $A\in\mathbb{R}^{n\times n}$에 대해 $\text{rank}(A)=n$일 경우, $A$는 역행렬이 존재한다.
 
    변환 후 차원이 줄어들지 않기 때문에 역변환이 가능하다.
