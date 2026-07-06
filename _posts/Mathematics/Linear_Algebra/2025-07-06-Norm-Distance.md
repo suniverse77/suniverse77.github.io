@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] Norm & Distance"
-date: 2025-07-05 00:00:00 +/-TTTT
+date: 2025-07-06 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true

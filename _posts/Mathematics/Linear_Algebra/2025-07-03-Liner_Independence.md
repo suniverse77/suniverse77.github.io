@@ -102,47 +102,27 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
 <summary><font color='red'>Example 1</font></summary>
 <div markdown="1">
 
-아래의 벡터들이 선형 독립인지 판단
-
-$$
-\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}
-~,~
-\begin{bmatrix}1\\1\\0\\2\end{bmatrix}
-~,~
-\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}
-$$
-
----
-
-**1. 벡터들을 행렬로 표현**
-
-   $$
-   \begin{bmatrix}1&1&-1\\2&1&-2\\-3&0&1\\4&2&1\end{bmatrix}
-   $$
-
-**2. 가우스 소거법을 이용해 REF로 변환**
-
-   $$
-   \begin{bmatrix}1&1&-1\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}
-   $$
-
-**3-1. 행렬의 Pivot column 확인**
-
-모든 열이 Pivot column이므로, 세 벡터는 선형 독립이다.
-
-**3-2. 동차 방정식의 해 확인**
-
-동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
-
-$$
-\begin{bmatrix}\begin{array}{ccc|c}
-1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0
-\end{array}\end{bmatrix}
-~\to~
-\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}
-$$
-
----
+> $$\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}~,~\begin{bmatrix}1\\1\\0\\2\end{bmatrix}~,~\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}$$
+>
+> 위의 벡터들이 선형 독립인지 판단하기 위해 3단계를 거친다.
+>
+> **1. 벡터들을 행렬로 표현**
+>
+>   $$\begin{bmatrix}1&1&-1\\2&1&-2\\-3&0&1\\4&2&1\end{bmatrix}$$
+>
+>**2. 가우스 소거법을 이용해 REF로 변환**
+>
+>   $$\begin{bmatrix}1&1&-1\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}$$
+>
+> **3-1. 행렬의 Pivot column 확인**
+>
+>  모든 열이 Pivot column이므로, 세 벡터는 선형 독립이다.
+>
+> **3-2. 동차 방정식의 해 확인**
+>
+>  동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
+>
+> $$\begin{bmatrix}\begin{array}{ccc|c}1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0\end{array}\end{bmatrix}~\to~\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
 
 </div>
 </details>

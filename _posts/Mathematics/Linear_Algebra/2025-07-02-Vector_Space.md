@@ -84,40 +84,35 @@ author: sunho
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig1](Mathematics/Linear_Algebra/Vector_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}
-_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
-
----
-
-**1. 첫 번째 그림**
-
-(2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
-
-예를 들어, 그림에서 축과 만나는 지점의 좌표를 $\pm1$이라고 가정하자.
-
-집합 내에 존재하는 벡터 $\mathbf{u}=(1,0)$와 $\mathbf{v}=(1,1)$에 대해, $\mathbf{u}+\mathbf{v}=(2,1)$ , $2\mathbf{u}=(2,0)$이 되어 해당 집합을 벗어나게 된다.
-
-**2. 두 번째 그림**
-
-(1)번, (2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
-
-예를 들어, 그림의 직선의 방정식이 $y=x+1$이라고 가정하자.
-
-집합 내에 존재하는 벡터 $\mathbf{u}=(0,1)$와 $\mathbf{v}=(-1,0)$에 대해, $\mathbf{u}+\mathbf{v}=(-1,1)$ , $2\mathbf{u}=(0,2)$가 되어 해당 집합을 벗어나게 된다.
-
-**3. 세 번째 그림**
-
-(2)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
-
-예를 들어, 그림의 두 직선의 방정식이 각각 $y=2x$ , $y=\frac{1}{2}x$라고 가정하자.
-
-집합 내에 존재하는 벡터 $\mathbf{u}=(4,2)$와 $\mathbf{v}=(-2,-4)$에 대해, $\mathbf{u}+\mathbf{v}=(2,-2)$가 되어 해당 집합을 벗어나게 된다.
-
-**4. 네 번째 그림**
-
-모든 조건을 다 만족하므로, $\mathbb{R}^2$의 부분공간이다.
-
----
+> ![fig1](Mathematics/Linear_Algebra/Vector_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
+>
+> **1. 첫 번째 그림**
+>
+> (2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
+>
+> 예를 들어, 그림에서 축과 만나는 지점의 좌표를 $\pm1$이라고 가정하자.
+>
+> 집합 내에 존재하는 벡터 $\mathbf{u}=(1,0)$와 $\mathbf{v}=(1,1)$에 대해, $\mathbf{u}+\mathbf{v}=(2,1)$ , $2\mathbf{u}=(2,0)$이 되어 해당 집합을 벗어나게 된다.
+>
+> **2. 두 번째 그림**
+>
+> (1)번, (2)번, (3)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
+>
+> 예를 들어, 그림의 직선의 방정식이 $y=x+1$이라고 가정하자.
+>
+> 집합 내에 존재하는 벡터 $\mathbf{u}=(0,1)$와 $\mathbf{v}=(-1,0)$에 대해, $\mathbf{u}+\mathbf{v}=(-1,1)$ , $2\mathbf{u}=(0,2)$가 되어 해당 집합을 벗어나게 된다.
+>
+> **3. 세 번째 그림**
+>
+> (2)번 조건을 만족하지 못하므로, $\mathbb{R}^2$의 부분공간이 아니다.
+>
+> 예를 들어, 그림의 두 직선의 방정식이 각각 $y=2x$ , $y=\frac{1}{2}x$라고 가정하자.
+>
+> 집합 내에 존재하는 벡터 $\mathbf{u}=(4,2)$와 $\mathbf{v}=(-2,-4)$에 대해, $\mathbf{u}+\mathbf{v}=(2,-2)$가 되어 해당 집합을 벗어나게 된다.
+>
+> **4. 네 번째 그림**
+>
+> 모든 조건을 다 만족하므로, $\mathbb{R}^2$의 부분공간이다.
 
 </div>
 </details>

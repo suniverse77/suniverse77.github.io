@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 내적 & 외적"
-date: 2025-07-06 00:00:00 +/-TTTT
+date: 2025-07-07 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
