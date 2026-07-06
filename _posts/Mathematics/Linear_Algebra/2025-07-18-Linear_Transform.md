@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 선형 변환"
+title: "[선형대수] 선형 변환 (Linear Transformation)"
 date: 2025-07-18 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
@@ -8,8 +8,6 @@ toc: true
 author: sunho
 ---
 
-## 선형 변환 (Linear Transformation)
-
 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
 
 ![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
@@ -17,14 +15,14 @@ _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 변환이라는 단어를 사용한 이유는 입력 벡터가 특정 규칙에 따라 움직이는 기하학적 이동을 연상하기 쉽기 때문이다.
 
-선형 변환은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 아래의 특징을 가지고 있다.
-
-**대수적 정의**
+선형 변환은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 다음과 같이 표현된다.
 
 $$
 T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
 \tag{1}
 $$
+
+위 식의 의미는 다음과 같다.
 
 1. 두 벡터를 먼저 더한 후 변환한 결과는, 각각을 변환한 후 더한 결과와 같다.
 
@@ -37,12 +35,18 @@ $$
     T(a\mathbf{u})=a\cdot T(\mathbf{u})
     $$
 
-**기하학적 특징**
+선형 변환에서는 다음의 기하학적 특징을 가진다.
 
 1. 변환 전의 모든 직선은 변환 후에도 휘어지지 않고 직선으로 유지된다.
 2. 원점은 변환 후에도 원점에 위치한다.
 
-## 행렬로 표현한 선형 변환
+## 행렬을 보는 관점
+
+### 벡터들의 집합
+
+
+
+### 선형 변환
 
 행렬을 열벡터 또는 행벡터들의 집합으로 볼 수도 있지만, <span style="background-color:#fff5b1">선형 변환을 수행하는 함수로도 볼 수 있다.</span>
 
