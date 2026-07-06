@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] Norm & Distance"
-date: 2025-07-06 00:00:00 +/-TTTT
+date: 2025-07-05 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -10,7 +10,7 @@ author: sunho
 
 ## Norm
 
-Norm은 벡터의 길이로 정의되며, 벡터를 스칼라로 mapping하는 일종의 함수로 볼 수 있다.
+**Norm**은 벡터의 길이로 정의되며, 벡터를 스칼라로 mapping하는 일종의 함수로 볼 수 있다.
 
 $$
 \lVert\cdot\rVert:V→\Bbb R
@@ -26,7 +26,7 @@ $$
 
 ### L1 Norm (Manhattan Norm)
 
-L1 Norm은 벡터 원소 절댓값의 합으로 정의된다.
+**L1 Norm**은 벡터 원소 절댓값의 합으로 정의된다.
 
 $$
 \lVert\mathbf{v}\rVert_1:=\sum_{i=1}^{n}{\vert v_i\vert}
@@ -38,7 +38,7 @@ $$
 
 ### L2 Norm (Euclidean Norm)
 
-L2 Norm은 벡터 원소 제곱합의 제곱근으로 정의된다.
+**L2 Norm**은 벡터 원소 제곱합의 제곱근으로 정의된다.
 
 $$
 \lVert\mathbf{x}\rVert_2:=\sqrt{\sum_{i=1}^{n}{v_i^2}}
@@ -71,7 +71,7 @@ _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ## Distance
 
-Distance는 말 그대로 벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리를 의미하며, <span style="background-color:#fff5b1">벡터 차이의 Norm</span>으로 정의된다.
+**Distance**는 말 그대로 벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리를 의미하며, <span style="background-color:#fff5b1">벡터 차이의 Norm</span>으로 정의된다.
 
 $$
 d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert

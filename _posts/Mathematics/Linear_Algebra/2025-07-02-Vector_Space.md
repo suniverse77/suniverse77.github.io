@@ -10,7 +10,7 @@ author: sunho
 
 ## 벡터 공간 (Vector Space)
 
-임의의 집합 $\mathcal{V}$와 스칼라들의 집합 $F$가 있을 때, 아래 조건을 만족하는 집합 $\mathcal{V}$를 **벡터 공간**이라고 한다.
+임의의 집합 $\mathcal{V}$와 스칼라들의 집합 $\mathcal{F}$가 있을 때, 아래 조건을 만족하는 집합 $\mathcal{V}$를 **벡터 공간**이라고 한다.
 
 - 집합 $\mathcal{V}$는 공집합이 아니다.
 - 집합 $\mathcal{V}$에 벡터 덧셈 ($+$)과 스칼라 곱셈 ($\cdot$)의 두 가지 연산이 정의되어 있다.
@@ -46,17 +46,17 @@ author: sunho
 
 6. **닫힘 (Closure)**
 
-	임의의 스칼라 $c\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $c \cdot \mathbf{u}$는 $\mathcal{V}$에 속한다.
+	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $c \cdot \mathbf{u}$는 $\mathcal{V}$에 속한다.
 
 7. **분배 법칙 (Distributivity) 성립**
 
-	임의의 스칼라 $c,d\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(c+d) \cdot \mathbf{u} = c \cdot \mathbf{u} + d \cdot \mathbf{u}$가 성립한다.
+	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(c+d) \cdot \mathbf{u} = c \cdot \mathbf{u} + d \cdot \mathbf{u}$가 성립한다.
 
-	임의의 스칼라 $c\in F$와 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$가 성립한다.
+	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$가 성립한다.
 
 8. **결합 법칙 (Associativity) 성립**
 
-	임의의 스칼라 $c,d\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
+	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
 
 9. **항등원 (Identity) 존재**
 
@@ -68,17 +68,17 @@ author: sunho
 
 ## 벡터 부분공간 (Vector Subspace)
 
-벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 **부분공간**이라고 한다.
+벡터공간 $\mathcal{V}$의 부분집합 $\mathcal{U}$가 아래의 조건을 만족하면, $\mathcal{U}$를 $\mathcal{V}$의 **부분공간**이라고 한다.
 
-1. $U$는 영벡터를 포함해야 한다.
+1. $\mathcal{U}$는 영벡터를 포함해야 한다.
 
-	$$	\mathbf{0}\in U	$$
-2. $U$는 덧셈에 대해 닫혀있어야 한다.
+	$$\mathbf{0}\in \mathcal{U}$$
+2. $\mathcal{U}$는 덧셈에 대해 닫혀있어야 한다.
 
-	$$	\mathbf{u},\mathbf{v}\in U~\to~\mathbf{u+v}\in U	$$
-3. $U$는 스칼라배에 대해 닫혀있어야 한다.
+	$$\mathbf{u},\mathbf{v}\in \mathcal{U}~\to~\mathbf{u+v}\in \mathcal{U}$$
+3. $\mathcal{U}$는 스칼라배에 대해 닫혀있어야 한다.
 
-	$$\vphantom{\Big(}	\mathbf{u}\in U~\to~c\mathbf{u}\in U	$$
+	$$\vphantom{\Big(}\mathbf{u}\in \mathcal{U}~\to~c\cdot\mathbf{u}\in \mathcal{U}$$
 
 1번 조건에 의해 좌표 공간에서의 부분공간은 원점을 포함해야 하기 때문에, 2차원 공간에서는 원점을 통과하는 직선, 3차원 공간에서는 원점을 통과하는 직선 또는 평면으로 나타난다.
 

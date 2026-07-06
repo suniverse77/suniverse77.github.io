@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 내적 & 외적"
-date: 2025-07-07 00:00:00 +/-TTTT
+date: 2025-07-06 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -10,7 +10,7 @@ author: sunho
 
 ## 내적 (Inner Product)
 
-벡터 공간 내의 <span style="background-color:#fff5b1">임의의 두 벡터를 스칼라로 매핑시키는 함수</span>를 내적이라고 한다.
+벡터 공간 내의 <span style="background-color:#fff5b1">임의의 두 벡터를 스칼라로 매핑시키는 함수</span>를 **내적**이라고 한다.
 <br>
 내적의 결과값을 통해 우리는 두 벡터의 방향 유사도나 직교성을 해석할 수 있다.
 
@@ -66,7 +66,7 @@ $$
 
 ### Dot Product (Scalar Product)
 
-실수 벡터 공간 $\mathbb{R}^n$에서 아래와 같이 정의되는 내적을 Dot Product (또는 Scalar Product)라고 부른다.
+실수 벡터 공간 $\mathbb{R}^n$에서 아래와 같이 정의되는 내적을 **Dot Product** (또는 **Scalar Product**)라고 부른다.
 
 $$
 \langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y
@@ -94,22 +94,25 @@ $$
 
 ## 외적 (Outer Product)
 
-두 벡터의 곱으로 행렬을 생성하는 연산을 외적이라고 한다.
+두 벡터의 곱으로 행렬을 생성하는 연산을 **외적**이라고 한다.
 
 $$
 \mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
 \tag{7}
 $$
 
-$\mathbf{0}$을 제외했을 때, 외적으로 생성된 행렬의 rank는 항상 1이다.
+$\mathbf{0}$을 제외했을 때, 외적으로 생성된 행렬의 Rank는 항상 1이다.
 
 ## 벡터곱 (Cross Product)
+
+**벡터곱**은 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
 
 $$
 \mathbf{x}\times\mathbf{y}:=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\mathbf{i}-(x_1y_3-x_3y_1)\mathbf{j}+(x_1y_2-x_2y_1)\mathbf{k}
 \tag{8}
 $$
 
-벡터곱은 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
-
 외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
+
+![fig1](Mathematics/Linear_Algebra/Inner_Product-1.png){: style="display:block; margin:0 auto; width:60%;"}
+_[[그림 출처]](https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/x786f2022:vectors-and-matrices/a/cross-products-mvc)_
