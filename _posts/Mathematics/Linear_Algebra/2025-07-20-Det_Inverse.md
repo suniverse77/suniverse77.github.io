@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 행렬식과 역행렬"
-date: 2025-07-19 00:00:00 +/-TTTT
+date: 2025-07-20 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -10,7 +10,7 @@ author: sunho
 
 ## 행렬식 (Determinant)
 
-정사각 행렬에서만 정의되며, $2\times2$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
+정사각 행렬에서만 정의되며, $2\times2$ 행렬에 대해 **행렬식**은 아래와 같이 정의된다.
 
 $$
 A=\begin{bmatrix}a&b\\c&d\end{bmatrix}~\to~
@@ -29,23 +29,17 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-$$
-A=\begin{bmatrix}3&0\\0&2\end{bmatrix}
-$$
-
----
-
-$(1,0)$과 $(0,1)$이 이루는 정사각형 영역의 너비는 1이다.
-
-변환 후 각 벡터는 $(3,0)$와 $(0,2)$가 되고, 이 벡터들이 이루는 평행사변형 영역의 너비는 6이다.
-
-너비 변화율은 6이고, 이는 $\text{det}(A)$와 일치한다.
-
-$$
-\text{det}(A)=6-0=6
-$$
-
----
+> $$A=\begin{bmatrix}3&0\\0&2\end{bmatrix}$$
+>
+> $A$의 행렬식을 통해 너비 변화율과의 관계를 이해할 수 있다.
+>
+> $(1,0)$과 $(0,1)$이 이루는 정사각형 영역의 너비는 1이다.
+> 
+> 변환 후 각 벡터는 $(3,0)$와 $(0,2)$가 되고, 이 벡터들이 이루는 평행사변형 영역의 너비는 $6$이다.
+>
+> 너비 변화율은 $6$이고, 이는 $\text{det}(A)$와 일치한다.
+>
+> $$\text{det}(A)=6-0=6$$
 
 </div>
 </details>
@@ -65,38 +59,21 @@ $$
 <summary><font color='#FF0000'>Example 2</font></summary>
 <div markdown="1">
 
-$$
-A=\begin{bmatrix}2&4\\2&4\end{bmatrix}
-~,~
-\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix}
-,\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}
-$$
-
----
-
-행렬 $A$의 행렬식은 $0$이다.
-
-$\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
-
-$$
-\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2
-$$
-
-하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
-
-$$
-AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}
-\begin{bmatrix}1&2\\1&4\end{bmatrix}
-=\begin{bmatrix}6&20\\6&20\end{bmatrix}
-$$
-
-$$
-\text{span}(\begin{bmatrix}6\\6\end{bmatrix},\begin{bmatrix}20\\20\end{bmatrix})=\mathbb{R}^1
-$$
-
-즉, 행렬식이 $0$인 행렬에 의해 변환된 공간은 차원이 줄어드는 것을 확인할 수 있다.
-
----
+> $$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix},\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}$$
+>
+> 행렬 $A$의 행렬식은 $0$이다.
+>
+> $\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
+>
+> $$\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2$$
+>
+> 하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
+>
+> $$AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}\begin{bmatrix}1&2\\1&4\end{bmatrix}=\begin{bmatrix}6&20\\6&20\end{bmatrix}$$
+>
+> $$\text{span}(\begin{bmatrix}6\\6\end{bmatrix},\begin{bmatrix}20\\20\end{bmatrix})=\mathbb{R}^1$$
+>
+> 즉, 행렬식이 $0$인 행렬에 의해 변환된 공간은 차원이 줄어드는 것을 확인할 수 있다.
 
 </div>
 </details>
@@ -121,34 +98,26 @@ $$
 <summary><font color='red'>Example 3</font></summary>
 <div markdown="1">
   
-$$
-A=\begin{bmatrix}1&2\\3&4\end{bmatrix}
-$$
-
----
-
-**1. Gauss Elimination 수행**
-
-(6)번 성질에 의해 가우스 소거법을 사용해도 행렬식에는 변화가 없다.
-
-$$
-A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}
-$$
-
-**2. 삼각행렬에서의 행렬식 계산**
-
-정리한 행렬은 삼각 행렬 형태로, (5)번 성질을 사용해서 쉽게 행렬식을 계산할 수 있다.
-
-$$\text{det}(A)=1\times(-2)=-2$$
-
----
+> $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
+>
+> **1. Gauss Elimination 수행**
+>
+> (6)번 성질에 의해 가우스 소거법을 사용해도 행렬식에는 변화가 없다.
+>
+> $$A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}$$
+>
+> **2. 삼각행렬에서의 행렬식 계산**
+>
+> 정리한 행렬은 삼각 행렬 형태로, (5)번 성질을 사용해서 쉽게 행렬식을 계산할 수 있다.
+>
+> $$\text{det}(A)=1\times(-2)=-2$$
 
 </div>
 </details>
 
 ### 여인수 전개 (Cofactor Expansion)
 
-여인수 전개란 행렬식을 계산하는 기본적인 방법으로, 큰 행렬식을 작은 행렬식들로 분해해서 계산하는 과정이다.
+**여인수 전개**란 행렬식을 계산하는 기본적인 방법으로, 큰 행렬식을 작은 행렬식들로 분해해서 계산하는 과정이다.
 
 예를 들어, $3\times3$ 행렬에 대해 행렬식은 아래와 같이 정의된다.
 
@@ -188,7 +157,7 @@ _[[출처]](https://taesan5435.tistory.com/entry/%ED%96%89%EB%A0%AC%EC%8B%9DDete
 
 ## 역행렬 (Inverse Matrix)
 
-역행렬 $A^{-1}$는 어떤 행렬 $A$에 곱했을 때 단위 행렬 $I$를 만들어주는 행렬을 의미한다.
+**역행렬** $A^{-1}$는 어떤 행렬 $A$에 곱했을 때 단위 행렬 $I$를 만들어주는 행렬을 의미한다.
 
 즉, $AA^{-1}=A^{-1}A=I$가 성립하며, $3\times\frac{1}{3}=1$과 같은 개념이다.
 
@@ -237,63 +206,19 @@ $$
 <summary><font color='#FF0000'>Example 4</font></summary>
 <div markdown="1">
 
-$$
-A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}
-$$
-
----
-
-첨가 행렬 $[A\mid I]$를 만든다.
-
-$$
-[A\mid I]=
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\1&1&0&1&0&0&1&0\\1&1&1&0&0&0&0&1
-\end{array}\end{bmatrix}
-$$
-
-가우스 소거법을 이용해 좌변을 $I$로 만든다.
-
-$$
-[A\mid I]~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&1&-1&1&-1&0&1&0\\0&1&0&0&-1&0&0&1
-\end{array}\end{bmatrix}
-~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-2&1&-1&-1&1&0\\0&0&-1&0&-1&-1&0&1
-\end{array}\end{bmatrix}
-$$
-
-$$
-~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&-2&1&-1&-1&1&0
-\end{array}\end{bmatrix}
-~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&0&1&1&1&1&-2
-\end{array}\end{bmatrix}
-$$
-
-$$
-~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2
-\end{array}\end{bmatrix}
-~\to~
-\begin{bmatrix}\begin{array}{cccc|cccc}
-1&0&0&0&0&-1&0&1\\0&1&0&0&-1&0&0&1\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2
-\end{array}\end{bmatrix}
-$$
-
-좌변이 $I$가 되었으므로, 우변은 자연스럽게 $A^{-1}$가 된다.
-
-$$
-A^{-1}=\begin{bmatrix}0&-1&0&1\\-1&0&0&1\\1&1&0&-1\\1&1&1&-2\end{bmatrix}
-$$
-
----
+> $$A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}$$
+>
+> 첨가 행렬 $[A\mid I]$를 만든다.
+>
+> $$[A\mid I]=\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\1&1&0&1&0&0&1&0\\1&1&1&0&0&0&0&1\end{array}\end{bmatrix}$$
+>
+> 가우스 소거법을 이용해 좌변을 $I$로 만든다.
+>
+> $$\begin{aligned}[A\mid I]~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&1&-1&1&-1&0&1&0\\0&1&0&0&-1&0&0&1\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-2&1&-1&-1&1&0\\0&0&-1&0&-1&-1&0&1\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&-2&1&-1&-1&1&0\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&0&0&0&-1&0&1\\0&1&0&0&-1&0&0&1\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\end{aligned}$$
+>
+> 좌변이 $I$가 되었으므로, 우변은 자연스럽게 $A^{-1}$가 된다.
+>
+> $$A^{-1}=\begin{bmatrix}0&-1&0&1\\-1&0&0&1\\1&1&0&-1\\1&1&1&-2\end{bmatrix}$$
 
 </div>
 </details>
@@ -301,7 +226,7 @@ $$
 
 ## 의사 역행렬 (Pseudo-inverse Matrix)
 
-의사 역행렬 $A^{+}$는 역행렬의 개념을 일반화한 행렬을 의미한다.
+**의사 역행렬** $A^{+}$는 역행렬의 개념을 일반화한 행렬을 의미한다.
 즉, $A$가 정사각 행렬, 가역 행렬이 아닐 때에도 정의된다.
 
 $A\in\mathbb{R}^{m\times n}$가 $m>n$이고 Full-Rank일 때, 의사 역행렬은 아래와 같이 정의된다.
