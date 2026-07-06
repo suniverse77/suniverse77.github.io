@@ -10,7 +10,7 @@ author: sunho
 
 ## 벡터 공간 (Vector Space)
 
-임의의 집합 $\mathcal{V}$와 스칼라들의 집합 $F$가 있을 때, 아래 조건을 만족하는 집합 $\mathcal{V}$를 벡터 공간이라고 한다.
+임의의 집합 $\mathcal{V}$와 스칼라들의 집합 $F$가 있을 때, 아래 조건을 만족하는 집합 $\mathcal{V}$를 **벡터 공간**이라고 한다.
 
 - 집합 $\mathcal{V}$는 공집합이 아니다.
 - 집합 $\mathcal{V}$에 벡터 덧셈 ($+$)과 스칼라 곱셈 ($\cdot$)의 두 가지 연산이 정의되어 있다.
@@ -40,7 +40,7 @@ author: sunho
 
 5. **역원 (Inverse) 존재**
 
-	임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$를 만족하는 유일한 역벡터 $-\mathbf{u}$가 V 내에 존재한다.
+	임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$를 만족하는 유일한 역벡터 $-\mathbf{u}$가 $\mathcal{V}$ 내에 존재한다.
 
 ### 스칼라 곱셈에 대한 공리
 
@@ -56,17 +56,19 @@ author: sunho
 
 8. **결합 법칙 (Associativity) 성립**
 
-	임의의 스칼라 c,d∈F와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
+	임의의 스칼라 $c,d\in F$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
 
 9. **항등원 (Identity) 존재**
 
 	스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $1 \cdot \mathbf{u} = \mathbf{u}$가 성립한다.
 
-교환 법칙이 성립하는 군 (Group)을 아벨군 (Abelian Group)이라고 부른다. 벡터 공간에서 벡터 덧셈은 교환 법칙이 성립하기 때문에, 벡터 공간은 벡터 덧셈에 대하여 아벨군을 이룬다.
+교환 법칙이 성립하는 군 (Group)을 아벨군 (Abelian Group)이라고 부른다.
+<br>
+벡터 공간에서 벡터 덧셈은 교환 법칙이 성립하기 때문에, 벡터 공간은 벡터 덧셈에 대하여 아벨군을 이룬다.
 
 ## 벡터 부분공간 (Vector Subspace)
 
-벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 부분공간이라고 한다.
+벡터공간 $V$의 부분집합 $U$가 아래의 조건을 만족하면, $U$를 $V$의 **부분공간**이라고 한다.
 
 1. $U$는 영벡터를 포함해야 한다.
 

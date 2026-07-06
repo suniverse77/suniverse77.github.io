@@ -36,7 +36,7 @@ $$\vphantom{\Bigg(}$$
 
 $$
 y=wx
-,\quad\text{where }x,w\in\mathbb{R}
+\;,\quad\text{where }x,w\in\mathbb{R}
 $$
 
 ----------------------------------------------------------------------

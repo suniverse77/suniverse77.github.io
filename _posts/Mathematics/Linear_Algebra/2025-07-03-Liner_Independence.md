@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 선형 독립"
+title: "[선형대수] 선형 독립 (Linear Independence)"
 date: 2025-07-03 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
@@ -10,7 +10,7 @@ author: sunho
 
 ## 선형 결합 (Linear Combination)
 
-선형 결합이란 각 벡터에 상수를 곱하고 그 결과를 더한 형태의 표현식을 의미한다.
+**선형 결합**이란 각 벡터에 상수를 곱하고 그 결과를 더한 형태의 표현식을 의미한다.
 
 벡터를 상수배하고 더하는 두 가지 기본 연산으로 이루어져 있는 1차식 형태이기 때문에 **선형**이고, 여러 개의 벡터를 함께 사용하여 새로운 벡터를 만들어내기 때문에 **결합**이라고 표현한다.
 
@@ -54,17 +54,23 @@ $$
 \tag{2}
 $$
 
-을 만족하는 스칼라 $\lambda_1,\cdots,\lambda_n$이 오직 $\lambda_1=\cdots=\lambda_2=0$일 때만 존재한다면 (trivial solution만 존재한다면), 이 벡터 집합을 선형 독립이라고 한다.
+을 만족하는 스칼라 $\lambda_1,\cdots,\lambda_n$이 오직 $\lambda_1=\cdots=\lambda_2=0$일 때만 존재한다면 (trivial solution만 존재한다면), 이 벡터 집합을 **선형 독립**이라고 한다.
 
-만약 0이 아닌 $\lambda$가 존재한다면 $\lambda_1\mathbf{v}_1=-\lambda_2\mathbf{v}_2-\lambda_n\mathbf{v}_3$처럼 한 벡터가 다른 벡터들의 조합으로 표현될 수 있으며, 이를 선형 종속이라고 한다.
+만약 $0$이 아닌 $\lambda$가 존재한다면 $\lambda_1\mathbf{v}_1=-\lambda_2\mathbf{v}_2-\lambda_n\mathbf{v}_3$처럼 한 벡터가 다른 벡터들의 조합으로 표현될 수 있으며, 이를 **선형 종속**이라고 한다.
 
 즉, 선형 독립이란 집합 내의 어떤 벡터도 다른 벡터들의 조합으로 만들어지지 않는다는 것을 의미한다.
 
 <span style="background-color:#fff5b1">선형 독립은 해당 벡터들이 span할 수 있는 공간의 차원과 연관</span>되어 있기 때문에 중요하다.
 
-예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다. 따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다. 이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
+예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다.
+<br>
+따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다.
+<br>
+이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
 
-반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다. 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
+반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다.
+<br>
+이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
 ![fig1](Mathematics/Linear_Algebra/Linear_Independence-1.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처]](https://deep-learning-study.tistory.com/301)_
