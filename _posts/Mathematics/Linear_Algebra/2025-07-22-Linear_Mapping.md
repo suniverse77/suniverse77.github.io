@@ -134,7 +134,7 @@ $m\times n$ 크기의 행렬 $A\in \Bbb R^{m\times n}$는 $A:\Bbb R^n→\Bbb R^m
     \tag{7}
     $$
 
-    이는 kernel이 $A$의 null space이기 때문이다.
+    이는 Kernel이 $A$의 Null space이기 때문이다.
 
 ## 차원 정리 (Rank-Nullity Theorem)
 

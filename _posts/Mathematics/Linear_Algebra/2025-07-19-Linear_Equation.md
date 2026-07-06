@@ -37,8 +37,8 @@ $$
 연립 선형 방정식을 푸는 방법에는 크게 3가지가 있다.
 
 - 가우스 소거법 (Gauss Elimination)
-- [LU 분해 (LU Decomposition)](https://suniverse77.github.io/posts/LU/)
 - [크래머의 법칙 (Cramer's Rule)](https://suniverse77.github.io/posts/Cramer/)
+- [LU 분해 (LU Decomposition)](https://suniverse77.github.io/posts/LU/)
 
 ## 연립 선형 방정식이 가질 수 있는 세 가지 해의 형태
 
@@ -62,9 +62,11 @@ $$
 
 해가 하나가 아니라 여러 개인 경우이다.
 
-이러한 상황은 주로 <span style="background-color:#fff5b1">Under-determined System (방정식의 개수 < 미지수의 개수)에서 발생</span>한다.
+이러한 상황은 주로 <span style="background-color:#fff5b1">**Under-determined System** (방정식의 개수 < 미지수의 개수)에서 발생</span>한다.
 
-이러한 시스템은 자유 변수 (free variable)를 포함하게 된다. 자유 변수는 어떤 값을 대입해도 방정식이 성립하는 변수로, 자유 변수가 존재한다면 그 변수에 따라 해가 무한히 많이 생기게 된다.
+이러한 시스템은 **자유 변수 (Free variable)**를 포함하게 된다.
+<br>
+자유 변수는 어떤 값을 대입해도 방정식이 성립하는 변수로, 자유 변수가 존재한다면 그 변수에 따라 해가 무한히 많이 생기게 된다.
 
 $$
 \begin{bmatrix}\begin{array}{ccc|c}
@@ -82,7 +84,7 @@ $$
 
 해가 없는 경우로, 연립 방정식에 모순이 있어 어떤 값을 대입해도 모든 방정식을 동시에 만족시킬 수 없는 상황이다.
 
-이러한 상황은 주로 <span style="background-color:#fff5b1">Over-determined System (방정식의 개수 > 미지수의 개수)에서 발생</span>한다.
+이러한 상황은 주로 <span style="background-color:#fff5b1">**Over-determined System** (방정식의 개수 > 미지수의 개수)에서 발생</span>한다.
 
 $$
 \begin{bmatrix}\begin{array}{ccc|c}
@@ -102,7 +104,7 @@ $$
 
 **1. Rank 관점**
 
-행렬 $A$의 rank와 첨가 행렬 $[A\mid \mathbf{b}]$의 rank가 같아야 해가 존재한다.
+행렬 $A$의 Rank와 첨가 행렬 $[A\mid \mathbf{b}]$의 Rank가 같아야 해가 존재한다.
 
 $$
 \text{rank}(A)=\text{rank}(A\mid \mathbf{b})
@@ -124,23 +126,13 @@ $$
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-$$
-[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}
-~,~
-[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}
-~,~
-[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}
-$$
-
----
-
-$[A\mid \mathbf{b}]$는 $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=3$이므로 유일한 해를 가진다.
-
-$[B\mid \mathbf{b}]$는 $\text{rank}(B)=\text{rank}(B\mid \mathbf{b})=2<3$이므로 해가 무수히 많이 존재한다.
-
-$[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 해가 존재하지 않는다.
-
----
+> $$[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
+>
+> $[A\mid \mathbf{b}]$는 $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=3$이므로 유일한 해를 가진다.
+>
+> $[B\mid \mathbf{b}]$는 $\text{rank}(B)=\text{rank}(B\mid \mathbf{b})=2<3$이므로 해가 무수히 많이 존재한다.
+>
+> $[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 해가 존재하지 않는다.
 
 </div>
 </details>
@@ -151,7 +143,7 @@ $[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 
 벡터 $\mathbf{b}$가 행렬 $A$의 열공간에 포함되어야 한다.
 
 $$
-\mathbf{b}\in\text{col}(A)
+\mathbf{b}\in C(A)
 $$
 
 즉, 행렬 $A$의 열벡터의 선형 결합으로 span되는 공간에 $\mathbf{b}$가 존재해야 한다.
@@ -168,7 +160,7 @@ $$
 
 ## 가우스 소거법 (Gauss Elimination)
 
-연립 선형 방정식을 풀기 위해, 기본 행 연산을 수행하여 첨가 행렬을 Reduced REF로 변형하는 알고리즘이다.
+연립 선형 방정식을 풀기 위해, 기본 행 연산을 수행하여 첨가 행렬을 **Reduced REF**로 변형하는 알고리즘이다.
 
 기본 행 연산은 아래와 같으며, 이는 우리가 평소에 연립 방정식을 풀 때 하는 방식과 동일하다.
 
@@ -180,38 +172,28 @@ $$
 <summary><font color='#FF0000'>Example 2</font></summary>
 <div markdown="1">
 
-$$
-\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\2&3&1&14\\1&-1&2&2\end{array}\end{bmatrix}
-$$
-
----
-
-1. $R_2\rightarrow R_2-2R_1$
-
-   $$
-   \begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\1&-1&2&2\end{array}\end{bmatrix}
-   $$
-
-2. $R_3\rightarrow R_3-R_1$
-
-   $$
-   \begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&-2&1&-4\end{array}\end{bmatrix}
-   $$
-
-3. $R_3\rightarrow R_3+2R_1$
-
-   $$
-   \begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&0&-1&0\end{array}\end{bmatrix}
-   $$  
-
----
+> $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\2&3&1&14\\1&-1&2&2\end{array}\end{bmatrix}$$
+>
+> 위의 방정식을 Reduced REF로 변환하는 과정은 다음과 같다.
+>
+> 1. $R_2\rightarrow R_2-2R_1$
+>
+>   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\1&-1&2&2\end{array}\end{bmatrix}$$
+>
+> 2. $R_3\rightarrow R_3-R_1$
+>
+>   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&-2&1&-4\end{array}\end{bmatrix}$$
+>
+> 3. $R_3\rightarrow R_3+2R_1$
+>
+>   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&0&-1&0\end{array}\end{bmatrix}$$
 
 </div>
 </details>
 
 ### 행 사다리꼴 (Row Echelon Form)
 
-REF (Row Echelon Form)는 가우스 소거법을 통해 만들어지는 형태로, 이 형태는 다음과 같은 특징을 가진다.
+**REF (Row Echelon Form)**는 가우스 소거법을 통해 만들어지는 형태로, 이 형태는 다음과 같은 특징을 가진다.
 
 - 모든 원소가 0인 행은 행렬의 가장 아래쪽에 위치한다.
 
@@ -222,7 +204,7 @@ REF (Row Echelon Form)는 가우스 소거법을 통해 만들어지는 형태�
     \end{bmatrix}
     $$
 
-- 0이 아닌 원소를 포함하는 행의 경우, 그 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">leading entry</span>는 그 위 행의 첫 번째 0이 아닌 원소보다 더 오른쪽에 위치한다.
+- 0이 아닌 원소를 포함하는 행의 경우, 그 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">Leading entry</span>는 그 위 행의 첫 번째 0이 아닌 원소보다 더 오른쪽에 위치한다.
 
     $$
     \begin{bmatrix}
@@ -231,7 +213,7 @@ REF (Row Echelon Form)는 가우스 소거법을 통해 만들어지는 형태�
     \end{bmatrix}
     $$
 
-- 각 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">pivot</span> 아래에 있는 모든 원소는 0이다.
+- 각 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">Pivot</span> 아래에 있는 모든 원소는 0이다.
 
     $$
     \begin{bmatrix}
@@ -262,115 +244,86 @@ RREF (Reduced REF)는 REF에서 한 단계 더 나아간 형태로, 가우스 �
 
 ## 연립 선형 방정식 풀기
 
-연립방정식 $A\mathbf{x}=\mathbf{b}$의 일반해 (general solution)는 특수해 (particular solution)와 동차해 (homogeneous solution)의 합으로 표현될 수 있다.
+연립방정식 $A\mathbf{x}=\mathbf{b}$의 **일반해(General solution)**는 **특수해(Particular solution)**와 **동차해(Homogeneous solution)**의 합으로 표현될 수 있다.
 
 $$
 \mathbf{x}=\mathbf{x}_p+\mathbf{x}_h
 $$
 
-- 특수해: $A\mathbf{x}=\mathbf{b}$를 만족하는 하나의 특정한 해
-- 동차해: 동차방정식 (Homogeneous Equation) $A\mathbf{x}=\mathbf{0}$를 만족하는 모든 해들의 집합
+- **특수해:** $A\mathbf{x}=\mathbf{b}$를 만족하는 하나의 특정한 해
+- **동차해:** 동차방정식 (Homogeneous Equation) $A\mathbf{x}=\mathbf{0}$를 만족하는 모든 해들의 집합
 
 동차해를 특수해에 더해도 $A\mathbf{x}=A(\mathbf{x}_p+\mathbf{x}_h)=A\mathbf{x}_p+A\mathbf{x}_h=\mathbf{b}+\mathbf{0}=\mathbf{b}$이기 때문에 방정식의 결과는 변하지 않는다.
 
-$A\mathbf{x}=\mathbf{0}$에서 $\mathbf{x}=\mathbf{0}$은 항상 해가 되기 때문에 자명해 (trivial solution)이라고 부르며, 그 외의 해는 비자명해 (non-trivial soltuion)라고 부른다.
+$A\mathbf{x}=\mathbf{0}$에서 $\mathbf{x}=\mathbf{0}$은 항상 해가 되기 때문에 **자명해(Trivial solution)**라고 부르며, 그 외의 해는 **비자명해(Non-Trivial soltuion)**라고 부른다.
     
-$A\mathbf{x}=\mathbf{0}$에서 행렬 $A$가 invertible하다면, 해는 zero vector밖에 없다.
+$A\mathbf{x}=\mathbf{0}$에서 행렬 $A$가 Invertible하다면, 해는 영벡터밖에 없다.
 
 $$
 A\mathbf{x}=\mathbf{0}~\to~A^{-1}A\mathbf{x}=A^{-1}\mathbf{0}~\to~\mathbf{x}=\mathbf{0}
 $$
 
-이것은 변환 후 원점에 도달하는 유일한 벡터는 변환 전에도 원점이었다는 것을 뜻한다. 즉, 역행렬이 존재한다는 것은 행렬 변환이 공간을 찌그러뜨리지 않고 원래 상태를 유지한다는 것을 의미한다.
+이것은 변환 후 원점에 도달하는 유일한 벡터는 변환 전에도 원점이었다는 것을 뜻한다.
+<br>
+즉, 역행렬이 존재한다는 것은 행렬 변환이 공간을 찌그러뜨리지 않고 원래 상태를 유지한다는 것을 의미한다.
 
 <details>
 <summary><font color='#FF0000'>Example 3</font></summary>
 <div markdown="1">
 
-$$
-\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}
-\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}
-=\begin{bmatrix}42\\8\end{bmatrix}
-$$
-
----
-
-**1. Solve Non-Homogeneous Equation**
-
-1. 첨가 행렬로 변환 후 가우스 소거법 수행
-
-   $$
-   \begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&42\\0&1&2&12&8\end{array}\end{bmatrix}
-   $$
-
-2. 자유 변수들을 원하는 값으로 설정
-
-   $$
-   x_3=0,~x_4=0
-   $$
-
-3. 피벗 변수 (Pivot variable)들을 구함
-
-   $$
-   x_2+2x_3+12x_4=8~\to~x_2=8
-   $$
-   
-   $$
-   x_1+8x_3-4x_4=42~\to~x_1=42
-   $$
-
-4. 특수해를 구함
-
-    $$
-    \mathbf{x}_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}
-    $$
-
-**2. Solve Homogeneous Equation**
-
-1. 동차 방정식에 대해 가우스 소거법 수행
-
-   $$
-   \begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&0\\0&1&2&12&0\end{array}\end{bmatrix}
-   $$
-
-2. Pivot column이 아닌 열에 대한 미지수를 자유 변수로 표현
-   
-   $$
-   x_2=-2x_3-12x_4
-   $$
-
-   $$
-   x_1=-8x_3+4x_4
-   $$
-
-3. 동차해를 구함
-
-    $$
-    \mathbf{x}_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}
-    +x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}
-    $$
-
-
-**3. Find General solution**
-
-$$
-\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=
-\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+
-x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}
-+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}
-$$
-
----
+> $$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}42\\8\end{bmatrix}$$
+>
+> **1. Solve Non-Homogeneous Equation**
+>
+> 1. 첨가 행렬로 변환 후 가우스 소거법 수행
+>
+>   $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&42\\0&1&2&12&8\end{array}\end{bmatrix}$$
+>
+> 2. 자유 변수들을 원하는 값으로 설정
+>
+>   $$x_3=0,~x_4=0$$
+>
+> 3. 피벗 변수 (Pivot variable)들을 구함
+>
+>   $$x_2+2x_3+12x_4=8~\to~x_2=8$$
+>   
+>   $$x_1+8x_3-4x_4=42~\to~x_1=42$$
+>
+>4. 특수해를 구함
+>
+>    $$\mathbf{x}_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}$$
+>
+> **2. Solve Homogeneous Equation**
+>
+> 1. 동차 방정식에 대해 가우스 소거법 수행
+>
+>   $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&0\\0&1&2&12&0\end{array}\end{bmatrix}$$
+>
+> 2. Pivot column이 아닌 열에 대한 미지수를 자유 변수로 표현
+>  
+>    $$x_2=-2x_3-12x_4$$
+>
+>    $$x_1=-8x_3+4x_4$$
+> 
+> 3. 동차해를 구함
+>
+>    $$\mathbf{x}_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+>
+> **3. Find General solution**
+>
+> $$\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
 
 </div>
 </details>
 <br>
 
-왜 일반해를 '특수해 + 동차해' 형태로 표현할까?
+왜 일반해를 `특수해 + 동차해` 형태로 표현할까?
 
 단순히 모든 해를 나열하는 것보다, '특수해 + 동차해'로 표현하는 것이 더 효율적이기 때문이다.
 
-특수해는 $A\mathbf{x}=\mathbf{b}$를 만족하는 모든 해 중 하나를 고른 것이다. 즉, 해공간 (solution space) 위의 하나의 벡터인 것이다.
+특수해는 $A\mathbf{x}=\mathbf{b}$를 만족하는 모든 해 중 하나를 고른 것이다.
+<br>
+즉, 해공간(Solution space) 위의 하나의 벡터인 것이다.
 
 동차해는 $A\mathbf{x}=\mathbf{0}$을 만족하는 모든 벡터를 모은 것이다. 즉, [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)이다.
 
