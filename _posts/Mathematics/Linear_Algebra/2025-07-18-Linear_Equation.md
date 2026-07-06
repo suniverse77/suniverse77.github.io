@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] 연립 선형 방정식"
-date: 2025-07-17 00:00:00 +/-TTTT
+date: 2025-07-18 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true

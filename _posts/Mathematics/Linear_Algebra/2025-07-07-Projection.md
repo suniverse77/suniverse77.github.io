@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-## 벡터 위로의 사영 (Projection onto a vector)
+## 벡터 위로의 사영 (Projection onto a Vector)
 
 기저가 $\mathbf{b}$인 직선 벡터 공간 $\mathcal{U}$가 있을 때, 벡터 $\mathbf{x}$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\mathbf{x})$는 다음과 같이 정의된다.
 
@@ -47,7 +47,7 @@ _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 </div>
 </details>
 
-## 부분공간 위로의 사영 (Projection onto general subspace)
+## 부분공간 위로의 사영 (Projection onto Subspaces)
 
 기저 집합이 $B$인 벡터 부분공간 $\mathcal{U}$가 있을 때, 벡터 $\mathbf{x}$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\mathbf{x})$는 다음과 같이 정의된다.
 
@@ -96,7 +96,7 @@ $$
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-> 어떤 벡터 공간 $\mathcal{U}$의 기저 집합이 다음과 같을 때,
+> 어떤 부분공간 $\mathcal{U}$의 기저 집합이 다음과 같을 때,
 >
 > $$B=\begin{bmatrix}0&1&-3\\-1&-3&4\\2&1&1\\0&-1&2\\2&2&1\end{bmatrix}$$
 >
