@@ -101,7 +101,7 @@ _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 3. Nullity는 $A\mathbf{x}=\mathbf{0}$를 풀었을 때 나오는 자유 변수의 개수와 동일하다.
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 3번 성질 확인</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}1&-2&3\\2&-4&6\\3&-6&9\end{bmatrix}$$

@@ -58,7 +58,7 @@ c_{ij}=\mathbf{a}_{i}\cdot\mathbf{b}_{j}=\sum_{k=1}^na_{ik}b_{kj}
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 1번 관점으로 행렬곱 수행</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$
@@ -89,7 +89,7 @@ $$
 - $b_{kj}$: $B$의 $j$번째 열벡터 $\mathbf{b}_j$​의 $k$번째 성분
 
 <details>
-<summary><font color='#FF0000'>Example 2</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 2번 관점으로 행렬곱 수행</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$
@@ -125,7 +125,7 @@ $$
 - $\mathbf{b}_k$: $B$의 $k$번째 행벡터
 
 <details>
-<summary><font color='#FF0000'>Example 3</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 3번 관점으로 행렬곱 수행</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$

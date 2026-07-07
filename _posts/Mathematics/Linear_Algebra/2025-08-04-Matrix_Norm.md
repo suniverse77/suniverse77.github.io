@@ -48,7 +48,7 @@ $$
 머신러닝에서 경사하강법의 가중치 행렬 변화량 $\Delta W$를 측정하거나, 정규화 항을 구현할 때 주로 사용된다.
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> Frobenius Norm 계산</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&2\\3&4\end{bmatrix}$$
@@ -69,7 +69,7 @@ $$
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 2</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 1-Norm 계산</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
@@ -90,7 +90,7 @@ $$
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 3</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> ∞-Norm 계산</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
@@ -153,7 +153,7 @@ $$
 </details>
 
 <details>
-<summary><font color='#FF0000'>Example 4</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> Spectral Norm 계산</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}1&5&0\\5&1&0\end{bmatrix}$$

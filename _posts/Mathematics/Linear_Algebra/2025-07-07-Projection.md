@@ -93,7 +93,7 @@ $$
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 부분공간으로 정사영된 벡터 구하기</font></summary>
 <div markdown="1">
 
 > 어떤 부분공간 $\mathcal{U}$의 기저 집합이 다음과 같을 때,

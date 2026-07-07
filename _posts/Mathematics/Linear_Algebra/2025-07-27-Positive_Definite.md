@@ -54,7 +54,7 @@ $$\vphantom{\Big(}
 $$
 
 <details>
-<summary><font color='#FF0000'>**Example:** Positive Definite 판별하기</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> Positive Definite 판별</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$$
@@ -75,7 +75,7 @@ $$
 </details>
 <br>
 
-Positive Definite Matrix를 여러 관점에서 해석할 수 있다.
+Positive Definite Matrix의 성질을 여러 관점에서 해석할 수 있다.
 
 ### 기하학적 관점
 
@@ -93,11 +93,9 @@ $$
 f(\mathbf{x})>0\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 $$
 
-![fig1](Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
 이렇게 원점에서 최솟값을 갖고 위로 열린 그릇 모양의 곡면을 **타원 포물면 (Elliptic Paraboloid)** 이라고 한다.
-
-![fig2](Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ### 내적 관점
 
@@ -113,5 +111,45 @@ $$
 
 즉, Positive Definite 변환은 벡터의 방향성을 어느 정도 보존하는 선형 변환으로 볼 수 있다.
 
-![fig3](Mathematics/Linear_Algebra/Positive_Definite-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
+
+## 딥러닝에서의 활용
+
+손실 함수, 확률 분포, 분산 등 Quadratic Form $\mathbf{x}^\top A\mathbf{x}$는 어디에서든지 반복해서 등장한다.
+<br>
+이때 $A$의 정부호성이 손실 함수의 최솟값이 존재하는지, 유효한 분포인지, 유효한 분산인지 등을 결정하게 된다.
+
+### 볼록성 (Convexity)
+
+임의의 손실 함수 $\mathcal{L}({\boldsymbol{\theta}})$를 한 점 $\boldsymbol{\theta}_0$​ 근처에서 2차 테일러 전개하면 다음과 같다.
+
+$$
+\mathcal{L}(\boldsymbol{\theta}_0+\Delta)\approx \mathcal{L}(\boldsymbol{\theta}_0)+\nabla \mathcal{L}^\top\Delta+\tfrac{1}{2}\,\Delta^\top H\,\Delta
+$$
+
+여기서 $\tfrac{1}{2}\Delta^\top H\Delta$라는 Quadratic Form이 손실 함수의 Local 지형을 결정한다.
+<br>
+즉, Hessian $H$가 Positive Definite하면 그 점은 그릇 모양의 국소 최솟값이 된다.
+
+만약 모든 점에서 $H$가 Positive Definite하다면, 손실 함수는 볼록 함수가 되고 국소 최솟값이 곧 전역 최솟값이 된다.
+
+### 가우시안 분포
+
+다변량 가우시안 분포의 수식을 보면, 지수 안에 Quadratic Form $(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)$가 포함되어 있는 것을 확인할 수 있다.
+
+$$
+p(\mathbf{x})=\frac{1}{\sqrt{(2\pi)^D|\boldsymbol\Sigma|}}\exp(-\frac{(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)}{2})
+$$
+
+위의 가우시안 분포 공식이 유효하기 위해서는, 공분산 $\Sigma$가 Positive Definite해야 한다.
+<br>
+이유는 다음과 같다.
+
+- $\Sigma$가 Positive Definite하면 고유값이 모두 양수(0이 없음)이므로 $\Sigma^{-1}$이 존재하고, 이 역행렬 또한 Positive Definite하다.
+- $\Sigma^{-1}$이 Positive Definite하므로, 지수 안의 Quadratic Form은 평균이 아닌 모든 점에서 양수이다. <br> 따라서 지수는 $0$ 이하가 되어, 밀도는 평균에서 최대이고 멀어질수록 감소한다. <br> 이로 인해 적분이 유한($=1$)해져 확률 분포가 될 수 있다.
+- $\Sigma$가 Positive Definite하면 행렬식이 양수이므로, 분모의 $|\boldsymbol\Sigma|^{\frac{1}{2}}$이 정의된다.
+
+기하학적으로, $\Sigma$의 고유값이 모두 양수라는 것은, 분포가 모든 방향으로 퍼져있다는 뜻이다.
+<br>
+반대로 $\Sigma$가 Positive Definite하지 않아 어떤 방향의 분산(고유값)이 $0$이 되면, $\Sigma^{-1}$와 $|\Sigma|^{\frac{1}{2}}$이 정의되지 않고 분포가 저차원으로 붕괴한다.

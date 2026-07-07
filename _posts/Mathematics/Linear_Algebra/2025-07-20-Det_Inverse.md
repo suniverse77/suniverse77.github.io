@@ -26,7 +26,7 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 2. 행렬을 변환으로 본다면, <span style="background-color:#fff5b1">변환에 의해 늘어나는 영역의 너비 변화율</span>을 의미한다.
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 2번 성질 예제</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}3&0\\0&2\end{bmatrix}$$

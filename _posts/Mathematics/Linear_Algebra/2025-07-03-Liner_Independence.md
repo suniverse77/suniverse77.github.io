@@ -105,7 +105,7 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
    즉, 변수 $\lambda_i$에 자유 변수 (Free variable)가 존재하면 안된다.
 
 <details>
-<summary><font color='red'>Example 1</font></summary>
+<summary><font color='red'><strong>Example:</strong> 선형 독립 판별</font></summary>
 <div markdown="1">
 
 > $$\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}~,~\begin{bmatrix}1\\1\\0\\2\end{bmatrix}~,~\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}$$
