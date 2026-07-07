@@ -26,7 +26,7 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 2. 행렬을 변환으로 본다면, <span style="background-color:#fff5b1">변환에 의해 늘어나는 영역의 너비 변화율</span>을 의미한다.
 
 <details>
-<summary><font color='#FF0000'><strong>Example:</strong> 2번 성질 예제</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 행렬식과 너비의 관계 확인</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}3&0\\0&2\end{bmatrix}$$
@@ -56,7 +56,7 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.
 
 <details>
-<summary><font color='#FF0000'>Example 2</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 행렬식인 0인 행렬에 의한 변환</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix},\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}$$
@@ -95,7 +95,7 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 (5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
 <details>
-<summary><font color='red'>Example 3</font></summary>
+<summary><font color='red'><strong>Example:</strong> 삼각 행렬 변환 후 행렬식 계산</font></summary>
 <div markdown="1">
   
 > $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
@@ -203,7 +203,7 @@ $$
 $$
 
 <details>
-<summary><font color='#FF0000'>Example 4</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 첨가 행렬을 이용해 역행렬 구하기</font></summary>
 <div markdown="1">
 
 > $$A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}$$

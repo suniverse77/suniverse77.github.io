@@ -148,7 +148,7 @@ $$
 
 - $\Sigma$가 Positive Definite하면 고유값이 모두 양수(0이 없음)이므로 $\Sigma^{-1}$이 존재하고, 이 역행렬 또한 Positive Definite하다.
 - $\Sigma^{-1}$이 Positive Definite하므로, 지수 안의 Quadratic Form은 평균이 아닌 모든 점에서 양수이다. <br> 따라서 지수는 $0$ 이하가 되어, 밀도는 평균에서 최대이고 멀어질수록 감소한다. <br> 이로 인해 적분이 유한($=1$)해져 확률 분포가 될 수 있다.
-- $\Sigma$가 Positive Definite하면 행렬식이 양수이므로, 분모의 $|\boldsymbol\Sigma|^{\frac{1}{2}}$이 정의된다.
+- $\Sigma$가 Positive Definite하면 행렬식이 양수이므로, 분모의 $\lvert\boldsymbol\Sigma\rvert^{\frac{1}{2}}$이 정의된다.
 
 기하학적으로, $\Sigma$의 고유값이 모두 양수라는 것은, 분포가 모든 방향으로 퍼져있다는 뜻이다.
 <br>
