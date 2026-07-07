@@ -57,32 +57,19 @@ $$
 <summary><font color='#FF0000'>**Example:** Positive Definite 판별하기</font></summary>
 <div markdown="1">
 
-$$
-A=\begin{bmatrix}2&1\\1&2\end{bmatrix}
-$$
-
----
-
-**정의로 판별**
-
-$$
-\mathbf{x}^\top A\mathbf{x}=
-\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}
-=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2
-$$
-
-$x_1,x_2\neq0$일 때 $2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$는 항상 양수이므로, $A$는 양의 정부호 행렬이다.
-
-**고유값으로 판별**
-
-$$
-\text{det}(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}
-=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)=0
-$$
-
-고유값 $\lambda_1=3$과 $\lambda_2=1$ 모두 양수이므로 $A$는 양의 정부호 행렬이다.
-
----
+> $$A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$$
+>
+> **정의로 판별**
+>
+> $$\mathbf{x}^\top A\mathbf{x}=\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$$
+>
+> $x_1,x_2\neq0$일 때 $2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$는 항상 양수이므로, $A$는 Positive Definite하다.
+>
+> **고유값으로 판별**
+>
+> $$\text{det}(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)=0$$
+>
+> $A$의 고유값 $\lambda_1=3$과 $\lambda_2=1$은 모두 양수이다. <br> $A$는 대칭 행렬이고 고유값이 모두 양수이므로, Positive Definite하다.
 
 </div>
 </details>
@@ -106,11 +93,11 @@ $$
 f(\mathbf{x})>0\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 $$
 
-![fig1](Math/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:60%;"}
 
 이렇게 원점에서 최솟값을 갖고 위로 열린 그릇 모양의 곡면을 **타원 포물면 (Elliptic Paraboloid)** 이라고 한다.
 
-![fig2](Math/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ### 내적 관점
 
@@ -126,5 +113,5 @@ $$
 
 즉, Positive Definite 변환은 벡터의 방향성을 어느 정도 보존하는 선형 변환으로 볼 수 있다.
 
-![fig3](Math/Linear_Algebra/Positive_Definite-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](Mathematics/Linear_Algebra/Positive_Definite-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
