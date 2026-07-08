@@ -123,7 +123,7 @@ $$
 - **해가 없음**: $\text{rank}(A)<\text{rank}(A\mid \mathbf{b})$
 
 <details>
-<summary><font color='#FF0000'>Example 1</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식의 해 판별</font></summary>
 <div markdown="1">
 
 > $$[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
@@ -169,7 +169,7 @@ $$
 - **행 덧셈** $(R_i\to R_i+cR_j)$: 한 행에 상수배를 한 뒤, 그 결과를 다른 행에 더한다.
 
 <details>
-<summary><font color='#FF0000'>Example 2</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식을 RREF로 변환</font></summary>
 <div markdown="1">
 
 > $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\2&3&1&14\\1&-1&2&2\end{array}\end{bmatrix}$$
@@ -268,7 +268,7 @@ $$
 즉, 역행렬이 존재한다는 것은 행렬 변환이 공간을 찌그러뜨리지 않고 원래 상태를 유지한다는 것을 의미한다.
 
 <details>
-<summary><font color='#FF0000'>Example 3</font></summary>
+<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식 풀기</font></summary>
 <div markdown="1">
 
 > $$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}42\\8\end{bmatrix}$$

@@ -55,122 +55,99 @@ _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 행렬은 선형 변환을 수행하기 때문에 공간을 구부리지는 못한다.
 <br>
-대신 직선성은 유지한 채, 공간을 늘리거나 줄이고 회전시키는 방식으로 변형한다.
+대신 직선은 직선으로 유지한 채, 공간을 늘리고 줄이고 회전시키는 방식으로만 변형한다.
 
-예를 들어, 원 위의 모든 벡터를 행렬 $A$에 통과시키면 일반적으로 타원으로 변환된다.
+예를 들어, 원 위의 모든 벡터를 행렬 $A$에 통과시키면 일반적으로 타원이 된다.
 
-![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
-
-예를 들어, 행렬 $A \in \mathbb{R}^{m \times n}$를 $n$차원 벡터를 $m$차원 벡터로 보내는 선형 변환으로 볼 수 있다.
-
-$$
-AX=Y
-\tag{2}
-$$
+![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:50%;"}
 
 ### 2차원 선형 변환 예시
 
 2차원 벡터를 2차원 벡터로 변환하는 선형 변환은 $2\times2$ 행렬로 표현된다.
 
-예를 들어, 유클리드 좌표계에 존재하는 벡터 $\mathbf{x}=2\mathbf{i}+2\mathbf{j}$에 아래의 선형 변환 $A$를 적용했다고 해보자.
+아래와 같은 선형 변환 $A$를 생각해 보자.
 
 $$
-A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}
+A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\in\mathbb{R}^{2\times2}
 $$
 
-행렬의 각 열 벡터는 원래 기저 벡터 $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$의 도달 좌표로 볼 수 있다.
+이제 유클리드 좌표계 위의 벡터 $\mathbf{x}=\mathbf{i}+\mathbf{j}$에 선형 변환 $A$를 적용해 보자.
 
-![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:60%;"}
+#### 기저 벡터의 이동
 
-위 그림에서 $\hat{\mathbf{i}}$와 $\hat{\mathbf{j}}$가 각각 $(1,-2)$ , $(3,0)$에 도달했으므로, 변환 행렬 $A$는 아래와 같이 표현할 수 있다.
-
-$$
-A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}
-$$
-
-임의의 벡터 $\mathbf{v}$가 변환 후 도달하는 벡터 $\mathbf{v}'$은 $\mathbf{i}'$ ( $\hat{\mathbf{i}}$의 도달 벡터)과 $\mathbf{j}'$ ( $\hat{\mathbf{j}}$의 도달 벡터)의 선형 결합으로 표현할 수 있다.
+선형 변환은 <span style="background-color:#fff5b1">기저 벡터의 이동</span>으로 이해할 수 있다.
 <br>
-이는 기저 벡터의 도달 위치만 안다면 $\mathbf{v}$의 도달 위치를 유추할 수 있다는 의미이다.
-
-예를 들어 벡터 $\mathbf{v}$가 아래와 같이 주어졌있을 때, 두 기저 벡터의 선형 결합으로 표현할 수 있다.
+즉, 벡터를 기저 벡터의 선형 결합으로 나타냈을 때 그 계수는 그대로 유지되지만, 기저 벡터 자체가 새로운 위치로 이동하기 때문에 벡터가 가리키는 실제 위치가 바뀌는 것이다.
 
 $$
-\mathbf{v}=\begin{bmatrix}-1\\2\end{bmatrix}
-=-\hat{\mathbf{i}}+2\hat{\mathbf{j}}
+\mathbf{x}=1\mathbf{i}+1\mathbf{j}\quad\to\quad
+A\mathbf{x}=1(A\mathbf{i})+1(A\mathbf{j})
 $$
 
-각 기저 벡터에 대해 변환 $A$를 적용하고, 변환된 기저를 각각 $\mathbf{i}'$, $\mathbf{j}'$라고 하자.
+기저 벡터 $\mathbf{i}$, $\mathbf{j}$가 이동한 위치를 각각 $\mathbf{v}_1$, $\mathbf{v}_2$라고 하면, 이는 다음과 같이 구해진다.
 
 $$
-A\hat{\mathbf{i}}=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\begin{bmatrix}1\\0\end{bmatrix}=\begin{bmatrix}1\\-2\end{bmatrix}
-~,~
-A\hat{\mathbf{j}}=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix}=\begin{bmatrix}3\\0\end{bmatrix}
+\mathbf{v}_1=A\mathbf{i}=\begin{bmatrix}1\\-2\end{bmatrix}
+\quad,\quad
+\mathbf{v}_2=A\mathbf{j}=\begin{bmatrix}3\\0\end{bmatrix}
 $$
 
-이는 행렬 $A$의 각 열 벡터가 원래 기저 벡터의 도달 좌표라는 것을 의미한다.
+즉, <span style="background-color:#fff5b1">행렬의 각 열 벡터는 원래 기저 벡터가 변환 후 도달한 위치</span>이다.
 
-이번에는 $\mathbf{v}$에 대해 변환 $A$를 적용하고, 변환된 벡터를 $\mathbf{v}'$라고 하자.
-
-$$
-A\mathbf{v}=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\begin{bmatrix}-1\\2\end{bmatrix}=\begin{bmatrix}5\\2\end{bmatrix}=\mathbf{v}'
-$$
-
-이는 정확히 변환 후 기저 벡터의 선형 결합과 일치한다.
+따라서 $\mathbf{x}$의 변환 결과 $A\mathbf{x}$는 계수 $(1, 1)$을 유지한 채 기저 벡터만 갈아끼운 것으로 계산된다.
 
 $$
-\mathbf{v}'=\begin{bmatrix}5\\2\end{bmatrix}=-\mathbf{i}'+2\mathbf{j}'
+A\mathbf{x}=1\mathbf{v}_1+1\mathbf{v}_2
+=\begin{bmatrix}1\\-2\end{bmatrix}+\begin{bmatrix}3\\0\end{bmatrix}
+=\begin{bmatrix}4\\-2\end{bmatrix}
 $$
 
-즉, 임의의 벡터가 변환 후 어디에 도달하는지 알고싶다면 벡터의 좌표를 취한 다음, 각 기저 벡터에 대응하는 행렬 열에 곱한 뒤 모두 더해주면 된다.
+![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
-$$
-A\mathbf{v}=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\begin{bmatrix}-1\\2\end{bmatrix}
-=-\begin{bmatrix}1\\-2\end{bmatrix}+2\begin{bmatrix}3\\0\end{bmatrix}
-$$
+#### 원래 벡터를 새로운 기저로 표현
 
----
-
-왜 위의 과정을 거쳤을까?
-
-사실 우리가 단순히 암기했던 행렬과 벡터의 곱셈 공식이 바로 이런 원리에 기반하기 때문이다.
-
-$$
-\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}
-=x\begin{bmatrix}a\\c\end{bmatrix}+y\begin{bmatrix}b\\d\end{bmatrix}
-=\begin{bmatrix}ax+by\\cx+dy\end{bmatrix}
-$$
-
-즉, 벡터의 각 좌표를 계수로 삼아 행렬의 열벡터를 선형 결합한 것이 곱셈의 본질이다.
-
-마찬가지로 여러 개의 벡터를 동시에 변환하고 싶다면, 그 벡터들을 모아 행렬로 만들면 된다.
+반대로, 변환 전의 벡터 $\mathbf{x}=\mathbf{i}+\mathbf{j}$를 새로운 기저 $\mathbf{v}_1$, $\mathbf{v}_2$로 표현하면 어떻게 될까?
 <br>
-이것이 행렬곱을 정의하는 방식이다.
+주의할 점은, 이는 위와 달리 벡터를 이동시키는 것이 아니라 <span style="background-color:#fff5b1">가만히 있는 벡터를 읽는 기준만 바꾸는 것</span>이므로 계수 $(1,1)$이 유지되지 않는다는 것이다.
+
+찾고자 하는 것은 $\mathbf{x}=c_1\mathbf{v}_1+c_2\mathbf{v}_2$를 만족하는 계수 $(c_1, c_2)$이다.
+
+$\mathbf{v}_1$, $\mathbf{v}_2$가 행렬 $A$의 열이므로 이 식은 $\mathbf{x}=A\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$로 쓸 수 있고, 양변에 $A^{-1}$을 곱하면 <span style="background-color:#fff5b1">새로운 기저에서의 좌표는 역변환으로 구해짐</span>을 알 수 있다.
 
 $$
-\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}\color{red}e&\color{blue}f\\\color{red}g&\color{blue}h\end{bmatrix}
-=\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}e\\g\end{bmatrix}+\begin{bmatrix}a&b\\c&d\end{bmatrix}\begin{bmatrix}f\\h\end{bmatrix}
-=\begin{bmatrix}\color{red}{ae+bg}&\color{blue}{af+bh}\\\color{red}{ce+dg}&\color{blue}{cf+dh}\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\end{bmatrix}=A^{-1}\mathbf{x}=
+\frac{1}{6}\begin{bmatrix}0&-3\\2&1\end{bmatrix}
+\begin{bmatrix}1\\1\end{bmatrix}=
+\begin{bmatrix}-0.5\\0.5\end{bmatrix}
 $$
 
-특별한 변환을 수행하는 행렬이 있다.
+즉, 원래 벡터 $\mathbf{x}$는 새로운 기저로 다음과 같이 표현된다.
 
-**1. 전단 (Shear)**
+$$
+\mathbf{x}=-0.5\mathbf{v}_1+0.5\mathbf{v}_2
+$$
 
-전단 변환은 도형의 모양을 기울이는 효과를 낸다.
+![fig4](Mathematics/Linear_Algebra/Linear_Transform-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
+정리하면, 같은 행렬 $A$를 두고 두 가지 방향의 해석이 존재한다.
 
+1. **벡터를 실제로 이동시키는 변환의 관점:** 계수가 유지된 채 도착지가 $A\mathbf{x}$로 정해짐
+2. **벡터는 그대로 둔 채 기준만 바꾸는 기저 변환의 관점:** 새로운 좌표가 $A^{-1}\mathbf{x}$로 정해짐
 
-**2. 회전 (Rotation)**
+### 회전 행렬 (Rotation Matrix)
 
-회전 변환은 원점을 중심으로 벡터를 일정 각도 $\theta$만큼 회전시킨다.
+**회전 행렬**은 원점을 중심으로 벡터를 일정 각도 $\theta$만큼 회전시키는 변환을 수행한다.
+
+2차원 공간에서 회전 행렬은 다음과 같이 정의된다.
 
 $$
 R(\theta)=\begin{bmatrix}
 \cos\theta&-\sin\theta\\ \sin\theta&\cos\theta
 \end{bmatrix}
+\tag{2}
 $$
 
-예를 들어, $\hat{\mathbf{i}}=(1,0)$와 $\hat{\mathbf{j}}=(0,1)$가 변환 후 각각 $(0,1)$, $(-1,0)$에 도달했다면 이 변환을 수행하는 행렬은 아래와 같다.
+예를 들어, 벡터를 반시계 방향으로 90º 회전시키는 행렬은 다음과 같다.
 
 $$
 A=\begin{bmatrix}
@@ -178,9 +155,7 @@ A=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-이 변환은 반시계 방향으로 90º 회전시키는 역할을 수행한다.
-
-![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](Mathematics/Linear_Algebra/Linear_Transform-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 ## Rank와 변환의 관계
