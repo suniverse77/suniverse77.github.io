@@ -59,7 +59,7 @@ _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 예를 들어, 원 위의 모든 벡터를 행렬 $A$에 통과시키면 일반적으로 타원이 된다.
 
-![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:30%;"}
 
 ### 2차원 선형 변환 예시
 
@@ -102,7 +102,7 @@ A\mathbf{x}=1\mathbf{v}_1+1\mathbf{v}_2
 =\begin{bmatrix}4\\-2\end{bmatrix}
 $$
 
-![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:70%;"}
 
 #### 원래 벡터를 새로운 기저로 표현
 
@@ -127,7 +127,7 @@ $$
 \mathbf{x}=-0.5\mathbf{v}_1+0.5\mathbf{v}_2
 $$
 
-![fig4](Mathematics/Linear_Algebra/Linear_Transform-4.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](Mathematics/Linear_Algebra/Linear_Transform-4.png){: style="display:block; margin:0 auto; width:70%;"}
 
 정리하면, 같은 행렬 $A$를 두고 두 가지 방향의 해석이 존재한다.
 
@@ -160,36 +160,37 @@ _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#ti
 
 ## Rank와 변환의 관계
 
-행렬 $A$의 rank는 선형 변환 후 만들어질 수 있는 출력 공간의 차원을 의미한다.
-<br>
-즉, rank는 $A$의 열공간의 차원이다.
+행렬의 Rank는 <span style="background-color:#fff5b1">선형 변환 후 만들어질 수 있는 출력 공간의 차원</span>을 의미한다.
+
+열벡터의 관점에서 말하면, Rank는 $A$의 열공간의 차원이다.
 
 $$
-\text{rank}(A)=\dim(\text{Col}(A))
+\text{rank}(A)=\dim(C(A))
 \tag{3}
 $$
 
-예를 들어 $A$가 2차원 벡터를 2차원 벡터로 변환하는 행렬이라고 하자.
+앞서 보았듯 행렬의 각 열은 기저 벡터가 이동한 위치이므로, Rank는 곧 이동한 기저 벡터들이 span할 수 있는 차원을 나타낸다.
 
-- **$\text{rank}(A)=2$:** 출력이 2차원 평면 전체를 채울 수 있다. (차원 유지)
-- **$\text{rank}(A)=1$:** 출력이 1차원 직선 위에만 존재한다. (차원 압축)
-- **$\text{rank}(A)=0$:** 모든 입력 벡터가 원점으로 이동한다. (붕괴)
+### 정사각 행렬
+
+2차원 벡터를 2차원 벡터로 변환하는 행렬 $A\in\mathbb{R}^{2\times 2}$를 생각해 보자.
+
+- **$\text{rank}(A)=2$:** 두 열벡터가 선형 독립이다. 출력이 2차원 평면 전체를 채운다.
+- **$\text{rank}(A)=1$:** 두 열벡터가 한 직선 위에 겹친다. 평면 전체가 그 직선 위로 짓눌린다.
+- **$\text{rank}(A)=0$:** 모든 벡터가 원점으로 이동한다.
+
+예를 들어 Rank가 1인 행렬 $A=\begin{bmatrix}1&0\\\\1&0\end{bmatrix}$는 모든 벡터를 직선 $y=x$ 위로 보낸다.
+
+![fig6](Mathematics/Linear_Algebra/Linear_Transform-6.png){: style="display:block; margin:0 auto; width:80%;"}
 
 위 케이스를 다시 정리하면 다음과 같이 정리할 수 있다.
 
-- **$A$가 Full-Rank:** 오직 영벡터만이 변환 후 영벡터가 된다.
-- **$A$가 Rank-Deficient:** 영벡터가 아닌 일부 벡터들이 변환후 영벡터가 된다.
+- **$A$가 Full-Rank:** 오직 영벡터만이 변환 후 영벡터가 된다. **(차원 유지)**
+- **$A$가 Rank-Deficient:** 영벡터가 아닌 일부 벡터들이 변환후 영벡터가 된다. **(차원 압축 및 붕괴)**
 
 즉, rank가 작아질수록 선형 변환은 공간을 더 낮은 차원의 공간으로 압축하거나 붕괴시킨다.
 
-또한 선형 변환은 항상 원점을 원점으로 보내기 때문에, $A$의 열공간은 항상 영벡터를 포함한다.
-
-$$
-A\mathbf{0}=\mathbf{0}
-\tag{3}
-$$
-
-### 비정사각행렬 (Non-square Matrix)
+### 직사각 행렬
 
 비정사각행렬은 공간의 차원을 변환하는 역할을 한다.
 
