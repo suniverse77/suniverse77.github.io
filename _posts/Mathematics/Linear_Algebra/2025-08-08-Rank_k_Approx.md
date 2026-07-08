@@ -1,6 +1,6 @@
 ---
-title: "[선형대수] 행렬 근사"
-date: 2025-08-05 00:00:00 +/-TTTT
+title: "[선형대수] Rank-k 근사"
+date: 2025-08-08 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-## Rank-k 근사 (Rank-k Approximation)
+Rank-k 근사 (Rank-k Approximation)
 
 SVD를 통해 행렬 $A$를 $U\Sigma V^\top$으로 분해할 수 있고, 이는 아래와 같이 표현할 수 있다.
 

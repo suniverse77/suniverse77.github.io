@@ -1,6 +1,6 @@
 ---
-title: "[선형대수] 그라디언트 (Gradient)"
-date: 2025-08-09 00:00:00 +/-TTTT
+title: "[선형대수] 벡터와 행렬의 미분"
+date: 2025-08-10 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -313,3 +313,63 @@ $$
 
 </div>
 </details>
+
+
+가우시안 분포에 대한 log-likelihood 수식은 아래와 같이 정리될 수 있다.
+
+$$
+\log p(\mathbf{x};\boldsymbol\mu,\boldsymbol\Sigma)=-\frac{D}{2}\log(2\pi)-\frac{1}{2}\log|\boldsymbol\Sigma|-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)
+$$
+
+Maximum likelihood 방식의 목적 함수는 아래와 같다.
+
+$$
+p^*=\underset{\boldsymbol\mu,\boldsymbol\Sigma}{\text{argmax}}~\prod_{i=1}^N p(\mathbf{x}_i;\boldsymbol\mu,\boldsymbol\Sigma)
+$$
+
+Maximum Log-likelihood 방식의 목적 함수는 아래와 같다.
+
+$$
+p^*=\underset{\boldsymbol\mu,\boldsymbol\Sigma}{\text{argmax}}~\sum_{i=1}^N\log p(\mathbf{x}_i;\boldsymbol\mu,\boldsymbol\Sigma)
+$$
+
+### 2. 목적 함수 최적화 (하나의 샘플에 대해)
+
+#### (1) $\boldsymbol\mu$에 대한 미분
+
+$\displaystyle
+~~~~~\nabla_{\boldsymbol\mu}\log p
+=\nabla_{\boldsymbol\mu}\bigg(-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\bigg)
+=(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}$
+
+#### (2) $\boldsymbol\Sigma$에 대한 미분
+
+$\displaystyle
+~~~~~\nabla_{\boldsymbol\Sigma}\log p
+=\nabla_{\boldsymbol\Sigma}\bigg(-\frac{1}{2}\log|\boldsymbol\Sigma|-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\bigg)
+$
+
+$\displaystyle
+~~~~~~~~~~~~~~~~~~~
+=-\frac{1}{2}(\boldsymbol\Sigma^{-1}-\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1})
+$
+
+- $\displaystyle\nabla_{\boldsymbol\Sigma}\big(-\frac{1}{2}\log\lvert\boldsymbol\Sigma\rvert\big)=-\frac{1}{2}\boldsymbol\Sigma^{-1}$
+- $\displaystyle\nabla_{\boldsymbol\Sigma}\big(-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\big)=\frac{1}{2}\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}$
+
+### 3. 전체 샘플에 대한 일반화
+
+#### (1) $\boldsymbol\mu$ 값 측정
+
+$\displaystyle
+~~~~~\sum_{i=1}^N(\mathbf{x}\_i-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}=\mathbf{0}
+\rightarrow\boldsymbol\mu=\frac{1}{N}\sum_{i=1}^N\mathbf{x}_i
+$
+
+#### (2) $\boldsymbol\Sigma$ 값 측정
+
+$\displaystyle
+~~~~~\sum_{i=1}^N-\frac{1}{2}(\boldsymbol\Sigma^{-1}-\boldsymbol\Sigma^{-1}(\mathbf{x}\_i-\boldsymbol\mu)(\mathbf{x}\_i-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1})=\mathbf{0}
+\rightarrow\boldsymbol\Sigma=\frac{1}{N}\sum_{i=1}^N(\mathbf{x}_i-\boldsymbol\mu)(\mathbf{x}_i-\boldsymbol\mu)^\top
+$
+

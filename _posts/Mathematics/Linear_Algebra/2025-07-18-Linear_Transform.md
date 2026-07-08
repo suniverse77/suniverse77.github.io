@@ -9,13 +9,10 @@ author: sunho
 ---
 
 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.
-
-![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
-_[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
-
+<br>
 변환이라는 단어를 사용한 이유는 입력 벡터가 특정 규칙에 따라 움직이는 기하학적 이동을 연상하기 쉽기 때문이다.
 
-선형 변환은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 다음과 같이 표현된다.
+**선형 변환**은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 다음과 같이 표현된다.
 
 $$
 T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
@@ -40,52 +37,35 @@ $$
 1. 변환 전의 모든 직선은 변환 후에도 휘어지지 않고 직선으로 유지된다.
 2. 원점은 변환 후에도 원점에 위치한다.
 
-## 행렬을 보는 관점
+## 선형 변환 관점에서의 행렬
 
-### 벡터들의 집합
+행렬은 크게 두 가지 관점에서 볼 수 있다.
 
+1. **열벡터 또는 행벡터들의 집합**
 
+    예를 들어 머신러닝에서 자주 사용하는 $N \times D$ 데이터 행렬이 이에 해당한다.
+2. **선형 변환을 수행하는 함수**
 
-### 선형 변환
+    어떤 벡터를 입력으로 받아, 크기와 방향을 바꾸어 새로운 벡터를 출력하는 함수로 볼 수 있다.
 
-행렬을 열벡터 또는 행벡터들의 집합으로 볼 수도 있지만, <span style="background-color:#fff5b1">선형 변환을 수행하는 함수로도 볼 수 있다.</span>
+두 번째 관점에서 행렬은 벡터라는 화살표를 입력받아, 이를 늘리거나 줄이고 회전시켜 다른 화살표로 변환하는 역할을 한다.
+
+![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
+_[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
+
+행렬은 선형 변환을 수행하기 때문에 공간을 구부리지는 못한다.
+<br>
+대신 직선성은 유지한 채, 공간을 늘리거나 줄이고 회전시키는 방식으로 변형한다.
+
+예를 들어, 원 위의 모든 벡터를 행렬 $A$에 통과시키면 일반적으로 타원으로 변환된다.
+
+![fig1](Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
 예를 들어, 행렬 $A \in \mathbb{R}^{m \times n}$를 $n$차원 벡터를 $m$차원 벡터로 보내는 선형 변환으로 볼 수 있다.
 
 $$
 AX=Y
 \tag{2}
-$$
-
-### Rank와 변환의 관계
-
-행렬 $A$의 rank는 선형 변환 후 만들어질 수 있는 출력 공간의 차원을 의미한다.
-<br>
-즉, rank는 $A$의 열공간의 차원이다.
-
-$$
-\text{rank}(A)=\dim(\text{Col}(A))
-\tag{3}
-$$
-
-예를 들어 $A$가 2차원 벡터를 2차원 벡터로 변환하는 행렬이라고 하자.
-
-- **$\text{rank}(A)=2$:** 출력이 2차원 평면 전체를 채울 수 있다. (차원 유지)
-- **$\text{rank}(A)=1$:** 출력이 1차원 직선 위에만 존재한다. (차원 압축)
-- **$\text{rank}(A)=0$:** 모든 입력 벡터가 원점으로 이동한다. (붕괴)
-
-위 케이스를 다시 정리하면 다음과 같이 정리할 수 있다.
-
-- **$A$가 Full-Rank:** 오직 영벡터만이 변환 후 영벡터가 된다.
-- **$A$가 Rank-Deficient:** 영벡터가 아닌 일부 벡터들이 변환후 영벡터가 된다.
-
-즉, rank가 작아질수록 선형 변환은 공간을 더 낮은 차원의 공간으로 압축하거나 붕괴시킨다.
-
-또한 선형 변환은 항상 원점을 원점으로 보내기 때문에, $A$의 열공간은 항상 영벡터를 포함한다.
-
-$$
-A\mathbf{0}=\mathbf{0}
-\tag{3}
 $$
 
 ### 2차원 선형 변환 예시
@@ -202,6 +182,37 @@ $$
 
 ![fig3](Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
+
+## Rank와 변환의 관계
+
+행렬 $A$의 rank는 선형 변환 후 만들어질 수 있는 출력 공간의 차원을 의미한다.
+<br>
+즉, rank는 $A$의 열공간의 차원이다.
+
+$$
+\text{rank}(A)=\dim(\text{Col}(A))
+\tag{3}
+$$
+
+예를 들어 $A$가 2차원 벡터를 2차원 벡터로 변환하는 행렬이라고 하자.
+
+- **$\text{rank}(A)=2$:** 출력이 2차원 평면 전체를 채울 수 있다. (차원 유지)
+- **$\text{rank}(A)=1$:** 출력이 1차원 직선 위에만 존재한다. (차원 압축)
+- **$\text{rank}(A)=0$:** 모든 입력 벡터가 원점으로 이동한다. (붕괴)
+
+위 케이스를 다시 정리하면 다음과 같이 정리할 수 있다.
+
+- **$A$가 Full-Rank:** 오직 영벡터만이 변환 후 영벡터가 된다.
+- **$A$가 Rank-Deficient:** 영벡터가 아닌 일부 벡터들이 변환후 영벡터가 된다.
+
+즉, rank가 작아질수록 선형 변환은 공간을 더 낮은 차원의 공간으로 압축하거나 붕괴시킨다.
+
+또한 선형 변환은 항상 원점을 원점으로 보내기 때문에, $A$의 열공간은 항상 영벡터를 포함한다.
+
+$$
+A\mathbf{0}=\mathbf{0}
+\tag{3}
+$$
 
 ### 비정사각행렬 (Non-square Matrix)
 
