@@ -1,6 +1,6 @@
 ---
 title: "[선형대수] Rank-k 근사"
-date: 2025-08-08 00:00:00 +/-TTTT
+date: 2025-08-07 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]
 math: true
@@ -8,12 +8,11 @@ toc: true
 author: sunho
 ---
 
-Rank-k 근사 (Rank-k Approximation)
-
 SVD를 통해 행렬 $A$를 $U\Sigma V^\top$으로 분해할 수 있고, 이는 아래와 같이 표현할 수 있다.
 
 $$
 A=U\Sigma V^\top=\sum_{i=1}^r\sigma_i\mathbf{u}_i\mathbf{v}_i^\top=\sum_{i=1}^r\sigma_iA_i
+\tag{1}
 $$
 
 - $r$은 $0$이 아닌 특이값의 개수로, $r=\text{rank}(A)$이다.
@@ -54,7 +53,7 @@ $$
 </details>
 <br>
 
-특이값은 크기 순으로 정렬되어 있으며, 이 중 상위 $k$개의 항만 취했을 때를 $\text{rank}-k$ 근사라고 한다.
+특이값은 크기 순으로 정렬되어 있으며, 이 중 상위 $k$개의 항만 취했을 때를 **Rank-k 근사 (Rank-k Approximation)**라고 한다.
 
 $$
 \hat{A}(k)=\sum_{i=1}^k\sigma_i\mathbf{u}_i\mathbf{v}_i^\top=\sum_{i=1}^k\sigma_iA_i
