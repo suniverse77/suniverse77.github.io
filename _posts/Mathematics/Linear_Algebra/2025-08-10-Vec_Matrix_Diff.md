@@ -10,31 +10,34 @@ author: sunho
 
 ## 미분 (Differentiation)
 
-미분의 정의는 아래와 같다.
+미분의 정의는 다음과 같다.
 
 $$
 f'(x)=\lim_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x}
+\tag{1}
 $$
 
-이는 입력을 살짝 흔들었을 때 $\left(\Delta x\to0\right)$ 출력이 얼마나 변하는지 $\left(\Delta y\right)$의 관계로 볼 수 있다.
+이는 입력을 살짝 흔들었을 때, 출력이 얼마나 변하는지의 관계로 볼 수 있다.
 
 $$
 \Delta y=f(x+\Delta x)-f(x)=\alpha\Delta x
+\tag{2}
 $$
 
 이때 $\alpha$가 미분계수 $f'(x)$가 된다.
 
 ### 도함수 (Derivative)
 
-스칼라 함수 $f:\mathbb{R}\to\mathbb{R}$의 한 점에서 순간 변화율을 나타낸다.
+**도함수**는 **스칼라 함수** $f:\mathbb{R}\to\mathbb{R}$의 한 점에서 순간 변화율을 나타낸다.
 
 $$
 f'(x)=\frac{df}{dx}
+\tag{3}
 $$
 
-### 그라디언트 (Gradient)
+### 그래디언트 (Gradient)
 
-다변수 스칼라 함수 $f:\mathbb{R}^n\to\mathbb{R}$의 각 입력 변수에 대한 편미분을 모은 벡터를 의미한다.
+**그래디언트**는 **다변수 스칼라 함수** $f:\mathbb{R}^n\to\mathbb{R}$의 각 입력 변수에 대한 편미분을 모은 벡터를 의미한다.
 
 $$
 \nabla_\mathbf x f(\mathbf x)=
@@ -43,19 +46,21 @@ $$
 \frac{\partial f(\mathbf x)}{\partial x_1}\\\vdots\\\frac{\partial f(\mathbf x)}{\partial x_n}
 \end{bmatrix}
 \in\mathbb{R}^n
+\tag{4}
 $$
 
-그라디언트의 방향은 함수가 가장 가파르게 증가하는 곳을 나타낸다.
+그래디언트의 방향은 함수가 가장 가파르게 증가하는 곳을 나타낸다.
 
-다변수 스칼라 함수는 벡터를 입력 받아 스칼라를 출력하는 함수이다.
+**다변수 스칼라 함수**는 <span style="background-color:#fff5b1">벡터를 입력 받아 스칼라를 출력하는 함수</span>이다.
 
 $$
 f(\mathbf x)=f(x_1,\dots,x_n)
+\tag{5}
 $$
 
 ### 자코비안 (Jacobian)
 
-벡터 함수 $\mathbf f:\mathbb{R}^n\to\mathbb{R}^m$에 대해, 각 출력 성분 $f_i$를 각 입력 변수 $x_j$에 대해 편미분한 값들을 모은 행렬을 의미한다.
+**자코비안**은 **벡터 함수** $\mathbf f:\mathbb{R}^n\to\mathbb{R}^m$에 대해, 각 출력 성분 $f_i$를 각 입력 변수 $x_j$에 대해 편미분한 값들을 모은 행렬을 의미한다.
 
 $$
 J=\nabla_\mathbf x \mathbf f(\mathbf x)=
@@ -69,251 +74,185 @@ J=\nabla_\mathbf x \mathbf f(\mathbf x)=
 \frac{\partial f_m(\mathbf x)}{\partial x_1}&\cdots&\frac{\partial f_m(\mathbf x)}{\partial x_n}
 \end{bmatrix}
 \in\mathbb{R}^{m\times n}
+\tag{6}
 $$
 
-벡터 함수는 벡터를 입력 받아 벡터를 출력하는 함수이다.
+**벡터 함수**는 <span style="background-color:#fff5b1">벡터를 입력 받아 벡터를 출력하는 함수</span>이다.
 
-$$\mathbf f(\mathbf x)=
+$$
+\mathbf f(\mathbf x)=
 \begin{bmatrix}
 f_1(\mathbf x)\\\vdots\\f_m(\mathbf x)
-\end{bmatrix}$$
+\end{bmatrix}
+\tag{7}
+$$
 
-## 미분 계산법
+## 그래디언트 계산법
 
 들어가기에 앞서, 계산 과정에서 $\nabla\mathbf{x}^\top\nabla\mathbf{x}$와 같은 2차항은 무시 가능하다는 것을 참고 바란다.
 
-### 그라디언트
+딥러닝에서는 입력이 행렬이고 출력이 스칼라인 함수에서의 미분도 그래디언트라고 부른다.
 
-인공지능에서는 입력이 행렬이고 출력이 스칼라인 함수에서의 미분도 그라디언트라고 부른다.
+### 벡터 미분
 
-
-#### 벡터 미분
-
-입력이 벡터이고 출력이 스칼라인 함수 $f:\mathbb{R}^{n}\to\mathbb{R}$에 대해, 그라디언트는 아래와 같은 선형 근사 식이 성립하도록 정의된다.
+입력이 벡터이고 출력이 스칼라인 함수 $f:\mathbb{R}^{n}\to\mathbb{R}$에 대해, 그래디언트는 아래와 같은 선형 근사 식이 성립하도록 정의된다.
 
 $$
 f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)\approx
 \left(\nabla f(\mathbf{x})\right)^\top\Delta\mathbf x
+\tag{8}
 $$
 
 <details>
-<summary><font color='red'>Example 1</font></summary>
+<summary><font color='red'><strong>Example:</strong> 벡터 미분 1</font></summary>
 <div markdown="1">
 
-$$
-\frac{\partial \mathbf x^\top A\mathbf x}{\partial\mathbf x}
-$$
-
----
-
-**1. 함수 정의**
-
-$$
-f(\mathbf{x})=\mathbf x^\top A\mathbf x
-$$
-
-**2. 선형 근사 식**
-
-$$
-f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)
-=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}
-$$
-
-**3. 그라디언트**
-
-$$
-\nabla f(\mathbf{x})=(A+A^\top)\mathbf x
-$$
+> $$\frac{\partial \mathbf x^\top A\mathbf x}{\partial\mathbf x}$$
+>
+> 1. 함수 정의
+>
+>   $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
+>
+> 2. 선형 근사 식
+>
+>   $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
+>
+> 따라서 그래디언트는 다음과 같다.
+>
+> $$\nabla f(\mathbf{x})=(A+A^\top)\mathbf x$$
 
 </div>
 </details>
 
 <details>
-<summary><font color='red'>Example 2</font></summary>
+<summary><font color='red'><strong>Example:</strong> 벡터 미분 2</font></summary>
 <div markdown="1">
 
-$$
-\frac{\partial\left<\mathbf x\cdot\mathbf x\right>}{\partial\mathbf x}
-$$
-
----
-
-**1. 함수 정의**
-
-$$
-f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}
-$$
-
-**2. 선형 근사 식**
-
-$$
-f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)
-=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}
-$$
-
-**3. 그라디언트**
-
-$$
-\nabla f(\mathbf{x})=2\mathbf{x}
-$$
+> $$\frac{\partial\left<\mathbf x\cdot\mathbf x\right>}{\partial\mathbf x}$$
+>
+> 1. 함수 정의
+>
+>   $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
+>
+> 2. 선형 근사 식
+>
+>   $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
+>
+> 따라서 그래디언트는 다음과 같다.
+>
+> $$\nabla f(\mathbf{x})=2\mathbf{x}$$
 
 </div>
 </details>
 
-#### 행렬 미분
+### 행렬 미분
 
-입력이 행렬이고 출력이 스칼라인 함수 $f:\mathbb{R}^{m\times n}\to\mathbb{R}$에 대해, 그라디언트는 아래와 같은 선형 근사 식이 성립하도록 정의된다.
+입력이 행렬이고 출력이 스칼라인 함수 $f:\mathbb{R}^{m\times n}\to\mathbb{R}$에 대해, 그래디언트는 아래와 같은 선형 근사 식이 성립하도록 정의된다.
 
 $$
 f(X+\Delta X)-f(X)\approx
 \text{tr}\left(\left(\nabla_X f(X)\right)^\top\Delta X\right)
+\tag{9}
 $$
 
 <details>
-<summary><font color='red'>Example 3</font></summary>
+<summary><font color='red'><strong>Example:</strong> 행렬 미분 1</font></summary>
 <div markdown="1">
 
-$$
-\frac{\partial \mathbf{a}^\top X\mathbf{b}}{\partial X}=\mathbf b\mathbf a^\top
-$$
-
----
-
-**1. 함수 정의**
-
-$$
-f(X)=\mathbf{a}^\top X\mathbf{b}
-$$
-
-**2. 선형 근사 식**
-
-$$
-f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}
-$$
-
-**3. Trace로 표현**
-
-$$
-\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)
-$$
-
-**4. 그라디언트**
-
-$$
-\nabla_X f(X)=\mathbf{b}\mathbf{a}^\top
-$$
+> $$\frac{\partial \mathbf{a}^\top X\mathbf{b}}{\partial X}$$
+>
+> 1. 함수 정의
+>
+>   $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
+>
+> 2. 선형 근사 식
+>
+>   $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
+>
+> 3. Trace로 표현
+>
+>   $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
+>
+> 따라서 그래디언트는 다음과 같다.
+>
+> $$\nabla_X f(X)=\mathbf{b}\mathbf{a}^\top$$
 
 </div>
 </details>
 
 <details>
-<summary><font color='red'>Example 4</font></summary>
+<summary><font color='red'><strong>Example:</strong> 행렬 미분 2</font></summary>
 <div markdown="1">
 
-$$
-\frac{\partial \log \lvert X^{-1}\rvert}{\partial X}=X^{-1}
-$$
-
----
-
-**1. 함수 정의**
-
-$$
-f(X)=\log \lvert X^{-1}\rvert
-$$
-
-**2. $Y=X^{-1}$라고 가정한 후, $\Delta Y$ 구하기**
-
-$$
-XY=I\to(X+\Delta X)(Y+\Delta Y)=I
-$$
-
-$$
-(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow
-I+X\Delta Y+\Delta XY=I
-$$
-
-$$
-X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}
-$$
-
-**3. 선형 근사 식**
-
-$$
-f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert
-=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert
-$$
-
-$$
-\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert
-=\log\lvert I+Y^{-1}\Delta Y\rvert
-$$
-
-**4. Trace로 표현**
-
-[Trace 성질](https://suniverse77.github.io/posts/Trace/#trace의-성질)의 8번 식과 1차 근사 $\log(1+x)\approx x$ 사용
-
-$$
-\log\lvert I+Y^{-1}\Delta Y\rvert
-=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)
-\approx \text{tr}(Y^{-1}\Delta Y)
-$$
-
-**5. 다시 $X$에 대한 식으로 표현**
-
-$$
-\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)
-$$
-
-**6. 그라디언트**
-
-$$
-\nabla_X f(X)=-X^{-\top}
-$$
+> $$\frac{\partial \log \lvert X^{-1}\rvert}{\partial X}=X^{-1}$$
+>
+> 1. 함수 정의
+>
+>   $$f(X)=\log \lvert X^{-1}\rvert$$
+>
+> 2. $Y=X^{-1}$라고 가정한 후, $\Delta Y$ 구하기
+> 
+>   $$XY=I\to(X+\Delta X)(Y+\Delta Y)=I$$
+>
+>   $$(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow I+X\Delta Y+\Delta XY=I$$
+>
+>   $$X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}$$
+>
+> 3. 선형 근사 식
+>
+>   $$f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert$$
+>
+>   $$\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert=\log\lvert I+Y^{-1}\Delta Y\rvert$$
+>
+> 4. Trace로 표현
+> 
+>       [Trace 성질](https://suniverse77.github.io/posts/Trace/#trace의-성질)의 8번 식과 1차 근사 $\log(1+x)\approx x$ 사용
+>
+> $$\log\lvert I+Y^{-1}\Delta Y\rvert=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)\approx \text{tr}(Y^{-1}\Delta Y)$$
+>
+> 5. 다시 $X$에 대한 식으로 표현
+>
+>   $$\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)$$
+>
+> 따라서 그래디언트는 다음과 같다.
+> 
+> $$\nabla_X f(X)=-X^{-\top}$$
 
 </div>
 </details>
 
-### 자코비안
+## 자코비안 계산법
 
 입력이 벡터이고 출력도 벡터인 함수 $\mathbf{f}:\mathbb{R}^{n}\to\mathbb{R}^m$에 대해, 자코비안 아래와 같은 선형 근사 식이 성립하도록 정의된다.
 
 $$
 \mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})\approx
 J_{\mathbf{f}}(\mathbf{x})\Delta\mathbf{x}
+\tag{10}
 $$
 
 <details>
-<summary><font color='red'>Example 5</font></summary>
+<summary><font color='red'><strong>Example:</strong> 자코비안 계산</font></summary>
 <div markdown="1">
 
-$$
-\frac{\partial A\mathbf x}{\partial\mathbf x}
-$$
-
----
-
-**1. 함수 정의**
-
-$$
-\mathbf{f}(\mathbf{x})=A\mathbf{x}
-$$
-
-**2. 선형 근사 식**
-
-$$
-\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}
-$$
-
-**3. 그라디언트**
-
-$$
-J_{\mathbf{f}}(\mathbf{x})=A
-$$
+> $$\frac{\partial A\mathbf x}{\partial\mathbf x}$$
+>
+> 1. 함수 정의
+>
+>   $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
+>
+> 2. 선형 근사 식
+>
+>   $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
+>
+> 따라서 자코비안은 다음과 같다.
+>
+> $$J_{\mathbf{f}}(\mathbf{x})=A$$
 
 </div>
 </details>
 
+---
 
 가우시안 분포에 대한 log-likelihood 수식은 아래와 같이 정리될 수 있다.
 
