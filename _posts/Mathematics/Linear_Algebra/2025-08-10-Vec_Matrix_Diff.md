@@ -111,11 +111,11 @@ $$
 >
 > 1. 함수 정의
 >
->   $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
+>       $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
 >
 > 2. 선형 근사 식
 >
->   $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
+>       $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
 >
 > 따라서 그래디언트는 다음과 같다.
 >
@@ -132,11 +132,11 @@ $$
 >
 > 1. 함수 정의
 >
->   $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
+>       $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
 >
 > 2. 선형 근사 식
 >
->   $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
+>       $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
 >
 > 따라서 그래디언트는 다음과 같다.
 >
@@ -163,15 +163,15 @@ $$
 >
 > 1. 함수 정의
 >
->   $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
+>       $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
 >
 > 2. 선형 근사 식
 >
->   $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
+>       $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
 >
 > 3. Trace로 표현
 >
->   $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
+>       $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
 >
 > 따라서 그래디언트는 다음과 같다.
 >
@@ -188,31 +188,31 @@ $$
 >
 > 1. 함수 정의
 >
->   $$f(X)=\log \lvert X^{-1}\rvert$$
+>       $$f(X)=\log \lvert X^{-1}\rvert$$
 >
 > 2. $Y=X^{-1}$라고 가정한 후, $\Delta Y$ 구하기
 > 
->   $$XY=I\to(X+\Delta X)(Y+\Delta Y)=I$$
+>       $$XY=I\to(X+\Delta X)(Y+\Delta Y)=I$$
 >
->   $$(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow I+X\Delta Y+\Delta XY=I$$
+>       $$(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow I+X\Delta Y+\Delta XY=I$$
 >
->   $$X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}$$
+>       $$X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}$$
 >
 > 3. 선형 근사 식
 >
->   $$f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert$$
+>       $$f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert$$
 >
->   $$\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert=\log\lvert I+Y^{-1}\Delta Y\rvert$$
+>       $$\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert=\log\lvert I+Y^{-1}\Delta Y\rvert$$
 >
 > 4. Trace로 표현
 > 
 >       [Trace 성질](https://suniverse77.github.io/posts/Trace/#trace의-성질)의 8번 식과 1차 근사 $\log(1+x)\approx x$ 사용
 >
-> $$\log\lvert I+Y^{-1}\Delta Y\rvert=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)\approx \text{tr}(Y^{-1}\Delta Y)$$
+>       $$\log\lvert I+Y^{-1}\Delta Y\rvert=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)\approx \text{tr}(Y^{-1}\Delta Y)$$
 >
 > 5. 다시 $X$에 대한 식으로 표현
 >
->   $$\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)$$
+>       $$\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)$$
 >
 > 따라서 그래디언트는 다음과 같다.
 > 
@@ -239,11 +239,11 @@ $$
 >
 > 1. 함수 정의
 >
->   $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
+>       $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
 >
 > 2. 선형 근사 식
 >
->   $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
+>       $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
 >
 > 따라서 자코비안은 다음과 같다.
 >
@@ -251,64 +251,3 @@ $$
 
 </div>
 </details>
-
----
-
-가우시안 분포에 대한 log-likelihood 수식은 아래와 같이 정리될 수 있다.
-
-$$
-\log p(\mathbf{x};\boldsymbol\mu,\boldsymbol\Sigma)=-\frac{D}{2}\log(2\pi)-\frac{1}{2}\log|\boldsymbol\Sigma|-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)
-$$
-
-Maximum likelihood 방식의 목적 함수는 아래와 같다.
-
-$$
-p^*=\underset{\boldsymbol\mu,\boldsymbol\Sigma}{\text{argmax}}~\prod_{i=1}^N p(\mathbf{x}_i;\boldsymbol\mu,\boldsymbol\Sigma)
-$$
-
-Maximum Log-likelihood 방식의 목적 함수는 아래와 같다.
-
-$$
-p^*=\underset{\boldsymbol\mu,\boldsymbol\Sigma}{\text{argmax}}~\sum_{i=1}^N\log p(\mathbf{x}_i;\boldsymbol\mu,\boldsymbol\Sigma)
-$$
-
-### 2. 목적 함수 최적화 (하나의 샘플에 대해)
-
-#### (1) $\boldsymbol\mu$에 대한 미분
-
-$\displaystyle
-~~~~~\nabla_{\boldsymbol\mu}\log p
-=\nabla_{\boldsymbol\mu}\bigg(-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\bigg)
-=(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}$
-
-#### (2) $\boldsymbol\Sigma$에 대한 미분
-
-$\displaystyle
-~~~~~\nabla_{\boldsymbol\Sigma}\log p
-=\nabla_{\boldsymbol\Sigma}\bigg(-\frac{1}{2}\log|\boldsymbol\Sigma|-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\bigg)
-$
-
-$\displaystyle
-~~~~~~~~~~~~~~~~~~~
-=-\frac{1}{2}(\boldsymbol\Sigma^{-1}-\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1})
-$
-
-- $\displaystyle\nabla_{\boldsymbol\Sigma}\big(-\frac{1}{2}\log\lvert\boldsymbol\Sigma\rvert\big)=-\frac{1}{2}\boldsymbol\Sigma^{-1}$
-- $\displaystyle\nabla_{\boldsymbol\Sigma}\big(-\frac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\big)=\frac{1}{2}\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}$
-
-### 3. 전체 샘플에 대한 일반화
-
-#### (1) $\boldsymbol\mu$ 값 측정
-
-$\displaystyle
-~~~~~\sum_{i=1}^N(\mathbf{x}\_i-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}=\mathbf{0}
-\rightarrow\boldsymbol\mu=\frac{1}{N}\sum_{i=1}^N\mathbf{x}_i
-$
-
-#### (2) $\boldsymbol\Sigma$ 값 측정
-
-$\displaystyle
-~~~~~\sum_{i=1}^N-\frac{1}{2}(\boldsymbol\Sigma^{-1}-\boldsymbol\Sigma^{-1}(\mathbf{x}\_i-\boldsymbol\mu)(\mathbf{x}\_i-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1})=\mathbf{0}
-\rightarrow\boldsymbol\Sigma=\frac{1}{N}\sum_{i=1}^N(\mathbf{x}_i-\boldsymbol\mu)(\mathbf{x}_i-\boldsymbol\mu)^\top
-$
-
