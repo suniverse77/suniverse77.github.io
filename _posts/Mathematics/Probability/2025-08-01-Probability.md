@@ -1,7 +1,7 @@
 ---
 title: "[확률] 확률 공간과 확률의 기본 규칙"
 date: 2025-08-01 00:00:00 +/-TTTT
-categories: [Mathmatics, 확률]
+categories: [Mathematics, 확률]
 tags: [확률]
 math: true
 toc: true
@@ -12,7 +12,7 @@ author: sunho
 
 ### 표본 공간 (Sample space)
 
-확률 실험에서 나올 수 있는 모든 가능한 결과들의 집합을 의미한다.
+**표본 공간**은 확률 실험에서 나올 수 있는 모든 가능한 결과들의 집합을 의미한다.
     
 예를 들어, 주사위 던지기의 표본 공간은 나올 수 있는 모든 눈이 된다.
 
@@ -20,18 +20,18 @@ $$\Omega=\lbrace1,2,3,4,5,6\rbrace$$
 
 ### 사건 (Event)
 
-사건은 표본 공간의 부분집합으로, 실험 결과가 만족해야할 조건을 의미한다.
+**사건**은 표본 공간의 부분집합으로, 실험 결과가 만족해야할 조건을 의미한다.
 
 예를 들어, 주사위 던지기에서 짝수가 나올 사건 $A$는 아래와 같이 표현된다.
     
 $$A=\lbrace2,4,6\rbrace\subset\Omega$$
 
-![fig1](Math/Probability/Prob-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](Mathematics/Probability/Prob-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://m.blog.naver.com/mykepzzang/221855523956)_
 
 ### 확률 함수
 
-확률 함수 $P(\cdot)$는 해당 사건에 대해 그 확률을 할당하는 함수이다.
+**확률 함수** $P(\cdot)$는 해당 사건에 대해 그 확률을 할당하는 함수이다.
 
 예를 들어, 주사위 던지기에서 짝수가 나올 사건을 $A$라고 할 때, $A$에 대한 확률은 아래와 같이 표현된다.
 
@@ -61,5 +61,5 @@ $$
 
 이때 $P(A,B_i)$는 서로 배반인 사건이다.
 
-![fig2](Math/Probability/Prob-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](Mathematics/Probability/Prob-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.handsonsystem.com/blog.php?slug=probability-theory)_
