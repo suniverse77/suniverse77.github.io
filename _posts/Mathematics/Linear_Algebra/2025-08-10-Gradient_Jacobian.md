@@ -39,7 +39,7 @@ $$
 f(x+\Delta x)
 \approx
 f(x)+f'(x)\Delta x
-\tag{5}
+\tag{4}
 $$
 
 ## 미분계수와 도함수 (Derivative)
@@ -48,14 +48,14 @@ $$
 
 $$
 f'(x_0)=\left.\frac{df}{dx}\right|_{x=x_0}
-\tag{6}
+\tag{5}
 $$
 
 각 점 $x$에 미분계수 $f'(x)$를 대응시켜 만든 새로운 함수를 **도함수**라고 한다.
 
 $$
 f'(x)=\frac{df}{dx}
-\tag{7}
+\tag{6}
 $$
 
 따라서 미분계수는 특정 점에서의 하나의 값이고, 도함수는 그 값들을 입력 $x$에 따라 나타낸 함수이다.
@@ -71,15 +71,14 @@ $$
 \frac{\partial f(\mathbf x)}{\partial x_1}\\\vdots\\\frac{\partial f(\mathbf x)}{\partial x_n}
 \end{bmatrix}
 \in\mathbb{R}^{n\times1}
-\tag{4}
+\tag{7}
 $$
 
 여기서 다변수 스칼라 함수는 벡터를 입력으로 받아 하나의 스칼라를 출력하는 함수이다.
 
 $$
-y=f(\mathbf x)=f(x_1,\ldots,x_n)
-\quad,\text{where }\mathbf{x}\in\mathbb{R}^{n\times1}
-\tag{9}
+y=f(\mathbf x)=f(x_1,\ldots,x_n)\in\mathbb{R}
+\tag{8}
 $$
 
 입력에 작은 변화 $\Delta\mathbf x$를 주면 출력 변화량은 다음과 같이 근사된다.
@@ -88,7 +87,7 @@ $$
 f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)
 \approx
 \nabla_{\mathbf x}f(\mathbf x)^{\mathsf T}\Delta\mathbf x
-\tag{10}
+\tag{9}
 $$
 
 그래디언트 $\nabla_{\mathbf x}f(\mathbf x)$의 방향은 해당 점에서 함수값이 가장 빠르게 증가하는 방향이며, 그 크기는 그 방향에서의 최대 순간 변화율을 나타낸다.
@@ -109,7 +108,7 @@ J_\mathbf f(\mathbf{x})=
 \frac{\partial f_m(\mathbf x)}{\partial x_1}&\cdots&\frac{\partial f_m(\mathbf x)}{\partial x_n}
 \end{bmatrix}
 \in\mathbb{R}^{m\times n}
-\tag{11}
+\tag{10}
 $$
 
 여기서 벡터 함수는 벡터를 입력 받아 벡터를 출력하는 함수이다.
@@ -123,27 +122,28 @@ f_1(\mathbf x)\\\vdots\\ f_m(\mathbf x)
 \begin{bmatrix}
 f_1(x_1,\ldots,x_n)\\\vdots\\ f_m(x_1,\ldots,x_n)
 \end{bmatrix}
-\tag{12}
+\in\mathbb{R}^m
+\tag{11}
 $$
 
 입력 벡터에 작은 변화 $\Delta\mathbf x$가 주어지면 출력 벡터의 변화는 다음과 같이 근사된다.
 
 $$
-\mathbf f(\mathbf x+\Delta\mathbf x)-\mathbf f(\mathbf x)
-\approx
+\mathbf f(\mathbf x+\Delta\mathbf x)\approx
+\mathbf f(\mathbf x)+
 J_{\mathbf f}(\mathbf x)\Delta\mathbf x
-\tag{13}
+\tag{12}
 $$
 
 즉, 자코비안은 벡터 함수가 점 $\mathbf x$ 근처에서 입력의 작은 변화를 출력의 작은 변화로 어떻게 변환하는지를 나타내는 선형 변환이다.
 
 <span style="background-color:#fff5b1">그래디언트는 자코비안의 특별한 경우이다.</span>
 <br>
-출력 차원이 $m=1$인 스칼라 함수에서는 자코비안이 $1\times n$ 행벡터가 되며, 이를 열벡터로 나타낸 것이 일반적으로 사용하는 그래디언트이다.
+출력 차원이 $m=1$인 스칼라 함수에서는 자코비안이 $1\times n$ 행벡터가 되며, 이는 사실상 그래디언트의 전치와 같다.
 
 $$
-\nabla_{\mathbf x}f(\mathbf x)^{\mathsf T}
-\tag{14}
+J_\mathbf f(\mathbf{x})=\nabla_{\mathbf x}f(\mathbf x)^{\mathsf T}
+\tag{13}
 $$
 
 ## 그래디언트 계산법

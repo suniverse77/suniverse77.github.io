@@ -1,7 +1,7 @@
 ---
 title: "[논리학] 논리 프로그래밍 (Logic Programming, LP)"
 date: 2026-03-16 00:00:00 +/-TTTT
-categories: [Mathmatics, Study]
+categories: [Mathematics, Study]
 tags: [논리학]
 math: true
 toc: true

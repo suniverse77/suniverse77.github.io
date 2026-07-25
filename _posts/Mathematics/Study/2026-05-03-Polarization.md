@@ -1,7 +1,7 @@
 ---
 title: "[전자기학] 편광 (Polarization)"
 date: 2026-05-03 00:00:00 +/-TTTT
-categories: [Mathmatics, Study]
+categories: [Mathematics, Study]
 tags: [논리학]
 math: true
 toc: true

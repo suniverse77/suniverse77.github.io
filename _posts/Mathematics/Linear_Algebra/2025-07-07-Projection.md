@@ -1,5 +1,5 @@
 ---
-title: "[선형대수] 정사영 (Orthogonal Projection)"
+title: "[선형대수] 사영 (Projection)"
 date: 2025-07-07 00:00:00 +/-TTTT
 categories: [Mathematics, 선형대수]
 tags: [선형대수]

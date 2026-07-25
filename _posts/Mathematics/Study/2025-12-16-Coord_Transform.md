@@ -1,7 +1,7 @@
 ---
 title: "[3차원 기하학] 2D ↔ 3D 좌표계 변환"
 date: 2025-12-16 06:00:00 +/-TTTT
-categories: [Mathmatics, Study]
+categories: [Mathematics, Study]
 tags: [3차원 기하학]
 math: true
 toc: true
