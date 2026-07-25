@@ -1,7 +1,7 @@
 ---
 title: "[칼만 필터] Kalman Filter 3 - 확률 분포 관점"
 date: 2026-04-04 12:00:00 +/-TTTT
-categories: [Mathematics, Study]
+categories: [Mathematics, 신호 및 시스템]
 tags: [칼만 필터]
 math: true
 toc: true
