@@ -91,7 +91,7 @@ theme_mode: # [light | dark]
 # will be added to all media resources (site avatar, posts' images, audio and video files) paths starting with '/'
 #
 # e.g. 'https://cdn.com'
-cdn: '/assets/images/'
+cdn: 'https://res.cloudinary.com/suno/image/fetch/f_auto,q_auto/https://suniverse77.github.io/assets/images/'
 
 # the avatar on sidebar, support local or CORS resources
 avatar: 'profile/avatar.jpg' # string, local or CORS resources
