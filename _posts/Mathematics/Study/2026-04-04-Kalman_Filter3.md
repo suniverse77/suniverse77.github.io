@@ -16,7 +16,7 @@ author: sunho
 <br>
 그리고 자동차에 GPS와 속도계가 모두 장착되어 있어, 센서를 통해 위치 정보와 속도 정보를 함께 측정할 수 있다고 해보자.
 
-![fig1](Math/Signal_System/Kalman_Filter3-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Math/Signal_System/Kalman_Filter3-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
 이 시스템에서 우리가 추정해야 할 상태 벡터 $\mathbf{x}_t$와 시스템에 가해지는 제어 입력 $u_t$는 다음과 같이 정의된다.
 
@@ -58,7 +58,7 @@ $$
 
 전체적인 시스템의 데이터 흐름을 블록도로 나타내면 아래와 같다.
 
-![fig2](Math/Signal_System/Kalman_Filter3-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](/assets/images/Math/Signal_System/Kalman_Filter3-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ### 예측 단계
 
@@ -66,7 +66,7 @@ $$
 <br>
 따라서 모델을 통해 예측한 자동차의 상태는 하나의 점이 될 수 없으며, 아래의 오른쪽 그림과 같이 오차 범위를 가지는 확률 분포 형태로 나타나게 된다.
 
-![fig3](Math/Signal_System/Kalman_Filter3-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](/assets/images/Math/Signal_System/Kalman_Filter3-3.png){: style="display:block; margin:0 auto; width:70%;"}
 
 위 그림을 보면 과거의 예측 상태 $\hat{\mathbf{x}}\_{t-1}^-$보다 현재 예측한 상태 $\hat{\mathbf{x}}\_{t}^-$의 불확실성이 더 커진 것을 확인할 수 있는데, 이는 매순간 모델이 알지 못하는 현실의 노이즈가 계속해서 누적되기 때문이다.
 
@@ -96,15 +96,15 @@ $$
 \tag{7}
 $$
 
-![fig4](Math/Signal_System/Kalman_Filter3-4.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig4](/assets/images/Math/Signal_System/Kalman_Filter3-4.png){: style="display:block; margin:0 auto; width:70%;"}
 
 실제 센서 측정값 역시 센서 자체의 물리적 노이즈를 포함하고 있기 때문에, 아래의 그림과 같이 확률 분포의 형태로 나타나게 된다.
 
-![fig5](Math/Signal_System/Kalman_Filter3-5.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig5](/assets/images/Math/Signal_System/Kalman_Filter3-5.png){: style="display:block; margin:0 auto; width:30%;"}
 
 이제 우리는 모델이 예측한 분포 (보라색)와 센서가 측정한 분포 (초록색)를 통해서, 가장 최적의 상태값을 찾아야 한다.
 
-![fig6](Math/Signal_System/Kalman_Filter3-6.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig6](/assets/images/Math/Signal_System/Kalman_Filter3-6.png){: style="display:block; margin:0 auto; width:40%;"}
 
 확률 분포의 관점에서 볼 때, 예측값 $\hat{\mathbf{z}}_t$와 측정값 $\mathbf{z}_t$ 사이의 오차를 최소화하는 과정은, 두 분포가 겹쳐서 만들어지는 새로운 확률 분포에서 확률이 가장 높은 꼭대기 지점을 찾는 것과 같다.
 

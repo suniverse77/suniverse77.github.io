@@ -29,7 +29,7 @@ DP는 **단일 프로세스 (Single-process)**, **멀티 스레드 (Multi-thread
 5. 각 GPU는 전달받은 Loss를 바탕으로 역전파를 수행하여, 각자의 그래디언트를 계산한다.
 6. 각 GPU에서 계산된 그래디언트를 **Reduce** 통신을 통해 Master GPU로 모아서 최종 합산하고, Master GPU는 자신이 들고 있는 원본 모델의 가중치를 업데이트한다.
 
-![fig1](Programming/PyTorch/DP_DDP_FSDP-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/Programming/PyTorch/DP_DDP_FSDP-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 구현이 단순하다는 장점이 있지만, 매 스텝마다 각 GPU의 순전파 결과값과 그래디언트를 Master GPU 한 곳으로 모아서 Loss 계산 및 가중치 업데이트를 진행한다는 구조적 한계가 있다. 
 <br>
@@ -51,7 +51,7 @@ DP에서 업데이트는 GPU 0에서만 일어나기 때문에, 옵티마이저 
 - **GPU 0:** 28GB
 - **GPU 1,2,3:** 21GB (옵티마이저 상태 메모리 x)
 
-![fig2](Programming/PyTorch/DP_DDP_FSDP-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/Programming/PyTorch/DP_DDP_FSDP-2.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ## DDP (Distributed Data Parallel)
 
@@ -73,7 +73,7 @@ DDP는 **멀티 프로세스 (Multi-process)** 방식으로 동작한다.
     <br>
     이후 각 GPU는 이 동일한 그래디언트를 이용해 각자의 가중치를 독립적으로 업데이트하므로, 다음 스텝에서도 모든 모델의 상태가 똑같이 유지된다.
 
-![fig3](Programming/PyTorch/DP_DDP_FSDP-3.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](/assets/images/Programming/PyTorch/DP_DDP_FSDP-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
 Master GPU로 데이터와 연산이 집중되지 않고, 각 GPU가 독립적으로 연산을 수행하기 때문에, 통신 병목과 GPU 불균형 현상이 해결되어 분산 학습 속도가 매우 빠르다는 장점이 있다.
 <br>
@@ -98,7 +98,7 @@ DDP의 목적은 메모리 절약이 아니라, 한 번에 처리하는 배치 �
 
 이 모델을 GPU 4장에 DDP로 학습해도, 각 GPU의 메모리 사용량은 동일하게 28GB이다.
 
-![fig4](Programming/PyTorch/DP_DDP_FSDP-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](/assets/images/Programming/PyTorch/DP_DDP_FSDP-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 > **Multi-processing이란?**
 > 
@@ -118,7 +118,7 @@ DDP의 목적은 메모리 절약이 아니라, 한 번에 처리하는 배치 �
     만약 하나의 프로세스에 스레드가 하나만 존재한다면, 크롬 브라우저를 실행했을 때 파일을 다운로드하면서 동시에 다른 탭에서 웹서핑을 하는 것이 불가능했을 것이다.
     <br>즉, 스레드 수가 많을 수록 (Multi-Thread) 동시에 할 수 있는 작업의 수가 증가하게 된다.
 >
-> ![fig5](Programming/PyTorch/DP_DDP_FSDP-5.png){: style="display:block; margin:0 auto; width:80%;"}
+> ![fig5](/assets/images/Programming/PyTorch/DP_DDP_FSDP-5.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://www.go-cloudsec.com/2024/07/14/350/)_
 > 
 > **Multi-processing**은 이름 그대로 스레드의 개수를 늘리는 게 아니라, 아예 프로세스를 여러 개 동시에 가동하는 방식이다.
@@ -154,11 +154,11 @@ _[[출처]](https://www.go-cloudsec.com/2024/07/14/350/)_
     <br>
     계산된 각 GPU의 그래디언트들은 **Reduce-Scatter** 통신을 통해 교환 및 합산되며, 최종적으로 합산된 그래디언트를 다시 쪼개어 각 GPU는 자신이 담당하는 파츠의 그래디언트만 챙기고 각자의 가중치를 독립적으로 업데이트한다.
 
-![fig6](Programming/PyTorch/DP_DDP_FSDP-6.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig6](/assets/images/Programming/PyTorch/DP_DDP_FSDP-6.png){: style="display:block; margin:0 auto; width:60%;"}
 
 예를 들어 GPU 3개일 때, FSDP에서 한 번의 forward 과정은 아래 그림과 같다.
 
-![fig7](Programming/PyTorch/DP_DDP_FSDP-7.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig7](/assets/images/Programming/PyTorch/DP_DDP_FSDP-7.png){: style="display:block; margin:0 auto; width:100%;"}
 
 만약 layer 끝까지 파라미터를 모으기만 하고 해제하지 않는다면, 마지막 layer 도달했을 때는 결국 전체 모델을 VRAM에 다 올려놓은 것과 같아진다.
 <br>
@@ -204,4 +204,4 @@ FSDP는 기본적으로 모델 파라미터 (P), 그래디언트 (G), 옵티마�
 
 따라서 GPU 수를 늘릴수록 sharding 대상의 비중은 줄어들지만 activation이 차지하는 비중은 그대로 유지되므로, 일정 규모 이상부터는 `fsdp_activation_checkpointing` 같은 옵션을 함께 사용해 activation 메모리까지 줄여야 효율적인 학습이 가능하다.
 
-![fig8](Programming/PyTorch/DP_DDP_FSDP-8.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig8](/assets/images/Programming/PyTorch/DP_DDP_FSDP-8.png){: style="display:block; margin:0 auto; width:80%;"}

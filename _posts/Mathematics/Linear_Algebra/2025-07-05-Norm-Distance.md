@@ -50,7 +50,7 @@ $$
 
 아래 그림은 $p$ 값에 따른 궤적의 변화를 나타낸다.
 
-![fig1](Mathematics/Linear_Algebra/Norm_Distance-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Norm_Distance-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ### Norm의 조건

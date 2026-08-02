@@ -16,7 +16,7 @@ author: sunho
 | `./data` | 상대 경로 | 현재 내가 위치한 디렉토리 안에 있는 `data` 디렉토리 | `{현재 디렉토리 경로}/data` |
 | `~/data` | 홈 디렉토리 기준 경로 | 현재 로그인한 사용자의 홈 디렉토리 안에 있는 `data` 디렉토리 | `/home/{사용자 이름}/data` |
 
-![fig1](Programming/Dev_Environment/Directory-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/Programming/Dev_Environment/Directory-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
 위는 일반적인 서버의 구조를 표현한 것이다.
 

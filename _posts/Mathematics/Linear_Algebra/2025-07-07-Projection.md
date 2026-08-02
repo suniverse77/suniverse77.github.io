@@ -25,7 +25,7 @@ $$
 
 따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
 
-![fig1](Mathematics/Linear_Algebra/Projection-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Projection-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
@@ -57,7 +57,7 @@ $$
 \tag{2}
 $$
 
-![fig2](Mathematics/Linear_Algebra/Projection-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Projection-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>

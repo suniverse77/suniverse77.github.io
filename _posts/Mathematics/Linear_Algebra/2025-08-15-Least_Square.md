@@ -23,7 +23,7 @@ $$
 <br>
 따라서 오른쪽 그림처럼 여러 개의 직선을 그어 보면서, 각 점과의 오차가 가장 작아지는 직선을 찾는 과정으로 이해할 수 있다.
 
-![fig1](Mathematics/Linear_Algebra/Least_Square-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Least_Square-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://darkpgmr.tistory.com/56)_
 
 이때 최소 제곱 해 (Least Squares Solution)는 다음과 같다.

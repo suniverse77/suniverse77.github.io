@@ -12,7 +12,7 @@ author: sunho
 
 모델의 예측 결과를 실제 정답과 비교하여
 
-![fig1](AI_Basics/Metric/Confusion_Matrix-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](/assets/images/AI_Basics/Metric/Confusion_Matrix-1.png){: style="display:block; margin:0 auto; width:40%;"}
 _[[출처]](https://www.blog.trainindata.com/confusion-matrix-precision-and-recall/)_
 
 **Positive/Negative**는 <span style="background-color:#fff5b1">모델이 예측한 값</span>을, **True/False**는 <span style="background-color:#fff5b1">그 예측이 맞았는지 틀렸는지</span>를 의미한다.
@@ -48,14 +48,14 @@ Classification에서는 이미지 단위로 계산한다.
 - 실제 클래스가 A가 아닌데, 모델이 다른 클래스로 예측한 경우 → **TN**
 - 실제 클래스가 A가 아닌데, 모델이 A로 예측한 경우 → **FP**
 
-![fig2](AI_Basics/Metric/Confusion_Matrix-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/AI_Basics/Metric/Confusion_Matrix-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://devopedia.org/confusion-matrix)_
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig3](AI_Basics/Metric/Confusion_Matrix-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](/assets/images/AI_Basics/Metric/Confusion_Matrix-3.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-matrix-f23c214a65d2)_
 
 클래스 A 기준 아래와 같이 계산할 수 있다.
@@ -115,7 +115,7 @@ Object Detection에서는 Bounding Box 단위로 계산한다.
 
 ## 혼동행렬 기반 성능 지표
 
-![fig4](AI_Basics/Metric/Confusion_Matrix-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](/assets/images/AI_Basics/Metric/Confusion_Matrix-4.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://velog.io/@jjw9599/ConfusionMatrix-ClassificationEvaluation)_
 
 ### 정확도 (Accuracy)

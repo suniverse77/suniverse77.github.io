@@ -23,7 +23,7 @@ author: sunho
 
 모든 입출력을 단순한 문자열로 처리한다.
 
-![fig1](Programming/Dev_Environment/Terminal_Shell-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/Programming/Dev_Environment/Terminal_Shell-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### Zsh (Z Shell)
 
@@ -33,7 +33,7 @@ macOS의 기본 쉘로, Bash를 기반으로 자동 완성 등의 기능을 추�
 
 MS-DOS 시절부터 내려온 윈도우의 오래된 엔진으로, 현대적인 프로그래밍 기능을 수행하기에는 문법이 투박하고 기능이 제한적이다.
 
-![fig2](Programming/Dev_Environment/Terminal_Shell-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/Programming/Dev_Environment/Terminal_Shell-2.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### Windows Powershell
 
@@ -45,4 +45,4 @@ Bash와 달리, 결과값이 단순 텍스트가 아니라 .NET 객체다.
 
 리눅스 환경에 익숙한 사람들을 배려해서, `ls`나 `cd`와 같이 자주 사용하는 Bash 명령어를 PowerShell에서도 쓸 수 있게 미리 연결해두었다.
 
-![fig3](Programming/Dev_Environment/Terminal_Shell-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/Programming/Dev_Environment/Terminal_Shell-3.png){: style="display:block; margin:0 auto; width:80%;"}

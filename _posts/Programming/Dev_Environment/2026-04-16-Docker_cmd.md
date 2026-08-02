@@ -8,7 +8,7 @@ toc: true
 author: sunho
 ---
 
-![fig1](Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/Programming/Dev_Environment/Docker_cmd-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://tech.ktcloud.com/)_
 
 ## 도커 이미지 관련 명령어
@@ -22,10 +22,10 @@ _[[출처]](https://tech.ktcloud.com/)_
 
 - `docker pull`은 다른 사람이 이미 만들어둔 이미지를 다운로드하는 명령어로, 다른 사람이 만들어둔 이미지는 주로 [Docker Hub](https://hub.docker.com/)에서 다운받을 수 있다.
 
-    ![fig2](Programming/Dev_Environment/Docker_cmd-2.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig2](/assets/images/Programming/Dev_Environment/Docker_cmd-2.png){: style="display:block; margin:0 auto; width:100%;"}
 - `docker images`는 현재 내 컴퓨터에 다운로드되어 있거나 직접 만든 도커 이미지들의 전체 목록과 용량을 보여주는 명령어다.
 
-    ![fig3](Programming/Dev_Environment/Docker_cmd-3.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig3](/assets/images/Programming/Dev_Environment/Docker_cmd-3.png){: style="display:block; margin:0 auto; width:100%;"}
 - `docker rmi`를 이용해 도커 이미지를 삭제할 때, 만약 해당 이미지를 사용해서 만든 컨테이너가 하나라도 남아있다면 먼저 `docker rm` 명령어로 해당 컨테이너를 삭제해야 이미지를 지울 수 있다.
 
 ## 컨테이너 관련 명령어
@@ -91,7 +91,7 @@ _[[출처]](https://tech.ktcloud.com/)_
 
 - `docker ps`에서 사용할 수 있는 옵션 중 일부는 다음과 같다.
 
-    ![fig4](Programming/Dev_Environment/Docker_cmd-4.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig4](/assets/images/Programming/Dev_Environment/Docker_cmd-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
     아래는 `docker run` 명령어와 함께 사용할 수 있는 몇 가지 옵션이다.
 
@@ -104,7 +104,7 @@ _[[출처]](https://tech.ktcloud.com/)_
 
     아래 사진을 보면 `-a` 옵션을 사용해서 중지된 컨테이너 (STATUS가 Exited)까지 출력되는 것을 확인할 수 있다.
 
-    ![fig5](Programming/Dev_Environment/Docker_cmd-5.png){: style="display:block; margin:0 auto; width:100%;"}
+    ![fig5](/assets/images/Programming/Dev_Environment/Docker_cmd-5.png){: style="display:block; margin:0 auto; width:100%;"}
 - `docker rm`은 중지된 컨테이너를 내 컴퓨터에서 완전히 삭제하는 명령어다.
 
     컨테이너가 중지되어야지 삭제할 수 있기 때문에, 먼저 `docker stop`을 이용해 삭제하려는 컨테이너를 중지해야 한다.
@@ -122,4 +122,4 @@ _[[출처]](https://tech.ktcloud.com/)_
 
     주로 터미널에서 컨테이너 내부에 접속하기 위해 `docker exec -it {컨테이너 ID 또는 이름} /bin/bash` 형태로 사용하며, 실시간 로그 파일을 확인하거나 설정값을 임시로 수정하는 등 이미지 빌드 없이 긴급한 디버깅 작업이 필요할 때 해당 명령어를 사용한다.
 
-    ![fig6](Programming/Dev_Environment/Docker_cmd-6.png){: style="display:block; margin:0 auto; width:70%;"}
+    ![fig6](/assets/images/Programming/Dev_Environment/Docker_cmd-6.png){: style="display:block; margin:0 auto; width:70%;"}

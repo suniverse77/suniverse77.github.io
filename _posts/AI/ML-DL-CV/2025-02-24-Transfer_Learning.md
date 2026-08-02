@@ -14,7 +14,7 @@ author: sunho
 
 처음부터 모든 걸 학습하지 않기 때문에 빠르고 효율적인 학습이 가능하다.
 
-![fig1](AI_Basics/CV/Transfer Learning-1.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](/assets/images/AI_Basics/CV/Transfer Learning-1.png){: style="display:block; margin:0 auto; width:90%;"}
 
 먼저 ImageNet에 대해 학습된 모델을 가져온다.
 
@@ -32,7 +32,7 @@ CNN의 경우 conv layer는 고정하고 마지막 분류기 layer만 새 데이
 
 주로 추가로 학습시킬 데이터셋이 클 때 사용한다.
 
-![fig2](AI_Basics/CV/Transfer Learning-2.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig2](/assets/images/AI_Basics/CV/Transfer Learning-2.png){: style="display:block; margin:0 auto; width:90%;"}
 
 4가지 상황에 따른 학습 전략이 있다.
 

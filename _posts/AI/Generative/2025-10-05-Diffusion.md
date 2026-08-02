@@ -10,7 +10,7 @@ author: sunho
 
 디퓨전 모델 (Diffusion Model)은 간단하게, 깨끗한 상태의 이미지를 점진적으로 파괴하여 무작위 노이즈로 만드는 과정을 역으로 학습함으로써, 노이즈에서 깨끗한 이미지로 복원해 나가는 방법을 배우는 생성 모델이다.
 
-![fig1](AI/Generative/Diffusion-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/AI/Generative/Diffusion-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://www.researchgate.net/figure/The-forward-and-backward-processes-of-the-diffusion-model-The-credit-of-the-used-images_fig1_382128283)_
 
 ## Forward process (Diffusion process)
@@ -21,7 +21,7 @@ Forward process는 깨끗한 상태의 이미지의 형체를 조금씩 깎아�
 
 그럼 $(10,20)$ 지점에서 '개'일 확률이 압도적으로 높고, 주변으로 갈수록 급격히 낮아지는 형태일 것이다.
 
-![fig2](AI/Generative/Diffusion-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/AI/Generative/Diffusion-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-Ea6TrJQQjG9FIxQM3U0UFWgXCV0Z&index=2)_
 
 Forward process는 이런 뾰족한 형태의 언덕을 표준 가우시안 분포로 변형시키기 위해, 각 데이터에 매 step $t$마다 아래의 행동을 수행한다.
@@ -31,7 +31,7 @@ Forward process는 이런 뾰족한 형태의 언덕을 표준 가우시안 분�
 
 즉, $t=0\sim T$에서 데이터 분포 지형이 매 step마다 바뀐다고 생각하면 된다.
 
-![fig3](AI/Generative/Diffusion-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/AI/Generative/Diffusion-3.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-Ea6TrJQQjG9FIxQM3U0UFWgXCV0Z&index=2)_
 
 ## Reverse process (Denoising process)
@@ -46,7 +46,7 @@ Reverse process는 무질서 상태의 표준 가우시안 분포에서 시작�
 
 Reverse process에서는 $t=T$일 때, 매우 넓게 퍼진 확률 지형을 따라 대략적인 방향을 잡고 이동한다. 이후 $t=50, 49 \dots$ 로 시간이 흐름에 따라 매 순간 변화하는 지형의 경사를 따라가며, 최종적으로는 '개' 데이터가 밀집된 $(10,20)$ 지점 부근에 안착하게 된다.
 
-![fig3](AI/Generative/Diffusion-4.gif){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/AI/Generative/Diffusion-4.gif){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처: Julia Turc]](https://www.youtube.com/watch?v=R0uMcXsfo2o&list=PL7x3-Ea6TrJQQjG9FIxQM3U0UFWgXCV0Z&index=2)_
 
 왜 $t=T$로 갈수록 완만해지게 설계했을까?

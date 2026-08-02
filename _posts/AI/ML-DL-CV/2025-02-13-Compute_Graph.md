@@ -14,7 +14,7 @@ author: sunho
 
 예를 들어, $z=w\cdot x+b$ 연산을 다음과 같은 계산 그래프로 표현할 수 있다.
 
-![fig1](AI/ML-DL/Compute_Graph-1.png){: style="display:block; margin:0 auto; width:20%;"}
+![fig1](/assets/images/AI/ML-DL/Compute_Graph-1.png){: style="display:block; margin:0 auto; width:20%;"}
 
 ## 연쇄 법칙 (Chain Rule)
 
@@ -25,7 +25,7 @@ $$
 \tag{1}
 $$
 
-![fig2](AI/ML-DL/Compute_Graph-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/AI/ML-DL/Compute_Graph-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
 위 그림에서 연산자 노드 $f(\cdot)$를 기준으로 downstrem gradient, local gradient, upstream gradient는 다음과 같다.
 
@@ -72,7 +72,7 @@ $$
 
 아래 그림에서 초록색 숫자는 입출력값, 빨간색 숫자는 그래디언트값을 나타낸다.
 
-![fig3](AI/ML-DL/Compute_Graph-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](/assets/images/AI/ML-DL/Compute_Graph-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 4 (Neural Networks and Backpropagation)_
 
 ## 신경망에서의 chain rule
@@ -93,7 +93,7 @@ $$
 y=wx\in\mathbb{R}, \quad \text{where } x, w \in \mathbb{R}
 $$
 
-![fig4](AI/ML-DL/Compute_Graph-4.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig4](/assets/images/AI/ML-DL/Compute_Graph-4.png){: style="display:block; margin:0 auto; width:30%;"}
 
 Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 
@@ -121,7 +121,7 @@ y=\mathbf{w}^\top\mathbf{x}\in\mathbb{R}
 , \quad \text{where }\mathbf{x},\mathbf{w}\in\mathbb{R}^n
 $$
 
-![fig5](AI/ML-DL/Compute_Graph-5.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig5](/assets/images/AI/ML-DL/Compute_Graph-5.png){: style="display:block; margin:0 auto; width:30%;"}
 
 Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 
@@ -149,7 +149,7 @@ $$
 , \quad \text{where } \mathbf{x}\in\mathbb{R}^n~,W\in\mathbb{R}^{m\times n}
 $$
 
-![fig6](AI/ML-DL/Compute_Graph-6.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig6](/assets/images/AI/ML-DL/Compute_Graph-6.png){: style="display:block; margin:0 auto; width:30%;"}
 
 Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 
@@ -177,7 +177,7 @@ Y=\mathbf{W}X\in\mathbb{R}^{m\times B}
 , \quad \text{where } X\in\mathbb{R}^{n\times B}~,\mathbf{W}\in\mathbb{R}^{(m\times B)\times(n\times B)}
 $$
 
-![fig7](AI/ML-DL/Compute_Graph-7.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig7](/assets/images/AI/ML-DL/Compute_Graph-7.png){: style="display:block; margin:0 auto; width:30%;"}
 
 Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 

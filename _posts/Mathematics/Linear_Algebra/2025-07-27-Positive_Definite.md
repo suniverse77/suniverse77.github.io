@@ -93,7 +93,7 @@ $$
 f(\mathbf{x})>0\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 $$
 
-![fig1](Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:40%;"}
 
 이렇게 원점에서 최솟값을 갖고 위로 열린 그릇 모양의 곡면을 **타원 포물면 (Elliptic Paraboloid)** 이라고 한다.
 
@@ -111,7 +111,7 @@ $$
 
 즉, Positive Definite 변환은 벡터의 방향성을 어느 정도 보존하는 선형 변환으로 볼 수 있다.
 
-![fig2](Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
 
 ## 딥러닝에서의 활용

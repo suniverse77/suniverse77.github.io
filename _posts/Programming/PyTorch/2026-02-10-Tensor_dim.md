@@ -102,7 +102,7 @@ print(b)
 
 예를 들어, 2차원 배열에서 `dim=0`은 위아래의 세로 방향을 의미하고 (행 방향), `dim=1`은 가로 방향을 의미한다. (열 방향)
 
-![fig1](Programming/PyTorch/Tensor_dim-1.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](/assets/images/Programming/PyTorch/Tensor_dim-1.png){: style="display:block; margin:0 auto; width:90%;"}
 
 ### cat
 
@@ -110,7 +110,7 @@ print(b)
 
 차원의 수는 변하지 않으며, 붙이려는 차원을 제외한 나머지 차원의 shape은 완전히 동일해야 한다.
 
-![fig2](Programming/PyTorch/Tensor_dim-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](/assets/images/Programming/PyTorch/Tensor_dim-2.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ```python
 import torch
@@ -138,7 +138,7 @@ print(c.shape)
 
 텐서의 차원의 수가 1개 늘어나며, 합치려는 모든 텐서의 shape이 동일해야 한다.
 
-![fig3](Programming/PyTorch/Tensor_dim-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](/assets/images/Programming/PyTorch/Tensor_dim-3.png){: style="display:block; margin:0 auto; width:70%;"}
 
 ```python
 import torch

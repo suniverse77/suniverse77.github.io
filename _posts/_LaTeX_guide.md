@@ -2,22 +2,22 @@
 
 ### 블로그 출처
 
-![fig1](cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _[[출처]]()_
 
 ### 논문 출처
 
-![fig1](AI/Paper/1-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/AI/Paper/1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _출처: [Attention Is All you Need](https://arxiv.org/abs/1706.03762)_
 
 ### 교재 출처
 
-![fig1](cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 ### 강의 출처
 
-![fig1](cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _출처: Stanford CS231n, Lecture 15 (Convolutional Neural Networks)_
 
 ----------------------------------------------------------------------

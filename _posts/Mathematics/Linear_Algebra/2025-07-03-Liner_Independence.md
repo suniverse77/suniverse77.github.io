@@ -72,7 +72,7 @@ $$
 <br>
 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
-![fig1](Mathematics/Linear_Algebra/Linear_Independence-1.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Independence-1.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처]](https://deep-learning-study.tistory.com/301)_
 
 위 그림에서 왼쪽은 $\mathbf{w}$가 $\mathbf{u}$와 $\mathbf{v}$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.

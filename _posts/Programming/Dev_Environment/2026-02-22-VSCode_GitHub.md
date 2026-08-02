@@ -30,7 +30,7 @@ VS Code로 SSH 서버에 원격 연결해 코딩할 때, 로컬 PC에서 코드�
 
     2. **SSH 등록:** 왼쪽 메뉴의 **SSH and GPG Keys** 클릭하고 **New SSH key** 클릭하고 Public Key 등록
 
-    ![fig1](Programming/Dev_Environment/VSCode_GitHub-1.png){: style="display:block; margin:0 auto; width:80%;"}
+    ![fig1](/assets/images/Programming/Dev_Environment/VSCode_GitHub-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ## 로컬 프로젝트와 GitHub repository 연결
 
@@ -38,7 +38,7 @@ VS Code로 SSH 서버에 원격 연결해 코딩할 때, 로컬 PC에서 코드�
 
 2. 깃허브의 `<> Code` 버튼의 SSH 탭에서 `.git` 주소 (원격 저장소 주소) 복사
 
-    ![fig2](Programming/Dev_Environment/VSCode_GitHub-2.png){: style="display:block; margin:0 auto; width:60%;"}
+    ![fig2](/assets/images/Programming/Dev_Environment/VSCode_GitHub-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
 3. VS Code 터미널의 프로젝트 폴더에서 아래 명령어를 순차적으로 실행
 
@@ -78,7 +78,7 @@ VS Code로 SSH 서버에 원격 연결해 코딩할 때, 로컬 PC에서 코드�
 <br>
 GitHub에서는 아래와 같이 화살표 아이콘이 표시된 폴더 형태로 나타난다.
 
-![fig3](Programming/Dev_Environment/VSCode_GitHub-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](/assets/images/Programming/Dev_Environment/VSCode_GitHub-3.png){: style="display:block; margin:0 auto; width:60%;"}
 
 만약 해당 폴더 안의 파일들도 내 GitHub 저장소에 포함하고 싶다면, 폴더 내부의 `.git`을 제거하고 Git이 다시 일반 폴더로 추적하도록 만들어야 한다.
 <br>

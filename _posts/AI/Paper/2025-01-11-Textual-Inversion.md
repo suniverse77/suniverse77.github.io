@@ -24,7 +24,7 @@ description: 📝 ICLR 2023
 </details>
 <br>
 
-![fig0](paper/text_inv-0.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig0](/assets/images/paper/text_inv-0.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ## Introduction
 
@@ -43,7 +43,7 @@ description: 📝 ICLR 2023
 
 ## Methods
 
-![fig1](paper/text_inv-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/paper/text_inv-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 ### 1. Latent Diffusion Models
 
@@ -86,7 +86,7 @@ $$
 
 **Image variations**
 
-![fig2](paper/text_inv-2.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig2](/assets/images/paper/text_inv-2.png){: style="display:block; margin:0 auto; width:100%;"}
 
 <br>
 제안한 방법을 2개의 baseline과 비교하였다.
@@ -95,7 +95,7 @@ $$
 
 **Style transfer**
 
-![fig3](paper/text_inv-3.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](/assets/images/paper/text_inv-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
 <br>
 Textual-embedding space는 스타일과 같은 추상적인 개념도 표현할 수 있다.
@@ -104,7 +104,7 @@ Textual-embedding space는 스타일과 같은 추상적인 개념도 표현할 
 
 ### Quantitative Analysis
 
-![fig4](paper/text_inv-4.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](/assets/images/paper/text_inv-4.png){: style="display:block; margin:0 auto; width:100%;"}
 <br>
 
 왼쪽은 CLIP-based 평가, 오른쪽은 user study이다.

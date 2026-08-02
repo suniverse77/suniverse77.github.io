@@ -83,7 +83,7 @@ author: sunho
 
 여기서 칼만 필터는 우리가 측정할 수 있는 값인 외부 온도라는 간접적인 단서와 시스템의 수학적 모델을 결합하여, 연소실 내부 온도 (우리가 진짜 알고 싶지만 잴 수 없는 값)를 정확하게 추정해낸다.
 
-![fig1](Math/Signal_System/Kalman_Filter1-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Math/Signal_System/Kalman_Filter1-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 ### 노이즈와 한계가 있는 여러 센서 데이터를 융합하여 최적의 값을 찾아야 할 때
@@ -100,5 +100,5 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_
 
 여기서 칼만 필터는 불완전한 각 센서의 측정값들을 적절하게 융합해서 가장 최적화된 자동차의 현재 위치를 계산해낸다.
 
-![fig2](Math/Signal_System/Kalman_Filter1-2.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig2](/assets/images/Math/Signal_System/Kalman_Filter1-2.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=mwn8xhgNpFY)_

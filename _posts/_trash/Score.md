@@ -28,7 +28,7 @@ Denoising Diffusion Probabilistic Models (DDPM)는 역분포의 함수적 형태
 <summary><font color='purple'>SDE (Stochastic Differential Equation)</font></summary>
 <div markdown="1">
 
-![fig1](paper/Score Diffusion-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/paper/Score Diffusion-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 <br>
 미분방정식이란 미분을 포함하는 방정식으로, 어떤 값 $y$가 시간에 따라 어떻게 변하는지를 수식으로 표현한 것이다.
@@ -60,7 +60,7 @@ $f(\mathbf x,t)$, $g(t)$는 사전에 정의된 함수로 학습 파라미터가
 </div>
 </details>
 
-![fig2](paper/Score Diffusion-2.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig2](/assets/images/paper/Score Diffusion-2.png){: style="display:block; margin:0 auto; width:90%;"}
 
 ## Methods
 
@@ -161,4 +161,4 @@ Score-based 모델 $\mathbf{x}_\theta$가 학습되었다면 이를 사용해 re
 
 ## Experiments
 
-![fig3](paper/Score Diffusion-3.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig3](/assets/images/paper/Score Diffusion-3.png){: style="display:block; margin:0 auto; width:100%;"}

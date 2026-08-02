@@ -19,7 +19,7 @@ author: sunho
     - 그래픽 렌더링이나 딥러닝에서의 단순 연산을 전담
     - 개별 코어가 처리할 수 있는 명령의 복잡도는 CPU보다 낮지만, 하나의 칩에 수천~수만 개 이상이 탑재됨
 
-![fig1](Programming/PyTorch/CUDA_Tensor_Core-1.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](/assets/images/Programming/PyTorch/CUDA_Tensor_Core-1.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://www.researchgate.net/figure/CPU-vs-GPU-architecture-each-blue-square-represents-one-core_fig1_323281068)_
 
 ## CUDA Core vs Tensor Core
@@ -71,7 +71,7 @@ $$
 D=A\times B+C
 $$
 
-![fig2](Programming/PyTorch/CUDA_Tensor_Core-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/Programming/PyTorch/CUDA_Tensor_Core-2.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://dreamgonfly.github.io/blog/cuda-cores-vs-tensor-cores/)_
 
 입력 행렬 $A,B,C$가 4x4 행렬일 때, 위 연산을 하려면 64번의 곱셈과 64번의 덧셈이 필요하다.

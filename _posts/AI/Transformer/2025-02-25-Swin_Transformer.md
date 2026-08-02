@@ -22,7 +22,7 @@ author: sunho
 <br>
 하지만 처음부터 끝까지 고정된 크기의 토큰만 사용하면 다양한 크기의 객체에 대응하기 어렵게 된다.
 
-![fig1](AI/Transformer/Swin_Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/AI/Transformer/Swin_Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
 
 ### Attention 연산량
 
@@ -39,11 +39,11 @@ ViT에서는 하나의 패치 크기가 $16\times16$이기 때문에, 입력 이
 
 Swin Transformer의 모델 구조는 다음과 같다.
 
-![fig2](AI/Transformer/Swin_Transformer-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/AI/Transformer/Swin_Transformer-2.png){: style="display:block; margin:0 auto; width:80%;"}
 
 Swin Transformer Block에서는 아래 그림의 Transformer Block이 연속적으로 수행된다.
 
-![fig3](AI/Transformer/Swin_Transformer-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](/assets/images/AI/Transformer/Swin_Transformer-3.png){: style="display:block; margin:0 auto; width:60%;"}
 
 - **W-MSA:** Regular Window based Multi-head Self-Attention (feature들을 이동시키지 않음)
 - **SW-MSA:** Shifted Window based Multi-head Self-Attention
@@ -56,7 +56,7 @@ Swin Transformer에서는 <span style="background-color:#fff5b1">Global Attentio
 
 Shifted Window based Self-Attention의 파이프라인은 다음과 같다.
 
-![fig4](AI/Transformer/Swin_Transformer-4.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig4](/assets/images/AI/Transformer/Swin_Transformer-4.png){: style="display:block; margin:0 auto; width:100%;"}
 
 패치 개수를 $N$, 1개의 윈도우 내의 패치 개수를 $M$이라고 할 때, Self-Attention 연산량은 $O(NM)$이다.
 
@@ -72,7 +72,7 @@ Shifted Window based Self-Attention의 파이프라인은 다음과 같다.
 
 이를 해결하기 위해, 각 블록의 Feature Map을 왼쪽으로 $\frac{M}{2}$만큼, 위쪽으로 $\frac{M}{2}$만큼 순환 이동시킨다.
 
-![fig5](AI/Transformer/Swin_Transformer-5.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig5](/assets/images/AI/Transformer/Swin_Transformer-5.png){: style="display:block; margin:0 auto; width:100%;"}
 
 #### Masked Attention
 
@@ -80,13 +80,13 @@ Cyclic Shift를 하면 Feature Map의 가장자리가 반대편으로 넘어가�
 
 아래의 그림에서 ③번 윈도우의 $(A,B)$, $(C,D)$는 원래 서로 이웃이었지만, $(A,C)$, $(B,D)$는 서로 이웃이 아니었다.
 
-![fig6](AI/Transformer/Swin_Transformer-6.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig6](/assets/images/AI/Transformer/Swin_Transformer-6.png){: style="display:block; margin:0 auto; width:30%;"}
 
 Swin Transformer에서는 Local Attention만 수행하기 때문에, 이웃이 아닌 영역끼리는 Attention을 하지 않도록 설계해야 한다.
 
 이를 위해 Attention Mask를 적용하여, 원래 인접한 영역끼리는 Attention을 허용하고 Cyclic Shift 때문에 인위적으로 붙은 영역끼리는 Attention을 차단하도록 한다.
 
-![fig7](AI/Transformer/Swin_Transformer-7.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig7](/assets/images/AI/Transformer/Swin_Transformer-7.png){: style="display:block; margin:0 auto; width:50%;"}
 
 ### Patch Merging
 
@@ -94,7 +94,7 @@ Patch Merging은 다음 Stage로 넘어갈 때, 인접한 $2\times2$개의 패�
 
 구체적으로는 $C$ 차원의 인접한 $2\times2$ 패치들을 concat하여 $4C$ 차원으로 만든 뒤, Linear layer를 거쳐 최종 출력 차원을 $2C$로 축소한다.
 
-![fig8](AI/Transformer/Swin_Transformer-8.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig8](/assets/images/AI/Transformer/Swin_Transformer-8.png){: style="display:block; margin:0 auto; width:60%;"}
 
 - **Stage 1:** 처음에는 원본 이미지의 $4\times4$ 픽셀 영역이 1개의 패치가 된다. 이 패치들 $7\times7$개를 모아 하나의 윈도우를 구성하여 Attention을 수행한다.
 - **Patch Merging:** 인접한 $2\times2$개의 패치를 하나로 병합한다.

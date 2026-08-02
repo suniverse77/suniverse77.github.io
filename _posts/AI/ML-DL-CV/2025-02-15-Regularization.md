@@ -72,7 +72,7 @@ $$
 \lvert W_1\rvert+\lvert W_2\rvert\leq C
 $$
 
-![fig1](AI/ML-DL/Regularization-1.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](/assets/images/AI/ML-DL/Regularization-1.png){: style="display:block; margin:0 auto; width:50%;"}
 
 여기서 타원 형태의 등고선은 데이터 손실 함수를 시각화한 것으로, 각 등고선은 동일한 손실 값을 갖는 지점들을 연결한 선이다.
 
@@ -94,13 +94,13 @@ $$
 W_1^2+W_2^2\leq C
 $$
 
-![fig2](AI/ML-DL/Regularization-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/AI/ML-DL/Regularization-2.png){: style="display:block; margin:0 auto; width:50%;"}
 
 ### L1 정규화 vs L2 정규화
 
 정규화 term이 있다면, 아래 그림처럼 패널티 영역 안에서 손실 값이 가장 낮은 지점 (검은색 점)을 찾아야 한다.
 
-![fig3](AI/ML-DL/Regularization-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](/assets/images/AI/ML-DL/Regularization-3.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.linkedin.com/pulse/intuitive-visual-explanation-differences-between-l1-l2-xiaoli-chen/)_
 
 만약 패널티 영역을 더 줄이면 어떻게 될까?
@@ -111,7 +111,7 @@ L1 정규화의 경우, 패널티 영역을 줄일수록 축 위에서 최적해
 
 L2 정규화의 경우, 패널티 영역을 줄여도 원의 둥근 형태 때문에 축 위에서 최적해를 만날 확률이 낮다. 즉, 특정 가중치를 $0$으로 제거하기보다는, 전체적인 가중치 값을 $0$에 가깝게 작게 유지하도록 유도하는 가중치 감쇠 (weight decay) 효과로 이어진다.
 
-![fig4](AI/ML-DL/Regularization-4.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig4](/assets/images/AI/ML-DL/Regularization-4.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.linkedin.com/pulse/intuitive-visual-explanation-differences-between-l1-l2-xiaoli-chen/)_
 
 #### 접점 (Tangent Point)
@@ -134,7 +134,7 @@ Dropout에서 사용되는 하이퍼파라미터 $p$는 뉴런이 제거될 확�
 
 매번 다른 뉴런이 꺼지기 때문에 일종의 앙상블 학습 효과를 낸다.
 
-![fig5](AI/ML-DL/Regularization-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig5](/assets/images/AI/ML-DL/Regularization-5.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### 추론 단계에서의 Dropout

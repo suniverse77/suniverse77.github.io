@@ -16,7 +16,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
 크게 `REPOSITORIES`, `CHANGES`, `GRAPH` 탭 (<span style="color:red">빨간색 박스</span>)으로 구분되어 있다.
 
-![fig1](Programming/Dev_Environment/VSCode_Git-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/Programming/Dev_Environment/VSCode_Git-1.png){: style="display:block; margin:0 auto; width:100%;"}
 
 - **`REPOSITORIES`**
 
@@ -26,7 +26,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
     우측의 점 3개 아이콘 (<span style="color:violet">분홍색 박스</span>)을 클릭하면, 세부 메뉴 (<span style="color:violet">분홍색 화살표</span>)가 나타난다.
 
-    ![fig2](Programming/Dev_Environment/VSCode_Git-2.png){: style="display:block; margin:0 auto; width:60%;"}
+    ![fig2](/assets/images/Programming/Dev_Environment/VSCode_Git-2.png){: style="display:block; margin:0 auto; width:60%;"}
 
     - `Pull, Push` 버튼 (<span style="color:gold">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
 
@@ -34,7 +34,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
         `Pull from...` / `Push to...`를 클릭하면 아래와 같이 VS Code 상단에 원격 저장소 브랜치 목록이 뜬다.
 
-        ![fig3](Programming/Dev_Environment/VSCode_Git-3.png){: style="display:block; margin:0 auto; width:100%;"}
+        ![fig3](/assets/images/Programming/Dev_Environment/VSCode_Git-3.png){: style="display:block; margin:0 auto; width:100%;"}
 
     - `Branch` 버튼 (<span style="color:gold">노란색 박스</span>)을 누르면 세부 메뉴가 한번 더 나타난다.
 
@@ -54,7 +54,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
     <br>
     Commit 버튼을 누르면 Sync Changes라는 버튼이 생기는데, 마지막으로 이 버튼을 누르면 `git push`까지 완료되게 된다.
 
-     ![fig4](Programming/Dev_Environment/VSCode_Git-4.png){: style="display:block; margin:0 auto; width:80%;"}
+     ![fig4](/assets/images/Programming/Dev_Environment/VSCode_Git-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
     `CHANGES`에서도 점 3개 아이콘 (<span style="color:violet">분홍색 박스</span>)을 통해 `REPOSITORIES`와 동일한 기능을 수행할 수 있다.
 
@@ -68,18 +68,18 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (<span style="color:g
 
     각 commit을 클릭하면 아래처럼 해당 commit 때 수정된 파일 목록을 보여주고, 파일을 클릭하면 파일 내에서 어느 부분이 수정되었는지도 보여준다.
 
-    ![fig5](Programming/Dev_Environment/VSCode_Git-5.png){: style="display:block; margin:0 auto; width:80%;"}
+    ![fig5](/assets/images/Programming/Dev_Environment/VSCode_Git-5.png){: style="display:block; margin:0 auto; width:80%;"}
 
 
 ## Git Graph (확장 프로그램)
 
 **Git Graph** 확장 프로그램을 설치하면, 아래와 같이 `CHANGES` 탭에 `View Git Graph` 아이콘이 생긴다.
 
-![fig6](Programming/Dev_Environment/VSCode_Git-6.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig6](/assets/images/Programming/Dev_Environment/VSCode_Git-6.png){: style="display:block; margin:0 auto; width:50%;"}
 
 해당 아이콘을 클릭하면 창에 크게 아래와 같은 화면이 펼쳐진다.
 
-![fig7](Programming/Dev_Environment/VSCode_Git-7.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig7](/assets/images/Programming/Dev_Environment/VSCode_Git-7.png){: style="display:block; margin:0 auto; width:80%;"}
 
 Source Control의 `GRAPH`탭과 동일하게, 동그라미 하나는 하나의 commit을 의미한다.
 <br>

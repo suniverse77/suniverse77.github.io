@@ -12,7 +12,7 @@ author: sunho
 
 데이터 세트의 크기를 증가시키는 것으로, 오버피팅을 방지할 수 있다.
 
-![fig1](AI_Basics/CV/Data_Augmentation-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/AI_Basics/CV/Data_Augmentation-1.png){: style="display:block; margin:0 auto; width:100%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 데이터를 증강하는 방법에는 여러 가지가 있다.
@@ -21,7 +21,7 @@ _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 이미지를 수평으로 뒤집는 방법이다.
 
-![fig2](AI_Basics/CV/Data_Augmentation-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/AI_Basics/CV/Data_Augmentation-2.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Random crops and scales
@@ -36,19 +36,19 @@ _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 이 방법을 통해서 모델은 고양이의 얼굴만 크게 확대된 이미지, 몸통 일부만 보이는 이미지 등 다양한 상황을 학습할 수 있다.
 
-![fig3](AI_Basics/CV/Data_Augmentation-3.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig3](/assets/images/AI_Basics/CV/Data_Augmentation-3.png){: style="display:block; margin:0 auto; width:40%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Color Jitter
 
 이미지의 대비와 밝기 등 색상과 관련된 속성값을 랜덤하게 조절하는 방법이다.
 
-![fig4](AI_Basics/CV/Data_Augmentation-4.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig4](/assets/images/AI_Basics/CV/Data_Augmentation-4.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Cutout
 
 이미지의 특정 영역을 랜덤으로 선택하여 검은색 또는 회색 사각형으로 가려버리는 방법이다.
 
-![fig5](AI_Basics/CV/Data_Augmentation-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](/assets/images/AI_Basics/CV/Data_Augmentation-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_

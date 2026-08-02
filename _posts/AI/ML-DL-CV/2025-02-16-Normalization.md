@@ -20,7 +20,7 @@ Standardization (표준화), Min-Max Scaling 등의 기법이 존재한다.
 
 각 layer의 <span style="background-color:#fff5b1">출력을 안정적인 분포</span>로 맞춰서 학습이 발산하지 않고 빠르게 수렴하도록 한다.
 
-![fig1](AI/ML-DL/Normalization-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/AI/ML-DL/Normalization-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization

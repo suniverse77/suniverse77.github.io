@@ -114,5 +114,5 @@ $$
 
 외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
 
-![fig1](Mathematics/Linear_Algebra/Inner_Product-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Inner_Product-1.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[그림 출처]](https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/x786f2022:vectors-and-matrices/a/cross-products-mvc)_

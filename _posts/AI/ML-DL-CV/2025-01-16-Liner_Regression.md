@@ -33,7 +33,7 @@ $$
 
 아래 그림에서 $x$축은 특징 축, $y$축은 라벨값으로, 파란색 점들에 가장 잘 맞는 직선을 찾는 것이 단순 선형 회귀이다.
 
-![fig1](AI_Basics/ML/Linear_Regression-1.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](/assets/images/AI_Basics/ML/Linear_Regression-1.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://medium.datadriveninvestor.com/machine-learning-101-part-1-24835333d38a)_
 
 ### 다중 선형 회귀 (Multiple Linear Regression)
@@ -53,7 +53,7 @@ $$
 
 아래 그림은 입력 변수가 2개인 경우로, 빨간색 점들에 가장 잘 맞는 평면을 찾는 것이 다중 선형 회귀이다.
 
-![fig2](AI_Basics/ML/Linear_Regression-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/AI_Basics/ML/Linear_Regression-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://monosandalos.tistory.com/71)_
 
 ### 목적 함수 (Objective Function)
@@ -88,5 +88,5 @@ $$
 
 따라서 다항 회귀는 다중 회귀의 일부라고 할 수 있다.
 
-![fig3](AI_Basics/ML/Linear_Regression-3.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig3](/assets/images/AI_Basics/ML/Linear_Regression-3.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처]](https://www.researchgate.net/figure/Figure-Different-variable-relationship-models_fig1_327423211)_

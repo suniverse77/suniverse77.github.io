@@ -31,7 +31,7 @@ $$
 <br>
 이 과정이 마치, 손실 함수의 최소값을 찾기 위해 그래디언트를 이용해 경사를 따라 내려가듯 파라미터를 업데이트한다고 해서 경사 하강법이라고 부른다.
 
-![fig1](AI/ML-DL/Gradient_Descent-1.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig1](/assets/images/AI/ML-DL/Gradient_Descent-1.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://blog.ex-em.com/1750)_
 
 ### 손실 함수 (Loss Function)
@@ -81,7 +81,7 @@ $$
 <br>
 이는 $\theta_1$이 손실값에 미치는 영향력이 더 크다는 것을 의미하며, 손실값을 줄이기 위해 $\theta_1$ 파라미터 축을 따라 $-\frac{\partial\mathcal{L}}{\partial\theta_1}$으로 더 크게 이동하여 업데이트된 것을 확인할 수 있다.
 
-![fig2](AI/ML-DL/Gradient_Descent-2.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig2](/assets/images/AI/ML-DL/Gradient_Descent-2.png){: style="display:block; margin:0 auto; width:40%;"}
 
 ## 그래디언트 계산 방법
 

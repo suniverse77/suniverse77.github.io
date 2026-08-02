@@ -20,7 +20,7 @@ author: sunho
 <br>
 이 방향을 알려주는 것이 그래디언트이다.
 
-![fig1](AI/Generative/Score_Matching-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/AI/Generative/Score_Matching-1.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://jmtomczak.github.io/blog/16/16_score_matching.html)_
 
 이 기울기 값을 수학적으로 Score라고 하며, Log-Likelihood의 그래디언트로 정의된다.
@@ -43,7 +43,7 @@ $$
 
 Score Matching은 말 그대로 데이터 분포의 기울기인 Score Function을 예측하는 것이다.
 
-![fig2](AI/Generative/Score_Matching-2.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig2](/assets/images/AI/Generative/Score_Matching-2.png){: style="display:block; margin:0 auto; width:80%;"}
 
 즉, 모델이 예측한 Score와 실제 데이터의 Score 간의 차이를 줄이도록 학습한다.
 
@@ -74,7 +74,7 @@ $$
 
 Score Estimation에서는 문제가 하나 있는데, 데이터가 없는 영역에서는 정확한 Score를 추정하기 어렵다는 것이다.
 
-![fig3](AI/Generative/Score_Matching-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/AI/Generative/Score_Matching-3.png){: style="display:block; margin:0 auto; width:80%;"}
 
 이를 완화하기 위해 데이터에 분산이 $\sigma^2$인 가우시안 노이즈를 더하고, 노이즈가 섞인 분포의 Score를 추정하도록 하였다.
 
@@ -93,7 +93,7 @@ $$
 
 이때, 추가하는 노이즈의 양이 많다면 원본 데이터의 분포 자체가 손상되는 문제가 발생하기 때문에 적절한 조정이 필요하다.
 
-![fig4](AI/Generative/Score_Matching-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](/assets/images/AI/Generative/Score_Matching-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 Vincent는 노이즈가 섞인 데이터 $\tilde{\mathbf{x}}$의 Score를 추정하는 것이, 원본 데이터 $\mathbf{x}$의 Score를 추정하는 것과 최적화 관점에서 동치임을 증명했다.
 

@@ -22,7 +22,7 @@ author: sunho
 
 ## 지식 전달 방식에 따른 분류
 
-![fig1](AI_Basics/DL/Knowledge_Distill-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/AI_Basics/DL/Knowledge_Distill-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://www.researchgate.net/figure/a-The-generic-response-based-knowledge-distillation-b-The-generic-feature-based_fig3_369207253)_
 
 ### 응답 기반의 지식 증류 (Response-based KD)
@@ -49,7 +49,7 @@ Student 모델이 결과뿐만 아니라 중간 과정까지 배우도록 하는
 
 ## 학습 방식에 따른 분류
 
-![fig2](AI_Basics/DL/Knowledge_Distill-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/AI_Basics/DL/Knowledge_Distill-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://www.britannica.com/technology/knowledge-distillation)_
 
 ### 오프라인 증류 (Offline Distillation)

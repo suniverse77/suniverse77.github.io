@@ -14,7 +14,7 @@ author: sunho
 
 트랜스포머의 아키텍처는 아래와 같으며, 크게 인코더와 디코더로 이루어져 있다.
 
-![fig1](AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/AI/Transformer/Transformer-1.png){: style="display:block; margin:0 auto; width:60%;"}
 
 - **인코더:** 입력 문장의 맥락과 단어 간의 연관성을 이해해서, 문맥 정보를 반영한 Context Vector를 생성하는 역할을 한다.
 - **디코더:** 인코더가 전달한 Context Vector와 자신이 이전에 직접 생성한 단어들을 참고해서, 다음에 올 적절한 단어를 순차적으로 생성하는 역할을 한다.
@@ -34,7 +34,7 @@ author: sunho
 <br>
 따라서 자연어 문장을 모델에 입력하기 전, 텍스트를 컴퓨터가 처리할 수 있는 숫자로 변환하는 과정이 필요하다.
 
-![fig2](AI/Transformer/Transformer-2.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig2](/assets/images/AI/Transformer/Transformer-2.png){: style="display:block; margin:0 auto; width:40%;"}
 
 ### 토큰화 (Tokenization)
 
@@ -66,7 +66,7 @@ author: sunho
 
 만약 입력된 토큰이 Vocabulary에 존재하지 않는다면, 해당 단어는 `UNK` (Unknown) 토큰으로 대체된다.
 
-![fig3](AI/Transformer/Transformer-3.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/AI/Transformer/Transformer-3.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### 토큰 임베딩 (Token Embedding)
 
@@ -97,13 +97,13 @@ $$
 <br>
 이렇게 추출된 벡터가 바로 `love`의 임베딩 벡터가 된다.
 
-![fig3](AI/Transformer/Transformer-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig3](/assets/images/AI/Transformer/Transformer-4.png){: style="display:block; margin:0 auto; width:80%;"}
 
 초기 생성 시 임베딩 행렬의 가중치는 무작위 실수 값으로 채워져 있지만, 학습을 통해 점차 단어의 고유한 의미를 반영하도록 최적화된다.
 
 아래 그림은 $D=3$인 경우의 토큰 임베딩 공간을 시각화한 예시이다.
 
-![fig5](AI/Transformer/Transformer-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](/assets/images/AI/Transformer/Transformer-5.png){: style="display:block; margin:0 auto; width:60%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=6)_
 
 토큰 임베딩이 학습이 성공적으로 완료되었다면, 단어 간의 의미적 관계가 벡터 연산으로 성립하게 된다.
@@ -120,7 +120,7 @@ _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=wjZofJX0v4M&list=PLZHQO
 <br>
 이 문제를 해결하기 위해 도입한 기술이 Attention 메커니즘이다.
 
-![fig6](AI/Transformer/Transformer-6.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig6](/assets/images/AI/Transformer/Transformer-6.png){: style="display:block; margin:0 auto; width:40%;"}
 
 ### Attention
 
@@ -135,7 +135,7 @@ $$
 
 예를 들어, 아래 그림에서 `creature`에 해당하는 임베딩 $\mathbf{e}_4$는 문맥상 주변 단어인 `fluffy`와 `blue`의 임베딩에 영향을 받아, `파랗고 복슬복슬한 생명체`라는 구체적인 정보를 담은 새로운 임베딩 $\mathbf{e}_4'$로 업데이트된다.
 
-![fig7](AI/Transformer/Transformer-7.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig7](/assets/images/AI/Transformer/Transformer-7.png){: style="display:block; margin:0 auto; width:80%;"}
 
 그렇다면 Attention이 실제로 어떻게 수행되는지 알아보자.
 
@@ -163,7 +163,7 @@ $$
 
 이 과정은 $Q$와 $K$의 내적을 통해 계산되며, 내적값이 클수록 두 토큰이 서로 의미적으로 강하게 연관되어 있음을 의미한다.
 
-![fig8](AI/Transformer/Transformer-8.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig8](/assets/images/AI/Transformer/Transformer-8.png){: style="display:block; margin:0 auto; width:50%;"}
 
 이때 내적값 $QK^\top$을 $\sqrt{d_k}$로 나누어주는 이유는, 벡터의 차원인 $d_k$ 가 커질수록 내적의 결과값이 극단적으로 커져 Softmax 함수의 기울기가 소실되는 현상을 방지하기 위함이다.
 
@@ -191,7 +191,7 @@ $$
 
 이후 조정된 내적값에 행 방향으로 Softmax 함수를 적용하여, 전체 합이 1이 되는 확률 분포 형태로 값들을 정규화한다.
 
-![fig9](AI/Transformer/Transformer-9.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig9](/assets/images/AI/Transformer/Transformer-9.png){: style="display:block; margin:0 auto; width:60%;"}
 
 $$
 \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)=
@@ -250,7 +250,7 @@ $$
 
 $Q,K,V$를 어디에서 추출하느냐에 따라 크게 Self-Attention과 Cross-Attention으로 분류할 수 있다.
 
-![fig10](AI/Transformer/Transformer-10.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig10](/assets/images/AI/Transformer/Transformer-10.png){: style="display:block; margin:0 auto; width:60%;"}
 
 #### Self-Attention
 
@@ -293,7 +293,7 @@ $$
 <br>
 각 Head마다 초기화되는 가중치 값이 다르기 때문에, 학습이 진행될수록 모델은 서로 다른 관점에서 문맥을 포착할 수 있게 된다.
 
-![fig11](AI/Transformer/Transformer-11.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig11](/assets/images/AI/Transformer/Transformer-11.png){: style="display:block; margin:0 auto; width:60%;"}
 
 마지막으로 MHA 출력에 가중치 행렬 $W^O$를 곱해 선형 변환을 수행한다.
 <br>
@@ -338,13 +338,13 @@ $$
 <br>
 이후 Softmax 함수가 적용되면 $e^{-\infty}$는 완전히 $0$이 되기 때문에, 미래 토큰과의 연결 고리를 수학적으로 완벽하게 차단할 수 있다.
 
-![fig12](AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig12](/assets/images/AI/Transformer/Transformer-12.png){: style="display:block; margin:0 auto; width:40%;"}
 
 ## Output 단계
 
 Transformer Block을 모두 통과한 출력 벡터들은 다음 단어를 예측하기 위해 Linear layer와 Softmax 함수를 거친다.
 
-![fig13](AI/Transformer/Transformer-13.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig13](/assets/images/AI/Transformer/Transformer-13.png){: style="display:block; margin:0 auto; width:40%;"}
 
 Autoregressive 모델을 기준으로, 각 위치의 출력 토큰은 다음에 올 토큰의 확률 분포를 예측하는 데 사용된다.
 <br>
@@ -381,7 +381,7 @@ $$
 \tag{16}
 $$
 
-![fig14](AI/Transformer/Transformer-14.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig14](/assets/images/AI/Transformer/Transformer-14.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### Temperature
 
@@ -399,14 +399,14 @@ $$
 - **$T<1$인 경우:** $\frac{x_i}{T}$의 값들 사이의 수학적 격차가 원래보다 훨씬 커져, 확률 분포가 매우 뾰족해진다.
 - **$T>1$인 경우:** $\frac{x_i}{T}$ 값들 사이의 수학적 격차가 줄어들어, 확률 분포가 완만해진다. 이 경우에 원래 점수가 낮아 무시되었을 단어들도 선택될 가능성이 상대적으로 높아지며, <span style="background-color:#fff5b1">결과적으로 모델은 더 다양한 단어들을 샘플링할 수 있게 되어 창의적인 문장을 생성하게 된다.</span>
 
-![fig15](AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig15](/assets/images/AI/Transformer/Transformer-15.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 ## 파라미터 개수
 
 아래 그림은 GPT-3 모델을 기준으로 트랜스포머 블록 내부의 layer가 차지하는 파라미터의 개수를 나타낸다.
 
-![fig16](AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig16](/assets/images/AI/Transformer/Transformer-16.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_
 
 그림에서 확인할 수 있듯, FFN은 트랜스포머 전체 파라미터의 약 $2/3$ 를 차지할 정도로 압도적인 비중을 갖는다.
@@ -417,4 +417,4 @@ FFN의 파라미터 규모가 거대한 이유는, 네트워크 내부에서 차
 
 따라서 모델 차원이 $D=512$인 비교적 작은 트랜스포머 모델을 가정하더라도, 이 두 Linear layer를 구성하는 가중치 행렬의 파라미터 개수는 $2\times(512\times(512\times4))=2,097,152$로 약 2M개에 달하게 된다.
 
-![fig17](AI/Transformer/Transformer-17.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig17](/assets/images/AI/Transformer/Transformer-17.png){: style="display:block; margin:0 auto; width:30%;"}

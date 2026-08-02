@@ -22,7 +22,7 @@ author: sunho
 
 Flash Attention의 동작 원리를 이해하기 위해, GPU 메모리의 종류를 크게 HBM과 SRAM으로 나눠서 살펴보겠다.
 
-![fig1](AI/Transformer/Flash_Attention-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/AI/Transformer/Flash_Attention-1.png){: style="display:block; margin:0 auto; width:70%;"}
 
 #### HBM (High Bandwidth Memory)
 
@@ -51,19 +51,19 @@ Standard Attention의 GPU 메모리 계층 간 데이터 이동 과정은 다음
 3. 연산이 완료된 $S$ 조각을 HBM으로 내보낸다. **(Write)**
 4. $N\times N$ 크기의 $S$ 행렬이 모두 완성될 때까지 1~3 과정을 반복한다.
 
-    ![fig2](AI/Transformer/Flash_Attention-2.png){: style="display:block; margin:0 auto; width:60%;"}
+    ![fig2](/assets/images/AI/Transformer/Flash_Attention-2.png){: style="display:block; margin:0 auto; width:60%;"}
 5. HBM에서 $S$의 일부 행을 SRAM으로 가져온다. **(Read)**
 6. 가져온 $S$ 조각으로, $P=\text{softmax}(S)$ 연산을 수행한다.
 7. Softmax가 적용된 $P$ 조각을 HBM으로 내보낸다. **(Write)**
 8. $P$ 행렬이 모두 완성될 때까지 5~7 과정을 반복한다.
 
-    ![fig3](AI/Transformer/Flash_Attention-3.png){: style="display:block; margin:0 auto; width:50%;"}
+    ![fig3](/assets/images/AI/Transformer/Flash_Attention-3.png){: style="display:block; margin:0 auto; width:50%;"}
 9. 마지막으로 HBM에서 $V$와 $P$ 행렬의 일부를 SRAM으로 가져온다. **(Read)**
 10. 가져온 $V$와 $P$ 조각으로, $O=PV$ 연산을 수행한다.
 11. 연산이 완료된 $O$ 조각을 HBM으로 내보낸다. **(Write)**
 12. $N\times D$ 크기의 $O$ 행렬이 모두 완성될 때까지 7~8 과정을 반복한다.
 
-    ![fig4](AI/Transformer/Flash_Attention-4.png){: style="display:block; margin:0 auto; width:60%;"}
+    ![fig4](/assets/images/AI/Transformer/Flash_Attention-4.png){: style="display:block; margin:0 auto; width:60%;"}
 
 SRAM의 물리적인 용량이 작기 때문에, 하드웨어 연산기 수준에서는 데이터를 작은 조각으로 나누어 처리하는 Tiling 방식으로 동작한다.
 
@@ -75,7 +75,7 @@ SRAM의 물리적인 용량이 작기 때문에, 하드웨어 연산기 수준�
 
 비록 Tiling을 통해 한 번에 올리는 데이터의 크기를 줄였더라도 과정이 반복되기 때문에, 결국 전체 HBM 접근량 자체는 $O(N^2)$에 달하게 된다.
 
-![fig5](AI/Transformer/Flash_Attention-5.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig5](/assets/images/AI/Transformer/Flash_Attention-5.png){: style="display:block; margin:0 auto; width:80%;"}
 _[[출처]](https://gangjeong22.tistory.com/227)_
 
 ## Flash Attention
@@ -94,7 +94,7 @@ Flash Attention의 GPU 메모리 계층 간 데이터 이동 과정은 다음과
 6. 최종적으로 업데이트된 $O$ 조각과 통계량만 HBM으로 내보낸다. **(Write)**
 7. $N\times D$ 크기의 $O$ 행렬이 모두 완성될 때까지 1~6 과정을 반복한다.
 
-![fig6](AI/Transformer/Flash_Attention-6.png){: style="display:block; margin:0 auto; width:90%;"}
+![fig6](/assets/images/AI/Transformer/Flash_Attention-6.png){: style="display:block; margin:0 auto; width:90%;"}
 _[[출처]](https://gangjeong22.tistory.com/227)_
 
 ### 기존 Softmax의 한계점

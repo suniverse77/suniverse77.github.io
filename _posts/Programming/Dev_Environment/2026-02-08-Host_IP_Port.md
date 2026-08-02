@@ -15,7 +15,7 @@ author: sunho
 - **IP:** 건물을 찾아가기 위한 주소
 - **포트:** 건물 내에 있는 각 방의 번호
 
-![fig1](Programming/Dev_Environment/Host_IP_Port-1.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig1](/assets/images/Programming/Dev_Environment/Host_IP_Port-1.png){: style="display:block; margin:0 auto; width:80%;"}
 
 ### 호스트 (Host)
 

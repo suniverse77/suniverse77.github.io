@@ -32,7 +32,7 @@ author: sunho
 
 `FP32`를 기준으로, 부동소수점은 아래의 그림처럼 3가지 영역으로 나뉜다.
 
-![fig1](Programming/PyTorch/Floating_Point-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Programming/PyTorch/Floating_Point-1.png){: style="display:block; margin:0 auto; width:70%;"}
 _[[출처]](https://courses.physics.illinois.edu/cs357/sp2020/notes/ref-4-fp.html)_
 
 - **부호(Sign):** 양수/음수를 결정한다.
@@ -89,7 +89,7 @@ $$
 
 부동소수점 포맷에는 `FP32`, `FP16` 외에도 딥러닝 연산에 최적화된 설계된 `BF16`, `TF32`같은 형식도 존재한다.
 
-![fig2](Programming/PyTorch/Floating_Point-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/Programming/PyTorch/Floating_Point-2.png){: style="display:block; margin:0 auto; width:50%;"}
 _[[출처]](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)_
 
 아래는 한 눈에 보는 비교 표이다.
