@@ -46,3 +46,43 @@
   color: inherit;
   padding: 0;
 }
+
+.simple-code.blue {
+  background: #1e2b3e;
+  color: #cfe8ff;
+}
+
+.simple-code.blue[data-lang]::before {
+  background: #22344a;
+  color: #9fc4e8;
+}
+
+.simple-code.green {
+  background: #1e3320;
+  color: #d3f5d6;
+}
+
+.simple-code.green[data-lang]::before {
+  background: #234227;
+  color: #9fd8a6;
+}
+
+.simple-code.purple {
+  background: #2a1e3e;
+  color: #e6d9ff;
+}
+
+.simple-code.purple[data-lang]::before {
+  background: #35264d;
+  color: #c3a6e8;
+}
+
+.simple-code.gray {
+  background: #f0f0f0;
+  color: #333333;
+}
+
+.simple-code.gray[data-lang]::before {
+  background: #e0e0e0;
+  color: #666666;
+}
