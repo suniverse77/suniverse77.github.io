@@ -1,0 +1,29 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+.bundle
+{%- endif -%}
+';
+
+/* Custom CSS */
+
+.simple-code {
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.simple-code code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
