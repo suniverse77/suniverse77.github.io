@@ -15,11 +15,30 @@
 /* Custom CSS */
 
 .simple-code {
+  position: relative;
   background: #1e1e1e;
   color: #ffffff;
   padding: 16px;
   border-radius: 6px;
   overflow-x: auto;
+}
+
+.simple-code[data-lang] {
+  padding-top: 34px;
+}
+
+.simple-code[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 6px 16px;
+  font-size: 0.75rem;
+  color: #999;
+  background: #2a2a2a;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .simple-code code {
