@@ -71,6 +71,11 @@
   overflow-y: auto;
 }
 
+/* Contents panel: always show nested headings instead of expanding on scroll */
+#toc .is-collapsible.is-collapsed {
+  max-height: none;
+}
+
 /* Third-level categories on the categories tab */
 .categories .list-group-item {
   &.has-third {

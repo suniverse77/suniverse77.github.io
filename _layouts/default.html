@@ -38,11 +38,8 @@ layout: compress
             <div class="access">
               {% if page.layout == 'post' %}
                 {% include category-posts.html %}
-              {% else %}
-                {% include_cached update-list.html lang=lang %}
-                {% unless page.layout == 'categories' %}
-                  {% include_cached category-tree.html %}
-                {% endunless %}
+              {% elsif page.layout != 'categories' %}
+                {% include_cached category-tree.html %}
               {% endif %}
             </div>
 
