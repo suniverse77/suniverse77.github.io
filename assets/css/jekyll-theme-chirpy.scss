@@ -376,10 +376,26 @@ article > header {
     animation-play-state: paused;
   }
 
-  .solar-caption {
-    min-height: 3.6rem;
-    margin: 0;
+  /* caption row: optional photo of the selected body, then its name and fact */
+  .solar-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 4.5rem;
     padding: 0 0.75rem;
+  }
+
+  .solar-photo {
+    flex: none;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 0.5rem;
+    background: #000;
+    object-fit: contain;
+  }
+
+  .solar-caption {
+    margin: 0;
     font-size: 0.85rem;
     line-height: 1.5;
     color: rgba(255, 255, 255, 0.7);

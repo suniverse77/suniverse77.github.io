@@ -93,10 +93,13 @@
     </div>
   </div>
 
-  <p class="solar-caption" aria-live="polite">
-    <strong>Solar System</strong>
-    <span>Click a planet.</span>
-  </p>
+  <!-- Photos: public-domain NASA images from Wikimedia Commons, in assets/images/solar/ -->
+  <div class="solar-info" data-photo-base="{{ '/assets/images/solar/' | relative_url }}">
+    <p class="solar-caption" aria-live="polite">
+      <strong>Solar System</strong>
+      <span>Click a planet.</span>
+    </p>
+  </div>
   </div>
 </section>
 
@@ -106,6 +109,10 @@
     if (!root) {
       return;
     }
+    const info = root.querySelector('.solar-info');
+    const photo = document.createElement('img');
+    photo.className = 'solar-photo';
+    photo.alt = '';
     const name = root.querySelector('.solar-caption strong');
     const fact = root.querySelector('.solar-caption span');
     const defaultName = name.textContent;
@@ -118,9 +125,12 @@
         if (wasSelected) {
           name.textContent = defaultName;
           fact.textContent = defaultFact;
+          photo.remove();
           return;
         }
         body.classList.add('selected');
+        photo.src = info.dataset.photoBase + body.dataset.name.toLowerCase() + '.jpg';
+        info.prepend(photo);
         name.textContent = body.dataset.name;
         fact.textContent = body.dataset.fact;
       });
