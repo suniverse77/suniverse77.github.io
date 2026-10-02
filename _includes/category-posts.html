@@ -1,0 +1,43 @@
+<!-- Posts in the same category as the current post, oldest first -->
+
+{% assign top_category = page.categories[0] %}
+{% assign current_category = page.categories[1] | default: top_category %}
+
+{% if current_category %}
+  {% assign category_posts = '' | split: '' %}
+
+  {% for post in site.categories[current_category] %}
+    {% if post.categories[0] == top_category %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign category_posts = category_posts | sort: 'date' %}
+
+  {% if category_posts.size > 1 %}
+    <section id="access-category-posts">
+      {% capture _category_url %}/categories/{{ current_category | slugify | url_encode }}/{% endcapture %}
+      <h2 class="panel-heading">
+        <a href="{{ _category_url | relative_url }}">{{ current_category }}</a>
+        <span class="small fw-normal">{{ category_posts.size }}</span>
+      </h2>
+      <ul class="content panel-list list-unstyled ps-0 pb-1 ms-1 mt-2">
+        {% for post in category_posts %}
+          <li class="text-truncate lh-lg{% if post.url == page.url %} current{% endif %}">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <script>
+      (function () {
+        const list = document.querySelector('#access-category-posts .panel-list');
+        const current = list && list.querySelector('.current');
+        if (current) {
+          list.scrollTop = current.offsetTop - (list.clientHeight - current.clientHeight) / 2;
+        }
+      })();
+    </script>
+  {% endif %}
+{% endif %}

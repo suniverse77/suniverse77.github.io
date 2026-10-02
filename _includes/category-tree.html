@@ -1,0 +1,45 @@
+<!-- A compact tree of top-level categories and their sub-categories -->
+
+{% assign sort_categories = site.categories | sort %}
+
+<section id="access-categories">
+  <h2 class="panel-heading">
+    <a href="{{ '/categories/' | relative_url }}">Categories</a>
+  </h2>
+  <ul class="content panel-list list-unstyled ps-0 pb-1 ms-1 mt-2">
+    {% for category in sort_categories %}
+      {% assign category_name = category | first %}
+      {% assign posts_of_category = category | last %}
+      {% assign first_post = posts_of_category | first %}
+
+      {% if category_name == first_post.categories[0] %}
+        {% assign sub_categories = '' | split: '' %}
+
+        {% for post in posts_of_category %}
+          {% assign second_category = post.categories[1] %}
+          {% if second_category %}
+            {% unless sub_categories contains second_category %}
+              {% assign sub_categories = sub_categories | push: second_category %}
+            {% endunless %}
+          {% endif %}
+        {% endfor %}
+
+        {% assign sub_categories = sub_categories | sort %}
+
+        <li class="text-truncate lh-lg top-category">
+          {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
+          <a href="{{ _category_url | relative_url }}">{{ category_name }}</a>
+          <span class="small">{{ posts_of_category | size }}</span>
+        </li>
+
+        {% for sub_category in sub_categories %}
+          <li class="text-truncate lh-lg sub-category">
+            {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+            <a href="{{ _sub_ctg_url | relative_url }}">{{ sub_category }}</a>
+            <span class="small">{{ site.categories[sub_category] | size }}</span>
+          </li>
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>

@@ -2,7 +2,8 @@
 ---
 
 @use 'abstracts/variables' with (
-  $theme: '{{ site.theme_mode }}'
+  $theme: '{{ site.theme_mode }}',
+  $main-content-max-width: 1500px
 );
 
 /* prettier-ignore */
@@ -13,6 +14,62 @@
 ';
 
 /* Custom CSS */
+
+/* Wider main content (theme default: 1140px, 1250px on >= 1650px screens) */
+@media all and (min-width: 1200px) {
+  #main-wrapper > .container {
+    max-width: variables.$main-content-max-width;
+  }
+}
+
+/* Keep the back-to-top button on screen when the content fills the viewport */
+@media all and (min-width: 1400px) {
+  #back-to-top {
+    right: max(
+      1.5rem,
+      calc((100vw - variables.$sidebar-width - variables.$main-content-max-width) / 2 + 3rem)
+    );
+  }
+}
+
+@media all and (min-width: 1650px) {
+  #back-to-top {
+    right: max(
+      1.5rem,
+      calc((100vw - variables.$sidebar-width-large - variables.$main-content-max-width) / 2 + 2rem)
+    );
+  }
+}
+
+/* Right panel: same-category post list and category tree */
+#access-category-posts,
+#access-categories {
+  a {
+    color: inherit;
+    border-bottom: none;
+
+    &:hover {
+      color: #d2603a !important;
+      border-bottom: 1px solid #d2603a;
+    }
+  }
+
+  .current a,
+  .top-category a {
+    color: var(--heading-color);
+    font-weight: 600;
+  }
+
+  .sub-category {
+    padding-left: 1rem;
+  }
+}
+
+#access-category-posts .panel-list {
+  position: relative;
+  max-height: 16rem;
+  overflow-y: auto;
+}
 
 /* Third-level categories on the categories tab */
 .categories .list-group-item {
