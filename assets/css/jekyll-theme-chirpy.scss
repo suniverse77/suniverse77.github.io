@@ -77,11 +77,6 @@
   max-height: none;
 }
 
-/* Home page: the category cards start level with the right panel */
-article > .categories:first-child {
-  margin-top: 3rem;
-}
-
 /* Third-level categories on the categories tab */
 .categories .list-group-item {
   &.has-third {

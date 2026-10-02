@@ -10,6 +10,12 @@ layout: page
 
 {% assign group_index = 0 %}
 
+<!-- The home page reuses this layout, so give it the same title block as a tab page -->
+{% if page.url == '/' %}
+  <h1 class="dynamic-title">{{ site.data.locales[lang].tabs.categories | default: 'Categories' }}</h1>
+  <div class="content">
+{% endif %}
+
 {% assign sort_categories = site.categories | sort %}
 
 {% for category in sort_categories %}
@@ -229,6 +235,10 @@ layout: page
     {% assign group_index = group_index | plus: 1 %}
   {% endif %}
 {% endfor %}
+
+{% if page.url == '/' %}
+  </div>
+{% endif %}
 
 <!-- Keep third-level collapse events from toggling the top-level header -->
 <script>
