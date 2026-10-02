@@ -1,0 +1,9 @@
+# Small image shown to the left of a top-level category name on the home page.
+# Key: the category name exactly as written in a post's `categories` (first item).
+# Value: path to the image. Put the files in assets/images/categories/.
+# A category that is not listed here is shown without an image.
+#
+# Example:
+# AI: /assets/images/categories/ai.png
+# Mathematics: /assets/images/categories/mathematics.png
+# Programming: /assets/images/categories/programming.png

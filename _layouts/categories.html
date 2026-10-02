@@ -10,10 +10,9 @@ layout: page
 
 {% assign group_index = 0 %}
 
-<!-- The home page reuses this layout, so give it the same title block as a tab page -->
+<!-- The home page reuses this layout without the page title -->
 {% if page.url == '/' %}
-  <h1 class="dynamic-title">{{ site.data.locales[lang].tabs.categories | default: 'Categories' }}</h1>
-  <div class="content">
+  <div class="content home-categories">
 {% endif %}
 
 {% assign sort_categories = site.categories | sort %}
@@ -46,6 +45,16 @@ layout: page
       >
         <span class="ms-2">
           <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+
+          <!-- optional image, set in _data/category_icons.yml -->
+          {% assign category_icon = site.data.category_icons[category_name] %}
+          {% if category_icon %}
+            <span
+              class="category-image"
+              style="background-image: url('{{ category_icon | relative_url }}')"
+              aria-hidden="true"
+            ></span>
+          {% endif %}
 
           {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
           <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
