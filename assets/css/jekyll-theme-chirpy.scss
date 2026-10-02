@@ -113,6 +113,35 @@ article > header {
   border-bottom: 1px solid rgba(55, 53, 47, 0.2);
 }
 
+/* Post page: previous / next cards within the same category */
+#category-nav {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+
+  .category-nav-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--text-muted-color);
+  }
+
+  h4 {
+    overflow: hidden;
+    font-size: 1.1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  p {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
 /* Right panel: same-category post list and category tree */
 #access-category-posts,
 #access-categories,

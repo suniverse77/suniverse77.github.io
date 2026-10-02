@@ -1,0 +1,74 @@
+<!-- Navigation cards at the bottom of the post.
+     Previous / next are taken from the same category as the current post
+     (third level if the post has one, else second), ordered by date. -->
+
+{% assign top_category = page.categories[0] %}
+{% assign sub_category = page.categories[1] %}
+{% assign third_category = page.categories[2] %}
+{% assign current_category = third_category | default: sub_category | default: top_category %}
+
+{% assign category_posts = '' | split: '' %}
+
+{% if current_category %}
+  {% for post in site.categories[current_category] %}
+    {% if post.categories[0] == top_category
+      and post.categories[1] == sub_category
+      and post.categories[2] == third_category
+    %}
+      {% assign category_posts = category_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign category_posts = category_posts | sort: 'date' %}
+{% endif %}
+
+{% assign previous_post = nil %}
+{% assign next_post = nil %}
+
+{% for post in category_posts %}
+  {% if post.url == page.url %}
+    {% unless forloop.first %}
+      {% assign previous_index = forloop.index0 | minus: 1 %}
+      {% assign previous_post = category_posts[previous_index] %}
+    {% endunless %}
+    {% unless forloop.last %}
+      {% assign next_post = category_posts[forloop.index] %}
+    {% endunless %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+<!-- Shown as two cards: label, title and the start of the body (no date) -->
+{% if previous_post or next_post %}
+  <nav id="category-nav" class="row row-cols-1 row-cols-md-2 g-4" aria-label="Post Navigation">
+    <div class="col">
+      {% if previous_post %}
+        {% assign post = previous_post %}
+        <a href="{{ post.url | relative_url }}" class="post-preview card h-100">
+          <div class="card-body">
+            <span class="category-nav-label"><i class="fas fa-angle-left fa-fw"></i>Previous</span>
+            <h4 class="pt-0 my-2">{{ post.title }}</h4>
+            <div class="text-muted">
+              <p>{% include post-summary.html %}</p>
+            </div>
+          </div>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="col">
+      {% if next_post %}
+        {% assign post = next_post %}
+        <a href="{{ post.url | relative_url }}" class="post-preview card h-100">
+          <div class="card-body">
+            <span class="category-nav-label">Next<i class="fas fa-angle-right fa-fw"></i></span>
+            <h4 class="pt-0 my-2">{{ post.title }}</h4>
+            <div class="text-muted">
+              <p>{% include post-summary.html %}</p>
+            </div>
+          </div>
+        </a>
+      {% endif %}
+    </div>
+  </nav>
+{% endif %}
