@@ -84,29 +84,13 @@ layout: page
             {% endif %}
           </span>
         </span>
-
-        <!-- arrow -->
-        {% if sub_categories_size > 0 %}
-          <a
-            href="#{{ LIST_PREFIX }}{{ group_index }}"
-            data-bs-toggle="collapse"
-            aria-expanded="true"
-            aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
-            class="category-trigger hide-border-bottom"
-          >
-            <i class="fas fa-fw fa-angle-down"></i>
-          </a>
-        {% else %}
-          <span data-bs-toggle="collapse" class="category-trigger hide-border-bottom disabled">
-            <i class="fas fa-fw fa-angle-right"></i>
-          </span>
-        {% endif %}
       </div>
       <!-- .card-header -->
 
       <!-- Sub-categories -->
       {% if sub_categories_size > 0 %}
-        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
+        <!-- always expanded: top-level categories are not collapsible -->
+        <div>
           <ul class="list-group">
             {% for sub_category in sub_categories %}
               <!-- Third-level categories -->
@@ -239,12 +223,3 @@ layout: page
 {% if page.url == '/' %}
   </div>
 {% endif %}
-
-<!-- Keep third-level collapse events from toggling the top-level header -->
-<script>
-  document.querySelectorAll('.third-group').forEach((group) => {
-    ['show.bs.collapse', 'hide.bs.collapse'].forEach((type) => {
-      group.addEventListener(type, (event) => event.stopPropagation());
-    });
-  });
-</script>
