@@ -51,7 +51,7 @@ Swin Transformer Block에서는 아래 그림의 Transformer Block이 연속적�
 
 ### Shifted Window based Self-Attention
 
-Swin Transformer에서는 <span style="background-color:#fff5b1">Global Attention을 수행하지 않고, 이미지를 여러 개의 윈도우로 쪼갠 후 그 안에서만 Local Attention을 수행</span>한다.
+Swin Transformer에서는 ==Global Attention을 수행하지 않고, 이미지를 여러 개의 윈도우로 쪼갠 후 그 안에서만 Local Attention을 수행==한다.
 
 Shifted Window based Self-Attention의 파이프라인은 다음과 같다.
 

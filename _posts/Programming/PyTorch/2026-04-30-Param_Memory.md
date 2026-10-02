@@ -18,7 +18,7 @@ author: sunho
 - **그래디언트 메모리:** 개별 파라미터마다 계산된 그래디언트 값을 저장하는 공간 (위 그림에서 $\frac{\partial\mathcal{L}}{\partial W^{(i)}}$)
 - **옵티마이저 상태 메모리:** 옵티마이저가 유지해야 하는 과거의 정보를 저장하는 공간 (위 그림에서 $\hat{m}$과 $\hat{v}$)
 
-이 중 <span style="background-color:#fff5b1">활성화 메모리는 입력 데이터의 크기 (배치 크기, 데이터 크기 등)에 비례</span>하며, 나머지 <span style="background-color:#fff5b1">파라미터, 그래디언트, 옵티마이저 상태 메모리는 모델의 크기에 의해 결정</span>된다.
+이 중 ==활성화 메모리는 입력 데이터의 크기 (배치 크기, 데이터 크기 등)에 비례==하며, 나머지 ==파라미터, 그래디언트, 옵티마이저 상태 메모리는 모델의 크기에 의해 결정==된다.
 
 [GPT-2 XL](https://huggingface.co/openai-community/gpt2-xl) 모델을 예시로 계산을 해보겠다.
 <br>

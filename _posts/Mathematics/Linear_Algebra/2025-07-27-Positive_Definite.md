@@ -78,7 +78,7 @@ Positive Definite Matrix의 성질을 여러 관점에서 해석할 수 있다.
 
 ### 기하학적 관점
 
-<span style="background-color:#fff5b1">$A$가 Positive Definite하다면, Qudratic Form의 곡면은 아래로 볼록한 그릇 모양이 된다.</span>
+==$A$가 Positive Definite하다면, Qudratic Form의 곡면은 아래로 볼록한 그릇 모양이 된다.==
 
 Quadratic Form $f(\mathbf{x})=\mathbf{x}^\top A\mathbf{x}$를 3차원 공간 $(x_1,x_2,f)$의 곡면으로 그려 보면, $A$의 고유값의 부호에 따라 원점 주변의 모양이 다음과 같이 달라진다.
 
@@ -98,7 +98,7 @@ $$
 
 ### 내적 관점
 
-<span style="background-color:#fff5b1">$A$가 Positive Definite하다면, $A$에 의한 변환은 벡터의 방향성을 어느 정도 보존한다.</span>
+==$A$가 Positive Definite하다면, $A$에 의한 변환은 벡터의 방향성을 어느 정도 보존한다.==
 
 Quadratic Form은 벡터 $\mathbf{x}$와 변환된 벡터 $A\mathbf{x}$의 내적으로도 볼 수 있다.
 

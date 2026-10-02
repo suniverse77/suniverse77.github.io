@@ -9,7 +9,7 @@ author: sunho
 
 ## 공분산 (Covariance)
 
-공분산은 <span style="background-color:#fff5b1">두 확률 변수 간의 상관관계를 나타내는 값</span>이다.
+공분산은 ==두 확률 변수 간의 상관관계를 나타내는 값==이다.
 
 $$
 \text{Cov}(X,Y)=\mathbb E_{X,Y}[(x-\mu_X)(y-\mu_Y)]=\mathbb E_{X,Y}[xy]-\mathbb E[x]\mathbb E[y]
@@ -24,7 +24,7 @@ $X$와 $Y$가 독립이면 공분산이 0이며 역은 성립하지 않는다.
 
 ### 공분산 행렬 (Covariance Matrix)
 
-공분산 행렬은 <span style="background-color:#fff5b1">다변량 확률 변수 내의 여러 확률 변수 간의 상관관계를 행렬 형태로 나타낸 값</span>이다.
+공분산 행렬은 ==다변량 확률 변수 내의 여러 확률 변수 간의 상관관계를 행렬 형태로 나타낸 값==이다.
 <br>
 즉, 다변량 확률변수의 분산을 공분산 행렬이라고 부른다.
 

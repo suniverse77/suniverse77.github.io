@@ -22,7 +22,7 @@ author: sunho
 | Immediate Consequence Operator | 규칙으로부터 새로운 Fact를 추론하는 연산자 | $T_P$ |
 
 - Atom은 더 이상 논리적으로 분해되지 않는 가장 기본적인 논리 단위이다.
-- 논리 프로그래밍에서는 <span style="background-color:#fff5b1">긍정 형태의 Ground Atom을 **Fact**라고 부른다.</span>
+- 논리 프로그래밍에서는 ==긍정 형태의 Ground Atom을 **Fact**라고 부른다.==
 
     즉 Fact는 아무런 전제 조건 없이 그 자체로 항상 참인 명제를 의미하므로, 조건부가 비어있는 규칙 $\alpha\leftarrow$ 형태로 해석할 수 있다.
 
@@ -61,7 +61,7 @@ $$
 
 ## 논리 프로그램과 사실 집합
 
-논리 프로그램(Logic Program)은 논리 프로그래밍에서 다루는 것으로, <span style="background-color:#fff5b1">규칙들의 집합</span>으로 정의된다.
+논리 프로그램(Logic Program)은 논리 프로그래밍에서 다루는 것으로, ==규칙들의 집합==으로 정의된다.
 <br>
 논리 프로그램 $P$는 개발자가 사전에 정의하여 컴퓨터에 입력해 둔 Knowledge Base이다.
 

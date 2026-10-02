@@ -61,7 +61,7 @@ $$
 
 해가 하나가 아니라 여러 개인 경우이다.
 
-이러한 상황은 주로 <span style="background-color:#fff5b1">**Under-determined System** (방정식의 개수 < 미지수의 개수)에서 발생</span>한다.
+이러한 상황은 주로 ==**Under-determined System** (방정식의 개수 < 미지수의 개수)에서 발생==한다.
 
 이러한 시스템은 **자유 변수 (Free variable)**를 포함하게 된다.
 <br>
@@ -83,7 +83,7 @@ $$
 
 해가 없는 경우로, 연립 방정식에 모순이 있어 어떤 값을 대입해도 모든 방정식을 동시에 만족시킬 수 없는 상황이다.
 
-이러한 상황은 주로 <span style="background-color:#fff5b1">**Over-determined System** (방정식의 개수 > 미지수의 개수)에서 발생</span>한다.
+이러한 상황은 주로 ==**Over-determined System** (방정식의 개수 > 미지수의 개수)에서 발생==한다.
 
 $$
 \begin{bmatrix}\begin{array}{ccc|c}
@@ -203,7 +203,7 @@ $$
     \end{bmatrix}
     $$
 
-- 0이 아닌 원소를 포함하는 행의 경우, 그 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">Leading entry</span>는 그 위 행의 첫 번째 0이 아닌 원소보다 더 오른쪽에 위치한다.
+- 0이 아닌 원소를 포함하는 행의 경우, 그 행의 첫 번째 0이 아닌 원소인 ==Leading entry==는 그 위 행의 첫 번째 0이 아닌 원소보다 더 오른쪽에 위치한다.
 
     $$
     \begin{bmatrix}
@@ -212,7 +212,7 @@ $$
     \end{bmatrix}
     $$
 
-- 각 행의 첫 번째 0이 아닌 원소인 <span style="background-color:#fff5b1">Pivot</span> 아래에 있는 모든 원소는 0이다.
+- 각 행의 첫 번째 0이 아닌 원소인 ==Pivot== 아래에 있는 모든 원소는 0이다.
 
     $$
     \begin{bmatrix}
@@ -339,7 +339,7 @@ $$
 
 이는 기하학적으로 $y=-x$를 $y$축 방향으로 $1$만큼 평행이동한다는 의미이다.
 
-즉, <span style="background-color:#fff5b1">기준점 하나 (특수해)와 방향 (동차해)만으로 $x+y=1$의 모든 해를 표현할 수 있다.</span>
+즉, ==기준점 하나 (특수해)와 방향 (동차해)만으로 $x+y=1$의 모든 해를 표현할 수 있다.==
 
 ![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Equation-1.png)
 

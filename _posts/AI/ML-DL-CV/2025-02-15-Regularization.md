@@ -7,7 +7,7 @@ toc: true
 author: sunho
 ---
 
-Regularization은 <span style="background-color:#fff5b1">모델이 학습 데이터에 너무 오버피팅되는 것을 방지</span>하는 기법이다.
+Regularization은 ==모델이 학습 데이터에 너무 오버피팅되는 것을 방지==하는 기법이다.
 
 ## L1 / L2 Regularization
 

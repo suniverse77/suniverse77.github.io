@@ -70,7 +70,7 @@ _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ## Distance
 
-**Distance**는 말 그대로 벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리를 의미하며, <span style="background-color:#fff5b1">벡터 차이의 Norm</span>으로 정의된다.
+**Distance**는 말 그대로 벡터 공간 $V$에서 두 벡터 $\mathbf{x}$, $\mathbf{y}$ 사이의 거리를 의미하며, ==벡터 차이의 Norm==으로 정의된다.
 
 $$
 d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert

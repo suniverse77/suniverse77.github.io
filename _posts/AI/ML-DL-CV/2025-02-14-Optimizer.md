@@ -26,7 +26,7 @@ SGD는 1개의 샘플만 사용하기 때문에 loss 값이 매 epoch마다 심�
 
 전체 학습 데이터를 일정 크기의 미니배치로 나누고, 매 iteration마다 해당 배치의 데이터를 이용해 파라미터를 업데이트하는 방법이다.
 <br>
-<span style="background-color:#fff5b1">현대 딥러닝에서 흔히 SGD라고 부르는 것은 사실상 미니배치 GD를 의미한다.</span>
+==현대 딥러닝에서 흔히 SGD라고 부르는 것은 사실상 미니배치 GD를 의미한다.==
 
 $$
 \boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t-\eta\frac{1}{B}\sum_{i\in\mathcal{B}}\nabla_{\boldsymbol{\theta}_t}\mathcal{L}_i
@@ -69,7 +69,7 @@ $\mu$는 모멘텀 계수로, 과거의 속도를 얼마나 반영할지를 결�
 
 ## RMSprop
 
-단순히 모든 파라미터에 고정된 학습률을 동일하게 적용하는 대신, 그래디언트의 크기에 따라 <span style="background-color:#fff5b1">학습률</span>을 개별적으로 조절하는 방법이다.
+단순히 모든 파라미터에 고정된 학습률을 동일하게 적용하는 대신, 그래디언트의 크기에 따라 ==학습률==을 개별적으로 조절하는 방법이다.
 
 $$
 \begin{aligned}

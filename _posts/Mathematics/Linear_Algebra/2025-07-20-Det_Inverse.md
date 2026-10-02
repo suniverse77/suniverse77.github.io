@@ -21,8 +21,8 @@ $$
 ![fig1](/assets/images/Mathematics/Linear_Algebra/Det_Inverse-1.png)
 _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 
-1. 행렬을 열 벡터의 집합으로 본다면, <span style="background-color:#fff5b1">두 열 벡터가 이루는 영역의 너비</span>를 의미한다.
-2. 행렬을 변환으로 본다면, <span style="background-color:#fff5b1">변환에 의해 늘어나는 영역의 너비 변화율</span>을 의미한다.
+1. 행렬을 열 벡터의 집합으로 본다면, ==두 열 벡터가 이루는 영역의 너비==를 의미한다.
+2. 행렬을 변환으로 본다면, ==변환에 의해 늘어나는 영역의 너비 변화율==을 의미한다.
 
 <details>
 <summary><font color='#FF0000'><strong>Example:</strong> 행렬식과 너비의 관계 확인</font></summary>

@@ -62,14 +62,20 @@ $post-column-max-width: 1125px;
 /* Space background shared by the left sidebar and the solar system box:
    a navy-to-black gradient with faint nebula glows, a tiled field of stars of
    mixed size and tint (::before), and a few stars that slowly twinkle (::after).
-   $tile is the height of one repeat of the star pattern. */
-@mixin space-background($tile) {
+   $tile is the height of one repeat of the star pattern.
+   With $gradient: false the backdrop is a single flat colour (stars only). */
+@mixin space-background($tile, $gradient: true) {
   isolation: isolate;
-  background:
-    radial-gradient(ellipse 85% 24% at 15% 10%, rgba(112, 86, 214, 0.2), transparent 70%),
-    radial-gradient(ellipse 90% 20% at 92% 58%, rgba(40, 160, 180, 0.13), transparent 70%),
-    radial-gradient(ellipse 80% 18% at 25% 94%, rgba(180, 72, 150, 0.1), transparent 70%),
-    linear-gradient(180deg, #131935 0%, #0b0d17 45%, #05060b 100%);
+
+  @if $gradient {
+    background:
+      radial-gradient(ellipse 85% 24% at 15% 10%, rgba(112, 86, 214, 0.2), transparent 70%),
+      radial-gradient(ellipse 90% 20% at 92% 58%, rgba(40, 160, 180, 0.13), transparent 70%),
+      radial-gradient(ellipse 80% 18% at 25% 94%, rgba(180, 72, 150, 0.1), transparent 70%),
+      linear-gradient(180deg, #131935 0%, #0b0d17 45%, #05060b 100%);
+  } @else {
+    background: #0b0d17;
+  }
 
   &::before,
   &::after {
@@ -161,6 +167,50 @@ $post-column-max-width: 1125px;
   visibility: hidden;
 }
 
+/* Highlighter pen: written in posts as ==text== or =={red}text==
+   (see _plugins/inline-color-syntax.rb). Change a colour here to change it everywhere. */
+$highlighter-colors: (
+  yellow: #fff5b1,
+  red: #ffe6e6,
+  purple: #e6e6fa,
+  blue: #c0ffff,
+  ivory: #fffff0,
+  gray: #f5f5f5,
+  green: #dcffe4
+);
+
+@each $name, $color in $highlighter-colors {
+  .hl-#{$name} {
+    background-color: $color;
+  }
+}
+
+/* Text colour: written in posts as %%{red}text%% (see _plugins/inline-color-syntax.rb).
+   Each name currently maps to the browser colour of the same name. */
+$text-colors: (
+  red: red,
+  green: green,
+  blue: blue,
+  violet: violet,
+  gold: gold,
+  orange: orange,
+  lightgreen: lightgreen,
+  yellowgreen: yellowgreen,
+  yellow: yellow,
+  skyblue: skyblue,
+  pink: pink,
+  indigo: indigo,
+  gray: gray,
+  brown: brown,
+  blueviolet: blueviolet
+);
+
+@each $name, $color in $text-colors {
+  .tc-#{$name} {
+    color: $color;
+  }
+}
+
 /* Post page: a rule between the title block and the body */
 article > header {
   padding-bottom: 1rem;
@@ -246,7 +296,7 @@ article > header {
     overflow: hidden;
     border-radius: 1rem;
 
-    @include space-background(420px);
+    @include space-background(420px, $gradient: false);
   }
 
   .solar {

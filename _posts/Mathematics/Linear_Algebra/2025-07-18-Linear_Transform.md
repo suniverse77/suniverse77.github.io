@@ -11,7 +11,7 @@ author: sunho
 <br>
 변환이라는 단어를 사용한 이유는 입력 벡터가 특정 규칙에 따라 움직이는 기하학적 이동을 연상하기 쉽기 때문이다.
 
-**선형 변환**은 <span style="background-color:#fff5b1">선형성을 만족하는 특별한 변환</span>을 의미하며, 다음과 같이 표현된다.
+**선형 변환**은 ==선형성을 만족하는 특별한 변환==을 의미하며, 다음과 같이 표현된다.
 
 $$
 T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
@@ -74,7 +74,7 @@ $$
 
 #### 기저 벡터의 이동
 
-선형 변환은 <span style="background-color:#fff5b1">기저 벡터의 이동</span>으로 이해할 수 있다.
+선형 변환은 ==기저 벡터의 이동==으로 이해할 수 있다.
 <br>
 즉, 벡터를 기저 벡터의 선형 결합으로 나타냈을 때 그 계수는 그대로 유지되지만, 기저 벡터 자체가 새로운 위치로 이동하기 때문에 벡터가 가리키는 실제 위치가 바뀌는 것이다.
 
@@ -91,7 +91,7 @@ $$
 \mathbf{v}_2=A\mathbf{j}=\begin{bmatrix}3\\0\end{bmatrix}
 $$
 
-즉, <span style="background-color:#fff5b1">행렬의 각 열 벡터는 원래 기저 벡터가 변환 후 도달한 위치</span>이다.
+즉, ==행렬의 각 열 벡터는 원래 기저 벡터가 변환 후 도달한 위치==이다.
 
 따라서 $\mathbf{x}$의 변환 결과 $A\mathbf{x}$는 계수 $(1, 1)$을 유지한 채 기저 벡터만 갈아끼운 것으로 계산된다.
 
@@ -107,11 +107,11 @@ $$
 
 반대로, 변환 전의 벡터 $\mathbf{x}=\mathbf{i}+\mathbf{j}$를 새로운 기저 $\mathbf{v}_1$, $\mathbf{v}_2$로 표현하면 어떻게 될까?
 <br>
-주의할 점은, 이는 위와 달리 벡터를 이동시키는 것이 아니라 <span style="background-color:#fff5b1">가만히 있는 벡터를 읽는 기준만 바꾸는 것</span>이므로 계수 $(1,1)$이 유지되지 않는다는 것이다.
+주의할 점은, 이는 위와 달리 벡터를 이동시키는 것이 아니라 ==가만히 있는 벡터를 읽는 기준만 바꾸는 것==이므로 계수 $(1,1)$이 유지되지 않는다는 것이다.
 
 찾고자 하는 것은 $\mathbf{x}=c_1\mathbf{v}_1+c_2\mathbf{v}_2$를 만족하는 계수 $(c_1, c_2)$이다.
 
-$\mathbf{v}_1$, $\mathbf{v}_2$가 행렬 $A$의 열이므로 이 식은 $\mathbf{x}=A\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$로 쓸 수 있고, 양변에 $A^{-1}$을 곱하면 <span style="background-color:#fff5b1">새로운 기저에서의 좌표는 역변환으로 구해짐</span>을 알 수 있다.
+$\mathbf{v}_1$, $\mathbf{v}_2$가 행렬 $A$의 열이므로 이 식은 $\mathbf{x}=A\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$로 쓸 수 있고, 양변에 $A^{-1}$을 곱하면 ==새로운 기저에서의 좌표는 역변환으로 구해짐==을 알 수 있다.
 
 $$
 \begin{bmatrix}c_1\\c_2\end{bmatrix}=A^{-1}\mathbf{x}=
@@ -159,7 +159,7 @@ _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#ti
 
 ## Rank와 변환의 관계
 
-행렬의 Rank는 <span style="background-color:#fff5b1">선형 변환 후 만들어질 수 있는 출력 공간의 차원</span>을 의미한다.
+행렬의 Rank는 ==선형 변환 후 만들어질 수 있는 출력 공간의 차원==을 의미한다.
 
 열벡터의 관점에서 말하면, Rank는 $A$의 열공간의 차원이다.
 
@@ -195,7 +195,7 @@ $$
 
 $m\times n$ 행렬은 $n$차원 공간의 벡터를 $m$차원 공간으로 변환한다.
 <br>
-즉, <span style="background-color:#fff5b1">열의 개수가 입력 공간의 차원, 행의 개수가 출력 공간의 차원</span>이다.
+즉, ==열의 개수가 입력 공간의 차원, 행의 개수가 출력 공간의 차원==이다.
 <br>
 단, 출력이 $m$차원 공간을 실제로 얼마나 채우는지는 Rank가 결정한다.
 

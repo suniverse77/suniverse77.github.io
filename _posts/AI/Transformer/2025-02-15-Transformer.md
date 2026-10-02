@@ -218,7 +218,7 @@ $$
 
 #### Value
 
-<span style="background-color:#fff5b1">Attention Map이 문맥 내에서 각 단어 간의 관계를 나타낸다면, 여기에 Value를 곱하는 과정은 그 관계를 바탕으로 실제 토큰 임베딩을 어떻게 변화시킬지 구체적인 문맥 정보를 추출하는 단계이다.</span>
+==Attention Map이 문맥 내에서 각 단어 간의 관계를 나타낸다면, 여기에 Value를 곱하는 과정은 그 관계를 바탕으로 실제 토큰 임베딩을 어떻게 변화시킬지 구체적인 문맥 정보를 추출하는 단계이다.==
 
 $$
 \text{softmax}\left(QK^\top\right)V=
@@ -234,7 +234,7 @@ w_{N,1}\mathbf{v}_1+w_{N,2}\mathbf{v}_2+\cdots+w_{N,N}\mathbf{v}_N
 \tag{8}
 $$
 
-이 행렬 곱 연산을 통해 도출된 $\Delta\mathbf{e}_i$는 원본 임베딩이 <span style="background-color:#fff5b1">문맥을 반영하기 위해 이동해야 할 방향</span>과 크기, 즉 <span style="background-color:#fff5b1">해당 방향으로 가하는 힘</span>으로 해석할 수 있다.
+이 행렬 곱 연산을 통해 도출된 $\Delta\mathbf{e}_i$는 원본 임베딩이 ==문맥을 반영하기 위해 이동해야 할 방향==과 크기, 즉 ==해당 방향으로 가하는 힘==으로 해석할 수 있다.
 
 최종적으로 Attention 연산 이후 Skip Connection을 통해, 원래의 토큰 임베딩인 $\mathbf{e}_i$에 $\Delta\mathbf{e}_i$를 더해준다.
 <br>
@@ -396,7 +396,7 @@ $$
 여기서 $x_i$ 는 각각의 로짓 값을 의미한다.
 
 - **$T<1$인 경우:** $\frac{x_i}{T}$의 값들 사이의 수학적 격차가 원래보다 훨씬 커져, 확률 분포가 매우 뾰족해진다.
-- **$T>1$인 경우:** $\frac{x_i}{T}$ 값들 사이의 수학적 격차가 줄어들어, 확률 분포가 완만해진다. 이 경우에 원래 점수가 낮아 무시되었을 단어들도 선택될 가능성이 상대적으로 높아지며, <span style="background-color:#fff5b1">결과적으로 모델은 더 다양한 단어들을 샘플링할 수 있게 되어 창의적인 문장을 생성하게 된다.</span>
+- **$T>1$인 경우:** $\frac{x_i}{T}$ 값들 사이의 수학적 격차가 줄어들어, 확률 분포가 완만해진다. 이 경우에 원래 점수가 낮아 무시되었을 단어들도 선택될 가능성이 상대적으로 높아지며, ==결과적으로 모델은 더 다양한 단어들을 샘플링할 수 있게 되어 창의적인 문장을 생성하게 된다.==
 
 ![fig15](/assets/images/AI/Transformer/Transformer-15.png)
 _[[출처: 3Blue1Brown]](https://www.youtube.com/watch?v=9-Jl0dxWQs8&list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&index=8)_

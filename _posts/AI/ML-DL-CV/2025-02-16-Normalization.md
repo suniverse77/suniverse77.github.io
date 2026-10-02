@@ -7,24 +7,24 @@ toc: true
 author: sunho
 ---
 
-Normalization은 <span style="background-color:#fff5b1">학습 속도와 안정성을 향상시키기 위해 데이터의 분포를 안정화</span>하는 기법으로, 사용되는 위치에 따라 목적이 다르다.
+Normalization은 ==학습 속도와 안정성을 향상시키기 위해 데이터의 분포를 안정화==하는 기법으로, 사용되는 위치에 따라 목적이 다르다.
 
 ## 데이터 전처리 단계에서의 Normalization
 
-모델 <span style="background-color:#fff5b1">입력이 안정적 분포</span>를 가지도록 하여 초기 학습이 더 잘 되도록 한다.
+모델 ==입력이 안정적 분포==를 가지도록 하여 초기 학습이 더 잘 되도록 한다.
 
 Standardization (표준화), Min-Max Scaling 등의 기법이 존재한다.
 
 ## 신경망 내부에서 동작하는 Normalization
 
-각 layer의 <span style="background-color:#fff5b1">출력을 안정적인 분포</span>로 맞춰서 학습이 발산하지 않고 빠르게 수렴하도록 한다.
+각 layer의 ==출력을 안정적인 분포==로 맞춰서 학습이 발산하지 않고 빠르게 수렴하도록 한다.
 
 ![fig1](/assets/images/AI/ML-DL/Normalization-1.png)
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization
 
-이름 그대로 <span style="background-color:#fff5b1">정규화 과정에 배치가 포함된다.</span>
+이름 그대로 ==정규화 과정에 배치가 포함된다.==
 <br>
 하나의 배치 내에서 모든 샘플에 걸친 각 feature의 평균과 분산을 구한다.
 
@@ -47,7 +47,7 @@ $$
 
 ### Layer Normalization
 
-<span style="background-color:#fff5b1">정규화 과정이 배치와 독립적으로 하나의 데이터 내에서만 수행된다.</span>
+==정규화 과정이 배치와 독립적으로 하나의 데이터 내에서만 수행된다.==
 <br>
 모든 feature에 걸친 각 샘플의 평균과 분산을 구한다.
 

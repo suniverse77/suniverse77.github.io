@@ -30,7 +30,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 마침내 $T_{\text{ext}}\approx\hat{T}_{\text{ext}}$가 되는 순간, 모델 내부에서 외부 온도와 함께 계산되고 있던 내부 온도 $\hat{T}\_{\text{in}}$ 또한 우리가 알고 싶어 했던 진짜 내부 온도 $T\_{\text{in}}$와 완벽하게 일치하게 된다.
 
-이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, <span style="background-color:#fff5b1">오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.</span>
+이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, ==오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.==
 
 ![fig2](/assets/images/Math/Signal_System/Kalman_Filter2-2.png)
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
@@ -156,7 +156,7 @@ $$
 > 
 > 이는 가중 평균 형태로, $K$는 센서 측정값을 믿는 가중치, $(1 - K)$는 모델 자신의 예측값을 믿는 가중치로 작동한다.
 > 
-> 즉, <span style="background-color:#fff5b1">Kalman gain $K$가 커질수록 모델은 센서의 측정값을 더 신뢰하고, 작아질수록 모델 자신의 예측값을 더 신뢰하게 된다.</span>
+> 즉, ==Kalman gain $K$가 커질수록 모델은 센서의 측정값을 더 신뢰하고, 작아질수록 모델 자신의 예측값을 더 신뢰하게 된다.==
 
 센서 측정값을 반영하여 현재 상태를 보정했으므로, 예측의 불확실성 또한 이전보다 줄어들게 된다. 이를 반영하여 최종적인 사후 오차 공분산 $P_k$를 계산한다.
 

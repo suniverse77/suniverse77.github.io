@@ -47,7 +47,7 @@ $$
 
 위의 식의 출력값 $\hat{y}$는 해당 샘플이 클래스 1에 속할 확률을 의미한다.
 
-이때, 실수값과 확률값을 연결해주는 변수 $z$를 <span style="background-color:#fff5b1">로짓 (logit)</span>이라고 부른다.
+이때, 실수값과 확률값을 연결해주는 변수 $z$를 ==로짓 (logit)==이라고 부른다.
 
 ### 결정 경계 (Decision Boundary)
 

@@ -93,7 +93,7 @@ $$
 \tag{4}
 $$
 
-즉, Image는 <span style="background-color:#fff5b1">선형 변환의 출력 공간</span>을 의미한다.
+즉, Image는 ==선형 변환의 출력 공간==을 의미한다.
 
 ### Kernel
 
@@ -107,7 +107,7 @@ $$
 \tag{5}
 $$
 
-즉, Kernel은 <span style="background-color:#fff5b1">선형 변환의 [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)</span>를 의미한다.
+즉, Kernel은 ==선형 변환의 [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)==를 의미한다.
 
 ---
 
@@ -117,7 +117,7 @@ $m\times n$ 크기의 행렬 $A\in \Bbb R^{m\times n}$는 $A:\Bbb R^n→\Bbb R^m
 
 이때 아래의 2가지 성질이 성립한다.
 
-- <span style="background-color:#fff5b1">행렬 $A$의 Rank는 Image의 차원과 동일하다.</span>
+- ==행렬 $A$의 Rank는 Image의 차원과 동일하다.==
 
     $$
     \text{rank}(A)=\text{dim}(\text{Im}(\Phi))
@@ -126,7 +126,7 @@ $m\times n$ 크기의 행렬 $A\in \Bbb R^{m\times n}$는 $A:\Bbb R^n→\Bbb R^m
 
     이는 Image가 $A$의 Column space이기 때문이다.
 
-- <span style="background-color:#fff5b1">행렬 $A$의 Nullity는 Kernel의 차원과 동일하다.</span>
+- ==행렬 $A$의 Nullity는 Kernel의 차원과 동일하다.==
 
     $$
     \text{nullity}(A)=\text{dim}(\text{ker}(\Phi))

@@ -14,7 +14,7 @@ author: sunho
 ![fig1](/assets/images/AI_Basics/Metric/Confusion_Matrix-1.png)
 _[[출처]](https://www.blog.trainindata.com/confusion-matrix-precision-and-recall/)_
 
-**Positive/Negative**는 <span style="background-color:#fff5b1">모델이 예측한 값</span>을, **True/False**는 <span style="background-color:#fff5b1">그 예측이 맞았는지 틀렸는지</span>를 의미한다.
+**Positive/Negative**는 ==모델이 예측한 값==을, **True/False**는 ==그 예측이 맞았는지 틀렸는지==를 의미한다.
 
 - **TP (True Positive)** : 실제 **Positive**인 것을 **Positive**라고 올바르게 예측한 경우
 - **TN (True Negative)** : 실제 **Negative**인 것을 **Negative**라고 올바르게 예측한 경우
@@ -139,7 +139,7 @@ $$
 
 이해하기 쉽게, `'너가 Positive라고 예측한 거, 진짜 확실해?'`라고 질문을 던지는 것과 같다.
 
-즉, 모델의 <span style="background-color:#FFE6E6">신중함</span> (함부로 정답이라고 말하지 않음)을 평가하는 지표이며, **FP**를 싫어한다.
+즉, 모델의 =={red}신중함== (함부로 정답이라고 말하지 않음)을 평가하는 지표이며, **FP**를 싫어한다.
 
 예를 들어, 정상 메일 (**Negative**)을 스팸 (**Positive**)으로 분류하면 안되는 스팸 메일 분류기에서 사용할 수 있다.
 
@@ -153,7 +153,7 @@ $$
 
 이해하기 쉽게, `'Positive인거, 다 찾은거 맞아?'`라고 질문을 던지는 것과 같다.
 
-즉, 모델의 <span style="background-color:#FFE6E6">집요함</span> (의심가면 일단 다 잡음)을 평가하는 지표이며, **FN**를 싫어한다.
+즉, 모델의 =={red}집요함== (의심가면 일단 다 잡음)을 평가하는 지표이며, **FN**를 싫어한다.
 
 예를 들어, 실제 암 환자 (**Positive**)를 정상 (**Negative**)으로 진단하면 안되는 암 진단 모델에서 사용할 수 있다.
 

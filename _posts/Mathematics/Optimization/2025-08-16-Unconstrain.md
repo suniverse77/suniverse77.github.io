@@ -74,7 +74,7 @@ $$
 ![fig1](/assets/images/Math/Optimization/Unconstrain-1.png)
 _[[출처]](https://medium.com/ai-saturdays-lagos-articles/tensorboard-hessian-matrices-and-linear-regression-39fe2f28de0f)_
 
-따라서 <span style="background-color:#fff5b1">그라디언트가 0이면서 Hessian이 양의 정부호이면, 해당 점은 지역 최소점 (Local Minimum)</span>이다.
+따라서 ==그라디언트가 0이면서 Hessian이 양의 정부호이면, 해당 점은 지역 최소점 (Local Minimum)==이다.
 
 ## 수치적 해법
 

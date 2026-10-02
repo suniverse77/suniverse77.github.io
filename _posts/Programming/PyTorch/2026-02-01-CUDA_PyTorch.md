@@ -26,7 +26,7 @@ GPU를 사용하려면 NVIDIA Driver, PyTorch의 CUDA Runtime, PyTorch 버전, P
 
 그래픽카드가 물리적인 하드웨어라면, NVIDIA Driver는 운영체제가 GPU를 사용할 수 있게 해주는 소프트웨어이다.
 <br>
-즉, <span style="background-color:#fff5b1">NVIDIA Driver는 운영체제가 GPU와 통신할 수 있게 해주는 프로그램</span>이다.
+즉, ==NVIDIA Driver는 운영체제가 GPU와 통신할 수 있게 해주는 프로그램==이다.
 
 따라서 컴퓨터에 NVIDIA GPU가 장착되어 있어도, NVIDIA Driver가 제대로 설치되어 있지 않으면 PyTorch에서 GPU를 사용할 수 없다.
 
@@ -40,7 +40,7 @@ CUDA Version: 12.4
 
 여기서 보이는 CUDA Version은 현재 NVIDIA Driver가 CUDA 12.4까지 지원할 수 있다고 이해하면 된다.
 
-예를 들어 <span style="background-color:#fff5b1">PyTorch가 CUDA 12.1 Runtime으로 만들어진 버전이라면, NVIDIA Driver는 CUDA 12.1을 실행할 수 있을 만큼 충분히 최신이어야 한다.</span>
+예를 들어 ==PyTorch가 CUDA 12.1 Runtime으로 만들어진 버전이라면, NVIDIA Driver는 CUDA 12.1을 실행할 수 있을 만큼 충분히 최신이어야 한다.==
 
 ## PyTorch의 CUDA Runtime
 
@@ -145,7 +145,7 @@ CUDA Rutime이 NVIDIA Driver와의 호환성에 영향을 준다면, PyTorch 버
 <br>
 따라서 최신 버전에서 더 빠르게 동작하거나, 특정 연산의 성능이 개선되는 경우도 있다.
 
-하지만 GPU 실행과 직접적으로 관련해서 중요한 부분은 <span style="background-color:#fff5b1">해당 PyTorch 버전이 현재 GPU 아키텍처를 지원하는지</span>이다.
+하지만 GPU 실행과 직접적으로 관련해서 중요한 부분은 ==해당 PyTorch 버전이 현재 GPU 아키텍처를 지원하는지==이다.
 
 예를 들어 다음과 같은 문제가 발생할 수 있다.
 

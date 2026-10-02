@@ -19,7 +19,7 @@ ResNet을 기점으로 신경망의 layer가 매우 깊어진 것을 볼 수 있
 
 VGGNet의 아키텍처는 아래와 같다.
 
-<span style="background-color:#fff5b1">3x3 conv (stride=1)만 사용</span>한 것이 가장 큰 특징이며, conv 연산 때는 공간적 크기를 보존하고 크기를 줄일 때는 pooling 연산을 수행하였다.
+==3x3 conv (stride=1)만 사용==한 것이 가장 큰 특징이며, conv 연산 때는 공간적 크기를 보존하고 크기를 줄일 때는 pooling 연산을 수행하였다.
 
 ![fig13](/assets/images/AI_Basics/CV/VGGNet_ResNet-2.png)
 
@@ -66,7 +66,7 @@ ResNet은 깊은 모델일수록 최적화하기 어렵다는 문제를 해결�
 
 **2. 기울기 관점**
 
-역전파로 전달되는 기울기는 연속적인 미분 값의 곱으로 표현되는데, 각 층에서 미분 값이 1보다 작다면 네트워크가 깊어질수록 점점 0에 가까워져 앞쪽 레이어까지 기울기가 잘 전달되지 않는 <span style="background-color:#fff5b1">기울기 소실 (Vanishing Gradient)</span> 현상이 발생한다.
+역전파로 전달되는 기울기는 연속적인 미분 값의 곱으로 표현되는데, 각 층에서 미분 값이 1보다 작다면 네트워크가 깊어질수록 점점 0에 가까워져 앞쪽 레이어까지 기울기가 잘 전달되지 않는 ==기울기 소실 (Vanishing Gradient)== 현상이 발생한다.
 
 ResNet에서는 skip connection에 의해 기울기가 아래와 같이 흐른다.
 
