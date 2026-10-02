@@ -9,7 +9,7 @@ author: sunho
 
 딥러닝 모델의 학습 과정은 크게 loss를 계산하는 순전파 (Forward pass), 각 파라미터의 그래디언트를 계산하는 역전파 (Backward pass), 그리고 계산된 그래디언트를 이용해 실제로 파라미터를 업데이트하는 옵티마이저 스텝 (Optimizer Step)으로 이루어진다.
 
-![fig1](/assets/images/Programming/PyTorch/Param_Memory-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/Programming/PyTorch/Param_Memory-1.png)
 
 이 과정에서 GPU 메모리 (VRAM)는 크게 4가지 영역으로 나뉘어 점유된다.
 
@@ -31,7 +31,7 @@ GPT-2 XL의 기본적인 스펙은 다음과 같고, **Batch size는 32**라고 
 - **Transformer Layers:** `48`
 - **Attention Heads:** `25`
 
-![fig2](/assets/images/Programming/PyTorch/Param_Memory-2.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig2](/assets/images/Programming/PyTorch/Param_Memory-2.png)
 
 ### 1. 파라미터 (Parameters) 메모리
 
@@ -135,7 +135,7 @@ $$
 > 
 > 역전파 시 가중치 $W^{(2)}$의 그래디언트는 chain rule에 의해 아래와 같이 계산되는데, 이때 $a_1$값을 저장하지 않았다면 역전파 과정에서 그래디언트를 구할 수 없게 된다.
 > 
-> $$\vphantom{\Bigg(}\frac{\partial\mathcal{L}}{\partial W^{(2)}}=\frac{\partial z_2}{\partial W^{(2)}}\cdot \frac{\partial\mathcal{L}}{\partial z_2}
+> $$\frac{\partial\mathcal{L}}{\partial W^{(2)}}=\frac{\partial z_2}{\partial W^{(2)}}\cdot \frac{\partial\mathcal{L}}{\partial z_2}
 =a_1^\top\cdot \frac{\partial\mathcal{L}}{\partial z_2}$$
 
 ### 3. 그래디언트 (Gradient) 메모리

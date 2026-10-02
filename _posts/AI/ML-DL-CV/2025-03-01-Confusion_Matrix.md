@@ -11,7 +11,7 @@ author: sunho
 
 모델의 예측 결과를 실제 정답과 비교하여
 
-![fig1](/assets/images/AI_Basics/Metric/Confusion_Matrix-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](/assets/images/AI_Basics/Metric/Confusion_Matrix-1.png)
 _[[출처]](https://www.blog.trainindata.com/confusion-matrix-precision-and-recall/)_
 
 **Positive/Negative**는 <span style="background-color:#fff5b1">모델이 예측한 값</span>을, **True/False**는 <span style="background-color:#fff5b1">그 예측이 맞았는지 틀렸는지</span>를 의미한다.
@@ -47,14 +47,14 @@ Classification에서는 이미지 단위로 계산한다.
 - 실제 클래스가 A가 아닌데, 모델이 다른 클래스로 예측한 경우 → **TN**
 - 실제 클래스가 A가 아닌데, 모델이 A로 예측한 경우 → **FP**
 
-![fig2](/assets/images/AI_Basics/Metric/Confusion_Matrix-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/AI_Basics/Metric/Confusion_Matrix-2.png)
 _[[출처]](https://devopedia.org/confusion-matrix)_
 
 <details>
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-![fig3](/assets/images/AI_Basics/Metric/Confusion_Matrix-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](/assets/images/AI_Basics/Metric/Confusion_Matrix-3.png)
 _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-matrix-f23c214a65d2)_
 
 클래스 A 기준 아래와 같이 계산할 수 있다.
@@ -114,7 +114,7 @@ Object Detection에서는 Bounding Box 단위로 계산한다.
 
 ## 혼동행렬 기반 성능 지표
 
-![fig4](/assets/images/AI_Basics/Metric/Confusion_Matrix-4.png){: style="display:block; margin:0 auto; width:80%;"}
+![fig4](/assets/images/AI_Basics/Metric/Confusion_Matrix-4.png)
 _[[출처]](https://velog.io/@jjw9599/ConfusionMatrix-ClassificationEvaluation)_
 
 ### 정확도 (Accuracy)
@@ -122,7 +122,7 @@ _[[출처]](https://velog.io/@jjw9599/ConfusionMatrix-ClassificationEvaluation)_
 Accuracy는 전체 데이터 중에서 모델이 올바르게 예측한 비율을 의미한다.
 
 $$
-\text{Accuracy}=\frac{\vphantom{\big(}\text{TP}+\text{TN}}{\text{TP}+\text{TN}+\text{FP}+\text{FN}}
+\text{Accuracy}=\frac{\text{TP}+\text{TN}}{\text{TP}+\text{TN}+\text{FP}+\text{FN}}
 $$
 
 데이터가 불균형할 때 성능을 제대로 평가하기 어렵다는 단점이 있다.
@@ -134,7 +134,7 @@ $$
 Precision은 모델이 **Positive**라고 예측한 것들 중에서, 실제로 **Positive**인 것 (정답을 맞춤)의 비율을 의미한다.
 
 $$
-\text{Precision}=\frac{\vphantom{\big(}\text{TP}}{\text{TP}+\text{FP}}
+\text{Precision}=\frac{\text{TP}}{\text{TP}+\text{FP}}
 $$
 
 이해하기 쉽게, `'너가 Positive라고 예측한 거, 진짜 확실해?'`라고 질문을 던지는 것과 같다.
@@ -148,7 +148,7 @@ $$
 Recall은 실제 **Positive**인 것들 중에서, 모델이 **Positive**라고 올바르게 찾아낸 비율을 의미한다.
 
 $$
-\text{Recall}=\frac{\vphantom{\big(}\text{TP}}{\text{TP}+\text{FN}}
+\text{Recall}=\frac{\text{TP}}{\text{TP}+\text{FN}}
 $$
 
 이해하기 쉽게, `'Positive인거, 다 찾은거 맞아?'`라고 질문을 던지는 것과 같다.
@@ -162,7 +162,7 @@ $$
 F1 Score는 Precision과 Recall의 조화 평균이다.
 
 $$
-\text{F1 Score}=2\times\frac{\vphantom{\big(}\text{Precision}\times\text{Recall}}{\text{Precision}+\text{Recall}}
+\text{F1 Score}=2\times\frac{\text{Precision}\times\text{Recall}}{\text{Precision}+\text{Recall}}
 $$
 
 데이터가 불균형할 때 Accuracy 대신 사용하며, Precision과 Recall 모두 중요할 때 사용한다.

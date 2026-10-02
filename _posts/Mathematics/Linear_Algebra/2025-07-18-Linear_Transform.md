@@ -49,7 +49,7 @@ $$
 
 두 번째 관점에서 행렬은 벡터라는 화살표를 입력받아, 이를 늘리거나 줄이고 회전시켜 다른 화살표로 변환하는 역할을 한다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-1.png)
 _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 행렬은 선형 변환을 수행하기 때문에 공간을 구부리지는 못한다.
@@ -58,7 +58,7 @@ _[[그림 출처]](https://angeloyeo.github.io/2019/07/17/eigen_vector.html)_
 
 예를 들어, 원 위의 모든 벡터를 행렬 $A$에 통과시키면 일반적으로 타원이 된다.
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-2.png){: style="display:block; margin:0 auto; width:30%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-2.png)
 
 ### 2차원 선형 변환 예시
 
@@ -101,7 +101,7 @@ A\mathbf{x}=1\mathbf{v}_1+1\mathbf{v}_2
 =\begin{bmatrix}4\\-2\end{bmatrix}
 $$
 
-![fig3](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-3.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig3](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-3.png)
 
 #### 원래 벡터를 새로운 기저로 표현
 
@@ -126,7 +126,7 @@ $$
 \mathbf{x}=-0.5\mathbf{v}_1+0.5\mathbf{v}_2
 $$
 
-![fig4](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-4.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig4](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-4.png)
 
 정리하면, 같은 행렬 $A$를 두고 두 가지 방향의 해석이 존재한다.
 
@@ -154,7 +154,7 @@ A=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-![fig5](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-5.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig5](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-5.png)
 _[[그림 출처]](https://www.3blue1brown.com/lessons/linear-transformations#title)_
 
 ## Rank와 변환의 관계
@@ -180,7 +180,7 @@ $$
 
 예를 들어 Rank가 1인 행렬 $A=\begin{bmatrix}1&0\\\\1&0\end{bmatrix}$는 모든 벡터를 직선 $y=x$ 위로 보낸다.
 
-![fig6](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-6.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig6](/assets/images/Mathematics/Linear_Algebra/Linear_Transform-6.png)
 
 위 케이스를 Null Space의 관점에서 다시 정리하면 다음과 같다.
 

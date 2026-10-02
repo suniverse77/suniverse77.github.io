@@ -32,7 +32,7 @@ $$
 
 대칭 행렬 $A\in\mathbb{R}^{n\times n}$와 영벡터가 아닌 벡터 $\mathbf{x}$에 대해서 Qudratic Form이 항상 양수값을 가질 때, $A$를 **Positive Definite**하다고 부른다.
 
-$$\vphantom{\Big(}
+$$
 \mathbf{x}^\top A\mathbf{x}>0
 \;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 \tag{2}
@@ -46,7 +46,7 @@ Positive Definite Matrix는 다음과 같은 특징을 가진다.
 
 만약 $\mathbf{x}^\top A\mathbf{x}=\mathbf{0}$을 만족하는 $\mathbf{0}$이 아닌 벡터가 존재하면, $A$를 **Positive Semi-Definite**하다고 부른다.
 
-$$\vphantom{\Big(}
+$$
 \mathbf{x}^\top A\mathbf{x}\geq0
 \;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 \tag{3}
@@ -92,7 +92,7 @@ $$
 f(\mathbf{x})>0\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
 $$
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-1.png){: style="display:block; margin:0 auto; width:40%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-1.png)
 
 이렇게 원점에서 최솟값을 갖고 위로 열린 그릇 모양의 곡면을 **타원 포물면 (Elliptic Paraboloid)** 이라고 한다.
 
@@ -110,7 +110,7 @@ $$
 
 즉, Positive Definite 변환은 벡터의 방향성을 어느 정도 보존하는 선형 변환으로 볼 수 있다.
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Positive_Definite-2.png)
 _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
 
 ## 딥러닝에서의 활용

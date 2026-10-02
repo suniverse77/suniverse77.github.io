@@ -22,7 +22,7 @@ Forward process에 가우시안 노이즈가 사용될 경우, reverse process�
 
 ## Methods
 
-![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png)
 
 ### 1. Forward process
 
@@ -142,7 +142,7 @@ $$
 
 ### 4. Training & Sampling
 
-![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png)
 
 #### Training
 
@@ -162,4 +162,4 @@ $$
 
 ## Experiments
 
-![fig1](/assets/images/cs231n/02-1.png){: style="display:block; margin:0 auto; width:100%;"}
+![fig1](/assets/images/cs231n/02-1.png)

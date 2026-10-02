@@ -72,3 +72,19 @@
     </div>
   </nav>
 {% endif %}
+
+<!-- Drop display equations from the previews so each stays within two lines;
+     inline math is kept and rendered as usual. -->
+<script>
+  document.querySelectorAll('#category-nav p').forEach((p) => {
+    let text = p.textContent
+      .replace(/\$\$[\s\S]*?\$\$/g, ' ')
+      .replace(/\\\[[\s\S]*?\\\]/g, ' ')
+      .replace(/\[[^\[\]]*\\[a-zA-Z]+[^\[\]]*\]/g, ' ')
+      .replace(/\\\[[\s\S]*$/, ' ');
+    if ((text.match(/\$/g) || []).length % 2 === 1) {
+      text = text.slice(0, text.lastIndexOf('$'));
+    }
+    p.textContent = text.replace(/\s+/g, ' ').trim();
+  });
+</script>

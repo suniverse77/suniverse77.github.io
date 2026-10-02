@@ -24,7 +24,7 @@ $$
 
 따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Projection-1.png){: style="display:block; margin:0 auto; width:70%;"}
+![fig1](/assets/images/Mathematics/Linear_Algebra/Projection-1.png)
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
@@ -51,12 +51,12 @@ _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 기저 집합이 $B$인 벡터 부분공간 $\mathcal{U}$가 있을 때, 벡터 $\mathbf{x}$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\mathbf{x})$는 다음과 같이 정의된다.
 
 $$
-\vphantom{\Big(}
+
 \text{proj}_\mathcal{U}(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
 \tag{2}
 $$
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Projection-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Projection-2.png)
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 <details>
@@ -78,7 +78,7 @@ _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 >
 > **4. 수식을 정리한다.**
 >
-> $$\vphantom{\Big(}\boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\text{proj}_\mathcal{U}(\mathbf{x})(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}$$
+> $$\boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\text{proj}_\mathcal{U}(\mathbf{x})(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}$$
 
 </div>
 </details>

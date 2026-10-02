@@ -77,7 +77,7 @@ author: sunho
 	$$\mathbf{u},\mathbf{v}\in \mathcal{U}~\to~\mathbf{u+v}\in \mathcal{U}$$
 3. $\mathcal{U}$는 스칼라배에 대해 닫혀있어야 한다.
 
-	$$\vphantom{\Big(}\mathbf{u}\in \mathcal{U}~\to~c\cdot\mathbf{u}\in \mathcal{U}$$
+	$$\mathbf{u}\in \mathcal{U}~\to~c\cdot\mathbf{u}\in \mathcal{U}$$
 
 1번 조건에 의해 좌표 공간에서의 부분공간은 원점을 포함해야 하기 때문에, 2차원 공간에서는 원점을 통과하는 직선, 3차원 공간에서는 원점을 통과하는 직선 또는 평면으로 나타난다.
 
@@ -85,7 +85,7 @@ author: sunho
 <summary><font color='#FF0000'>Example 1</font></summary>
 <div markdown="1">
 
-> ![fig1](/assets/images/Mathematics/Linear_Algebra/Vector_Space-1.png){: style="display:block; margin:0 auto; width:80%;"}_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
+> ![fig1](/assets/images/Mathematics/Linear_Algebra/Vector_Space-1.png)_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 >
 > **1. 첫 번째 그림**
 >
@@ -124,5 +124,5 @@ author: sunho
 
 원점에서 offset된 공간으로, $\mathbf0$을 포함하지 않아 벡터 공간은 아니다.
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Vector_Space-2.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig2](/assets/images/Mathematics/Linear_Algebra/Vector_Space-2.png)
 _[[출처]](https://en.wikipedia.org/wiki/Affine_space)_

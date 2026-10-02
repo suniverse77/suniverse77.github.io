@@ -25,7 +25,7 @@ $$\Omega=\lbrace1,2,3,4,5,6\rbrace$$
     
 $$A=\lbrace2,4,6\rbrace\subset\Omega$$
 
-![fig1](/assets/images/Mathematics/Probability/Prob-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/Mathematics/Probability/Prob-1.png)
 _[[출처]](https://m.blog.naver.com/mykepzzang/221855523956)_
 
 ### 확률 함수
@@ -60,5 +60,5 @@ $$
 
 이때 $P(A,B_i)$는 서로 배반인 사건이다.
 
-![fig2](/assets/images/Mathematics/Probability/Prob-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/Mathematics/Probability/Prob-2.png)
 _[[출처]](https://www.handsonsystem.com/blog.php?slug=probability-theory)_

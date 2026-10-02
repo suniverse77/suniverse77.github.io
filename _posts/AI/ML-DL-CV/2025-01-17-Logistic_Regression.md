@@ -20,7 +20,7 @@ author: sunho
 
 선형 회귀에서 아래 식의 출력값 $y$는 실수 전체 범위의 값을 가질 수 있다.
 
-$$\vphantom{\Big(}
+$$
 y=\mathbf{w}^\top\mathbf{x}+b
 $$
 
@@ -36,7 +36,7 @@ $$
 \sigma(z)=\frac{1}{1+e^{-z}}\in[0,1]
 $$
 
-![fig1](/assets/images/AI_Basics/ML/Logistic_Regression-1.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig1](/assets/images/AI_Basics/ML/Logistic_Regression-1.png)
 _[[출처]](https://datasciencebeehive.tistory.com/80)_
 
 따라서 선형 함수의 결과 $z=\mathbf{w}^\top\mathbf{x}+b$를 시그모이드 함수에 입력하여 로지스틱 회귀의 최종 모델 식을 아래와 같이 정의할 수 있다.
@@ -63,14 +63,14 @@ $$
 왜 $0.5$를 기준으로 할까? 단순히 확률의 중앙값이기도 하지만, 이는 선형 모델의 결과값이 양수인지 음수인지를 가르는 기준과 일치하기 때문이다.
 
 $$
-\begin{cases}\vphantom{\Big(}
+\begin{cases}
 \mathbf{w}^\top\mathbf{x}+b>0&\to p>0.5\\
 \mathbf{w}^\top\mathbf{x}+b<0&\to p<0.5\\
 \mathbf{w}^\top\mathbf{x}+b=0&\to p=0.5\\
 \end{cases}
 $$
 
-![fig2](/assets/images/AI_Basics/ML/Logistic_Regression-2.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig2](/assets/images/AI_Basics/ML/Logistic_Regression-2.png)
 _[[출처]](https://ploomber.io/blog/regression-101/)_
 
 이때 $p=0.5$가 되는 지점인 $\mathbf{w}^\top \mathbf{x}+b=0$을 결정 경계라고 부르며, 이진 분류에서는 두 클래스를 구분하는 직선이 된다.
@@ -79,7 +79,7 @@ _[[출처]](https://ploomber.io/blog/regression-101/)_
 
 빨간색 영역 $(\mathbf{w}^\top\mathbf{x}+b<0)$은 클래스 0 $(\hat{y}=0)$, 초록색 영역 $(\mathbf{w}^\top\mathbf{x}+b>0)$은 클래스 1 $(\hat{y}=1)$에 속한다.
 
-![fig3](/assets/images/AI_Basics/ML/Logistic_Regression-3.png){: style="display:block; margin:0 auto; width:50%;"}
+![fig3](/assets/images/AI_Basics/ML/Logistic_Regression-3.png)
 _[[출처]](https://ploomber.io/blog/regression-101/)_
 
 ### 목적 함수 (Objective Function)
@@ -124,19 +124,19 @@ $$
 
 예를 들어, 클래스 $i$와 $j$의 결정 경계는 두 클래스의 확률이 같아지는 지점이 된다. 이는 곧, 두 클래스의 logit값이 같아지는 지점을 의미한다.
 
-$$\vphantom{\Big(}
+$$
 P(y=i)=P(y=j)~\to~\mathbf{w}_i^\top\mathbf{x}+b_i=\mathbf{w}_j^\top\mathbf{x}+b_j
 $$
 
 즉, 두 클래스 사이의 경계면은 아래와 같은 선형 방정식으로 표현된다.
 
-$$\vphantom{\Big(}
+$$
 (\mathbf{w}_i-\mathbf{w}_j)^\top\mathbf{x}+(b_i-b_j)=0
 $$
 
 아래 그림은 서로 다른 3개의 클래스에 대한 결정 경계를 보여준다.
 
-![fig4](/assets/images/AI_Basics/ML/Logistic_Regression-4.png){: style="display:block; margin:0 auto; width:60%;"}
+![fig4](/assets/images/AI_Basics/ML/Logistic_Regression-4.png)
 _[[출처]](https://inria.github.io/scikit-learn-mooc/python_scripts/trees_classification.html)_
 
 ### 목적 함수 (Objective Function)

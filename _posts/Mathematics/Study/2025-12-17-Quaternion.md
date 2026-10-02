@@ -11,7 +11,7 @@ author: sunho
 
 사원수는 복소수를 확장한 개념으로, 1개의 실수부와 3개의 허수부로 표현한 4차원 수체계를 의미한다.
 
-$$\vphantom{\Big(}
+$$
 q=w+xi+yj+zk
 $$
 
@@ -19,11 +19,11 @@ $$
 
 허수들은 아래의 규칙을 만족한다.
 
-$$\vphantom{\Big(}i^2=j^2=k^2=ijk=-1$$
+$$i^2=j^2=k^2=ijk=-1$$
 
-$$\vphantom{\Big(}ij=k~,~jk=i~,~ki=j$$
+$$ij=k~,~jk=i~,~ki=j$$
 
-$$\vphantom{\Big(}ji=-k~,~kj=-i~,~ik=-j$$
+$$ji=-k~,~kj=-i~,~ik=-j$$
 
 위의 관계식에서 알 수 있듯이, 곱셈의 교환 법칙은 성립하지 않는다.
 
@@ -69,9 +69,9 @@ $$
 
 $$
 R=\begin{bmatrix} 
-\vphantom{\Big(}1 - 2(y^2 + z^2) & 2(xy - wz) & 2(xz + wy) \\
-\vphantom{\Big(}2(xy + wz) & 1 - 2(x^2 + z^2) & 2(yz - wx) \\
-\vphantom{\Big(}2(xz - wy) & 2(yz + wx) & 1 - 2(x^2 + y^2) 
+1 - 2(y^2 + z^2) & 2(xy - wz) & 2(xz + wy) \\
+2(xy + wz) & 1 - 2(x^2 + z^2) & 2(yz - wx) \\
+2(xz - wy) & 2(yz + wx) & 1 - 2(x^2 + y^2) 
 \end{bmatrix}
 $$
 
