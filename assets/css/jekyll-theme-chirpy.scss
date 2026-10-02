@@ -8,6 +8,8 @@
   $sidebar-width-large: 260px
 );
 
+@use 'themes/dark' as dark;
+
 /* prettier-ignore */
 @use 'main
 {%- if jekyll.environment == 'production' -%}
@@ -165,6 +167,63 @@ $post-column-max-width: 1125px;
 /* Home page: hide the lone "Home" label in the top bar (other pages show a path) */
 #breadcrumb > span:only-child {
   visibility: hidden;
+}
+
+/* Code blocks: dark background and the theme's dark syntax colours, while the
+   rest of the page stays in light mode. Inline `code` is not affected. */
+html[data-bs-theme] div.highlighter-rouge {
+  @include dark.styles;
+
+  /* Same look as the hand-written .simple-code boxes further down:
+     #1e1e1e body, #2a2a2a label bar with small grey text, 6px corners. */
+  --highlight-bg-color: #1e1e1e;
+
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: none;
+
+  .code-header {
+    height: auto;
+    margin: 0;
+    padding: 2px 6px 2px 16px;
+    background: #2a2a2a;
+
+    /* no window dots */
+    &::before {
+      display: none;
+    }
+
+    span {
+      margin-left: 0;
+      line-height: 1.6;
+
+      i {
+        display: none;
+      }
+
+      &::after {
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #999;
+        text-transform: lowercase;
+      }
+    }
+
+    button {
+      width: 1.75rem;
+      height: 1.75rem;
+
+      i {
+        color: #999;
+      }
+    }
+  }
+
+  .highlight {
+    padding-top: 0.5rem;
+    border-radius: 0;
+    color: #fff;
+  }
 }
 
 /* Highlighter pen: written in posts as ==text== or =={red}text==
