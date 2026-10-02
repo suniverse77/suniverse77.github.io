@@ -1,5 +1,5 @@
 ---
-title: "[LLM] Message Role"
+title: "Message Role"
 date: 2026-04-27 00:00:00 +/-TTTT
 categories: [Programming, Code]
 tags: [LLM]

@@ -1,5 +1,5 @@
 ---
-title: "[네트워크] 호스트 / IP / 포트"
+title: "호스트 / IP / 포트"
 date: 2026-02-10 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [네트워크]

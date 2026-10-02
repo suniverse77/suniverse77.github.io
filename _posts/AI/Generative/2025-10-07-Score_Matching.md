@@ -1,5 +1,5 @@
 ---
-title: "[비전 생성 모델] Score Matching"
+title: "Score Matching"
 date: 2025-10-08 00:00:00 +/-TTTT
 categories: [AI, 비전 생성 모델]
 tags: [비전 생성 모델, Diffusion]

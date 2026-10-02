@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 행렬의 Norm"
+title: "행렬의 Norm"
 date: 2025-08-08 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

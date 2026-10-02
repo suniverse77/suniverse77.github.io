@@ -1,5 +1,5 @@
 ---
-title: "[트랜스포머] 트랜스포머 (Transformer)"
+title: "트랜스포머 (Transformer)"
 date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 tags: [트랜스포머]

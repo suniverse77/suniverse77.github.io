@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 선형 변환 (Linear Transformation)"
+title: "선형 변환 (Linear Transformation)"
 date: 2025-07-18 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

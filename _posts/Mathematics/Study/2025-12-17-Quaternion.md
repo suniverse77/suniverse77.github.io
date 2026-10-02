@@ -1,5 +1,5 @@
 ---
-title: "[3차원 기하학] 사원수 회전 (Quaternion Rotation)"
+title: "사원수 회전 (Quaternion Rotation)"
 date: 2025-12-17 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
 tags: [3차원 기하학]

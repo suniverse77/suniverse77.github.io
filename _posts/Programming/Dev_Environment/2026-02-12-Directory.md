@@ -1,5 +1,5 @@
 ---
-title: "[개발 환경] 리눅스 파일 시스템 구조"
+title: "리눅스 파일 시스템 구조"
 date: 2026-02-12 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경, 터미널/쉘]

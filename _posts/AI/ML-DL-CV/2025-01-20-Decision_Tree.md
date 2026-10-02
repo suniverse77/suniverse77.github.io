@@ -1,5 +1,5 @@
 ---
-title: "[머신러닝] Decision Tree"
+title: "Decision Tree"
 date: 2025-01-20 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Machine Learning]
 tags: [머신러닝, 지도 학습]

@@ -1,5 +1,5 @@
 ---
-title: "[논문리뷰] Denoising Diffusion Probabilistic Models"
+title: "Denoising Diffusion Probabilistic Models"
 date: 2025-03-20 00:00:00 +/-TTTT
 categories: [논문리뷰, Generative AI]
 tags: [Diffusion, Video Generation]

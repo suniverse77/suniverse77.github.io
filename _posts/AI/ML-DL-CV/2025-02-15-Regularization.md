@@ -1,5 +1,5 @@
 ---
-title: "[정규화] Regularization"
+title: "Regularization"
 date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 tags: [딥러닝, 정규화]

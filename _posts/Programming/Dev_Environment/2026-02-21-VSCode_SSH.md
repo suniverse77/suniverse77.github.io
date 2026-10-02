@@ -1,5 +1,5 @@
 ---
-title: "[VS Code] SSH 연결"
+title: "SSH 연결"
 date: 2026-02-21 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [VS Code, SSH]

@@ -1,5 +1,5 @@
 ---
-title: "[VS Code] VS Code에서 쉽게 Git 관리"
+title: "VS Code에서 쉽게 Git 관리"
 date: 2026-02-23 06:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [VS Code, Git]

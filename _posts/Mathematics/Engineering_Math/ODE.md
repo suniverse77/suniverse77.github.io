@@ -1,5 +1,5 @@
 ---
-title: "[공학 수학] Extended Kalman Filter(EKF)"
+title: "Extended Kalman Filter(EKF)"
 date: 2026-04-10 00:00:00 +/-TTTT
 categories: [Mathematics, 공학 수학]
 tags: [공학 수학]

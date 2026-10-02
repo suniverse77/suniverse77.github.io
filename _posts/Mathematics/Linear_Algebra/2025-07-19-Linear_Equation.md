@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 연립 선형 방정식"
+title: "연립 선형 방정식"
 date: 2025-07-19 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

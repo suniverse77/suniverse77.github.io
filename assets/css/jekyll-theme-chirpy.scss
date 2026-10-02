@@ -106,6 +106,13 @@ $post-column-max-width: 1125px;
   visibility: hidden;
 }
 
+/* Post page: a rule between the title block and the body */
+article > header {
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(55, 53, 47, 0.2);
+}
+
 /* Right panel: same-category post list and category tree */
 #access-category-posts,
 #access-categories,

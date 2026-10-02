@@ -1,7 +1,7 @@
 ---
-title: "[확률] 독립"
+title: "독립"
 date: 2025-08-05 00:00:00 +/-TTTT
-categories: [Mathematics, 확률]
+categories: [Mathematics, Probability]
 tags: [확률]
 math: true
 toc: true

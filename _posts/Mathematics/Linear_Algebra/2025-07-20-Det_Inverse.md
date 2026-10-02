@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 행렬식과 역행렬"
+title: "행렬식과 역행렬"
 date: 2025-07-20 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

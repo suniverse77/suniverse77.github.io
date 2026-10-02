@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] Qudratic Form과 Positive Definite"
+title: "Qudratic Form과 Positive Definite"
 date: 2025-07-27 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

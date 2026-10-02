@@ -1,5 +1,5 @@
 ---
-title: "[PyTorch] CUDA Core와 Tensor Core"
+title: "CUDA Core와 Tensor Core"
 date: 2026-05-29 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 tags: [PyTorch]

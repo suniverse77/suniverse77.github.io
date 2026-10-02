@@ -1,5 +1,5 @@
 ---
-title: "[3차원 기하학] 카메라 캘리브레이션 (Camera Calibration)"
+title: "카메라 캘리브레이션 (Camera Calibration)"
 date: 2025-12-16 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
 tags: [3차원 기하학]

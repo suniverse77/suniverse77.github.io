@@ -1,5 +1,5 @@
 ---
-title: "[논문리뷰] NVS-Solver: Video Diffusion Model as Zero-Shot Novel View Synthesizer"
+title: "NVS-Solver: Video Diffusion Model as Zero-Shot Novel View Synthesizer"
 date: 2026-04-12 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
 tags: [Multimodal, Diffusion, Image Generation]

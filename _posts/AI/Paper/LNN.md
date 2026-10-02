@@ -1,5 +1,5 @@
 ---
-title: "[논문리뷰] Logical Neural Networks"
+title: "Logical Neural Networks"
 date: 2026-03-21 00:00:00 +/-TTTT
 categories: [논문리뷰, Generative AI]
 tags: [Diffusion, Video Generation]

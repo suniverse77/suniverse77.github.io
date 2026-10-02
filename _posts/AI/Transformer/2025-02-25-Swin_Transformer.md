@@ -1,5 +1,5 @@
 ---
-title: "[트랜스포머] Swin Transformer (Shifted Window Transformer)"
+title: "Swin Transformer (Shifted Window Transformer)"
 date: 2025-02-25 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 tags: [트랜스포머]

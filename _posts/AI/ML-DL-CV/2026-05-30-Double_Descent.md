@@ -1,5 +1,5 @@
 ---
-title: "[딥러닝] Double Descent"
+title: "Double Descent"
 date: 2026-05-30 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 tags: [딥러닝]

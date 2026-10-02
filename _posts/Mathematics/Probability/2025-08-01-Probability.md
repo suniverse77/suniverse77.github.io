@@ -1,7 +1,7 @@
 ---
-title: "[확률] 확률 공간과 확률의 기본 규칙"
+title: "확률 공간과 확률의 기본 규칙"
 date: 2025-08-01 00:00:00 +/-TTTT
-categories: [Mathematics, 확률]
+categories: [Mathematics, Probability]
 tags: [확률]
 math: true
 toc: true

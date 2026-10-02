@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 벡터 공간"
+title: "벡터 공간"
 date: 2025-07-02 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

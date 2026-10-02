@@ -1,7 +1,7 @@
 ---
-title: "[선형대수] 선형 독립 (Linear Independence)"
+title: "선형 독립 (Linear Independence)"
 date: 2025-07-03 00:00:00 +/-TTTT
-categories: [Mathematics, 선형대수]
+categories: [Mathematics, Linear Algebra]
 tags: [선형대수]
 math: true
 toc: true

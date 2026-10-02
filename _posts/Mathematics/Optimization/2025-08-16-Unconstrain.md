@@ -1,7 +1,7 @@
 ---
-title: "[최적화] 비제약 최적화 문제"
+title: "비제약 최적화 문제"
 date: 2025-08-16 00:00:00 +/-TTTT
-categories: [Mathematics, 최적화]
+categories: [Mathematics, Optimization]
 tags: [최적화]
 math: true
 toc: true

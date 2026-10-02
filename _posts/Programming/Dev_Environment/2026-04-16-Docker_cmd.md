@@ -1,5 +1,5 @@
 ---
-title: "[개발 환경] 도커 명령어"
+title: "도커 명령어"
 date: 2026-04-16 06:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 tags: [개발 환경, Docker]

@@ -23,20 +23,24 @@ script_includes:
     <div class="post-meta text-muted">
       <div class="d-flex justify-content-between">
         <span>
-          <!-- published date -->
-          <span>
-            {{ site.data.locales[lang].post.posted }}
-            {% include datetime.html date=page.date tooltip=true lang=lang %}
-          </span>
-
-          <!-- second-level category -->
+          <!-- second-level category, followed by the third level when the post has one -->
           {% if page.categories[1] %}
             {% capture _category_url %}/categories/{{ page.categories[1] | slugify | url_encode }}/{% endcapture %}
             <span class="post-meta-category">
               <i class="far fa-folder-open fa-fw"></i>
               <a href="{{ _category_url | relative_url }}">{{ page.categories[1] }}</a>
+              {%- if page.categories[2] -%}
+                {% capture _third_ctg_url %}/categories/{{ page.categories[2] | slugify | url_encode }}/{% endcapture %}
+                {{ ' / ' }}<a href="{{ _third_ctg_url | relative_url }}">{{ page.categories[2] }}</a>
+              {%- endif -%}
             </span>
           {% endif %}
+
+          <!-- published date -->
+          <span>
+            {{ site.data.locales[lang].post.posted }}
+            {% include datetime.html date=page.date tooltip=true lang=lang %}
+          </span>
         </span>
 
         <div>
@@ -49,9 +53,6 @@ script_includes:
               {{ site.data.locales[lang].post.pageview_measure }}
             </span>
           {% endif %}
-
-          <!-- read time -->
-          {% include read-time.html content=content prompt=true lang=lang %}
         </div>
       </div>
 

@@ -1,5 +1,5 @@
 ---
-title: "[딥러닝] 옵티마이저 (Optimizer)"
+title: "옵티마이저 (Optimizer)"
 date: 2025-02-14 12:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 tags: [딥러닝, 옵티마이저, 모델 학습]

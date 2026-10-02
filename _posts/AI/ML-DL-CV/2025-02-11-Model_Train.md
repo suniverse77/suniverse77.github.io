@@ -1,5 +1,5 @@
 ---
-title: "[딥러닝] 딥러닝 모델의 학습"
+title: "딥러닝 모델의 학습"
 date: 2025-02-11 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 tags: [딥러닝, 모델 학습]
