@@ -1,7 +1,7 @@
 ---
 title: "VS Code에서 쉽게 Git 관리"
 date: 2026-02-23
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Git]
 math: true
 toc: true
 published: true

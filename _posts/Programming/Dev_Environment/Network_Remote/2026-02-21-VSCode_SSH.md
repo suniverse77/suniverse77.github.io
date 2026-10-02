@@ -1,7 +1,7 @@
 ---
 title: "SSH 연결"
 date: 2026-02-21
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Network & Remote]
 math: true
 toc: true
 published: true

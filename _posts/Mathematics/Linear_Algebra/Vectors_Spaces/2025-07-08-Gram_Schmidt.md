@@ -1,7 +1,7 @@
 ---
 title: "그람-슈미트 과정 (Gram-Schmidt Process)"
 date: 2025-07-08
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

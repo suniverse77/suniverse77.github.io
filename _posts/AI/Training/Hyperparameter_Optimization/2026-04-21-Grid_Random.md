@@ -1,7 +1,7 @@
 ---
 title: "Grid Search / Random Search"
 date: 2026-04-21
-categories: [AI, Methodologies]
+categories: [AI, Training, Hyperparameter Optimization]
 math: true
 toc: true
 published: true

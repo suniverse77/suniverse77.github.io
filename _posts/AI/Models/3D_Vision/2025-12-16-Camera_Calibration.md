@@ -2,7 +2,7 @@
 title: "카메라 캘리브레이션 (Camera Calibration)"
 date: 2025-12-16
 order: 1
-categories: [Mathematics, Study]
+categories: [AI, Models, 3D Vision]
 math: true
 toc: true
 published: true

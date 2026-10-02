@@ -1,7 +1,7 @@
 ---
 title: "사원수 회전 (Quaternion Rotation)"
 date: 2025-12-17
-categories: [Mathematics, Study]
+categories: [AI, Models, 3D Vision]
 math: true
 toc: true
 published: true

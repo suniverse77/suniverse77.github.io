@@ -1,7 +1,7 @@
 ---
 title: "Hugging Face - accelerate 라이브러리"
 date: 2026-05-02
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, Performance]
 math: true
 toc: true
 published: true

@@ -1,7 +1,7 @@
 ---
 title: "행렬의 Norm"
 date: 2025-08-08
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Eigenvalues & SVD]
 math: true
 toc: true
 published: true

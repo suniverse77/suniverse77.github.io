@@ -1,7 +1,7 @@
 ---
 title: "선형 변환 (Linear Transformation)"
 date: 2025-07-18
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

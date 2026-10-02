@@ -1,7 +1,7 @@
 ---
 title: "벡터 공간"
 date: 2025-07-02
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

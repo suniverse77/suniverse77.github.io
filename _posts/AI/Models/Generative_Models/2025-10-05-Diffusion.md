@@ -1,7 +1,7 @@
 ---
 title: "디퓨전 모델의 직관적 이해"
 date: 2025-10-05
-categories: [AI, 비전 생성 모델]
+categories: [AI, Models, Generative Models]
 math: true
 toc: true
 published: true

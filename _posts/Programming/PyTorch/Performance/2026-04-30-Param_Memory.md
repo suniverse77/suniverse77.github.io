@@ -2,7 +2,7 @@
 title: "딥러닝 모델 파라미터 메모리 산출"
 date: 2026-04-30
 order: 1
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, Performance]
 math: true
 toc: true
 published: true

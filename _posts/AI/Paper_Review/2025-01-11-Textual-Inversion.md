@@ -1,7 +1,7 @@
 ---
 title: "An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion"
 date: 2025-01-11
-categories: [AI, 논문리뷰]
+categories: [AI, Paper Review]
 math: true
 toc: true
 description: 📝 ICLR 2023

@@ -1,7 +1,7 @@
 ---
 title: "Norm & Distance"
 date: 2025-07-05
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

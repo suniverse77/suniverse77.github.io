@@ -24,7 +24,7 @@ $$
 
 이를 계산 그래프로 나타내면 아래 그림과 같다.
 
-![fig1](/assets/images/AI/Transformer/Attention_Backprop-1.png)
+![fig1](/assets/images/AI/Models/Transformer/Attention_Backprop-1.png)
 
 ## Backward pass
 

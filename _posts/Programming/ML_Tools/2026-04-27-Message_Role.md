@@ -1,7 +1,7 @@
 ---
 title: "Message Role"
 date: 2026-04-27
-categories: [Programming, Code]
+categories: [Programming, ML Tools]
 math: true
 toc: true
 published: true

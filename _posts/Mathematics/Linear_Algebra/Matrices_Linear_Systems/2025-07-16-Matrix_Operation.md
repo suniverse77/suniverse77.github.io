@@ -1,7 +1,7 @@
 ---
 title: "행렬의 기본 연산"
 date: 2025-07-16
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

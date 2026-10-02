@@ -1,7 +1,7 @@
 ---
 title: "트랜스포머 (Transformer)"
 date: 2025-02-15
-categories: [AI, 트랜스포머]
+categories: [AI, Models, Transformer]
 math: true
 toc: true
 published: true

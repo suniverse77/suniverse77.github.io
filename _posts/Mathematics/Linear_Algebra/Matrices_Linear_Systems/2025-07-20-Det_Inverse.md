@@ -1,7 +1,7 @@
 ---
 title: "행렬식과 역행렬"
 date: 2025-07-20
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

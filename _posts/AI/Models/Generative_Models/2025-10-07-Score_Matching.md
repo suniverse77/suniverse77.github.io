@@ -1,7 +1,7 @@
 ---
 title: "Score Matching"
 date: 2025-10-08
-categories: [AI, 비전 생성 모델]
+categories: [AI, Models, Generative Models]
 math: true
 toc: true
 published: true

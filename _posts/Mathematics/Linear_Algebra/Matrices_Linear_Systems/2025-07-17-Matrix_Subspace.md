@@ -1,7 +1,7 @@
 ---
 title: "행렬의 네 가지 주요 부분공간 (Four Fundamental Subspaces)"
 date: 2025-07-17
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

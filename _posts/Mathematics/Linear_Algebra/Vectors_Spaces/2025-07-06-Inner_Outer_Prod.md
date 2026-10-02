@@ -1,7 +1,7 @@
 ---
 title: "내적과 외적"
 date: 2025-07-06
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

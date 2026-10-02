@@ -1,7 +1,7 @@
 ---
 title: "선형 사상과 차원 정리"
 date: 2025-07-22
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

@@ -2,7 +2,7 @@
 title: "지식 증류 기법 (Knowledge Distillation)"
 date: 2025-10-15
 order: 2
-categories: [AI, Methodologies]
+categories: [AI, Training, Fine-Tuning]
 math: true
 toc: true
 published: true

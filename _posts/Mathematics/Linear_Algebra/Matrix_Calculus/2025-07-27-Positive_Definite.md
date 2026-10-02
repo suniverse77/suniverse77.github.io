@@ -1,7 +1,7 @@
 ---
 title: "Qudratic Form과 Positive Definite"
 date: 2025-07-27
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrix Calculus]
 math: true
 toc: true
 published: true

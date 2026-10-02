@@ -1,7 +1,7 @@
 ---
 title: "부동소수점 (Floating Point)"
 date: 2026-05-28
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, Performance]
 math: true
 toc: true
 published: true

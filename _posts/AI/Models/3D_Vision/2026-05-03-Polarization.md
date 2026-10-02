@@ -1,7 +1,7 @@
 ---
 title: "편광 (Polarization)"
 date: 2026-05-03
-categories: [Mathematics, Study]
+categories: [AI, Models, 3D Vision]
 math: true
 toc: true
 published: true

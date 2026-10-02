@@ -1,7 +1,7 @@
 ---
 title: "파이토치에서 자주 발생하는 런타임 에러"
 date: 2026-03-10
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, Basics]
 math: true
 toc: true
 published: true

@@ -2,7 +2,7 @@
 title: "2D ↔ 3D 좌표계 변환"
 date: 2025-12-16
 order: 2
-categories: [Mathematics, Study]
+categories: [AI, Models, 3D Vision]
 math: true
 toc: true
 published: true

@@ -4,7 +4,7 @@ date: 2026-03-16
 categories: [Mathematics, Study]
 math: true
 toc: true
-published: true
+published: false
 ---
 
 ## 논리 프로그래밍이란?

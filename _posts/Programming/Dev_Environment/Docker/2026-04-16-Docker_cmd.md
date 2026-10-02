@@ -2,7 +2,7 @@
 title: "도커 명령어"
 date: 2026-04-16
 order: 2
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Docker]
 math: true
 toc: true
 published: true

@@ -1,7 +1,7 @@
 ---
 title: "선형 독립 (Linear Independence)"
 date: 2025-07-03
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

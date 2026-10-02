@@ -2,7 +2,7 @@
 title: "GPU 분산 학습 2 - DP / DDP / FSDP 구현"
 date: 2026-04-30
 order: 3
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, Performance]
 math: true
 toc: true
 published: true

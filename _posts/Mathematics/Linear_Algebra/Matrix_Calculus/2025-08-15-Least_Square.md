@@ -1,7 +1,7 @@
 ---
 title: "최소 제곱법 (Least Square Method)"
 date: 2025-08-15
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrix Calculus]
 math: true
 toc: true
 published: true

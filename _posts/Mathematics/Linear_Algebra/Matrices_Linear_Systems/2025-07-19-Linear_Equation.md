@@ -1,7 +1,7 @@
 ---
 title: "연립 선형 방정식"
 date: 2025-07-19
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrices & Linear Systems]
 math: true
 toc: true
 published: true

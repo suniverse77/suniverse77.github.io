@@ -1,7 +1,7 @@
 ---
 title: "SSH 환경에서 로컬과 GitHub 연결"
 date: 2026-02-22
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Git]
 math: true
 toc: true
 published: true

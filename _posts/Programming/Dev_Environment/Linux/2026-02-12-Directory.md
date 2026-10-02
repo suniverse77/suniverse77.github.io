@@ -1,7 +1,7 @@
 ---
 title: "리눅스 파일 시스템 구조"
 date: 2026-02-12
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Linux]
 math: true
 toc: true
 published: true

@@ -1,7 +1,7 @@
 ---
 title: "혼동행렬 (Confusion Matrix)"
 date: 2025-03-01
-categories: [AI, Fundamentals, Machine Learning]
+categories: [AI, Metrics]
 math: true
 toc: true
 published: true

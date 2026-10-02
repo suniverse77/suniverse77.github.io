@@ -1,7 +1,7 @@
 ---
 title: "CUDA Core와 Tensor Core"
 date: 2026-05-29
-categories: [Programming, 파이토치 (PyTorch)]
+categories: [Programming, PyTorch, GPU & Setup]
 math: true
 toc: true
 published: true

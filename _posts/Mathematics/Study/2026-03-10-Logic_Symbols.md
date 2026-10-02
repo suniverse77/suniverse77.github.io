@@ -4,7 +4,7 @@ date: 2026-03-10
 categories: [Mathematics, Study]
 math: true
 toc: true
-published: true
+published: false
 ---
 
 ## 명제 논리 연산자 (Propositional Connectives)

@@ -1,7 +1,7 @@
 ---
 title: "Flash Attention"
 date: 2026-01-01
-categories: [AI, 트랜스포머]
+categories: [AI, Models, Transformer]
 math: true
 toc: true
 published: true

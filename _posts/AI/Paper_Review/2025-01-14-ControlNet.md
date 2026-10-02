@@ -1,7 +1,7 @@
 ---
 title: "Adding Conditional Control to Text-to-Image Diffusion Models"
 date: 2025-01-14
-categories: [AI, 논문리뷰]
+categories: [AI, Paper Review]
 math: true
 toc: true
 description: 📝 CVPR 2023

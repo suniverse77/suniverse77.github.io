@@ -1,7 +1,7 @@
 ---
 title: "터미널과 쉘 (Shell)"
 date: 2026-02-10
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Linux]
 math: true
 toc: true
 published: true

@@ -1,7 +1,7 @@
 ---
 title: "Gradient & Jacobian"
 date: 2025-08-10
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Matrix Calculus]
 math: true
 toc: true
 published: true

@@ -1,7 +1,7 @@
 ---
 title: "호스트 / IP / 포트"
 date: 2026-02-10
-categories: [Programming, 개발 환경]
+categories: [Programming, Dev Environment, Network & Remote]
 math: true
 toc: true
 published: true

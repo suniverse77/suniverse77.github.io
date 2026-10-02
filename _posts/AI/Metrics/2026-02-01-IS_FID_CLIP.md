@@ -2,7 +2,7 @@
 title: "IS / FID / CLIP Score"
 date: 2026-02-01
 order: 2
-categories: [AI, 비전 생성 모델]
+categories: [AI, Metrics]
 math: true
 toc: true
 published: true

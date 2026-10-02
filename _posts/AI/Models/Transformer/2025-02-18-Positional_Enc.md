@@ -1,7 +1,7 @@
 ---
 title: "위치 인코딩 (Positional Encoding)"
 date: 2025-02-18
-categories: [AI, 트랜스포머]
+categories: [AI, Models, Transformer]
 math: true
 toc: true
 published: true

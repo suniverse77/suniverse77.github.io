@@ -1,7 +1,7 @@
 ---
 title: "사영 (Projection)"
 date: 2025-07-07
-categories: [Mathematics, Linear Algebra]
+categories: [Mathematics, Linear Algebra, Vectors & Spaces]
 math: true
 toc: true
 published: true

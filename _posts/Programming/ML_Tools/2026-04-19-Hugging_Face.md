@@ -1,7 +1,7 @@
 ---
 title: "허깅 페이스 (Hugging Face)"
 date: 2026-04-19
-categories: [Programming, 개발 환경]
+categories: [Programming, ML Tools]
 math: true
 toc: true
 published: true
