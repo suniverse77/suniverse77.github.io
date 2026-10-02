@@ -1,6 +1,6 @@
 ---
 title: "행렬의 기본 연산"
-date: 2025-07-16 00:00:00 +/-TTTT
+date: 2025-07-16
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true

@@ -1,6 +1,6 @@
 ---
 title: "벡터 공간"
-date: 2025-07-02 00:00:00 +/-TTTT
+date: 2025-07-02
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -82,7 +82,7 @@ published: true
 1번 조건에 의해 좌표 공간에서의 부분공간은 원점을 포함해야 하기 때문에, 2차원 공간에서는 원점을 통과하는 직선, 3차원 공간에서는 원점을 통과하는 직선 또는 평면으로 나타난다.
 
 :::{red} Example 1
-![fig1](/assets/images/Mathematics/Linear_Algebra/Vector_Space-1.png)_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
+![fig1](Vector_Space-1.png)_출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 **1. 첫 번째 그림**
 
@@ -119,5 +119,5 @@ published: true
 
 원점에서 offset된 공간으로, $\mathbf0$을 포함하지 않아 벡터 공간은 아니다.
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Vector_Space-2.png)
+![fig2](Vector_Space-2.png)
 _[[출처]](https://en.wikipedia.org/wiki/Affine_space)_

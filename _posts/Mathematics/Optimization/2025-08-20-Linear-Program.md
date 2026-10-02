@@ -1,6 +1,6 @@
 ---
 title: "수학적 최적화 (Mathematical Optimization)"
-date: 2025-08-20 00:00:00 +/-TTTT
+date: 2025-08-20
 categories: [Mathematics, Optimization]
 math: true
 toc: true

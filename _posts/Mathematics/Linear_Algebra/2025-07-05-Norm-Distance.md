@@ -1,6 +1,6 @@
 ---
 title: "Norm & Distance"
-date: 2025-07-05 00:00:00 +/-TTTT
+date: 2025-07-05
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -49,7 +49,7 @@ $$
 
 아래 그림은 $p$ 값에 따른 궤적의 변화를 나타낸다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Norm_Distance-1.png)
+![fig1](Norm-Distance-1.png)
 _[[출처]](https://sooho-kim.tistory.com/85)_
 
 ### Norm의 조건

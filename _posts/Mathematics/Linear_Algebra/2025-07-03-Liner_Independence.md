@@ -1,6 +1,6 @@
 ---
 title: "선형 독립 (Linear Independence)"
-date: 2025-07-03 00:00:00 +/-TTTT
+date: 2025-07-03
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -71,7 +71,7 @@ $$
 <br>
 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Independence-1.png)
+![fig1](Liner_Independence-1.png)
 _[[출처]](https://deep-learning-study.tistory.com/301)_
 
 위 그림에서 왼쪽은 $\mathbf{w}$가 $\mathbf{u}$와 $\mathbf{v}$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.

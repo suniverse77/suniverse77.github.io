@@ -1,6 +1,6 @@
 ---
 title: "Message Role"
-date: 2026-04-27 00:00:00 +/-TTTT
+date: 2026-04-27
 categories: [Programming, Code]
 math: true
 toc: true

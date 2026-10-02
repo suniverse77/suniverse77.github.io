@@ -1,6 +1,6 @@
 ---
 title: "행렬의 Norm"
-date: 2025-08-08 00:00:00 +/-TTTT
+date: 2025-08-08
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true

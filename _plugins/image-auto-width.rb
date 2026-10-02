@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 #
-# Size post images automatically from their aspect ratio.
+# Resolve and size post images automatically.
+#
+# 1. An image written with only its file name, `![alt](Linux_CLI-3.png)`, is looked
+#    up in the image folder that mirrors the post's own folder:
+#
+#      _posts/Programming/Dev_Environment/2026-01-01-Linux_CLI.md
+#        -> /assets/images/Programming/Dev_Environment/Linux_CLI-3.png
+#
+#    Paths starting with `/` and full URLs are used as they are.
+#
+# 2. Every image gets a width from its aspect ratio:
 #
 # A Markdown image written as plain `![alt](/assets/images/...)` gets a centred
 # style whose width depends on the image's shape:
@@ -92,7 +102,7 @@ module ImageAutoWidth
     "display:block; margin:0 auto; width:#{percent}%; max-width:#{max_width}px;"
   end
 
-  def process(site, content)
+  def process(site, content, folder = '')
     in_code = false
 
     content.each_line.map do |line|
@@ -104,7 +114,16 @@ module ImageAutoWidth
 
       line.gsub(IMAGE) do |image|
         src = Regexp.last_match(1)
-        next image unless src.start_with?('/')
+        next image if src.match?(%r{\A(?:[a-z][a-z0-9+.-]*:|//|#)}i)
+
+        unless src.start_with?('/')
+          name = src
+          src = File.join('/assets/images', folder, name)
+          image = image.sub(/\(\s*#{Regexp.escape(name)}\s*\)\z/) { "(#{src})" }
+          unless File.file?(File.join(site.source, CGI.unescape(src)))
+            Jekyll.logger.warn 'Image not found:', "#{name} (expected at #{src})"
+          end
+        end
 
         %(#{image}{: style="#{style_for(site, src)}"})
       end
@@ -113,5 +132,6 @@ module ImageAutoWidth
 end
 
 Jekyll::Hooks.register :posts, :pre_render do |post|
-  post.content = ImageAutoWidth.process(post.site, post.content)
+  folder = File.dirname(post.relative_path).sub(%r{\A_posts/?}, '')
+  post.content = ImageAutoWidth.process(post.site, post.content, folder)
 end

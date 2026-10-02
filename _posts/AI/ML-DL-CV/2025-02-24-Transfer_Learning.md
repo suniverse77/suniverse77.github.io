@@ -1,6 +1,6 @@
 ---
 title: "전이 학습 (Transfer Learning)"
-date: 2025-02-24 00:00:00 +/-TTTT
+date: 2025-02-24
 categories: [AI, Fundamentals, Computer Vision]
 math: true
 toc: true
@@ -13,7 +13,7 @@ published: true
 
 처음부터 모든 걸 학습하지 않기 때문에 빠르고 효율적인 학습이 가능하다.
 
-![fig1](/assets/images/AI_Basics/CV/Transfer Learning-1.png)
+![fig1](Transfer_Learning-1.png)
 
 먼저 ImageNet에 대해 학습된 모델을 가져온다.
 
@@ -31,7 +31,7 @@ CNN의 경우 conv layer는 고정하고 마지막 분류기 layer만 새 데이
 
 주로 추가로 학습시킬 데이터셋이 클 때 사용한다.
 
-![fig2](/assets/images/AI_Basics/CV/Transfer Learning-2.png)
+![fig2](Transfer_Learning-2.png)
 
 4가지 상황에 따른 학습 전략이 있다.
 

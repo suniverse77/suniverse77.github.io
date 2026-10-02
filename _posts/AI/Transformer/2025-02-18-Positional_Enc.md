@@ -1,6 +1,6 @@
 ---
 title: "위치 인코딩 (Positional Encoding)"
-date: 2025-02-18 00:00:00 +/-TTTT
+date: 2025-02-18
 categories: [AI, 트랜스포머]
 math: true
 toc: true
@@ -43,7 +43,7 @@ $$
 
 아래 그림에서 position을 $x$축, depth를 $y$축으로 볼 수 있으며, depth가 깊어질수록 주기가 길어지는 것을 확인할 수 있다.
 
-![fig1](/assets/images/AI/Transformer/Positional_Enc-1.png)
+![fig1](Positional_Enc-1.png)
 _[[출처: BrainDrain]](https://www.youtube.com/watch?v=T3OT8kqoqjc)_
 
 예를 들어 임베딩 차원이 $d=8$이라면, 첫 번째 단어 $(pos=0)$와 두 번째 단어 $(pos=1)$의 위치 인코딩은 다음과 같다.
@@ -109,12 +109,12 @@ $$
 <br>
 즉, 각 위치 벡터는 서로 다른 위상을 갖게 되며, 결과적으로 모든 단어가 2차원 평면에서 고유한 방향을 가지게 된다.
 
-![fig2](/assets/images/AI/Transformer/Positional_Enc-2.gif)
+![fig2](Positional_Enc-2.gif)
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_
 
 이제 $d=6$으로 확장하면, 각 벡터는 6차원 공간에서 각각 고유한 방향을 가리킬 것이다.
 
-![fig3](/assets/images/AI/Transformer/Positional_Enc-3.png)
+![fig3](Positional_Enc-3.png)
 _[[출처: Serrano.Academy]](https://www.youtube.com/watch?v=IHu3QehUmrQ)_
 
 ## RoPE (Rotary Position Embedding)

@@ -1,6 +1,6 @@
 ---
 title: "Denoising Diffusion Probabilistic Models"
-date: 2025-03-20 00:00:00 +/-TTTT
+date: 2025-03-20
 categories: [논문리뷰, Generative AI]
 math: true
 toc: true

@@ -1,6 +1,6 @@
 ---
 title: "리눅스 파일 시스템 구조"
-date: 2026-02-12 00:00:00 +/-TTTT
+date: 2026-02-12
 categories: [Programming, 개발 환경]
 math: true
 toc: true
@@ -15,7 +15,7 @@ published: true
 | `./data` | 상대 경로 | 현재 내가 위치한 디렉토리 안에 있는 `data` 디렉토리 | `{현재 디렉토리 경로}/data` |
 | `~/data` | 홈 디렉토리 기준 경로 | 현재 로그인한 사용자의 홈 디렉토리 안에 있는 `data` 디렉토리 | `/home/{사용자 이름}/data` |
 
-![fig1](/assets/images/Programming/Dev_Environment/Directory-1.png)
+![fig1](Directory-1.png)
 
 위는 일반적인 서버의 구조를 표현한 것이다.
 

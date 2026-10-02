@@ -1,6 +1,6 @@
 ---
 title: "독립"
-date: 2025-08-05 00:00:00 +/-TTTT
+date: 2025-08-05
 categories: [Mathematics, Probability]
 math: true
 toc: true

@@ -1,6 +1,6 @@
 ---
 title: "논리학 기호"
-date: 2026-03-10 00:00:00 +/-TTTT
+date: 2026-03-10
 categories: [Mathematics, Study]
 math: true
 toc: true

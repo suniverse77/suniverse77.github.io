@@ -1,6 +1,6 @@
 ---
 title: "VS Code에서 쉽게 Git 관리"
-date: 2026-02-23 06:00:00 +/-TTTT
+date: 2026-02-23
 categories: [Programming, 개발 환경]
 math: true
 toc: true
@@ -15,7 +15,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (%%{green}초록색 �
 
 크게 `REPOSITORIES`, `CHANGES`, `GRAPH` 탭 (%%{red}빨간색 박스%%)으로 구분되어 있다.
 
-![fig1](/assets/images/Programming/Dev_Environment/VSCode_Git-1.png)
+![fig1](VSCode_Git-1.png)
 
 - **`REPOSITORIES`**
 
@@ -25,7 +25,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (%%{green}초록색 �
 
     우측의 점 3개 아이콘 (%%{violet}분홍색 박스%%)을 클릭하면, 세부 메뉴 (%%{violet}분홍색 화살표%%)가 나타난다.
 
-    ![fig2](/assets/images/Programming/Dev_Environment/VSCode_Git-2.png)
+    ![fig2](VSCode_Git-2.png)
 
     - `Pull, Push` 버튼 (%%{gold}노란색 박스%%)을 누르면 세부 메뉴가 한번 더 나타난다.
 
@@ -33,7 +33,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (%%{green}초록색 �
 
         `Pull from...` / `Push to...`를 클릭하면 아래와 같이 VS Code 상단에 원격 저장소 브랜치 목록이 뜬다.
 
-        ![fig3](/assets/images/Programming/Dev_Environment/VSCode_Git-3.png)
+        ![fig3](VSCode_Git-3.png)
 
     - `Branch` 버튼 (%%{gold}노란색 박스%%)을 누르면 세부 메뉴가 한번 더 나타난다.
 
@@ -53,7 +53,7 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (%%{green}초록색 �
     <br>
     Commit 버튼을 누르면 Sync Changes라는 버튼이 생기는데, 마지막으로 이 버튼을 누르면 `git push`까지 완료되게 된다.
 
-     ![fig4](/assets/images/Programming/Dev_Environment/VSCode_Git-4.png)
+     ![fig4](VSCode_Git-4.png)
 
     `CHANGES`에서도 점 3개 아이콘 (%%{violet}분홍색 박스%%)을 통해 `REPOSITORIES`와 동일한 기능을 수행할 수 있다.
 
@@ -67,18 +67,18 @@ VS Code 내장 기능으로, 좌측 **Source Control** 탭 (%%{green}초록색 �
 
     각 commit을 클릭하면 아래처럼 해당 commit 때 수정된 파일 목록을 보여주고, 파일을 클릭하면 파일 내에서 어느 부분이 수정되었는지도 보여준다.
 
-    ![fig5](/assets/images/Programming/Dev_Environment/VSCode_Git-5.png)
+    ![fig5](VSCode_Git-5.png)
 
 
 ## Git Graph (확장 프로그램)
 
 **Git Graph** 확장 프로그램을 설치하면, 아래와 같이 `CHANGES` 탭에 `View Git Graph` 아이콘이 생긴다.
 
-![fig6](/assets/images/Programming/Dev_Environment/VSCode_Git-6.png)
+![fig6](VSCode_Git-6.png)
 
 해당 아이콘을 클릭하면 창에 크게 아래와 같은 화면이 펼쳐진다.
 
-![fig7](/assets/images/Programming/Dev_Environment/VSCode_Git-7.png)
+![fig7](VSCode_Git-7.png)
 
 Source Control의 `GRAPH`탭과 동일하게, 동그라미 하나는 하나의 commit을 의미한다.
 <br>

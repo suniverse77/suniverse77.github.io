@@ -1,6 +1,6 @@
 ---
 title: "Gradient & Jacobian"
-date: 2025-08-10 00:00:00 +/-TTTT
+date: 2025-08-10
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true

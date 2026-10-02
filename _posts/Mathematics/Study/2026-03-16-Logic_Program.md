@@ -1,6 +1,6 @@
 ---
 title: "논리 프로그래밍 (Logic Programming, LP)"
-date: 2026-03-16 00:00:00 +/-TTTT
+date: 2026-03-16
 categories: [Mathematics, Study]
 math: true
 toc: true

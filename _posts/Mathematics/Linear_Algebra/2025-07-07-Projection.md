@@ -1,6 +1,6 @@
 ---
 title: "사영 (Projection)"
-date: 2025-07-07 00:00:00 +/-TTTT
+date: 2025-07-07
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -24,7 +24,7 @@ $$
 
 따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Projection-1.png)
+![fig1](Projection-1.png)
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 ::: 식 (1) 유도
@@ -51,7 +51,7 @@ $$
 \tag{2}
 $$
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Projection-2.png)
+![fig2](Projection-2.png)
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 ::: 식 (2) 유도

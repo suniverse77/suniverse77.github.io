@@ -1,6 +1,6 @@
 ---
 title: "NVS-Solver: Video Diffusion Model as Zero-Shot Novel View Synthesizer"
-date: 2026-04-12 00:00:00 +/-TTTT
+date: 2026-04-12
 categories: [AI, 논문리뷰]
 math: true
 toc: true

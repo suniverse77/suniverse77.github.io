@@ -1,6 +1,7 @@
 ---
 title: "Kalman Filter 2 - 알고리즘"
-date: 2026-04-04 06:00:00 +/-TTTT
+date: 2026-04-04
+order: 2
 categories: [Mathematics, Signals and Systems]
 math: true
 toc: true
@@ -19,7 +20,7 @@ published: true
 
 이론적으로라면 모델이 계산한 외부 온도 $\hat{T}\_{\text{ext}}$와 실제 센서로 읽어들인 외부 온도 $T\_{\text{ext}}$는 완벽하게 똑같아야 한다. 하지만 현실에는 수학적 모델이 담아내지 못하는 노이즈와 센서 자체의 노이즈도 존재하기 때문에, 이 두 값 사이에는 항상 오차가 발생하게 된다.
 
-![fig1](/assets/images/Math/Signal_System/Kalman_Filter2-1.png)
+![fig1](Kalman_Filter2-1.png)
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 이 오차를 줄이기 위해 피드백 루프를 설계한다.
@@ -32,7 +33,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 이때 오차를 0으로 만들기 위해 모델을 수정하는 피드백 과정에서, ==오차를 얼마나 강하게 반영할 것인지를 결정하는 Kalman Gain $K$를 최적으로 계산해 주는 알고리즘이 칼만 필터이다.==
 
-![fig2](/assets/images/Math/Signal_System/Kalman_Filter2-2.png)
+![fig2](Kalman_Filter2-2.png)
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 즉, 아래와 같이 요약할 수 있다.
@@ -47,7 +48,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 
 블랙박스로 표현되어 있던 블록도를 구체적으로 표현하면 아래와 같다.
 
-![fig3](/assets/images/Math/Signal_System/Kalman_Filter2-3.png)
+![fig3](Kalman_Filter2-3.png)
 
 위 블록도에서 $\hat{x}\_k^-=A\hat{x}_{k-1}+Bu\_k$를 상태 모델 (State model), $\hat{z}\_k=H\hat{x}\_k^-$를 관측 모델 (Observation model)이라고 한다.
 
@@ -60,7 +61,7 @@ _[[출처: MATLAB]](https://www.youtube.com/watch?v=4OerJmPpkRg)_
 <br>
 그림에서 볼 수 있듯이, 칼만 필터는 예측 단계와 보정 단계를 끊임없이 반복하는 구조로 이루어져 있다.
 
-![fig4](/assets/images/Math/Signal_System/Kalman_Filter2-4.png)
+![fig4](Kalman_Filter2-4.png)
 
 - **예측 단계:** 모델이 과거의 상태를 바탕으로 현재의 상태를 예측하는 단계
 - **보정 단계:** 실제 센서 측정값을 반영해 모델의 예측값과 센서의 측정값 사이의 오차를 줄여나가는 단계
@@ -102,7 +103,7 @@ $$
 <br>
 $\hat{x}\_{k}^-$는 모델이 예측한 자동차의 현재 위치이며, $P\_k^-$는 그 예측된 위치의 불확실성을 나타낸다. (자동차의 위치가 실제로 존재할 수 있는 범위)
 
-![fig5](/assets/images/Math/Signal_System/Kalman_Filter2-5.png)
+![fig5](Kalman_Filter2-5.png)
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 ### 보정 (Update) 단계
@@ -175,9 +176,9 @@ $$
 <br>
 칼만 필터를 거쳐 최종적으로 예측한 자동차의 위치 $\hat{x}_k$는, 모델이 예측한 위치 $\hat{x}_k^-$와 센서가 측정한 위치 $z_k$ 사이의 조율된 지점에 형성된다.
 
-![fig6](/assets/images/Math/Signal_System/Kalman_Filter2-6.png)
+![fig6](Kalman_Filter2-6.png)
 _[[출처: MATLAB]](https://www.youtube.com/watch?v=VFXf1lIZ3p8)_
 
 전체 과정을 그림으로 나타내면 아래와 같다.
 
-![fig7](/assets/images/Math/Signal_System/Kalman_Filter2-7.png)_출처: [Notes on Kalman Filter (KF, EKF, ESKF, IEKF, IESKF))](https://arxiv.org/abs/2406.06427)_
+![fig7](Kalman_Filter2-7.png)_출처: [Notes on Kalman Filter (KF, EKF, ESKF, IEKF, IESKF))](https://arxiv.org/abs/2406.06427)_

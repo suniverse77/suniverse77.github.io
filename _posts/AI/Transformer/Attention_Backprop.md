@@ -1,6 +1,6 @@
 ---
 title: "Attention layer에서의 역전파"
-date: 2025-12-20 0:00:00 +/-TTTT
+date: 2025-12-20
 categories: [AI, 트랜스포머]
 math: true
 toc: true

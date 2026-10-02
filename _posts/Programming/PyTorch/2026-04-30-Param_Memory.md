@@ -1,6 +1,7 @@
 ---
 title: "딥러닝 모델 파라미터 메모리 산출"
-date: 2026-04-30 00:00:00 +/-TTTT
+date: 2026-04-30
+order: 1
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
@@ -9,7 +10,7 @@ published: true
 
 딥러닝 모델의 학습 과정은 크게 loss를 계산하는 순전파 (Forward pass), 각 파라미터의 그래디언트를 계산하는 역전파 (Backward pass), 그리고 계산된 그래디언트를 이용해 실제로 파라미터를 업데이트하는 옵티마이저 스텝 (Optimizer Step)으로 이루어진다.
 
-![fig1](/assets/images/Programming/PyTorch/Param_Memory-1.png)
+![fig1](Param_Memory-1.png)
 
 이 과정에서 GPU 메모리 (VRAM)는 크게 4가지 영역으로 나뉘어 점유된다.
 
@@ -31,7 +32,7 @@ GPT-2 XL의 기본적인 스펙은 다음과 같고, **Batch size는 32**라고 
 - **Transformer Layers:** `48`
 - **Attention Heads:** `25`
 
-![fig2](/assets/images/Programming/PyTorch/Param_Memory-2.png)
+![fig2](Param_Memory-2.png)
 
 ### 1. 파라미터 (Parameters) 메모리
 

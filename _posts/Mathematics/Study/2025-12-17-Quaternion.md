@@ -1,6 +1,6 @@
 ---
 title: "사원수 회전 (Quaternion Rotation)"
-date: 2025-12-17 00:00:00 +/-TTTT
+date: 2025-12-17
 categories: [Mathematics, Study]
 math: true
 toc: true

@@ -1,6 +1,6 @@
 ---
 title: "Extended Kalman Filter(EKF)"
-date: 2026-04-10 00:00:00 +/-TTTT
+date: 2026-04-10
 categories: [Mathematics, Signals and Systems]
 math: true
 toc: true

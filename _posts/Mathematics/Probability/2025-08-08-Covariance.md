@@ -1,6 +1,6 @@
 ---
 title: "공분산과 상관 계수"
-date: 2025-08-08 00:00:00 +/-TTTT
+date: 2025-08-08
 categories: [Mathematics, Probability]
 math: true
 toc: true

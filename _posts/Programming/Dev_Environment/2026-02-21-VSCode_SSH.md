@@ -1,6 +1,6 @@
 ---
 title: "SSH 연결"
-date: 2026-02-21 00:00:00 +/-TTTT
+date: 2026-02-21
 categories: [Programming, 개발 환경]
 math: true
 toc: true
@@ -22,7 +22,7 @@ published: true
 
 설치하면 **Remote Explorer**라는 아이콘이 새로 생기게 된다.
 
-![fig1](/assets/images/Programming/Dev_Environment/VSCode_SSH-1.png)
+![fig1](VSCode_SSH-1.png)
 
 ### 2. 접속할 서버 정보 확인 및 SSH Config 파일 설정
 
@@ -47,7 +47,7 @@ published: true
     `C:\Users\이름\.ssh\config` 또는 `~/.ssh/config`
 4. 열린 파일에 아래 양식에 맞춰 서버 정보를 입력하고 저장한다.
 
-![fig2](/assets/images/Programming/Dev_Environment/VSCode_SSH-2.png)
+![fig2](VSCode_SSH-2.png)
 
 위에서 `Host` 항목 옆의 `MyServer`는 해당 서버를 부를 별명 (Alias)이다.
 <br>
@@ -61,21 +61,21 @@ published: true
 
 1. VS Code 좌측 하단 구석에 있는 **><** 모양을 클릭하거나, 좌측 메뉴의 **원격 탐색기 (Remote Explorer)** 아이콘을 클릭한다.
 
-    ![fig3](/assets/images/Programming/Dev_Environment/VSCode_SSH-3.png)
+    ![fig3](VSCode_SSH-3.png)
 2. 상단의 메뉴에서 **Connect to Host... (호스트에 연결...)**를 선택한다.
 
-    ![fig4](/assets/images/Programming/Dev_Environment/VSCode_SSH-4.png)
+    ![fig4](VSCode_SSH-4.png)
 3. 접속하고자 하는 서버를 클릭한다.
 
-    ![fig5](/assets/images/Programming/Dev_Environment/VSCode_SSH-5.png)
+    ![fig5](VSCode_SSH-5.png)
 4. 새로운 VS Code 창이 열리고, 상단에 뜨는 목록에서 접속할 서버의 운영체제를 선택한다. (보통 **Linux** 선택)
 
-    ![fig6](/assets/images/Programming/Dev_Environment/VSCode_SSH-6.png)
+    ![fig6](VSCode_SSH-6.png)
 5. 비밀번호를 묻는 프롬프트가 뜨면, 서버 비밀번호를 입력하고 엔터를 누른다. (입력 시 화면에 아무것도 안 보이는 것이 정상)
 
 좌측 하단에 **SSH: MyServer**라고 뜨면 접속에 성공한 것이다.
 
-![fig7](/assets/images/Programming/Dev_Environment/VSCode_SSH-7.png)
+![fig7](VSCode_SSH-7.png)
 
 ### 4. 작업 폴더 열기
 서버에는 접속했지만, 아직 특정 폴더를 연 상태는 아니다.
@@ -84,6 +84,6 @@ published: true
 
 이제 원격 서버에서 작업할 디렉토리 경로를 입력하고 **확인 (OK)**을 누르면, 원격 서버의 파일들이 VS Code 좌측 탐색기 (Explorer)에 나타나게 된다.
 
-![fig8](/assets/images/Programming/Dev_Environment/VSCode_SSH-8.png)
+![fig8](VSCode_SSH-8.png)
 
-![fig9](/assets/images/Programming/Dev_Environment/VSCode_SSH-9.png)
+![fig9](VSCode_SSH-9.png)

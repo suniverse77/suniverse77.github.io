@@ -1,6 +1,6 @@
 ---
 title: "An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion"
-date: 2025-01-11 00:00:00 +/-TTTT
+date: 2025-01-11
 categories: [AI, 논문리뷰]
 math: true
 toc: true
@@ -19,7 +19,7 @@ published: true
 :::
 <br>
 
-![fig0](/assets/images/paper/text_inv-0.png)
+![fig1](Textual-Inversion-1.png)
 
 ## Introduction
 
@@ -38,7 +38,7 @@ published: true
 
 ## Methods
 
-![fig1](/assets/images/paper/text_inv-1.png)
+![fig2](Textual-Inversion-2.png)
 
 ### 1. Latent Diffusion Models
 
@@ -81,7 +81,7 @@ $$
 
 **Image variations**
 
-![fig2](/assets/images/paper/text_inv-2.png)
+![fig3](Textual-Inversion-3.png)
 
 <br>
 제안한 방법을 2개의 baseline과 비교하였다.
@@ -90,7 +90,7 @@ $$
 
 **Style transfer**
 
-![fig3](/assets/images/paper/text_inv-3.png)
+![fig4](Textual-Inversion-4.png)
 
 <br>
 Textual-embedding space는 스타일과 같은 추상적인 개념도 표현할 수 있다.
@@ -99,7 +99,7 @@ Textual-embedding space는 스타일과 같은 추상적인 개념도 표현할 
 
 ### Quantitative Analysis
 
-![fig4](/assets/images/paper/text_inv-4.png)
+![fig5](Textual-Inversion-5.png)
 <br>
 
 왼쪽은 CLIP-based 평가, 오른쪽은 user study이다.

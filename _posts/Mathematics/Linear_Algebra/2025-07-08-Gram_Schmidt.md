@@ -1,6 +1,6 @@
 ---
 title: "그람-슈미트 과정 (Gram-Schmidt Process)"
-date: 2025-07-08 00:00:00 +/-TTTT
+date: 2025-07-08
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -39,7 +39,7 @@ $$
     \tag{2}
     $$
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Gram_Schmidt-1.png)
+![fig1](Gram_Schmidt-1.png)
 
 예를 들어, 3차원 공간에서 기저 $B=\lbrace\mathbf{b}_1,\mathbf{b}_2,\mathbf{b}_3\rbrace$에 대한 그람 슈미트 과정은 아래와 같다.
 
@@ -95,7 +95,7 @@ $$
 
     아래의 왼쪽 그림에서 $\mathbf{a}$들은 서로 직교하지 않았지만, 오른쪽 그림에서 $\mathbf{b}$들은 서로 직교한다. 
 
-![fig2](/assets/images/Mathematics/Linear_Algebra/Gram_Schmidt-2.png)
+![fig2](Gram_Schmidt-2.png)
 _[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
 
 :::{red} <strong>Example:</strong> Gram-Schmidt 과정으로 기저를 직교화

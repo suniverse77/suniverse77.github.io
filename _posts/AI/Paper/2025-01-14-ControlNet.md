@@ -1,6 +1,6 @@
 ---
 title: "Adding Conditional Control to Text-to-Image Diffusion Models"
-date: 2025-01-14 00:00:00 +/-TTTT
+date: 2025-01-14
 categories: [AI, 논문리뷰]
 math: true
 toc: true
@@ -11,7 +11,7 @@ published: true
 [[Paper]](https://arxiv.org/abs/2302.05543)
 [[GitHub]](https://github.com/lllyasviel/ControlNet)
 
-![fig0](/assets/images/paper/controlnet-0.png)
+![fig1](ControlNet-1.png)
 
 ## Introduction
 
@@ -32,7 +32,7 @@ Stable Diffusion과 같은 대형 T2I 모델을 기반으로, 외부 이미지 �
 
 ControlNet은 아래 그림과 같이 추가적인 조건을 신경망 내부에 주입한다.
 
-![fig1](/assets/images/paper/controlnet-1.png)
+![fig2](ControlNet-2.png)
 <br>
 $\Theta$로 파라미터화되어 있는 신경망 블록을 아래와 같이 표현한다.
 
@@ -60,7 +60,7 @@ Zero convolution에 의해 초기에는 $\mathbf{y}_c=\mathbf{y}$가 된다. 이
 
 ControlNet에도 Stable Diffusion에서와 동일하게 Prompt $\mathbf{c}_t$와 timestep $\mathbf{t}$가 입력으로 들어간다. 이때, Text prompt는 CLIP으로 인코딩되고, timestep은 positional encoding으로 인코딩된다.
 
-![fig2](/assets/images/paper/controlnet-2.png)
+![fig3](ControlNet-3.png)
 
 ControlNet 구조는 UNet의 인코더에만 적용된다. 구체적으로는, Stable Diffusion의 12개의 Encoder Block과 1개의 Middle Block의 파라미터를 ControlNet으로 복사한다.
 
@@ -87,7 +87,7 @@ $$
 
 실험 결과, 모델이 조건을 점진적으로 학습하는 것이 아니라 갑자기 조건을 따르는 현상을 발견하였다.
 
-![fig3](/assets/images/paper/controlnet-3.png)
+![fig4](ControlNet-4.png)
 
 저자들은 위와 같은 현상을 급격한 수렴 현상(sudden convergence phenomenon)이라고 명명하였다.
 
@@ -109,7 +109,7 @@ CFG guidance의 세기를 조절하기 위해 CFG Resolution Weighting 기법을
 
 아래 그림은 프롬프트가 없는 상황 같은 복잡한 경우에서의 결과를 나타낸다.
 
-![fig4](/assets/images/paper/controlnet-4.png)
+![fig5](ControlNet-5.png)
 
 - (b): 조건을 $\epsilon_{\text{uc}}$와 $\epsilon_{\text{c}}$에 모두 추가하면 CFG guidance가 사라진다.
 - (c): 조건을 $\epsilon_{\text{c}}$에만 추가하면 guidance가 매우 강해진다.
@@ -119,20 +119,20 @@ CFG guidance의 세기를 조절하기 위해 CFG Resolution Weighting 기법을
 
 여러 개의 조건 이미지를 동시에 적용하고자 할 경우, 각 조건에 해당하는 ControlNet의 출력들을 단순히 Stable Diffusion에 더해주기만 하면 된다.
 
-![fig5](/assets/images/paper/controlnet-5.png)
+![fig6](ControlNet-6.png)
 
 ## Experiments
 
 ### Qualitative Results
 
-![fig6](/assets/images/paper/controlnet-6.png)
+![fig7](ControlNet-7.png)
 
 위의 그림은 프롬프트 없이 다양한 condition에 따른 모델의 출력 결과를 보여준다.
 
 **Ablation Study**
 
-![fig7](/assets/images/paper/controlnet-7.png)
+![fig8](ControlNet-8.png)
 
 ### Quantitative Evaluation
 
-![fig8](/assets/images/paper/controlnet-8.png)
+![fig9](ControlNet-9.png)

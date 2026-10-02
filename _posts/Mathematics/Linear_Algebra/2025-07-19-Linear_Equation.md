@@ -1,6 +1,6 @@
 ---
 title: "연립 선형 방정식"
-date: 2025-07-19 00:00:00 +/-TTTT
+date: 2025-07-19
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -326,7 +326,7 @@ $$
 
 즉, ==기준점 하나 (특수해)와 방향 (동차해)만으로 $x+y=1$의 모든 해를 표현할 수 있다.==
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Linear_Equation-1.png)
+![fig1](Linear_Equation-1.png)
 
 - 빨간색 직선은 $x+y=1$ 즉, 해공간을 나타낸다.
 - 파란색 직선은 $x+y=0$ 즉, 영공간인 동차해 $\mathbf{x}_h$를 나타낸다.

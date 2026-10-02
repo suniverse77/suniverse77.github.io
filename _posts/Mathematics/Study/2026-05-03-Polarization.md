@@ -1,6 +1,6 @@
 ---
 title: "편광 (Polarization)"
-date: 2026-05-03 00:00:00 +/-TTTT
+date: 2026-05-03
 categories: [Mathematics, Study]
 math: true
 toc: true
@@ -11,7 +11,7 @@ published: true
 <br>
 빛은 전자기파로, 진행 방향에 수직으로 진동하며 나아간다.
 
-![fig1](/assets/images/Math/Study/Polarization-1.png)
+![fig1](Polarization-1.png)
 
 > **전자기파 (Electromagnetic Wave)란?**
 >
@@ -27,7 +27,7 @@ published: true
 <br>
 즉, 진행 방향과 90도로 수직인 2차원 평면 안에서의 모든 방향으로 진동하며, 이를 **비편광 (Unpolarized light)**라고 한다.
 
-![fig2](/assets/images/Math/Study/Polarization-2.png)
+![fig2](Polarization-2.png)
 
 ## 편광이란?
 
@@ -43,7 +43,7 @@ published: true
 
 > **편광 선글라스가 가로 눈부심을 타겟하는 이유**
 > 
-> ![fig3](/assets/images/Math/Study/Polarization-3.png)
+> ![fig3](Polarization-3.png)
 >
 > 위 그림에서 볼 수 있듯이, 빛의 반사 경로를 벗어나 있는 관찰자 1의 시점에서는 표면에서 반사된 빛이 도달하지 않아 눈부심이 보이지 않는다.
 >
@@ -61,7 +61,7 @@ published: true
 
 편광 필터는 자연광 중에서 특정한 방향으로 진동하는 빛만 선택적으로 통과시키고, 나머지 방향의 빛은 흡수하여 차단하는 역할을 하는 도구이다.
 
-![fig4](/assets/images/Math/Study/Polarization-4.png)_[[출처]](https://blog.envision.co.kr/62)_
+![fig4](Polarization-4.png)_[[출처]](https://blog.envision.co.kr/62)_
 
 위 그림을 보면 가로 필터 (≡)에 빛이 들어올 때, 세로 방향 (↕)의 진동만 통과되는 것을 볼 수 있다.
 
@@ -148,10 +148,10 @@ DoLP와 AoLP 값을 통해, 이 빛이 물체에 부딪힐 때 정반사를 겪�
 <br>
 따라서 정반사된 빛은 DoLP 값이 매우 높으며, 튕겨 나온 표면의 기울기와 나란한 AoLP를 가진다.
 
-![fig5](/assets/images/Math/Study/Polarization-5.png)
+![fig5](Polarization-5.png)
 
 난반사는 물체 내부로 들어갔다 빠져나온 빛으로, 내부에서 이리저리 부딪히면서 무편광 상태가 된다.
 <br>
 따라서 난반사된 빛은 DoLP 값이 상대적으로 낮으며, 정반사된 빛의 출렁임과 정확히 $90^\circ$ 수직을 이루는 AoLP를 가진다.
 
-![fig6](/assets/images/Math/Study/Polarization-6.png)
+![fig6](Polarization-6.png)

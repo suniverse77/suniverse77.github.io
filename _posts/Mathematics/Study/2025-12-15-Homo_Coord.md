@@ -1,6 +1,6 @@
 ---
 title: "동차 좌표계 (Homogeneous Coordinate)"
-date: 2025-12-15 00:00:00 +/-TTTT
+date: 2025-12-15
 categories: [Mathematics, Study]
 math: true
 toc: true

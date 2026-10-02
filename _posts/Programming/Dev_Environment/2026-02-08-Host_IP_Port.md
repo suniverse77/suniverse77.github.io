@@ -1,6 +1,6 @@
 ---
 title: "호스트 / IP / 포트"
-date: 2026-02-10 00:00:00 +/-TTTT
+date: 2026-02-10
 categories: [Programming, 개발 환경]
 math: true
 toc: true
@@ -14,7 +14,7 @@ published: true
 - **IP:** 건물을 찾아가기 위한 주소
 - **포트:** 건물 내에 있는 각 방의 번호
 
-![fig1](/assets/images/Programming/Dev_Environment/Host_IP_Port-1.png)
+![fig1](Host_IP_Port-1.png)
 
 ### 호스트 (Host)
 

@@ -1,6 +1,6 @@
 ---
 title: "비제약 최적화 문제"
-date: 2025-08-16 00:00:00 +/-TTTT
+date: 2025-08-16
 categories: [Mathematics, Optimization]
 math: true
 toc: true
@@ -71,7 +71,7 @@ $$
 
 행렬이 양의 정부호라는 것은 그 지점에서 함수가 아래로 볼록한 그릇 모양이라는 의미이다.
 
-![fig1](/assets/images/Math/Optimization/Unconstrain-1.png)
+![fig1](Unconstrain-1.png)
 _[[출처]](https://medium.com/ai-saturdays-lagos-articles/tensorboard-hessian-matrices-and-linear-regression-39fe2f28de0f)_
 
 따라서 ==그라디언트가 0이면서 Hessian이 양의 정부호이면, 해당 점은 지역 최소점 (Local Minimum)==이다.
@@ -91,7 +91,7 @@ $$
 - $x_k$는 현재 위치, $x_{k+1}$은 다음 위치를 의미한다.
 - $\eta$는 학습률 (Learning Rate)으로, 한 번에 얼마나 크게 이동할지를 결정한다.
 
-![fig2](/assets/images/Math/Optimization/Unconstrain-2.png)
+![fig2](Unconstrain-2.png)
 _[[출처]](https://mlpills.dev/machine-learning/gradient-descent/)_
 
 ### 뉴턴 방법 (Newton's Method)

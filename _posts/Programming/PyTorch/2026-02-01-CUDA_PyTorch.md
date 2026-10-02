@@ -1,6 +1,7 @@
 ---
 title: "GPU, CUDA, PyTorch 버전 관계"
-date: 2026-02-01 00:00:00 +/-TTTT
+date: 2026-02-01
+order: 1
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true

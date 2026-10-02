@@ -1,6 +1,6 @@
 ---
 title: "내적과 외적"
-date: 2025-07-06 00:00:00 +/-TTTT
+date: 2025-07-06
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
@@ -113,5 +113,5 @@ $$
 
 외적 연산으로 생성된 벡터의 방향은 오른손 법칙으로 결정되고, 크기는 두 벡터가 만드는 평행사변형의 넓이와 같다.
 
-![fig1](/assets/images/Mathematics/Linear_Algebra/Inner_Product-1.png)
+![fig1](Inner_Outer_Prod-1.png)
 _[[그림 출처]](https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/x786f2022:vectors-and-matrices/a/cross-products-mvc)_

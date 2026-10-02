@@ -1,6 +1,7 @@
 ---
 title: "옵티마이저 (Optimizer)"
-date: 2025-02-14 12:00:00 +/-TTTT
+date: 2025-02-14
+order: 1
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true

@@ -1,6 +1,6 @@
 ---
 title: "허깅 페이스 (Hugging Face)"
-date: 2026-04-19 00:00:00 +/-TTTT
+date: 2026-04-19
 categories: [Programming, 개발 환경]
 math: true
 toc: true

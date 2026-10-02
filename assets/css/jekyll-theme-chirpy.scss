@@ -224,6 +224,16 @@ html[data-bs-theme] div.highlighter-rouge {
     border-radius: 0;
     color: #fff;
   }
+
+  /* no line numbers */
+  td.rouge-gutter {
+    display: none !important;
+  }
+
+  /* line the code up with the label above it */
+  td.rouge-code {
+    padding-left: 16px !important;
+  }
 }
 
 /* Highlighter pen: written in posts as ==text== or =={red}text==

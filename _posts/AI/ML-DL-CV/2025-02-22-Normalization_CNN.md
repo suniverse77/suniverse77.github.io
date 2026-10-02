@@ -1,6 +1,6 @@
 ---
 title: "CNN에서의 데이터 정규화"
-date: 2025-02-22 00:00:00 +/-TTTT
+date: 2025-02-22
 categories: [AI, Fundamentals, Computer Vision]
 math: true
 toc: true
@@ -9,7 +9,7 @@ published: true
 
 ## CNN에서의 Normalization
 
-![fig1](/assets/images/AI_Basics/CV/Normalization_CNN-1.png)
+![fig1](Normalization_CNN-1.png)
 _출처: Stanford CS231n, Lecture 5 (Image Classification with CNNs)_
 
 보통 normalization을 설명할 때 위의 그림을 자주 사용한다. 
@@ -20,7 +20,7 @@ _출처: Stanford CS231n, Lecture 5 (Image Classification with CNNs)_
 
 ### Batch Normalization
 
-![fig2](/assets/images/AI_Basics/CV/Normalization_CNN-2.png)
+![fig2](Normalization_CNN-2.png)
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Batch Norm은 하나의 배치 내에서 각 채널 별로 정규화를 수행한다.
@@ -29,7 +29,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 batch norm을 수행하�
 
 ### Layer Normalization
 
-![fig3](/assets/images/AI_Basics/CV/Normalization_CNN-3.png)
+![fig3](Normalization_CNN-3.png)
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Layer Norm은 하나의 샘플에 대해서 정규화를 수행한다.
@@ -38,7 +38,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 layer norm을 수행하�
 
 ### Instance Normalization
 
-![fig4](/assets/images/AI_Basics/CV/Normalization_CNN-4.png)
+![fig4](Normalization_CNN-4.png)
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Istance Norm은 각 샘플마다 채널 별로 정규화를 수행한다.
@@ -47,7 +47,7 @@ $N\times C\times H\times W$ 크기의 텐서에 대해 instance norm을 수행�
 
 ### Group Normalization
 
-![fig5](/assets/images/AI_Basics/CV/Normalization_CNN-5.png)
+![fig5](Normalization_CNN-5.png)
 _[[그림 출처]](https://blog.csdn.net/weixin_38346042/article/details/131882490)_
 
 Group Norm은 각 샘플마다 채널을 $G$개의 그룹으로 묶어 정규화를 수행한다.

@@ -1,6 +1,6 @@
 ---
 title: "혼동행렬 (Confusion Matrix)"
-date: 2025-03-01 00:00:00 +/-TTTT
+date: 2025-03-01
 categories: [AI, Fundamentals, Machine Learning]
 math: true
 toc: true
@@ -11,7 +11,7 @@ published: true
 
 모델의 예측 결과를 실제 정답과 비교하여
 
-![fig1](/assets/images/AI_Basics/Metric/Confusion_Matrix-1.png)
+![fig1](Confusion_Matrix-1.png)
 _[[출처]](https://www.blog.trainindata.com/confusion-matrix-precision-and-recall/)_
 
 **Positive/Negative**는 ==모델이 예측한 값==을, **True/False**는 ==그 예측이 맞았는지 틀렸는지==를 의미한다.
@@ -47,11 +47,11 @@ Classification에서는 이미지 단위로 계산한다.
 - 실제 클래스가 A가 아닌데, 모델이 다른 클래스로 예측한 경우 → **TN**
 - 실제 클래스가 A가 아닌데, 모델이 A로 예측한 경우 → **FP**
 
-![fig2](/assets/images/AI_Basics/Metric/Confusion_Matrix-2.png)
+![fig2](Confusion_Matrix-2.png)
 _[[출처]](https://devopedia.org/confusion-matrix)_
 
 :::{red} Example 1
-![fig3](/assets/images/AI_Basics/Metric/Confusion_Matrix-3.png)
+![fig3](Confusion_Matrix-3.png)
 _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-matrix-f23c214a65d2)_
 
 클래스 A 기준 아래와 같이 계산할 수 있다.
@@ -109,7 +109,7 @@ Object Detection에서는 Bounding Box 단위로 계산한다.
 
 ## 혼동행렬 기반 성능 지표
 
-![fig4](/assets/images/AI_Basics/Metric/Confusion_Matrix-4.png)
+![fig4](Confusion_Matrix-4.png)
 _[[출처]](https://velog.io/@jjw9599/ConfusionMatrix-ClassificationEvaluation)_
 
 ### 정확도 (Accuracy)

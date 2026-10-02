@@ -1,6 +1,6 @@
 ---
 title: "Efficient Diffusion Model for Image Restoration by Residual Shifting"
-date: 2026-03-21 00:00:00 +/-TTTT
+date: 2026-03-21
 categories: [AI, 논문리뷰]
 math: true
 toc: true

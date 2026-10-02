@@ -1,6 +1,7 @@
 ---
 title: "양자화 (Quantization)"
-date: 2025-10-20 12:00:00 +/-TTTT
+date: 2025-10-20
+order: 3
 categories: [AI, 딥러닝]
 math: true
 toc: true

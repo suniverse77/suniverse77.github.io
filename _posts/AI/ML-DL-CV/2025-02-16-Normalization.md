@@ -1,6 +1,7 @@
 ---
 title: "Normalization"
-date: 2025-02-16 00:00:00 +/-TTTT
+date: 2025-02-16
+order: 1
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
@@ -19,7 +20,7 @@ Standardization (표준화), Min-Max Scaling 등의 기법이 존재한다.
 
 각 layer의 ==출력을 안정적인 분포==로 맞춰서 학습이 발산하지 않고 빠르게 수렴하도록 한다.
 
-![fig1](/assets/images/AI/ML-DL/Normalization-1.png)
+![fig1](Normalization-1.png)
 _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 ### Batch Normalization

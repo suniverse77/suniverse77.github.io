@@ -1,6 +1,6 @@
 ---
 title: "마르코프 체인 (Markov Chain)"
-date: 2025-08-16 00:00:00 +/-TTTT
+date: 2025-08-16
 categories: [Mathematics, Probability]
 math: true
 toc: true
@@ -36,7 +36,7 @@ $$
     \tag{3}
     $$
 
-![fig1](/assets/images/Math/Probability/Markov_Chain-1.png)
+![fig1](Markov_Chain-1.png)
 _[[출처]](https://roytravel.tistory.com/358)_
 
 ## 결합 확률 분포
