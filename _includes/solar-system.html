@@ -7,9 +7,9 @@
     <button
       type="button"
       class="solar-sun"
-      data-name="태양"
-      data-fact="태양계 전체 질량의 약 99.8%를 차지합니다."
-      aria-label="태양"
+      data-name="Sun"
+      data-fact="Holds about 99.8% of all the mass in the solar system."
+      aria-label="Sun"
     ></button>
 
     <div class="solar-orbit" style="--r: 24px; --t: 8s; --d: -0s">
@@ -17,9 +17,9 @@
         type="button"
         class="solar-planet"
         style="--c: #9a9a9a; --s: 5px"
-        data-name="수성"
-        data-fact="태양에 가장 가까운 행성으로, 약 88일마다 태양을 한 바퀴 돕니다."
-        aria-label="수성"
+        data-name="Mercury"
+        data-fact="The closest planet to the Sun, orbiting it once every 88 days."
+        aria-label="Mercury"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 36px; --t: 13s; --d: -11s">
@@ -27,9 +27,9 @@
         type="button"
         class="solar-planet"
         style="--c: #e0b65c; --s: 7px"
-        data-name="금성"
-        data-fact="표면 온도가 약 460°C로, 태양계에서 가장 뜨거운 행성입니다."
-        aria-label="금성"
+        data-name="Venus"
+        data-fact="The hottest planet, with a surface at about 460°C."
+        aria-label="Venus"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 48px; --t: 18s; --d: -2s">
@@ -37,9 +37,9 @@
         type="button"
         class="solar-planet"
         style="--c: #4a90d9; --s: 7px"
-        data-name="지구"
-        data-fact="표면의 약 70%가 바다로 덮여 있습니다."
-        aria-label="지구"
+        data-name="Earth"
+        data-fact="About 70% of its surface is covered by ocean."
+        aria-label="Earth"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 60px; --t: 26s; --d: -7s">
@@ -47,9 +47,9 @@
         type="button"
         class="solar-planet"
         style="--c: #c8553d; --s: 6px"
-        data-name="화성"
-        data-fact="태양계에서 가장 높은 화산인 올림푸스 몬스가 있습니다."
-        aria-label="화성"
+        data-name="Mars"
+        data-fact="Home to Olympus Mons, the tallest volcano in the solar system."
+        aria-label="Mars"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 75px; --t: 40s; --d: -28s">
@@ -57,9 +57,9 @@
         type="button"
         class="solar-planet"
         style="--c: #d2a679; --s: 12px"
-        data-name="목성"
-        data-fact="태양계에서 가장 큰 행성으로, 지구가 1,300개쯤 들어갑니다."
-        aria-label="목성"
+        data-name="Jupiter"
+        data-fact="The largest planet; about 1,300 Earths would fit inside it."
+        aria-label="Jupiter"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 90px; --t: 54s; --d: -23s">
@@ -67,9 +67,9 @@
         type="button"
         class="solar-planet solar-ringed"
         style="--c: #d9c38a; --s: 10px"
-        data-name="토성"
-        data-fact="고리는 대부분 얼음 조각으로 이루어져 있습니다."
-        aria-label="토성"
+        data-name="Saturn"
+        data-fact="Its rings are made mostly of chunks of ice."
+        aria-label="Saturn"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 102px; --t: 70s; --d: -12s">
@@ -77,9 +77,9 @@
         type="button"
         class="solar-planet"
         style="--c: #8fd3d6; --s: 8px"
-        data-name="천왕성"
-        data-fact="자전축이 약 98도 기울어져, 누운 채로 태양을 돕니다."
-        aria-label="천왕성"
+        data-name="Uranus"
+        data-fact="Tilted about 98 degrees, it orbits the Sun on its side."
+        aria-label="Uranus"
       ></button>
     </div>
     <div class="solar-orbit" style="--r: 113px; --t: 88s; --d: -83s">
@@ -87,16 +87,16 @@
         type="button"
         class="solar-planet"
         style="--c: #4f6fd8; --s: 8px"
-        data-name="해왕성"
-        data-fact="태양을 한 바퀴 도는 데 약 165년이 걸립니다."
-        aria-label="해왕성"
+        data-name="Neptune"
+        data-fact="Takes about 165 years to orbit the Sun once."
+        aria-label="Neptune"
       ></button>
     </div>
   </div>
 
   <p class="solar-caption" aria-live="polite">
-    <strong>태양계</strong>
-    <span>행성을 눌러 보세요.</span>
+    <strong>Solar System</strong>
+    <span>Click a planet.</span>
   </p>
 </section>
 
@@ -108,10 +108,18 @@
     }
     const name = root.querySelector('.solar-caption strong');
     const fact = root.querySelector('.solar-caption span');
+    const defaultName = name.textContent;
+    const defaultFact = fact.textContent;
     const bodies = root.querySelectorAll('.solar-sun, .solar-planet');
     bodies.forEach((body) => {
       body.addEventListener('click', () => {
+        const wasSelected = body.classList.contains('selected');
         bodies.forEach((other) => other.classList.remove('selected'));
+        if (wasSelected) {
+          name.textContent = defaultName;
+          fact.textContent = defaultFact;
+          return;
+        }
         body.classList.add('selected');
         name.textContent = body.dataset.name;
         fact.textContent = body.dataset.fact;
