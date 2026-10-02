@@ -2,7 +2,6 @@
 title: "마르코프 체인 (Markov Chain)"
 date: 2025-08-16 00:00:00 +/-TTTT
 categories: [Mathematics, Probability]
-tags: [확률, 머신러닝]
 math: true
 toc: true
 author: sunho

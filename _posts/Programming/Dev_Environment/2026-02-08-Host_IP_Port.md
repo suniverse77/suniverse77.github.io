@@ -2,7 +2,6 @@
 title: "호스트 / IP / 포트"
 date: 2026-02-10 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
-tags: [네트워크]
 math: true
 toc: true
 author: sunho

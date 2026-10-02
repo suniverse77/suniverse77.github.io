@@ -2,7 +2,6 @@
 title: "Efficient Diffusion Model for Image Restoration by Residual Shifting"
 date: 2026-03-21 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
-tags: [Paper Review, ]
 math: true
 toc: true
 author: sunho

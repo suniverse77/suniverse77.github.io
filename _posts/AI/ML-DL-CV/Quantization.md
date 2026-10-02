@@ -2,7 +2,6 @@
 title: "양자화 (Quantization)"
 date: 2025-10-20 12:00:00 +/-TTTT
 categories: [AI, 딥러닝]
-tags: [경량화]
 math: true
 toc: true
 author: sunho

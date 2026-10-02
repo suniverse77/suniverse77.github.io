@@ -2,7 +2,6 @@
 title: "An Image is Worth One Word: Personalizing Text-to-Image Generation using Textual Inversion"
 date: 2025-01-11 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
-tags: [Multimodal, Diffusion, Image Generation]
 math: true
 toc: true
 author: sunho

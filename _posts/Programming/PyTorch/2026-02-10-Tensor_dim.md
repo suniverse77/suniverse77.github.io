@@ -2,7 +2,6 @@
 title: "텐서 차원 조작"
 date: 2026-02-10 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
-tags: [PyTorch]
 math: true
 toc: true
 author: sunho

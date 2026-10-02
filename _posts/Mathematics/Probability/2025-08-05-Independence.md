@@ -2,7 +2,6 @@
 title: "독립"
 date: 2025-08-05 00:00:00 +/-TTTT
 categories: [Mathematics, Probability]
-tags: [확률]
 math: true
 toc: true
 author: sunho

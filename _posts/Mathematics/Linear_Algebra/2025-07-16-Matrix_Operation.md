@@ -2,7 +2,6 @@
 title: "행렬의 기본 연산"
 date: 2025-07-16 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

@@ -2,7 +2,6 @@
 title: "편광 (Polarization)"
 date: 2026-05-03 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
-tags: [논리학]
 math: true
 toc: true
 author: sunho

@@ -2,7 +2,6 @@
 title: "선형 사상과 차원 정리"
 date: 2025-07-22 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

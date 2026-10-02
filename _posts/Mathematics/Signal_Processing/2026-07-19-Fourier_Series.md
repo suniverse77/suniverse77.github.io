@@ -2,7 +2,6 @@
 title: "Extended Kalman Filter(EKF)"
 date: 2026-04-10 00:00:00 +/-TTTT
 categories: [Mathematics, Signals and Systems]
-tags: [칼만 필터]
 math: true
 toc: true
 author: sunho

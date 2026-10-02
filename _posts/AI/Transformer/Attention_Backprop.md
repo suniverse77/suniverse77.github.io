@@ -2,7 +2,6 @@
 title: "Attention layer에서의 역전파"
 date: 2025-12-20 0:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
-tags: [트랜스포머, Attention]
 math: true
 toc: true
 author: sunho

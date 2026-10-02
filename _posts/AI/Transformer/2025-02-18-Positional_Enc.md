@@ -2,7 +2,6 @@
 title: "위치 인코딩 (Positional Encoding)"
 date: 2025-02-18 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
-tags: [트랜스포머]
 math: true
 toc: true
 author: sunho

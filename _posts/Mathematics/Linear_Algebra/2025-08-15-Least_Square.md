@@ -2,7 +2,6 @@
 title: "최소 제곱법 (Least Square Method)"
 date: 2025-08-15 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

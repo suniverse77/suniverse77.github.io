@@ -2,7 +2,6 @@
 title: "로지스틱 회귀 (Logistic Regression)"
 date: 2025-01-17 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Machine Learning]
-tags: [머신러닝, 지도 학습]
 math: true
 toc: true
 author: sunho

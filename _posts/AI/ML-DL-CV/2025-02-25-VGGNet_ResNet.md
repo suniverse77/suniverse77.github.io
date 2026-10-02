@@ -2,7 +2,6 @@
 title: "VGGNet & ResNet"
 date: 2025-02-25 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Computer Vision]
-tags: [컴퓨터 비전, CNN]
 math: true
 toc: true
 author: sunho

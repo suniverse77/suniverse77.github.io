@@ -2,7 +2,6 @@
 title: "계산 그래프 (Computational Graphs)"
 date: 2025-02-13 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
-tags: [딥러닝, 모델 학습]
 math: true
 toc: true
 author: sunho

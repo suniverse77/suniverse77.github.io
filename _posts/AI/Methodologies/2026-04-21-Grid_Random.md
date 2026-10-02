@@ -2,7 +2,6 @@
 title: "Grid Search / Random Search"
 date: 2026-04-21 00:00:00 +/-TTTT
 categories: [AI, Methodologies]
-tags: [HPO]
 math: true
 toc: true
 author: sunho

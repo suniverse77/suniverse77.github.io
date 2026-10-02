@@ -2,7 +2,6 @@
 title: "Qudratic Form과 Positive Definite"
 date: 2025-07-27 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

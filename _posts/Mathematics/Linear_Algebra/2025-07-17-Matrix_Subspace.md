@@ -2,7 +2,6 @@
 title: "행렬의 네 가지 주요 부분공간 (Four Fundamental Subspaces)"
 date: 2025-07-17 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

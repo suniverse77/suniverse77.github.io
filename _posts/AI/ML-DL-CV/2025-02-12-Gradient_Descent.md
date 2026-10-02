@@ -2,7 +2,6 @@
 title: "경사 하강법 (Gradient Descent)"
 date: 2025-02-12 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
-tags: [딥러닝, 모델 학습]
 math: true
 toc: true
 author: sunho

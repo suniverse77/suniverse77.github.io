@@ -2,7 +2,6 @@
 title: "내적과 외적"
 date: 2025-07-06 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
-tags: [선형대수]
 math: true
 toc: true
 author: sunho

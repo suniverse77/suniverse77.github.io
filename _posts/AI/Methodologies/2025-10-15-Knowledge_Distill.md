@@ -2,7 +2,6 @@
 title: "지식 증류 기법 (Knowledge Distillation)"
 date: 2025-10-15 00:00:00 +/-TTTT
 categories: [AI, Methodologies]
-tags: [딥러닝, 경량화]
 math: true
 toc: true
 author: sunho

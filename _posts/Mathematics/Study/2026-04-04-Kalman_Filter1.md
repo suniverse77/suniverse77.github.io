@@ -2,7 +2,6 @@
 title: "Kalman Filter 1 - 개요"
 date: 2026-04-04 00:00:00 +/-TTTT
 categories: [Mathematics, Signals and Systems]
-tags: [칼만 필터]
 math: true
 toc: true
 author: sunho

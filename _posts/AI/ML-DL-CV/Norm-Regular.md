@@ -2,7 +2,6 @@
 title: "데이터 정규화"
 date: 2025-02-05 12:00:00 +/-TTTT
 categories: [AI, 딥러닝]
-tags: [CS231n]
 math: true
 toc: true
 author: sunho
