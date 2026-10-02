@@ -116,8 +116,10 @@ $post-column-max-width: 1125px;
 #access-solar {
   /* dark box holding the system and its caption */
   .solar-box {
-    max-width: 280px;
-    margin-top: 1rem;
+    /* Everything inside is sized in --u, one design pixel of a 248px-wide
+       layout, so the whole system scales with the box width. */
+    container-type: inline-size;
+    max-width: 380px;
     padding: 1rem 0.5rem;
     overflow: hidden;
     border-radius: 1rem;
@@ -133,9 +135,11 @@ $post-column-max-width: 1125px;
   }
 
   .solar {
+    --u: calc(100cqw / 248);
+
     position: relative;
-    width: 240px;
-    height: 240px;
+    width: calc(240 * var(--u));
+    height: calc(240 * var(--u));
     margin: 0 auto 0.75rem;
   }
 
@@ -164,9 +168,9 @@ $post-column-max-width: 1125px;
   .solar-sun {
     top: 50%;
     left: 50%;
-    width: 22px;
-    height: 22px;
-    margin: -11px;
+    width: calc(22 * var(--u));
+    height: calc(22 * var(--u));
+    margin: calc(-11 * var(--u));
     background: radial-gradient(circle at 40% 38%, #fff6c8 0%, #ffd766 35%, #f7a11b 75%, #e07a12 100%);
     box-shadow:
       0 0 10px 2px rgba(255, 190, 70, 0.85),
@@ -178,9 +182,9 @@ $post-column-max-width: 1125px;
     position: absolute;
     top: 50%;
     left: 50%;
-    width: calc(var(--r) * 2);
-    height: calc(var(--r) * 2);
-    margin: calc(var(--r) * -1);
+    width: calc(var(--r) * 2 * var(--u));
+    height: calc(var(--r) * 2 * var(--u));
+    margin: calc(var(--r) * -1 * var(--u));
     border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 50%;
     animation: solar-spin var(--t) linear infinite;
@@ -191,9 +195,9 @@ $post-column-max-width: 1125px;
   .solar-planet {
     top: 50%;
     left: 100%;
-    width: var(--s);
-    height: var(--s);
-    margin: calc(var(--s) / -2);
+    width: calc(var(--s) * var(--u));
+    height: calc(var(--s) * var(--u));
+    margin: calc(var(--s) / -2 * var(--u));
     pointer-events: auto;
 
     /* Each planet sits on the right edge of its rotating orbit, so its left side
@@ -261,18 +265,29 @@ $post-column-max-width: 1125px;
       var(--shade),
       linear-gradient(180deg, #e9d9a6 0 22%, #d6bd80 22% 44%, #eedfb0 44% 62%, #cdb174 62% 82%, #dcc78e 82%);
 
-    /* ring */
-    &::before {
+    /* Ring: the full ellipse is drawn behind the planet, then its near half is
+       drawn again in front, so the ring passes behind the planet on one side. */
+    &::before,
+    &::after {
       content: '';
       position: absolute;
+      inset: auto;
       top: 50%;
       left: 50%;
       width: 215%;
       height: 62%;
-      border: 2px solid rgba(226, 208, 160, 0.85);
+      border: 2px solid rgba(226, 208, 160, 0.9);
       border-radius: 50%;
       box-shadow: inset 0 0 0 1px rgba(160, 140, 95, 0.6);
       transform: translate(-50%, -50%) rotate(-22deg);
+    }
+
+    &::before {
+      z-index: -1;
+    }
+
+    &::after {
+      clip-path: inset(50% 0 0 0);
     }
   }
 
