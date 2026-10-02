@@ -40,6 +40,7 @@ layout: compress
                 {% include category-posts.html %}
               {% elsif page.layout == 'categories' %}
                 {% include_cached recent-posts.html %}
+                {% include_cached solar-system.html %}
               {% else %}
                 {% include_cached category-tree.html %}
               {% endif %}

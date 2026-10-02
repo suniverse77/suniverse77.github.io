@@ -77,6 +77,114 @@
   max-height: none;
 }
 
+/* Right panel: mini solar system (see _includes/solar-system.html) */
+#access-solar {
+  .solar {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .solar-sun,
+  .solar-planet {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+
+    /* larger click target than the visible dot */
+    &::after {
+      content: '';
+      position: absolute;
+      inset: -7px;
+      border-radius: 50%;
+    }
+
+    &.selected {
+      outline: 2px solid rgba(55, 53, 47, 0.45);
+      outline-offset: 3px;
+    }
+  }
+
+  .solar-sun {
+    top: 50%;
+    left: 50%;
+    width: 22px;
+    height: 22px;
+    margin: -11px;
+    background: radial-gradient(circle at 35% 35%, #ffe08a, #f5a623);
+    box-shadow: 0 0 12px rgba(245, 166, 35, 0.6);
+  }
+
+  .solar-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(var(--r) * 2);
+    height: calc(var(--r) * 2);
+    margin: calc(var(--r) * -1);
+    border: 1px solid rgba(55, 53, 47, 0.12);
+    border-radius: 50%;
+    animation: solar-spin var(--t) linear infinite;
+    animation-delay: var(--d);
+    pointer-events: none;
+  }
+
+  .solar-planet {
+    top: 50%;
+    left: 100%;
+    width: var(--s);
+    height: var(--s);
+    margin: calc(var(--s) / -2);
+    background: var(--c);
+    pointer-events: auto;
+  }
+
+  .solar-ringed::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 190%;
+    height: 60%;
+    border: 1px solid var(--c);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(-20deg);
+  }
+
+  /* pause while the pointer is over the system */
+  .solar:hover .solar-orbit {
+    animation-play-state: paused;
+  }
+
+  .solar-caption {
+    min-height: 3.6rem;
+    margin: 0;
+    padding-right: 1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    strong {
+      display: block;
+      color: var(--heading-color);
+    }
+  }
+}
+
+@keyframes solar-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #access-solar .solar-orbit {
+    animation-play-state: paused;
+  }
+}
+
 /* Home page: the category list starts level with the right panel */
 .home-categories {
   margin-top: 3rem;
