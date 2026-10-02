@@ -14,6 +14,25 @@
 
 /* Custom CSS */
 
+/* Third-level categories on the categories tab */
+.categories .list-group-item {
+  &.has-third {
+    padding-right: 0.75rem;
+  }
+
+  &.third-group {
+    padding: 0;
+
+    > .list-group {
+      border-radius: 0;
+    }
+  }
+
+  &.third-category {
+    padding-left: 3.75rem;
+  }
+}
+
 .simple-code {
   position: relative;
   background: #1e1e1e;
