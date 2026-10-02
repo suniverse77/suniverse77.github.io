@@ -161,47 +161,37 @@ f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)\approx
 \tag{8}
 $$
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 벡터 미분 1</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 벡터 미분 1
+$$\frac{\partial \mathbf x^\top A\mathbf x}{\partial\mathbf x}$$
 
-> $$\frac{\partial \mathbf x^\top A\mathbf x}{\partial\mathbf x}$$
->
-> 1. 함수 정의
->
->       $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
->
-> 2. 선형 근사 식
->
->       $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
->
-> 따라서 그래디언트는 다음과 같다.
->
-> $$\nabla f(\mathbf{x})=(A+A^\top)\mathbf x$$
+1. 함수 정의
 
-</div>
-</details>
+      $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 벡터 미분 2</font></summary>
-<div markdown="1">
+2. 선형 근사 식
 
-> $$\frac{\partial\left<\mathbf x\cdot\mathbf x\right>}{\partial\mathbf x}$$
->
-> 1. 함수 정의
->
->       $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
->
-> 2. 선형 근사 식
->
->       $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
->
-> 따라서 그래디언트는 다음과 같다.
->
-> $$\nabla f(\mathbf{x})=2\mathbf{x}$$
+      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
 
-</div>
-</details>
+따라서 그래디언트는 다음과 같다.
+
+$$\nabla f(\mathbf{x})=(A+A^\top)\mathbf x$$
+:::
+
+:::{red} <strong>Example:</strong> 벡터 미분 2
+$$\frac{\partial\left<\mathbf x\cdot\mathbf x\right>}{\partial\mathbf x}$$
+
+1. 함수 정의
+
+      $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
+
+2. 선형 근사 식
+
+      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
+
+따라서 그래디언트는 다음과 같다.
+
+$$\nabla f(\mathbf{x})=2\mathbf{x}$$
+:::
 
 ### 행렬 미분
 
@@ -213,71 +203,61 @@ f(X+\Delta X)-f(X)\approx
 \tag{9}
 $$
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 행렬 미분 1</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 행렬 미분 1
+$$\frac{\partial \mathbf{a}^\top X\mathbf{b}}{\partial X}$$
 
-> $$\frac{\partial \mathbf{a}^\top X\mathbf{b}}{\partial X}$$
->
-> 1. 함수 정의
->
->       $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
->
-> 2. 선형 근사 식
->
->       $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
->
-> 3. Trace로 표현
->
->       $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
->
-> 따라서 그래디언트는 다음과 같다.
->
-> $$\nabla_X f(X)=\mathbf{b}\mathbf{a}^\top$$
+1. 함수 정의
 
-</div>
-</details>
+      $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 행렬 미분 2</font></summary>
-<div markdown="1">
+2. 선형 근사 식
 
-> $$\frac{\partial \log \lvert X^{-1}\rvert}{\partial X}=X^{-1}$$
->
-> 1. 함수 정의
->
->       $$f(X)=\log \lvert X^{-1}\rvert$$
->
-> 2. $Y=X^{-1}$라고 가정한 후, $\Delta Y$ 구하기
-> 
->       $$XY=I\to(X+\Delta X)(Y+\Delta Y)=I$$
->
->       $$(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow I+X\Delta Y+\Delta XY=I$$
->
->       $$X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}$$
->
-> 3. 선형 근사 식
->
->       $$f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert$$
->
->       $$\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert=\log\lvert I+Y^{-1}\Delta Y\rvert$$
->
-> 4. Trace로 표현
-> 
->       [Trace 성질](https://suniverse77.github.io/posts/Trace/#trace의-성질)의 8번 식과 1차 근사 $\log(1+x)\approx x$ 사용
->
->       $$\log\lvert I+Y^{-1}\Delta Y\rvert=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)\approx \text{tr}(Y^{-1}\Delta Y)$$
->
-> 5. 다시 $X$에 대한 식으로 표현
->
->       $$\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)$$
->
-> 따라서 그래디언트는 다음과 같다.
-> 
-> $$\nabla_X f(X)=-X^{-\top}$$
+      $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
 
-</div>
-</details>
+3. Trace로 표현
+
+      $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
+
+따라서 그래디언트는 다음과 같다.
+
+$$\nabla_X f(X)=\mathbf{b}\mathbf{a}^\top$$
+:::
+
+:::{red} <strong>Example:</strong> 행렬 미분 2
+$$\frac{\partial \log \lvert X^{-1}\rvert}{\partial X}=X^{-1}$$
+
+1. 함수 정의
+
+      $$f(X)=\log \lvert X^{-1}\rvert$$
+
+2. $Y=X^{-1}$라고 가정한 후, $\Delta Y$ 구하기
+
+      $$XY=I\to(X+\Delta X)(Y+\Delta Y)=I$$
+
+      $$(X+\Delta X)(Y+\Delta Y)=XY+X\Delta Y+\Delta XY=I\rightarrow I+X\Delta Y+\Delta XY=I$$
+
+      $$X\Delta Y+\Delta XY=0\to\Delta Y=-X^{-1}\Delta XX^{-1}$$
+
+3. 선형 근사 식
+
+      $$f(X+\Delta X)-f(X)=\log\lvert(X+\Delta X)^{-1}\rvert-\log \lvert X^{-1}\rvert=\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert$$
+
+      $$\log\lvert Y+\Delta Y\rvert-\log \lvert Y\rvert=\log\left\lvert\frac{Y+\Delta Y}{Y}\right\lvert=\log\lvert I+Y^{-1}\Delta Y\rvert$$
+
+4. Trace로 표현
+
+      [Trace 성질](https://suniverse77.github.io/posts/Trace/#trace의-성질)의 8번 식과 1차 근사 $\log(1+x)\approx x$ 사용
+
+      $$\log\lvert I+Y^{-1}\Delta Y\rvert=\log\left(1+\text{tr}(Y^{-1}\Delta Y)\right)\approx \text{tr}(Y^{-1}\Delta Y)$$
+
+5. 다시 $X$에 대한 식으로 표현
+
+      $$\text{tr}(Y^{-1}\Delta Y)=\text{tr}(-XX^{-1}\Delta XX^{-1})=\text{tr}(-X^{-1}\Delta X)$$
+
+따라서 그래디언트는 다음과 같다.
+
+$$\nabla_X f(X)=-X^{-\top}$$
+:::
 
 ## 자코비안 계산법
 
@@ -289,23 +269,18 @@ J_{\mathbf{f}}(\mathbf{x})\Delta\mathbf{x}
 \tag{10}
 $$
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 자코비안 계산</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 자코비안 계산
+$$\frac{\partial A\mathbf x}{\partial\mathbf x}$$
 
-> $$\frac{\partial A\mathbf x}{\partial\mathbf x}$$
->
-> 1. 함수 정의
->
->       $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
->
-> 2. 선형 근사 식
->
->       $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
->
-> 따라서 자코비안은 다음과 같다.
->
-> $$J_{\mathbf{f}}(\mathbf{x})=A$$
+1. 함수 정의
 
-</div>
-</details>
+      $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
+
+2. 선형 근사 식
+
+      $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
+
+따라서 자코비안은 다음과 같다.
+
+$$J_{\mathbf{f}}(\mathbf{x})=A$$
+:::

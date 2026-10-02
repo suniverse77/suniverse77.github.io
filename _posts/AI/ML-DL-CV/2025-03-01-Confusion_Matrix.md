@@ -50,10 +50,7 @@ Classification에서는 이미지 단위로 계산한다.
 ![fig2](/assets/images/AI_Basics/Metric/Confusion_Matrix-2.png)
 _[[출처]](https://devopedia.org/confusion-matrix)_
 
-<details>
-<summary><font color='#FF0000'>Example 1</font></summary>
-<div markdown="1">
-
+:::{red} Example 1
 ![fig3](/assets/images/AI_Basics/Metric/Confusion_Matrix-3.png)
 _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-matrix-f23c214a65d2)_
 
@@ -72,9 +69,7 @@ _[[출처]](https://ai.plainenglish.io/understanding-the-power-of-the-confusion-
 - **FP** = 10 + 10 = 20
 
 ---
-
-</div>
-</details>
+:::
 
 ### Semantic Segmentation에서의 계산 방법
 

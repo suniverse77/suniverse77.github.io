@@ -99,28 +99,23 @@ _[[출처]](https://www.3blue1brown.com/lessons/inverse-matrices)_
 2. 영공간은 방정식의 가능한 모든 해이다.
 3. Nullity는 $A\mathbf{x}=\mathbf{0}$를 풀었을 때 나오는 자유 변수의 개수와 동일하다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 3번 성질 확인</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 3번 성질 확인
+$$A=\begin{bmatrix}1&-2&3\\2&-4&6\\3&-6&9\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}1&-2&3\\2&-4&6\\3&-6&9\end{bmatrix}$$
->
-> 위 행렬에 대한 동차 방정식 $A\mathbf{x}=\mathbf{0}$을 REF로 변환하면 다음과 같다. 
->
-> $$\begin{bmatrix}\begin{array}{ccc|c}1&-2&3&0\\0&0&0&0\\0&0&0&0\end{array}\end{bmatrix}$$
->
-> Pivot variable은 $x_1$이고, Free variable은 $x_2$와 $x_3$이다.
->
-> 자유변수를 $x_2=s,x_3=t$로 두어 파라미터로 설정하면, 동차해를 다음과 같이 파라미터에 대한 식으로 표현할 수 있다.
->
-> $$\mathbf{x}_h=\begin{bmatrix}2s-3t\\s\\t\end{bmatrix}=s\begin{bmatrix}2\\1\\0\end{bmatrix}+t\begin{bmatrix}-3\\0\\1\end{bmatrix}$$
->
-> 여기서 $s$는 방향벡터 $(2,1,0)$을 따르는 직선을, $t$는 방향벡터 $(-3,0,1)$을 따르는 직선을 각각 생성한다.
->
-> 즉, 이 두 벡터의 선형 결합으로 $\mathbb{R}^3$ 안의 2차원 평면을 span하게 되며, 결국 자유 변수의 개수가 영공간의 차원과 같다는 것을 알 수 있다.
+위 행렬에 대한 동차 방정식 $A\mathbf{x}=\mathbf{0}$을 REF로 변환하면 다음과 같다. 
 
-</div>
-</details>
+$$\begin{bmatrix}\begin{array}{ccc|c}1&-2&3&0\\0&0&0&0\\0&0&0&0\end{array}\end{bmatrix}$$
+
+Pivot variable은 $x_1$이고, Free variable은 $x_2$와 $x_3$이다.
+
+자유변수를 $x_2=s,x_3=t$로 두어 파라미터로 설정하면, 동차해를 다음과 같이 파라미터에 대한 식으로 표현할 수 있다.
+
+$$\mathbf{x}_h=\begin{bmatrix}2s-3t\\s\\t\end{bmatrix}=s\begin{bmatrix}2\\1\\0\end{bmatrix}+t\begin{bmatrix}-3\\0\\1\end{bmatrix}$$
+
+여기서 $s$는 방향벡터 $(2,1,0)$을 따르는 직선을, $t$는 방향벡터 $(-3,0,1)$을 따르는 직선을 각각 생성한다.
+
+즉, 이 두 벡터의 선형 결합으로 $\mathbb{R}^3$ 안의 2차원 평면을 span하게 되며, 결국 자유 변수의 개수가 영공간의 차원과 같다는 것을 알 수 있다.
+:::
 
 ## 좌측 영공간 (Left Null space)
 

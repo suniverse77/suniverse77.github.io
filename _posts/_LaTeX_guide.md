@@ -51,14 +51,9 @@ $$
 
 ## 토글 생성
 
-<details>
-<summary><font color='#0000FF'>Example</font></summary>
-<div markdown="1">
-
+::: Example
 ---
-
-</div>
-</details>
+:::
 <br>
 
 | 글자색 코드 |  색상  |
@@ -79,8 +74,6 @@ $$
 =={purple}보라형광펜==
 
 =={blue}파랑형광펜==
-
-=={ivory}노란형광펜==
 
 =={gray}회색형광펜==
 

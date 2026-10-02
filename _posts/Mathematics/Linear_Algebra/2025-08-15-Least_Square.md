@@ -32,44 +32,39 @@ $$
 \tag{2}
 $$
 
-<details>
-<summary><font color='#0000FF'>식 (2) 유도</font></summary>
-<div markdown="1">
+::: 식 (2) 유도
+$\lVert\mathbf{b}−A\mathbf{x}\rVert$의 최소값을 찾는 것이 목표이기 때문에, 함수를 $\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$으로 바꿔도 동치이다.
 
-> $\lVert\mathbf{b}−A\mathbf{x}\rVert$의 최소값을 찾는 것이 목표이기 때문에, 함수를 $\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$으로 바꿔도 동치이다.
->
-> $$\hat{\mathbf{x}}=\underset{\mathbf{x}}{\arg\min}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$$
->
-> $\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$은 다음과 같이 전개된다.
->
-> $$\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2=\left(\mathbf{b}−A\mathbf{x}\right)^\top\left(\mathbf{b}−A\mathbf{x}\right)$$
->
-> 좌변을 다음과 같이 전개할 수 있다.
->
-> $$\begin{aligned}\left(\mathbf{b}−A\mathbf{x}\right)^\top\left(\mathbf{b}−A\mathbf{x}\right)&=\mathbf{x}^\top A^\top A\mathbf{x}-\mathbf{x}^\top A^\top\mathbf{b}-\mathbf{b}^\top A\mathbf{x}+\mathbf{b}^\top\mathbf{b}\\&=\mathbf{x}^\top A^\top A\mathbf{x}-2\mathbf{b}^\top A\mathbf{x}+\mathbf{b}^\top\mathbf{b}\end{aligned}$$
->
-> 최소값을 구하기 위해, $\mathbf{x}$에 대해 편미분을 수행하여 $0$이 되는 지점을 찾는다.
->
-> $$\frac{\partial}{\partial\mathbf{x}}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2=0$$
->
-> $\mathbf{b}^\top\mathbf{b}$는 $\mathbf{x}$에 무관하기 때문에, 다음과 같이 정리할 수 있다.
->
-> $$\begin{aligned}\frac{\partial}{\partial\mathbf{x}}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2&=\frac{\partial}{\partial\mathbf{x}}\left(\mathbf{x}^\top A^\top A\mathbf{x}-2\mathbf{b}^\top A\mathbf{x}\right)\\&=2\mathbf{x}^\top A^\top A-2\mathbf{b}^\top A\end{aligned}$$
->
-> 즉, 다음의 식을 만족하는 $\mathbf{x}$를 찾으면 된다.
->
-> $$2\mathbf{x}^\top A^\top A-2\mathbf{b}^\top A=0$$
->
-> 이항하여 정리하면 다음의 식이 도출된다.
->
-> $$\mathbf{x}^\top A^\top A=\mathbf{b}^\top A~\to~\mathbf{x}^\top=\left(A^\top A\right)^{-1}\mathbf{b}^\top A$$
->
-> 양변에 Transpose를 취해, 최종적으로 최소 제곱 해를 구할 수 있다.
->
-> $$\mathbf{x}=(A^\top A)^{-1}A^\top\mathbf{b}$$
+$$\hat{\mathbf{x}}=\underset{\mathbf{x}}{\arg\min}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$$
 
-</div>
-</details>
+$\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2$은 다음과 같이 전개된다.
+
+$$\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2=\left(\mathbf{b}−A\mathbf{x}\right)^\top\left(\mathbf{b}−A\mathbf{x}\right)$$
+
+좌변을 다음과 같이 전개할 수 있다.
+
+$$\begin{aligned}\left(\mathbf{b}−A\mathbf{x}\right)^\top\left(\mathbf{b}−A\mathbf{x}\right)&=\mathbf{x}^\top A^\top A\mathbf{x}-\mathbf{x}^\top A^\top\mathbf{b}-\mathbf{b}^\top A\mathbf{x}+\mathbf{b}^\top\mathbf{b}\\&=\mathbf{x}^\top A^\top A\mathbf{x}-2\mathbf{b}^\top A\mathbf{x}+\mathbf{b}^\top\mathbf{b}\end{aligned}$$
+
+최소값을 구하기 위해, $\mathbf{x}$에 대해 편미분을 수행하여 $0$이 되는 지점을 찾는다.
+
+$$\frac{\partial}{\partial\mathbf{x}}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2=0$$
+
+$\mathbf{b}^\top\mathbf{b}$는 $\mathbf{x}$에 무관하기 때문에, 다음과 같이 정리할 수 있다.
+
+$$\begin{aligned}\frac{\partial}{\partial\mathbf{x}}\lVert\mathbf{b}−A\mathbf{x}\rVert_2^2&=\frac{\partial}{\partial\mathbf{x}}\left(\mathbf{x}^\top A^\top A\mathbf{x}-2\mathbf{b}^\top A\mathbf{x}\right)\\&=2\mathbf{x}^\top A^\top A-2\mathbf{b}^\top A\end{aligned}$$
+
+즉, 다음의 식을 만족하는 $\mathbf{x}$를 찾으면 된다.
+
+$$2\mathbf{x}^\top A^\top A-2\mathbf{b}^\top A=0$$
+
+이항하여 정리하면 다음의 식이 도출된다.
+
+$$\mathbf{x}^\top A^\top A=\mathbf{b}^\top A~\to~\mathbf{x}^\top=\left(A^\top A\right)^{-1}\mathbf{b}^\top A$$
+
+양변에 Transpose를 취해, 최종적으로 최소 제곱 해를 구할 수 있다.
+
+$$\mathbf{x}=(A^\top A)^{-1}A^\top\mathbf{b}$$
+:::
 <br>
 
 최소 제곱 해를 의사 역행렬을 이용해 아래와 같이 표현할 수 있다.

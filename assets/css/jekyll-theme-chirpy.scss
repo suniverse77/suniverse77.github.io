@@ -211,6 +211,45 @@ $text-colors: (
   }
 }
 
+/* Toggle: written in posts as "::: Title ... :::" or ":::{red} Title ... :::"
+   (see _plugins/toggle-syntax.rb). The title takes the colour named there. */
+$toggle-colors: (
+  blue: #0000ff,
+  red: #ff0000,
+  orange: #ff8c00,
+  purple: purple
+);
+
+@each $name, $color in $toggle-colors {
+  .toggle-#{$name} > summary {
+    color: $color;
+  }
+}
+
+/* The opened content sits in a lightly tinted block with a rule on its left,
+   so it is clear where the toggle ends. */
+.toggle {
+  > summary {
+    cursor: pointer;
+  }
+
+  > div {
+    margin: 0.6rem 0 1.25rem;
+    padding: 0.75rem 1rem 0.75rem 1.1rem;
+    border-left: 3px solid rgba(55, 53, 47, 0.2);
+    border-radius: 0 0.5rem 0.5rem 0;
+    background: rgba(55, 53, 47, 0.035);
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 /* Post page: a rule between the title block and the body */
 article > header {
   padding-bottom: 1rem;

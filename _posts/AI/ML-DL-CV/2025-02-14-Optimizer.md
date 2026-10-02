@@ -113,10 +113,7 @@ $$
 \tag{6}
 $$
 
-<details>
-<summary><font color='#FF0000'>Why?</font></summary>
-<div markdown="1">
-
+:::{red} Why?
 Adam은 처음 시작할 때, $m_0$와 $v_0$를 $0$으로 초기화한다. 
 
 만약 $\beta_1=0.9$라면, 첫 번째 스텝에서 $m_1$은 실제 그래디언트의 값보다 매우 작아지게 된다.
@@ -133,9 +130,7 @@ $$
 $$
 
 ---
-
-</div>
-</details>
+:::
 
 ## AdamW
 

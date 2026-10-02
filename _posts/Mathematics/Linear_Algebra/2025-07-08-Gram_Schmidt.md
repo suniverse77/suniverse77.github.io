@@ -98,33 +98,28 @@ $$
 ![fig2](/assets/images/Mathematics/Linear_Algebra/Gram_Schmidt-2.png)
 _[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> Gram-Schmidt 과정으로 기저를 직교화</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> Gram-Schmidt 과정으로 기저를 직교화
+$$B=\begin{bmatrix}1&1&2\\1&3&0\\0&2&1\end{bmatrix}$$
 
-> $$B=\begin{bmatrix}1&1&2\\1&3&0\\0&2&1\end{bmatrix}$$
->
-> 1. **첫 번째 정규 직교 기저 구하기**
->
->   $$\mathbf{u}_1=\mathbf{b}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}$$
->
->   $$\mathbf{q}_1=\frac{\mathbf{u}_1}{\lVert\mathbf{u}_1\rVert}=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}$$
->
-> 2. **두 번째 정규 직교 기저 구하기**
->
->   $$\mathbf{u}_2=\mathbf{b}_2-(\mathbf{b}_2^\top\mathbf{q}_1)\mathbf{q}_1=\begin{bmatrix}1\\3\\2\end{bmatrix}-2\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}=\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
->
->   $$\mathbf{q}_2=\frac{\mathbf{u}_2}{\lVert\mathbf{u}_2\rVert}=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
->
-> 3. **세 번째 정규 직교 기저 구하기**
-> 
->   $$\mathbf{u}_3=\mathbf{b}_3-(\mathbf{b}_3^\top\mathbf{q}_1)\mathbf{q}_1-(\mathbf{b}_3^\top\mathbf{q}_2)\mathbf{q}_2=\begin{bmatrix}2\\0\\1\end{bmatrix}-\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}-0\begin{bmatrix}-\frac{1}{\sqrt6}\\\frac{1}{\sqrt6}\\\frac{2}{\sqrt6}\end{bmatrix}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
->
->   $$\mathbf{q}_3=\frac{\mathbf{u}_3}{\lVert\mathbf{u}_3\rVert}=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
->
-> 최종적으로 얻은 정규 직교 기저는 아래와 같다.
->
-> $$Q=\begin{bmatrix}\frac{1}{\sqrt2}&-\frac{1}{\sqrt6}&\frac{1}{\sqrt3}\\\frac{1}{\sqrt2}&\frac{1}{\sqrt6}&-\frac{1}{\sqrt3}\\0&\frac{2}{\sqrt6}&\frac{1}{\sqrt3}\end{bmatrix}$$
+1. **첫 번째 정규 직교 기저 구하기**
 
-</div>
-</details>
+  $$\mathbf{u}_1=\mathbf{b}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}$$
+
+  $$\mathbf{q}_1=\frac{\mathbf{u}_1}{\lVert\mathbf{u}_1\rVert}=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}$$
+
+2. **두 번째 정규 직교 기저 구하기**
+
+  $$\mathbf{u}_2=\mathbf{b}_2-(\mathbf{b}_2^\top\mathbf{q}_1)\mathbf{q}_1=\begin{bmatrix}1\\3\\2\end{bmatrix}-2\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}=\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
+
+  $$\mathbf{q}_2=\frac{\mathbf{u}_2}{\lVert\mathbf{u}_2\rVert}=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
+
+3. **세 번째 정규 직교 기저 구하기**
+
+  $$\mathbf{u}_3=\mathbf{b}_3-(\mathbf{b}_3^\top\mathbf{q}_1)\mathbf{q}_1-(\mathbf{b}_3^\top\mathbf{q}_2)\mathbf{q}_2=\begin{bmatrix}2\\0\\1\end{bmatrix}-\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}-0\begin{bmatrix}-\frac{1}{\sqrt6}\\\frac{1}{\sqrt6}\\\frac{2}{\sqrt6}\end{bmatrix}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
+
+  $$\mathbf{q}_3=\frac{\mathbf{u}_3}{\lVert\mathbf{u}_3\rVert}=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
+
+최종적으로 얻은 정규 직교 기저는 아래와 같다.
+
+$$Q=\begin{bmatrix}\frac{1}{\sqrt2}&-\frac{1}{\sqrt6}&\frac{1}{\sqrt3}\\\frac{1}{\sqrt2}&\frac{1}{\sqrt6}&-\frac{1}{\sqrt3}\\0&\frac{2}{\sqrt6}&\frac{1}{\sqrt3}\end{bmatrix}$$
+:::

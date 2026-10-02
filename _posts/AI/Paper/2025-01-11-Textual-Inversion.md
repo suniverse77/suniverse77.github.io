@@ -11,16 +11,12 @@ description: 📝 ICLR 2023
 [[Paper]](https://arxiv.org/abs/2208.01618)
 [[GitHub]](https://github.com/rinongal/textual_inversion)
 
-<details>
-<summary><font color='#FF8C00'>📝 Summary</font></summary>
-<div markdown="1">
+:::{orange} 📝 Summary
 <br>
 사전학습된 생성 모델과 텍스트 인코더를 건드리지 않고, 해당 모델의 텍스트 임베딩 공간 내에서 새로운 개념을 찾는 것이 목표이다.
 - 표현하길 원하는 단어를 pseudo-word $S_*$로 표기한 후 텍스트 인코더에 입력
 - 해당 단어에 대응되는 임베딩 벡터 $v_*$에 대해서만 최적화
-
-</div>
-</details>
+:::
 <br>
 
 ![fig0](/assets/images/paper/text_inv-0.png)

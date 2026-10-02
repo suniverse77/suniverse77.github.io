@@ -103,31 +103,26 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
     
    즉, 변수 $\lambda_i$에 자유 변수 (Free variable)가 존재하면 안된다.
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 선형 독립 판별</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 선형 독립 판별
+$$\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}~,~\begin{bmatrix}1\\1\\0\\2\end{bmatrix}~,~\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}$$
 
-> $$\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}~,~\begin{bmatrix}1\\1\\0\\2\end{bmatrix}~,~\begin{bmatrix}-1\\-2\\1\\1\end{bmatrix}$$
->
-> 위의 벡터들이 선형 독립인지 판단하기 위해 3단계를 거친다.
->
-> **1. 벡터들을 행렬로 표현**
->
->   $$\begin{bmatrix}1&1&-1\\2&1&-2\\-3&0&1\\4&2&1\end{bmatrix}$$
->
->**2. 가우스 소거법을 이용해 REF로 변환**
->
->   $$\begin{bmatrix}1&1&-1\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}$$
->
-> **3-1. 행렬의 Pivot column 확인**
->
->  모든 열이 Pivot column이므로, 세 벡터는 선형 독립이다.
->
-> **3-2. 동차 방정식의 해 확인**
->
->  동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
->
-> $$\begin{bmatrix}\begin{array}{ccc|c}1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0\end{array}\end{bmatrix}~\to~\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
+위의 벡터들이 선형 독립인지 판단하기 위해 3단계를 거친다.
 
-</div>
-</details>
+**1. 벡터들을 행렬로 표현**
+
+  $$\begin{bmatrix}1&1&-1\\2&1&-2\\-3&0&1\\4&2&1\end{bmatrix}$$
+
+**2. 가우스 소거법을 이용해 REF로 변환**
+
+  $$\begin{bmatrix}1&1&-1\\0&1&0\\0&0&1\\0&0&0\end{bmatrix}$$
+
+**3-1. 행렬의 Pivot column 확인**
+
+ 모든 열이 Pivot column이므로, 세 벡터는 선형 독립이다.
+
+**3-2. 동차 방정식의 해 확인**
+
+ 동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
+
+$$\begin{bmatrix}\begin{array}{ccc|c}1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0\end{array}\end{bmatrix}~\to~\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
+:::

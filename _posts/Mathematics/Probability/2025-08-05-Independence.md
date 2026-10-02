@@ -40,10 +40,7 @@ A\perp\!\!\!\perp B\nrightarrow A\perp\!\!\!\perp B\mid C
 \tag{3}
 $$
 
-<details>
-<summary><font color='#0000FF'>증명</font></summary>
-<div markdown="1">
-
+::: 증명
 동전을 2번 던졌을 때, 첫 번째 동전이 앞면이 나온 사건을 $H_1$, 두 번째 동전이 앞면이 나온 사건을 $H_2$, 첫 번째와 두 번째 던진 동전의 결과가 다른 사건을 $D$라고 하자.
 
 주변 확률과 결합 확률을 아래와 같이 구할 수 있다.
@@ -71,9 +68,7 @@ P(H_1\mid D)P(H_2\mid D)\neq P(H_1,H_2\mid D)
 $$
 
 ---
-
-</div>
-</details>
+:::
 <br>
 
 $C$가 발생했을 때 $A$와 $B$가 독립이라고 해서, $A$ 와 $B$가 독립인 것은 아니다.
@@ -83,14 +78,9 @@ A\perp\!\!\!\perp B\mid C\nrightarrow A\perp\!\!\!\perp B
 \tag{4}
 $$
 
-<details>
-<summary><font color='#0000FF'>증명</font></summary>
-<div markdown="1">
+::: 증명
 
-
-
-</div>
-</details>
+:::
 <br>
 
 ## 배반 (Disjoint)

@@ -24,24 +24,19 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 1. 행렬을 열 벡터의 집합으로 본다면, ==두 열 벡터가 이루는 영역의 너비==를 의미한다.
 2. 행렬을 변환으로 본다면, ==변환에 의해 늘어나는 영역의 너비 변화율==을 의미한다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 행렬식과 너비의 관계 확인</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 행렬식과 너비의 관계 확인
+$$A=\begin{bmatrix}3&0\\0&2\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}3&0\\0&2\end{bmatrix}$$
->
-> $A$의 행렬식을 통해 너비 변화율과의 관계를 이해할 수 있다.
->
-> $(1,0)$과 $(0,1)$이 이루는 정사각형 영역의 너비는 1이다.
-> 
-> 변환 후 각 벡터는 $(3,0)$와 $(0,2)$가 되고, 이 벡터들이 이루는 평행사변형 영역의 너비는 $6$이다.
->
-> 너비 변화율은 $6$이고, 이는 $\text{det}(A)$와 일치한다.
->
-> $$\text{det}(A)=6-0=6$$
+$A$의 행렬식을 통해 너비 변화율과의 관계를 이해할 수 있다.
 
-</div>
-</details>
+$(1,0)$과 $(0,1)$이 이루는 정사각형 영역의 너비는 1이다.
+
+변환 후 각 벡터는 $(3,0)$와 $(0,2)$가 되고, 이 벡터들이 이루는 평행사변형 영역의 너비는 $6$이다.
+
+너비 변화율은 $6$이고, 이는 $\text{det}(A)$와 일치한다.
+
+$$\text{det}(A)=6-0=6$$
+:::
 <br>
 
 행렬식이 0이라는 것은 변환에 의해 공간 전체가 직선 또는 한점으로 찌그러진다는 것을 의미한다.
@@ -54,28 +49,23 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 행렬식인 0인 행렬에 의한 변환</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 행렬식인 0인 행렬에 의한 변환
+$$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix},\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix},\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}$$
->
-> 행렬 $A$의 행렬식은 $0$이다.
->
-> $\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
->
-> $$\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2$$
->
-> 하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
->
-> $$AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}\begin{bmatrix}1&2\\1&4\end{bmatrix}=\begin{bmatrix}6&20\\6&20\end{bmatrix}$$
->
-> $$\text{span}(\begin{bmatrix}6\\6\end{bmatrix},\begin{bmatrix}20\\20\end{bmatrix})=\mathbb{R}^1$$
->
-> 즉, 행렬식이 $0$인 행렬에 의해 변환된 공간은 차원이 줄어드는 것을 확인할 수 있다.
+행렬 $A$의 행렬식은 $0$이다.
 
-</div>
-</details>
+$\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
+
+$$\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2$$
+
+하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
+
+$$AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}\begin{bmatrix}1&2\\1&4\end{bmatrix}=\begin{bmatrix}6&20\\6&20\end{bmatrix}$$
+
+$$\text{span}(\begin{bmatrix}6\\6\end{bmatrix},\begin{bmatrix}20\\20\end{bmatrix})=\mathbb{R}^1$$
+
+즉, 행렬식이 $0$인 행렬에 의해 변환된 공간은 차원이 줄어드는 것을 확인할 수 있다.
+:::
 <br>
 
 ### 행렬식의 성질
@@ -93,26 +83,21 @@ _[[출처]](https://m.blog.naver.com/lagrange0115/222087882248)_
 
 (5), (6), (7), (8)번의 성질을 이용해 행렬을 삼각 행렬로 변환하면 행렬식을 쉽게 구할 수 있다.
 
-<details>
-<summary><font color='red'><strong>Example:</strong> 삼각 행렬 변환 후 행렬식 계산</font></summary>
-<div markdown="1">
-  
-> $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
->
-> **1. Gauss Elimination 수행**
->
-> (6)번 성질에 의해 가우스 소거법을 사용해도 행렬식에는 변화가 없다.
->
-> $$A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}$$
->
-> **2. 삼각행렬에서의 행렬식 계산**
->
-> 정리한 행렬은 삼각 행렬 형태로, (5)번 성질을 사용해서 쉽게 행렬식을 계산할 수 있다.
->
-> $$\text{det}(A)=1\times(-2)=-2$$
+:::{red} <strong>Example:</strong> 삼각 행렬 변환 후 행렬식 계산
+$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
 
-</div>
-</details>
+**1. Gauss Elimination 수행**
+
+(6)번 성질에 의해 가우스 소거법을 사용해도 행렬식에는 변화가 없다.
+
+$$A=\begin{bmatrix}1&2\\0&-2\end{bmatrix}$$
+
+**2. 삼각행렬에서의 행렬식 계산**
+
+정리한 행렬은 삼각 행렬 형태로, (5)번 성질을 사용해서 쉽게 행렬식을 계산할 수 있다.
+
+$$\text{det}(A)=1\times(-2)=-2$$
+:::
 
 ### 여인수 전개 (Cofactor Expansion)
 
@@ -201,26 +186,21 @@ $$
 ~\to~\left[I\mid A^{-1}\right]
 $$
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 첨가 행렬을 이용해 역행렬 구하기</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 첨가 행렬을 이용해 역행렬 구하기
+$$A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}1&0&1&0\\0&1&1&0\\1&1&0&1\\1&1&1&0\end{bmatrix}$$
->
-> 첨가 행렬 $[A\mid I]$를 만든다.
->
-> $$[A\mid I]=\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\1&1&0&1&0&0&1&0\\1&1&1&0&0&0&0&1\end{array}\end{bmatrix}$$
->
-> 가우스 소거법을 이용해 좌변을 $I$로 만든다.
->
-> $$\begin{aligned}[A\mid I]~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&1&-1&1&-1&0&1&0\\0&1&0&0&-1&0&0&1\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-2&1&-1&-1&1&0\\0&0&-1&0&-1&-1&0&1\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&-2&1&-1&-1&1&0\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&0&0&0&-1&0&1\\0&1&0&0&-1&0&0&1\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\end{aligned}$$
->
-> 좌변이 $I$가 되었으므로, 우변은 자연스럽게 $A^{-1}$가 된다.
->
-> $$A^{-1}=\begin{bmatrix}0&-1&0&1\\-1&0&0&1\\1&1&0&-1\\1&1&1&-2\end{bmatrix}$$
+첨가 행렬 $[A\mid I]$를 만든다.
 
-</div>
-</details>
+$$[A\mid I]=\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\1&1&0&1&0&0&1&0\\1&1&1&0&0&0&0&1\end{array}\end{bmatrix}$$
+
+가우스 소거법을 이용해 좌변을 $I$로 만든다.
+
+$$\begin{aligned}[A\mid I]~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&1&-1&1&-1&0&1&0\\0&1&0&0&-1&0&0&1\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-2&1&-1&-1&1&0\\0&0&-1&0&-1&-1&0&1\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&-2&1&-1&-1&1&0\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&-1&0&-1&-1&0&1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\\~&\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&1&0&1&0&0&0\\0&1&1&0&0&1&0&0\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}~\to~\begin{bmatrix}\begin{array}{cccc|cccc}1&0&0&0&0&-1&0&1\\0&1&0&0&-1&0&0&1\\0&0&1&0&1&1&0&-1\\0&0&0&1&1&1&1&-2\end{array}\end{bmatrix}\end{aligned}$$
+
+좌변이 $I$가 되었으므로, 우변은 자연스럽게 $A^{-1}$가 된다.
+
+$$A^{-1}=\begin{bmatrix}0&-1&0&1\\-1&0&0&1\\1&1&0&-1\\1&1&1&-2\end{bmatrix}$$
+:::
 <br>
 
 ## 의사 역행렬 (Pseudo-inverse Matrix)

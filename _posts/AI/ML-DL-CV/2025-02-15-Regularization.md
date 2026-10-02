@@ -31,10 +31,7 @@ $$
 
 따라서 가중치의 크기가 커지는 것을 방지한다는 것은 모델이 복잡해지는 것을 방지해 단순하고 안정적인 모델을 만든다는 뜻이다.
 
-<details>
-<summary><font color='#FF0000'>Example 1</font></summary>
-<div markdown="1">
-
+:::{red} Example 1
 아래의 가중치 행렬에서 첫 번째 행은 '눈', 두 번째 행은 '코', 세 번째 행은 '입'의 특징을 감지한다고 해보자.
 
 $$
@@ -51,9 +48,7 @@ $$
 또한 모델이 학습 데이터의 '눈' 특징에 섞인 노이즈까지 증폭해서 학습하게 되면, 오버피팅으로 이어지게 된다.
 
 ---
-
-</div>
-</details>
+:::
 
 ### L1 Regularization (LASSO)
 
@@ -144,10 +139,7 @@ _출처: Stanford CS231n, Lecture 6 (CNN Architectures)_
 
 이러한 현상을 방지하기 위해 학습 때 출력값에 $\frac{1}{1-p}$를 곱해서 학습과 추론 때의 출력 분포가 동일하도록 맞춘다.
 
-<details>
-<summary><font color='#FF0000'>Example 2</font></summary>
-<div markdown="1">
-
+:::{red} Example 2
 $p=0.5$의 Dropout 적용했을 때, 신경망의 출력값은 $2$가 된다.
 
 $$
@@ -167,6 +159,4 @@ $$
 학습과 추론 때의 출력 스케일이 다르기 때문에, 학습 때 출력값에 $\frac{1}{1-0.5}=2$를 곱해서 스케일을 맞춘다.
 
 ---
-
-</div>
-</details>
+:::

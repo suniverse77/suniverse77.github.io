@@ -52,26 +52,21 @@ $$
 \tag{3}
 $$
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> Positive Definite 판별</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> Positive Definite 판별
+$$A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$$
->
-> **정의로 판별**
->
-> $$\mathbf{x}^\top A\mathbf{x}=\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$$
->
-> $x_1,x_2\neq0$일 때 $2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$는 항상 양수이므로, $A$는 Positive Definite하다.
->
-> **고유값으로 판별**
->
-> $$\text{det}(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)=0$$
->
-> $A$의 고유값 $\lambda_1=3$과 $\lambda_2=1$은 모두 양수이다. <br> $A$는 대칭 행렬이고 고유값이 모두 양수이므로, Positive Definite하다.
+**정의로 판별**
 
-</div>
-</details>
+$$\mathbf{x}^\top A\mathbf{x}=\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$$
+
+$x_1,x_2\neq0$일 때 $2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$는 항상 양수이므로, $A$는 Positive Definite하다.
+
+**고유값으로 판별**
+
+$$\text{det}(A-\lambda I)=\begin{vmatrix}2-\lambda&1\\1&2-\lambda\end{vmatrix}=\lambda^2-4\lambda+3=(\lambda-1)(\lambda-3)=0$$
+
+$A$의 고유값 $\lambda_1=3$과 $\lambda_2=1$은 모두 양수이다. <br> $A$는 대칭 행렬이고 고유값이 모두 양수이므로, Positive Definite하다.
+:::
 <br>
 
 Positive Definite Matrix의 성질을 여러 관점에서 해석할 수 있다.

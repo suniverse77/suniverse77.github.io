@@ -3,14 +3,10 @@
 [[Paper]](https://arxiv.org/abs/2011.13456)
 [[GitHub]](https://github.com/yang-song/score_sde)
 
-<details>
-<summary><font color='#FF8C00'>📝 Summary</font></summary>
-<div markdown="1">
+:::{orange} 📝 Summary
 <br>
 하나의 모델을 학습해두면, 이후 생성 단계에서 원하는 샘플링 경로(길이/간격)를 선택하여 유연하고 빠르게 생성할 수 있다.
-
-</div>
-</details>
+:::
 
 ## Introduction
 
@@ -24,10 +20,7 @@ Denoising Diffusion Probabilistic Models (DDPM)는 역분포의 함수적 형태
 
 스코어 기반 생성 모델의 새로운 샘플링 방법을 가능하게 하기 위해, 기존 접근 방식을 SDE 관점에서 일반화하는 통합 프레임워크를 제안한다.
 
-<details>
-<summary><font color='purple'>SDE (Stochastic Differential Equation)</font></summary>
-<div markdown="1">
-
+:::{purple} SDE (Stochastic Differential Equation)
 ![fig1](/assets/images/paper/Score Diffusion-1.png)
 
 <br>
@@ -56,9 +49,7 @@ Randomness 때문에 시간의 흐름에 따라 process가 항상 같은 것이 
 즉, SDE를 풀면 여러 개의 확률적인 경로(Stochastic process) 중 하나의 경로가 나온다.
 
 $f(\mathbf x,t)$, $g(t)$는 사전에 정의된 함수로 학습 파라미터가 없으며, 이 forward process는 입력 데이터와 무관하게 데이터를 무작위 노이즈로 바꾼다.
-
-</div>
-</details>
+:::
 
 ![fig2](/assets/images/paper/Score Diffusion-2.png)
 

@@ -46,16 +46,11 @@ $$
 
 머신러닝에서 경사하강법의 가중치 행렬 변화량 $\Delta W$를 측정하거나, 정규화 항을 구현할 때 주로 사용된다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> Frobenius Norm 계산</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> Frobenius Norm 계산
+$$A=\begin{bmatrix}2&2\\3&4\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}2&2\\3&4\end{bmatrix}$$
->
-> $$\lVert A\rVert_F=1+4+9+16=30$$
-
-</div>
-</details>
+$$\lVert A\rVert_F=1+4+9+16=30$$
+:::
 <br>
 
 ### 1-Norm
@@ -67,16 +62,11 @@ $$
 \tag{2}
 $$
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 1-Norm 계산</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 1-Norm 계산
+$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
->
-> $$\lVert A\rVert_1=\max(1+3,2+4)=6$$
-
-</div>
-</details>
+$$\lVert A\rVert_1=\max(1+3,2+4)=6$$
+:::
 <br>
 
 ### ∞-Norm (Infinity-Norm)
@@ -88,16 +78,11 @@ $$
 \tag{3}
 $$
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> ∞-Norm 계산</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> ∞-Norm 계산
+$$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
 
-> $$A=\begin{bmatrix}1&2\\3&4\end{bmatrix}$$
->
-> $$\lVert A\rVert_\infty=\max(1+2,3+4)=7$$
-
-</div>
-</details>
+$$\lVert A\rVert_\infty=\max(1+2,3+4)=7$$
+:::
 <br>
 
 ### Spectral Norm (2-Norm)
@@ -118,48 +103,38 @@ $$
 \tag{5}
 $$
 
-<details>
-<summary><font color='#0000FF'>증명</font></summary>
-<div markdown="1">
+::: 증명
+계산의 편의성을 위해 $\lVert A\mathbf x\rVert_2$의 제곱에 대해 계산하고, $\lVert A\mathbf x\rVert_2^2$에 대해 식을 전개한다.
 
-> 계산의 편의성을 위해 $\lVert A\mathbf x\rVert_2$의 제곱에 대해 계산하고, $\lVert A\mathbf x\rVert_2^2$에 대해 식을 전개한다.
->
-> $$\lVert A\mathbf x\rVert_2^2=(A\mathbf x)^\top A\mathbf x=\mathbf x^\top A^\top A\mathbf x$$
->
-> $A$에 SVD 적용하여 식을 전개한다.
->
-> $$A^\top A=(U\Sigma V^\top)^\top(U\Sigma V^\top)=V\Sigma^\top U^\top U\Sigma V^\top=V\Sigma^\top\Sigma V^\top$$
->
-> $$\lVert A\mathbf x\rVert_2^2=\mathbf x^\top V(\Sigma^\top\Sigma)V^\top\mathbf x$$
->
-> $\mathbf{y}=V^\top\mathbf{x}$로 치환하면 아래와 같이 전개할 수 있다.
->
-> $$\lVert A\mathbf x\rVert_2^2=\mathbf{y}^\top(\Sigma^\top\Sigma)\mathbf{y}=\sigma_1^2\mathbf y_1^2+\sigma_2^2\mathbf y_2^2+\cdots+\sigma_r^2\mathbf y_r^2$$
->
-> $V$는 직교 행렬이기 때문에 $\mathbf{x}$의 크기를 바꾸지 않으며, $\rVert\mathbf{x}\lVert_2^2=1$을 가정했으므로 아래의 식이 성립한다.
->
-> $$\rVert\mathbf{y}\lVert_2^2=\rVert V^\top\mathbf{x}\lVert_2^2=\rVert\mathbf{x}\lVert_2^2=1~\to~\rVert\mathbf{y}\lVert_2^2=y_1^2+y_2^2+\cdots=1$$
->
-> 특이값은 크기가 큰 순서부터 정렬되어 있으며, 위의 조건이 아래에서 $\lVert A\mathbf x\rVert_2^2$가 최대값이 되기 위해서는 $\sigma_1$에 가중치를 몰아줘아 한다.
->
-> 즉, $\lVert A\mathbf x\rVert_2^2$는 $y_1=1$일 때 최대값 $\sigma_1^2$을 가진다.
->
-> 이 때문에 아래와 같은 결론을 얻을 수 있다.
->
-> $$\lVert A\rVert_2=\sigma_1=\sigma_{\max}$$
+$$\lVert A\mathbf x\rVert_2^2=(A\mathbf x)^\top A\mathbf x=\mathbf x^\top A^\top A\mathbf x$$
 
-</div>
-</details>
+$A$에 SVD 적용하여 식을 전개한다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> Spectral Norm 계산</font></summary>
-<div markdown="1">
+$$A^\top A=(U\Sigma V^\top)^\top(U\Sigma V^\top)=V\Sigma^\top U^\top U\Sigma V^\top=V\Sigma^\top\Sigma V^\top$$
 
-> $$A=\begin{bmatrix}1&5&0\\5&1&0\end{bmatrix}$$
->
-> $$\sigma_1=6,\sigma_2=4$$
->
-> $$\lVert A\rVert_2=\sigma_{\max}=6$$
+$$\lVert A\mathbf x\rVert_2^2=\mathbf x^\top V(\Sigma^\top\Sigma)V^\top\mathbf x$$
 
-</div>
-</details>
+$\mathbf{y}=V^\top\mathbf{x}$로 치환하면 아래와 같이 전개할 수 있다.
+
+$$\lVert A\mathbf x\rVert_2^2=\mathbf{y}^\top(\Sigma^\top\Sigma)\mathbf{y}=\sigma_1^2\mathbf y_1^2+\sigma_2^2\mathbf y_2^2+\cdots+\sigma_r^2\mathbf y_r^2$$
+
+$V$는 직교 행렬이기 때문에 $\mathbf{x}$의 크기를 바꾸지 않으며, $\rVert\mathbf{x}\lVert_2^2=1$을 가정했으므로 아래의 식이 성립한다.
+
+$$\rVert\mathbf{y}\lVert_2^2=\rVert V^\top\mathbf{x}\lVert_2^2=\rVert\mathbf{x}\lVert_2^2=1~\to~\rVert\mathbf{y}\lVert_2^2=y_1^2+y_2^2+\cdots=1$$
+
+특이값은 크기가 큰 순서부터 정렬되어 있으며, 위의 조건이 아래에서 $\lVert A\mathbf x\rVert_2^2$가 최대값이 되기 위해서는 $\sigma_1$에 가중치를 몰아줘아 한다.
+
+즉, $\lVert A\mathbf x\rVert_2^2$는 $y_1=1$일 때 최대값 $\sigma_1^2$을 가진다.
+
+이 때문에 아래와 같은 결론을 얻을 수 있다.
+
+$$\lVert A\rVert_2=\sigma_1=\sigma_{\max}$$
+:::
+
+:::{red} <strong>Example:</strong> Spectral Norm 계산
+$$A=\begin{bmatrix}1&5&0\\5&1&0\end{bmatrix}$$
+
+$$\sigma_1=6,\sigma_2=4$$
+
+$$\lVert A\rVert_2=\sigma_{\max}=6$$
+:::

@@ -32,10 +32,7 @@ $$
 \end{aligned}
 $$
 
-<details>
-<summary><font color='blue'>공식 유도</font></summary>
-<div markdown="1">
-
+::: 공식 유도
 **1. 라그랑주 함수 정의**
     
 $$
@@ -58,9 +55,7 @@ $$
 $$
 \mathcal{D}(\boldsymbol\lambda)=-\mathbf b^\top\boldsymbol\lambda
 $$
-
-</div>
-</details>
+:::
 
 ## 2차 계획법 (Qudratic Programming)
 
@@ -86,10 +81,7 @@ $$
 
 Dual 문제는 위와 같이 정의된다.
 
-<details>
-<summary><font color='blue'>공식 유도</font></summary>
-<div markdown="1">
-
+::: 공식 유도
 **1. 라그랑주 함수 정의**
     
 $$
@@ -110,6 +102,4 @@ $$
 $$
 \mathcal{D}(\boldsymbol\lambda)=-\frac{1}{2}(\mathbf c^\top+A^\top\boldsymbol\lambda)^\top Q^{-1}(\mathbf c+A^\top\boldsymbol\lambda)-\boldsymbol\lambda^\top\mathbf b
 $$
-
-</div>
-</details>
+:::

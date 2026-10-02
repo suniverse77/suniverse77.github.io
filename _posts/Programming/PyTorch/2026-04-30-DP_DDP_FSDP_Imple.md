@@ -104,10 +104,7 @@ DDP는 터미널에서 `torchrun` 모듈을 사용하여 실행해야 한다.
 <br>
 예를 들어 2개의 GPU를 사용한다면 `torchrun --nproc_per_node=2 script.py`처럼 실행한다.
 
-<details>
-<summary><font color='#0000FF'>여러 컴퓨터에서 실행하는 방법</font></summary>
-<div markdown="1">
-
+::: 여러 컴퓨터에서 실행하는 방법
 여러 컴퓨터를 통해 분산 학습을 사용하려고 하는 경우, 각 컴퓨터의 터미널에서 `torchrun` 명령어를 따로따로 실행해야 한다.
 
 컴퓨터가 2대 있고, 각각 GPU가 4개씩 있는 경우를 가정해 보자.
@@ -136,9 +133,7 @@ DDP는 터미널에서 `torchrun` 모듈을 사용하여 실행해야 한다.
     ```
 
 ---
-
-</div>
-</details>
+:::
 <br>
 
 > **명령어: `python` vs `torchrun`**

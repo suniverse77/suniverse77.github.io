@@ -121,20 +121,15 @@ $$
 - **해가 무수히 많음**: $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})<n$
 - **해가 없음**: $\text{rank}(A)<\text{rank}(A\mid \mathbf{b})$
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식의 해 판별</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 연립 방정식의 해 판별
+$$[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
 
-> $$[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
->
-> $[A\mid \mathbf{b}]$는 $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=3$이므로 유일한 해를 가진다.
->
-> $[B\mid \mathbf{b}]$는 $\text{rank}(B)=\text{rank}(B\mid \mathbf{b})=2<3$이므로 해가 무수히 많이 존재한다.
->
-> $[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 해가 존재하지 않는다.
+$[A\mid \mathbf{b}]$는 $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=3$이므로 유일한 해를 가진다.
 
-</div>
-</details>
+$[B\mid \mathbf{b}]$는 $\text{rank}(B)=\text{rank}(B\mid \mathbf{b})=2<3$이므로 해가 무수히 많이 존재한다.
+
+$[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 해가 존재하지 않는다.
+:::
 <br>
 
 **2. 벡터 공간 관점**
@@ -167,28 +162,23 @@ $$
 - **행 상수배** $(R_i\to cR_i~,~c\neq0)$: 하나의 행 전체에 0이 아닌 상수를 곱한다.
 - **행 덧셈** $(R_i\to R_i+cR_j)$: 한 행에 상수배를 한 뒤, 그 결과를 다른 행에 더한다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식을 RREF로 변환</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 연립 방정식을 RREF로 변환
+$$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\2&3&1&14\\1&-1&2&2\end{array}\end{bmatrix}$$
 
-> $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\2&3&1&14\\1&-1&2&2\end{array}\end{bmatrix}$$
->
-> 위의 방정식을 Reduced REF로 변환하는 과정은 다음과 같다.
->
-> 1. $R_2\rightarrow R_2-2R_1$
->
->   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\1&-1&2&2\end{array}\end{bmatrix}$$
->
-> 2. $R_3\rightarrow R_3-R_1$
->
->   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&-2&1&-4\end{array}\end{bmatrix}$$
->
-> 3. $R_3\rightarrow R_3+2R_1$
->
->   $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&0&-1&0\end{array}\end{bmatrix}$$
+위의 방정식을 Reduced REF로 변환하는 과정은 다음과 같다.
 
-</div>
-</details>
+1. $R_2\rightarrow R_2-2R_1$
+
+  $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\1&-1&2&2\end{array}\end{bmatrix}$$
+
+2. $R_3\rightarrow R_3-R_1$
+
+  $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&-2&1&-4\end{array}\end{bmatrix}$$
+
+3. $R_3\rightarrow R_3+2R_1$
+
+  $$\begin{bmatrix}\begin{array}{ccc|c}1&1&1&6\\0&1&-1&2\\0&0&-1&0\end{array}\end{bmatrix}$$
+:::
 
 ### 행 사다리꼴 (Row Echelon Form)
 
@@ -266,54 +256,49 @@ $$
 <br>
 즉, 역행렬이 존재한다는 것은 행렬 변환이 공간을 찌그러뜨리지 않고 원래 상태를 유지한다는 것을 의미한다.
 
-<details>
-<summary><font color='#FF0000'><strong>Example:</strong> 연립 방정식 풀기</font></summary>
-<div markdown="1">
+:::{red} <strong>Example:</strong> 연립 방정식 풀기
+$$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}42\\8\end{bmatrix}$$
 
-> $$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_4\end{bmatrix}=\begin{bmatrix}42\\8\end{bmatrix}$$
->
-> **1. Solve Non-Homogeneous Equation**
->
-> 1. 첨가 행렬로 변환 후 가우스 소거법 수행
->
->   $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&42\\0&1&2&12&8\end{array}\end{bmatrix}$$
->
-> 2. 자유 변수들을 원하는 값으로 설정
->
->   $$x_3=0,~x_4=0$$
->
-> 3. 피벗 변수 (Pivot variable)들을 구함
->
->   $$x_2+2x_3+12x_4=8~\to~x_2=8$$
->   
->   $$x_1+8x_3-4x_4=42~\to~x_1=42$$
->
->4. 특수해를 구함
->
->    $$\mathbf{x}_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}$$
->
-> **2. Solve Homogeneous Equation**
->
-> 1. 동차 방정식에 대해 가우스 소거법 수행
->
->   $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&0\\0&1&2&12&0\end{array}\end{bmatrix}$$
->
-> 2. Pivot column이 아닌 열에 대한 미지수를 자유 변수로 표현
->  
->    $$x_2=-2x_3-12x_4$$
->
->    $$x_1=-8x_3+4x_4$$
-> 
-> 3. 동차해를 구함
->
->    $$\mathbf{x}_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
->
-> **3. Find General solution**
->
-> $$\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+**1. Solve Non-Homogeneous Equation**
 
-</div>
-</details>
+1. 첨가 행렬로 변환 후 가우스 소거법 수행
+
+  $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&42\\0&1&2&12&8\end{array}\end{bmatrix}$$
+
+2. 자유 변수들을 원하는 값으로 설정
+
+  $$x_3=0,~x_4=0$$
+
+3. 피벗 변수 (Pivot variable)들을 구함
+
+  $$x_2+2x_3+12x_4=8~\to~x_2=8$$
+  
+  $$x_1+8x_3-4x_4=42~\to~x_1=42$$
+
+4. 특수해를 구함
+
+   $$\mathbf{x}_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}$$
+
+**2. Solve Homogeneous Equation**
+
+1. 동차 방정식에 대해 가우스 소거법 수행
+
+  $$\begin{bmatrix}\begin{array}{cccc|c}1&0&8&-4&0\\0&1&2&12&0\end{array}\end{bmatrix}$$
+
+2. Pivot column이 아닌 열에 대한 미지수를 자유 변수로 표현
+ 
+   $$x_2=-2x_3-12x_4$$
+
+   $$x_1=-8x_3+4x_4$$
+
+3. 동차해를 구함
+
+   $$\mathbf{x}_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+
+**3. Find General solution**
+
+$$\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+:::
 <br>
 
 왜 일반해를 `특수해 + 동차해` 형태로 표현할까?

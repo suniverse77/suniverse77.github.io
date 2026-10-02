@@ -57,10 +57,7 @@ $$
 
 Decision Tree의 목표는 특정 클래스의 데이터만 모여있는 그룹을 만드는 것이다. 따라서 지니 불순도가 낮도록 순서를 결정한다.
 
-<details>
-<summary><font color='#FF0000'>Example 1</font></summary>
-<div markdown="1">
-
+:::{red} Example 1
 상단의 예시에서 지니 불순도를 계산해보자.
 
 $$
@@ -100,9 +97,7 @@ $$
 세 특징 중 '날씨'의 지니 불순도가 가장 낮으므로, Decision Tree는 첫 번째 분할 기준으로 '날씨'를 선택하게 된다.
 
 ---
-
-</div>
-</details>
+:::
 <br>
 
 하지만 Decision Tree는 데이터에 매우 민감하다는 단점이 있다.
