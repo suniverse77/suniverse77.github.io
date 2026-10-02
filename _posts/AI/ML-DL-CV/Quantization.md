@@ -4,7 +4,7 @@ date: 2025-10-20 12:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 비트 표현

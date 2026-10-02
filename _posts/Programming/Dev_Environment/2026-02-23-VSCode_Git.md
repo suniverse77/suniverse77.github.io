@@ -4,7 +4,7 @@ date: 2026-02-23 06:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 VS Code에서는 터미널에 명령어를 직접 치지 않아도, 자체 내장된 **Source Control** 탭과 **Git Graph** 확장 프로그램을 통해 시각적으로 쉽게 Git을 관리할 수 있다.

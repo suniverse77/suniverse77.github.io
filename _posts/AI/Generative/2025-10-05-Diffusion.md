@@ -4,7 +4,7 @@ date: 2025-10-05 00:00:00 +/-TTTT
 categories: [AI, 비전 생성 모델]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 디퓨전 모델 (Diffusion Model)은 간단하게, 깨끗한 상태의 이미지를 점진적으로 파괴하여 무작위 노이즈로 만드는 과정을 역으로 학습함으로써, 노이즈에서 깨끗한 이미지로 복원해 나가는 방법을 배우는 생성 모델이다.

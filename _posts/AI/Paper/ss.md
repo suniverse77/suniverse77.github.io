@@ -4,8 +4,8 @@ date: 2025-03-20 00:00:00 +/-TTTT
 categories: [논문리뷰, Generative AI]
 math: true
 toc: true
-author: sunho
 description: 📝 NeurIPS 2020
+published: true
 ---
 
 [[Paper]](https://arxiv.org/abs/2006.11239)

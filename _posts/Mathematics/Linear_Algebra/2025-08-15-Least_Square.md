@@ -4,7 +4,7 @@ date: 2025-08-15 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 최소 제곱법 (Least Square Method)

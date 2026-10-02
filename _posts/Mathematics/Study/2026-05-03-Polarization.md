@@ -4,7 +4,7 @@ date: 2026-05-03 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 편광에 대해 알기 전에 먼저 빛의 원리에 대해서 알아보자.

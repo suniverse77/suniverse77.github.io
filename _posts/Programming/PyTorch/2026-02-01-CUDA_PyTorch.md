@@ -4,7 +4,7 @@ date: 2026-02-01 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 PyTorch에서 GPU를 사용하려면 단순히 NVIDIA GPU가 있다고 끝나는 것이 아니다.

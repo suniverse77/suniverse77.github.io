@@ -4,7 +4,7 @@ date: 2025-02-24 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Computer Vision]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 전이 학습 (Transfer Learning)

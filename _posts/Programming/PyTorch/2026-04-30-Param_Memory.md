@@ -4,7 +4,7 @@ date: 2026-04-30 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 딥러닝 모델의 학습 과정은 크게 loss를 계산하는 순전파 (Forward pass), 각 파라미터의 그래디언트를 계산하는 역전파 (Backward pass), 그리고 계산된 그래디언트를 이용해 실제로 파라미터를 업데이트하는 옵티마이저 스텝 (Optimizer Step)으로 이루어진다.

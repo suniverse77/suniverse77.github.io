@@ -4,7 +4,7 @@ date: 2025-08-16 00:00:00 +/-TTTT
 categories: [Mathematics, Probability]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 마르코프 체인은 마르코프 성질을 지닌 이산 확률 과정(Discrete Stochastic Process)을 의미한다.

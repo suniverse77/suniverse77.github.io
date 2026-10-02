@@ -4,7 +4,7 @@ date: 2025-08-08 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 행렬의 Norm은 벡터의 Norm 개념을 행렬에 확장한 것으로, 행렬의 크기를 측정하는 척도이다.

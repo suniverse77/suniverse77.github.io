@@ -4,7 +4,7 @@ date: 2025-07-07 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 벡터 위로의 사영 (Projection onto a Vector)

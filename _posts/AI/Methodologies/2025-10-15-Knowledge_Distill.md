@@ -4,7 +4,7 @@ date: 2025-10-15 00:00:00 +/-TTTT
 categories: [AI, Methodologies]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 지식 증류 (Knowledge Distillation)

@@ -4,7 +4,7 @@ date: 2025-02-11 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 딥러닝 모델에서 데이터를 학습하는 과정은 크게 순전파(Forward pass), 역전파(Backward pass), 그리고 파라미터 업데이트(Parameter Update)로 이루어진다.

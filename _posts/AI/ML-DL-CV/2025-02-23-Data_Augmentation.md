@@ -4,7 +4,7 @@ date: 2025-02-23 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Computer Vision]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 데이터 증강 (Data Augmentation)

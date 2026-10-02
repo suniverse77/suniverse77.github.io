@@ -4,7 +4,7 @@ date: 2025-03-01 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Machine Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 혼동행렬 (Confusion Matrix)

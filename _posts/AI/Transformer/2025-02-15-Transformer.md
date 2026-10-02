@@ -4,7 +4,7 @@ date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **📄 관련 논문:** [NeurIPS 2017] [Attention Is All you Need](https://arxiv.org/abs/1706.03762)

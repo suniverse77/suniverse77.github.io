@@ -4,7 +4,7 @@ date: 2025-10-08 00:00:00 +/-TTTT
 categories: [AI, 비전 생성 모델]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **📄 관련 논문:** [NeurIPS 2019] [Generative Modeling by Estimating Gradients of the Data Distribution](https://arxiv.org/abs/1907.05600)

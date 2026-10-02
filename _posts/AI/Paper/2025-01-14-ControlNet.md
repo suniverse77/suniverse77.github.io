@@ -4,8 +4,8 @@ date: 2025-01-14 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
 math: true
 toc: true
-author: sunho
 description: 📝 CVPR 2023
+published: true
 ---
 
 [[Paper]](https://arxiv.org/abs/2302.05543)

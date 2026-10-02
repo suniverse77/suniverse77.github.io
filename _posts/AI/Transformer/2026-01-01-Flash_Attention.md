@@ -4,7 +4,7 @@ date: 2026-01-01 0:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **📄 관련 논문:** [NeurIPS 2022] [FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness](https://arxiv.org/abs/2205.14135)

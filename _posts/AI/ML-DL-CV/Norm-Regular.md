@@ -4,7 +4,7 @@ date: 2025-02-05 12:00:00 +/-TTTT
 categories: [AI, 딥러닝]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 데이터 정규화 기법에는 크게 Regularization과 Normalization이 있다.

@@ -4,7 +4,7 @@ date: 2026-05-30 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 기존 이론에서는 모델의 크기와 복잡도가 커질수록 학습 데이터의 노이즈까지 학습하여 과적합(Overfitting)이 발생하고, 이로 인해 테스트 오차가 다시 증가한다는 U자형의 Bias-Variance Tradeoff 곡선을 정설로 여겼다.

@@ -4,7 +4,7 @@ date: 2026-04-27 00:00:00 +/-TTTT
 categories: [Programming, Code]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 우리가 LLM API를 호출할 때는 주로 아래와 같은 형식으로 데이터를 전달한다.

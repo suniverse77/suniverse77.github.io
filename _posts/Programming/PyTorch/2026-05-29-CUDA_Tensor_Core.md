@@ -4,7 +4,7 @@ date: 2026-05-29 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 코어(Core)란?

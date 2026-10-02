@@ -4,7 +4,7 @@ date: 2025-02-15 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 Regularization은 ==모델이 학습 데이터에 너무 오버피팅되는 것을 방지==하는 기법이다.

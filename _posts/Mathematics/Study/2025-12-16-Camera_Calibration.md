@@ -4,7 +4,7 @@ date: 2025-12-16 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 핀홀 카메라 모델

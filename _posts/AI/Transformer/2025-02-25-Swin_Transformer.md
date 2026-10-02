@@ -4,7 +4,7 @@ date: 2025-02-25 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **📄 관련 논문:** [ICCV 2021] [Swin Transformer: Hierarchical Vision Transformer using Shifted Windows](https://arxiv.org/abs/2103.14030)

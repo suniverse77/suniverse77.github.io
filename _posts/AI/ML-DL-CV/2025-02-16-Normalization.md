@@ -4,7 +4,7 @@ date: 2025-02-16 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 Normalization은 ==학습 속도와 안정성을 향상시키기 위해 데이터의 분포를 안정화==하는 기법으로, 사용되는 위치에 따라 목적이 다르다.

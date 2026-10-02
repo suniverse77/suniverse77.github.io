@@ -4,7 +4,7 @@ date: 2026-02-02 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 의존성(Dependency) 충돌은 라이브러리들끼리 필요한 버전이 서로 맞지 않아서 생기는 문제다.

@@ -4,7 +4,7 @@ date: 2026-05-02 00:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 `accelerate`는 Hugging Face에서 개발한 파이썬 라이브러리 중 하나로, 복잡한 분산 학습 코드를 단 몇 줄로 줄여주는 역할을 한다.

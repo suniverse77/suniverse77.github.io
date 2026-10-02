@@ -4,7 +4,7 @@ date: 2025-08-20 00:00:00 +/-TTTT
 categories: [Mathematics, Optimization]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 선형 계획법 (LP - Linear Programming)

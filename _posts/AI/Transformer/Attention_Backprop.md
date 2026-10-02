@@ -4,7 +4,7 @@ date: 2025-12-20 0:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## Forward pass

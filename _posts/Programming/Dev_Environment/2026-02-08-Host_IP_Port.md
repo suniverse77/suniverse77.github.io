@@ -4,7 +4,7 @@ date: 2026-02-10 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 네트워크, 호스트, IP, 포트는 동네와 건물에 비유해서 쉽게 이해할 수 있다.

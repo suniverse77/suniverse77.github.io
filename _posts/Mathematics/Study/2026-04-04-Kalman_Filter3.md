@@ -4,7 +4,7 @@ date: 2026-04-04 12:00:00 +/-TTTT
 categories: [Mathematics, Signals and Systems]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 > 해당 포스터 내용은 ['선형 칼만 필터의 원리 이해'](https://gaussian37.github.io/ad-ose-lkf_basic/) 블로그를 참고하였습니다.

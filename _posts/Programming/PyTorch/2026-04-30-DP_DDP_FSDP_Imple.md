@@ -4,7 +4,7 @@ date: 2026-04-30 12:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 아래의 코드를 기본적인 모델 학습 구조로 가정하겠다.

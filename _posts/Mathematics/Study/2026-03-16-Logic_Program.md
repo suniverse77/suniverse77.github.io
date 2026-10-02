@@ -4,7 +4,7 @@ date: 2026-03-16 00:00:00 +/-TTTT
 categories: [Mathematics, Study]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 논리 프로그래밍이란?

@@ -4,7 +4,7 @@ date: 2025-08-05 00:00:00 +/-TTTT
 categories: [Mathematics, Probability]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 독립 (Independence)

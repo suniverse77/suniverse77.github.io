@@ -4,7 +4,7 @@ date: 2026-02-21 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 매번 터미널을 통해 원격 접속해서 검은색 창에서만 코딩하기에는 불편함이 많다. 

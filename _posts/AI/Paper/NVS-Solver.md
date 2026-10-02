@@ -4,8 +4,8 @@ date: 2026-04-12 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
 math: true
 toc: true
-author: sunho
 description: 📝 ICLR 2025
+published: true
 ---
 
 [[Paper]](https://arxiv.org/abs/2405.15364)

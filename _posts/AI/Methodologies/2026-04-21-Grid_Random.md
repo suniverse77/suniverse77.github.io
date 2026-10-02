@@ -4,7 +4,7 @@ date: 2026-04-21 00:00:00 +/-TTTT
 categories: [AI, Methodologies]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 HPO (HyperParameter Optimization)는 머신러닝 모델의 최적 성능을 끌어내기 위해 하이퍼파라미터를 튜닝하는 알고리즘을 말한다

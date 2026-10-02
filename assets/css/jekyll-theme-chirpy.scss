@@ -234,7 +234,7 @@ $toggle-colors: (
   }
 
   > div {
-    margin: 0.6rem 0 1.25rem;
+    margin: 0.6rem 0 1.25rem 1rem; /* left margin sets the rule in from the title */
     padding: 0.75rem 1rem 0.75rem 1.1rem;
     border-left: 3px solid rgba(55, 53, 47, 0.2);
     border-radius: 0 0.5rem 0.5rem 0;

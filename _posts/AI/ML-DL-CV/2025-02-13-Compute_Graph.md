@@ -4,7 +4,7 @@ date: 2025-02-13 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 신경망의 복잡한 연산은 덧셈, 곱셈 등 일련의 단순한 기본 연산으로 분해할 수 있다.

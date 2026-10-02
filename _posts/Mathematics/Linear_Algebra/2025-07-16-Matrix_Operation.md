@@ -4,7 +4,7 @@ date: 2025-07-16 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 행렬 덧셈

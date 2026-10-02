@@ -4,7 +4,7 @@ date: 2025-08-16 00:00:00 +/-TTTT
 categories: [Mathematics, Optimization]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 비제약 최적화 (Unconstrained Optimization)

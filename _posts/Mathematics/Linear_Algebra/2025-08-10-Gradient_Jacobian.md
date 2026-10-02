@@ -4,7 +4,7 @@ date: 2025-08-10 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 미분은 입력값을 아주 조금 변화시켰을 때 출력값이 얼마나 변하는지를 나타내는 개념이다.

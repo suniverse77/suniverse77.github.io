@@ -4,7 +4,7 @@ date: 2025-02-18 00:00:00 +/-TTTT
 categories: [AI, 트랜스포머]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **📄 관련 논문:** [arXiv 2021] [RoFormer: Enhanced Transformer with Rotary Position Embedding](https://arxiv.org/abs/2104.09864)

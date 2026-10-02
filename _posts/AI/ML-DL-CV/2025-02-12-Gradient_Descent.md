@@ -4,7 +4,7 @@ date: 2025-02-12 00:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 경사 하강법 (Gradient Descent)

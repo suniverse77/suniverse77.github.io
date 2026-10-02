@@ -4,7 +4,7 @@ date: 2025-07-18 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 변환은 어떤 벡터를 입력받아 다른 벡터를 출력하는 함수를 의미한다.

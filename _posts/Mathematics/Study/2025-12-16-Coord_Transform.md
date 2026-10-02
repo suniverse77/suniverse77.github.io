@@ -4,7 +4,7 @@ date: 2025-12-16 06:00:00 +/-TTTT
 categories: [Mathematics, Study]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 카메라 행렬을 통해 3D 월드 좌표와 2D 이미지 픽셀 좌표 간의 변환이 가능하다.

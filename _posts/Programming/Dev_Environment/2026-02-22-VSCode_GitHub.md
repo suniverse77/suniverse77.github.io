@@ -4,7 +4,7 @@ date: 2026-02-22 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 VS Code로 SSH 서버에 원격 연결해 코딩할 때, 로컬 PC에서 코드를 편집하더라도 실제 파일 저장과 연산은 SSH 서버에서 수행된다.

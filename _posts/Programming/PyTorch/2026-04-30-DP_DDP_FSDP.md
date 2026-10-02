@@ -4,7 +4,7 @@ date: 2026-04-30 06:00:00 +/-TTTT
 categories: [Programming, 파이토치 (PyTorch)]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 PyTorch에는 GPU 병렬 처리를 위한 두 가지 방식 (DP, DDP)이 있다.

@@ -4,7 +4,7 @@ date: 2026-04-04 00:00:00 +/-TTTT
 categories: [Mathematics, Signals and Systems]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 먼저 칼만 필터에 대해 공부하기에 앞서, 몇 가지 개념들을 간단하게 짚고 넘어가겠다.

@@ -4,7 +4,7 @@ date: 2026-04-04 06:00:00 +/-TTTT
 categories: [Mathematics, Signals and Systems]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 알고리즘 예시

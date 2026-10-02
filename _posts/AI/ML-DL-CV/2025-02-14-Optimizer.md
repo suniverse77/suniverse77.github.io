@@ -4,7 +4,7 @@ date: 2025-02-14 12:00:00 +/-TTTT
 categories: [AI, Fundamentals, Deep Learning]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 그래디언트를 이용해 파라미터를 업데이트하는 최적화 기법에는 여러 가지가 있다.

@@ -4,7 +4,7 @@ date: 2026-02-12 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 리눅스나 서버 환경에서 작업하다 보면 `/data`, `./data`, `~/data`처럼 비슷해 보이지만 서로 다른 경로 표현을 자주 보게 된다.

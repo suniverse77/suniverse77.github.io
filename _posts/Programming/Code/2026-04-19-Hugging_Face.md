@@ -4,7 +4,7 @@ date: 2026-04-19 00:00:00 +/-TTTT
 categories: [Programming, 개발 환경]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 [Hugging Face](https://huggingface.co/)는 전 세계 사람들이 모델과 데이터셋을 올리고 내려받는 일종의 Hub다.

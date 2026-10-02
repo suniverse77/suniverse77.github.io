@@ -4,8 +4,8 @@ date: 2026-03-21 00:00:00 +/-TTTT
 categories: [논문리뷰, Generative AI]
 math: true
 toc: true
-author: sunho
 description: 📝 2020
+published: true
 ---
 
 [[Paper]](https://arxiv.org/abs/2006.13155)

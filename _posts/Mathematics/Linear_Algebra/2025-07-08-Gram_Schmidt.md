@@ -4,7 +4,7 @@ date: 2025-07-08 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 **그람 슈미트 과정**은 기저 $B$를, 같은 공간을 span하는 정규 직교 기저 $Q$로 변환하는 방법이다.

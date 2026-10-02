@@ -4,7 +4,7 @@ date: 2025-07-19 00:00:00 +/-TTTT
 categories: [Mathematics, Linear Algebra]
 math: true
 toc: true
-author: sunho
+published: true
 ---
 
 ## 연립 선형 방정식 (System of Linear Equations)

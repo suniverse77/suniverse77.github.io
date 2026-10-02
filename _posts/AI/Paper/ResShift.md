@@ -4,8 +4,8 @@ date: 2026-03-21 00:00:00 +/-TTTT
 categories: [AI, 논문리뷰]
 math: true
 toc: true
-author: sunho
 description: 📝 TPAMI 2025
+published: true
 ---
 
 [[Paper]]()

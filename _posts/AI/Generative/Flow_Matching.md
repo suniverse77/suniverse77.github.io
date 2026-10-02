@@ -4,5 +4,5 @@ date: 2025-10-08 00:00:00 +/-TTTT
 categories: [AI, 생성 모델]
 math: true
 toc: true
-author: sunho
+published: true
 ---
