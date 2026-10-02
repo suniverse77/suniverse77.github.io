@@ -1,0 +1,14 @@
+<!-- The most recently posted posts -->
+
+{% assign MAX_SIZE = 8 %}
+
+<section id="access-recent-posts">
+  <h2 class="panel-heading">Recent Posts</h2>
+  <ul class="content panel-list list-unstyled ps-0 pb-1 ms-1 mt-2">
+    {% for post in site.posts limit: MAX_SIZE %}
+      <li class="text-truncate lh-lg">
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

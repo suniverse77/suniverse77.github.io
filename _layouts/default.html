@@ -38,7 +38,9 @@ layout: compress
             <div class="access">
               {% if page.layout == 'post' %}
                 {% include category-posts.html %}
-              {% elsif page.layout != 'categories' %}
+              {% elsif page.layout == 'categories' %}
+                {% include_cached recent-posts.html %}
+              {% else %}
                 {% include_cached category-tree.html %}
               {% endif %}
             </div>
