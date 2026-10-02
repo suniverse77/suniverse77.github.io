@@ -77,22 +77,70 @@
   max-height: none;
 }
 
-/* Third-level categories on the categories tab */
-.categories .list-group-item {
-  &.has-third {
-    padding-right: 0.75rem;
+/* Category list: each top-level category is a large heading with a rule under it,
+   followed by a plain list of its sub-categories (no card box) */
+.categories {
+  &.card {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    margin-bottom: 2.75rem;
   }
 
-  &.third-group {
-    padding: 0;
+  .card-header {
+    padding: 0 0 0.4rem;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(55, 53, 47, 0.2);
+    background: transparent;
+    font-size: 1.4rem;
+    font-weight: 600;
 
-    > .list-group {
-      border-radius: 0;
+    > span {
+      margin-left: 0 !important;
+    }
+
+    /* no folder icon next to the heading */
+    > span > i {
+      display: none;
+    }
+
+    a {
+      margin-left: 0 !important;
+      color: var(--heading-color);
+    }
+
+    .text-muted {
+      font-size: 0.85rem;
+      font-weight: 400;
     }
   }
 
-  &.third-category {
-    padding-left: 3.75rem;
+  .list-group {
+    border-radius: 0;
+    margin-top: 0.4rem;
+  }
+
+  .list-group-item {
+    border: 0;
+    padding: 0.4rem 0.25rem;
+    background: transparent;
+
+    /* third-level categories */
+    &.has-third {
+      padding-right: 0;
+    }
+
+    &.third-group {
+      padding: 0;
+
+      > .list-group {
+        margin-top: 0;
+      }
+    }
+
+    &.third-category {
+      padding-left: 2rem;
+    }
   }
 }
 
