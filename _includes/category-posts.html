@@ -1,13 +1,19 @@
-<!-- Posts in the same category as the current post, oldest first -->
+<!-- Posts in the same category as the current post, oldest first.
+     Uses the deepest category the post has (third level if present, else second). -->
 
 {% assign top_category = page.categories[0] %}
-{% assign current_category = page.categories[1] | default: top_category %}
+{% assign sub_category = page.categories[1] %}
+{% assign third_category = page.categories[2] %}
+{% assign current_category = third_category | default: sub_category | default: top_category %}
 
 {% if current_category %}
   {% assign category_posts = '' | split: '' %}
 
   {% for post in site.categories[current_category] %}
-    {% if post.categories[0] == top_category %}
+    {% if post.categories[0] == top_category
+      and post.categories[1] == sub_category
+      and post.categories[2] == third_category
+    %}
       {% assign category_posts = category_posts | push: post %}
     {% endif %}
   {% endfor %}

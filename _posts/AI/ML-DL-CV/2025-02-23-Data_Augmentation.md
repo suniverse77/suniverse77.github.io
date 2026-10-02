@@ -1,7 +1,7 @@
 ---
 title: "[컴퓨터 비전] 가중치 초기화와 데이터 증강"
 date: 2025-02-23 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
+categories: [AI, Fundamentals, Computer Vision]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true

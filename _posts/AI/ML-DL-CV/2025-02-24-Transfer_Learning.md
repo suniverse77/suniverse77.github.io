@@ -1,7 +1,7 @@
 ---
 title: "[컴퓨터 비전] 전이 학습 (Transfer Learning)"
 date: 2025-02-24 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
+categories: [AI, Fundamentals, Computer Vision]
 tags: [컴퓨터 비전, CNN]
 math: true
 toc: true

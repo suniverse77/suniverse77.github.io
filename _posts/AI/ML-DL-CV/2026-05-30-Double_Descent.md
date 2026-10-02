@@ -1,7 +1,7 @@
 ---
 title: "[딥러닝] Double Descent"
 date: 2026-05-30 00:00:00 +/-TTTT
-categories: [AI, 머신러닝 / 딥러닝 / 컴퓨터 비전]
+categories: [AI, Fundamentals, Deep Learning]
 tags: [딥러닝]
 math: true
 toc: true
