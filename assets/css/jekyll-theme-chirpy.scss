@@ -3,7 +3,9 @@
 
 @use 'abstracts/variables' with (
   $theme: '{{ site.theme_mode }}',
-  $main-content-max-width: 1500px
+  $main-content-max-width: 2000px,
+  $sidebar-width: 220px,
+  $sidebar-width-large: 240px
 );
 
 /* prettier-ignore */
@@ -15,10 +17,26 @@
 
 /* Custom CSS */
 
-/* Wider main content (theme default: 1140px, 1250px on >= 1650px screens) */
+/* Wider layout (theme default: 1140px, 1250px on >= 1650px screens).
+   The post column stops growing at $post-column-max-width; on wider screens
+   the extra room goes to the right panel instead. */
+$post-column-max-width: 1125px;
+
 @media all and (min-width: 1200px) {
   #main-wrapper > .container {
     max-width: variables.$main-content-max-width;
+  }
+
+  #main-wrapper > .container > .row > main,
+  #tail-wrapper {
+    flex: 0 0 auto;
+    width: min(75%, #{$post-column-max-width});
+  }
+
+  #panel-wrapper {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0; /* let long truncated titles shrink instead of wrapping the panel below */
   }
 }
 
@@ -39,6 +57,16 @@
       calc((100vw - variables.$sidebar-width-large - variables.$main-content-max-width) / 2 + 2rem)
     );
   }
+}
+
+/* Profile image: rounded square instead of a circle */
+#sidebar #avatar {
+  border-radius: 1.25rem;
+}
+
+/* Home page: hide the lone "Home" label in the top bar (other pages show a path) */
+#breadcrumb > span:only-child {
+  visibility: hidden;
 }
 
 /* Right panel: same-category post list and category tree */
