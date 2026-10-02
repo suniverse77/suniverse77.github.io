@@ -4,8 +4,8 @@
 @use 'abstracts/variables' with (
   $theme: '{{ site.theme_mode }}',
   $main-content-max-width: 2000px,
-  $sidebar-width: 200px,
-  $sidebar-width-large: 200px
+  $sidebar-width: 220px,
+  $sidebar-width-large: 240px
 );
 
 /* prettier-ignore */
@@ -63,7 +63,7 @@ $post-column-max-width: 1125px;
 #sidebar #avatar {
   width: 8.5rem;
   height: 8.5rem;
-  border-radius: 2.25rem;
+  border-radius: 1.75rem;
 
   img {
     width: 100%;
@@ -167,8 +167,11 @@ $post-column-max-width: 1125px;
     width: 22px;
     height: 22px;
     margin: -11px;
-    background: radial-gradient(circle at 35% 35%, #ffe08a, #f5a623);
-    box-shadow: 0 0 12px rgba(245, 166, 35, 0.6);
+    background: radial-gradient(circle at 40% 38%, #fff6c8 0%, #ffd766 35%, #f7a11b 75%, #e07a12 100%);
+    box-shadow:
+      0 0 10px 2px rgba(255, 190, 70, 0.85),
+      0 0 28px 8px rgba(245, 150, 35, 0.35);
+    animation: solar-glow 4s ease-in-out infinite alternate;
   }
 
   .solar-orbit {
@@ -191,20 +194,100 @@ $post-column-max-width: 1125px;
     width: var(--s);
     height: var(--s);
     margin: calc(var(--s) / -2);
-    background: var(--c);
     pointer-events: auto;
+
+    /* Each planet sits on the right edge of its rotating orbit, so its left side
+       always faces the sun: the first background layer lights that side and
+       shades the far side. The layers below it are the planet's own surface. */
+    --shade: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
   }
 
-  .solar-ringed::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 190%;
-    height: 60%;
-    border: 1px solid var(--c);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) rotate(-20deg);
+  .p-mercury {
+    background:
+      var(--shade),
+      radial-gradient(circle at 60% 35%, #8d8780 0 18%, transparent 20%),
+      radial-gradient(circle at 35% 68%, #8d8780 0 14%, transparent 16%),
+      #b9b3ab;
+  }
+
+  .p-venus {
+    background:
+      var(--shade),
+      linear-gradient(180deg, #f3dc9c 0 30%, #e3bd6a 30% 55%, #f0d188 55% 78%, #d9ab55 78%);
+  }
+
+  .p-earth {
+    background:
+      var(--shade),
+      radial-gradient(ellipse at 50% 4%, #fff 0 14%, transparent 16%),
+      radial-gradient(ellipse at 34% 40%, #4caf6a 0 22%, transparent 24%),
+      radial-gradient(ellipse at 68% 62%, #3f9d5c 0 18%, transparent 20%),
+      radial-gradient(ellipse at 45% 88%, #4caf6a 0 12%, transparent 14%),
+      #2f7fd6;
+    box-shadow: 0 0 5px rgba(90, 160, 255, 0.55);
+  }
+
+  .p-mars {
+    background:
+      var(--shade),
+      radial-gradient(ellipse at 50% 3%, #f4e6dc 0 12%, transparent 14%),
+      radial-gradient(ellipse at 40% 60%, #9c3a26 0 20%, transparent 22%),
+      #cf5f43;
+  }
+
+  .p-jupiter {
+    background:
+      var(--shade),
+      radial-gradient(ellipse at 62% 64%, #c0573a 0 11%, transparent 13%),
+      linear-gradient(
+        180deg,
+        #c9a47c 0 12%,
+        #ead9bd 12% 26%,
+        #b98558 26% 38%,
+        #f0e2c9 38% 52%,
+        #c08c5e 52% 66%,
+        #e6d2b2 66% 80%,
+        #b58a63 80%
+      );
+  }
+
+  .p-saturn {
+    background:
+      var(--shade),
+      linear-gradient(180deg, #e9d9a6 0 22%, #d6bd80 22% 44%, #eedfb0 44% 62%, #cdb174 62% 82%, #dcc78e 82%);
+
+    /* ring */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 215%;
+      height: 62%;
+      border: 2px solid rgba(226, 208, 160, 0.85);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px rgba(160, 140, 95, 0.6);
+      transform: translate(-50%, -50%) rotate(-22deg);
+    }
+  }
+
+  .p-uranus {
+    background:
+      var(--shade),
+      linear-gradient(180deg, #b9ecec 0 35%, #8fd6d9 35% 70%, #a6e2e3 70%);
+  }
+
+  .p-neptune {
+    background:
+      var(--shade),
+      radial-gradient(ellipse at 60% 40%, #2c46b0 0 14%, transparent 16%),
+      linear-gradient(180deg, #5b7cf0 0 40%, #3d5bd4 40% 68%, #4e6de3 68%);
+    box-shadow: 0 0 5px rgba(80, 110, 230, 0.5);
   }
 
   /* pause while the pointer is over the system */
@@ -224,6 +307,14 @@ $post-column-max-width: 1125px;
       display: block;
       color: #fff;
     }
+  }
+}
+
+@keyframes solar-glow {
+  to {
+    box-shadow:
+      0 0 14px 4px rgba(255, 200, 90, 0.95),
+      0 0 36px 12px rgba(245, 150, 35, 0.45);
   }
 }
 
