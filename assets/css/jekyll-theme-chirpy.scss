@@ -4,8 +4,8 @@
 @use 'abstracts/variables' with (
   $theme: '{{ site.theme_mode }}',
   $main-content-max-width: 2000px,
-  $sidebar-width: 220px,
-  $sidebar-width-large: 240px
+  $sidebar-width: 240px,
+  $sidebar-width-large: 260px
 );
 
 /* prettier-ignore */
@@ -57,6 +57,36 @@ $post-column-max-width: 1125px;
       calc((100vw - variables.$sidebar-width-large - variables.$main-content-max-width) / 2 + 2rem)
     );
   }
+}
+
+/* Left sidebar: dark space background with stars, matching the solar system box.
+   The theme reads these variables for every colour inside the sidebar. */
+#sidebar {
+  --sidebar-bg: #0b0d17;
+  --site-title-color: #f2f3f7;
+  --site-subtitle-color: rgba(255, 255, 255, 0.6);
+  --sidebar-muted-color: rgba(255, 255, 255, 0.62);
+  --sidebar-active-color: #fff;
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-btn-bg: rgba(255, 255, 255, 0.08);
+  --sidebar-btn-color: rgba(255, 255, 255, 0.72);
+  --sidebar-border-color: rgba(255, 255, 255, 0.14);
+  --avatar-border-color: rgba(255, 255, 255, 0.18);
+
+  background-color: var(--sidebar-bg);
+  background-image:
+    radial-gradient(1px 1px at 14% 6%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px 1.5px at 78% 11%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 46% 23%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 34%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 8% 43%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 63% 52%, rgba(255, 255, 255, 0.45), transparent),
+    radial-gradient(1px 1px at 28% 64%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 85% 71%, rgba(255, 255, 255, 0.55), transparent),
+    radial-gradient(1px 1px at 52% 83%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1px 1px at 12% 91%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 72% 96%, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 100% 640px;
 }
 
 /* Profile image: rounded square instead of a circle */
@@ -119,7 +149,7 @@ $post-column-max-width: 1125px;
     /* Everything inside is sized in --u, one design pixel of a 248px-wide
        layout, so the whole system scales with the box width. */
     container-type: inline-size;
-    max-width: 380px;
+    max-width: 330px;
     padding: 1rem 0.5rem;
     overflow: hidden;
     border-radius: 1rem;
