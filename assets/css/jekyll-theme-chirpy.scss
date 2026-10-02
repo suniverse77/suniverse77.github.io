@@ -4,8 +4,8 @@
 @use 'abstracts/variables' with (
   $theme: '{{ site.theme_mode }}',
   $main-content-max-width: 2000px,
-  $sidebar-width: 220px,
-  $sidebar-width-large: 240px
+  $sidebar-width: 200px,
+  $sidebar-width-large: 200px
 );
 
 /* prettier-ignore */
@@ -61,7 +61,14 @@ $post-column-max-width: 1125px;
 
 /* Profile image: rounded square instead of a circle */
 #sidebar #avatar {
-  border-radius: 1.25rem;
+  width: 8.5rem;
+  height: 8.5rem;
+  border-radius: 2.25rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 /* Home page: hide the lone "Home" label in the top bar (other pages show a path) */
