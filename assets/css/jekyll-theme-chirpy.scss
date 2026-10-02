@@ -114,11 +114,29 @@ $post-column-max-width: 1125px;
 
 /* Right panel: mini solar system (see _includes/solar-system.html) */
 #access-solar {
+  /* dark box holding the system and its caption */
+  .solar-box {
+    max-width: 280px;
+    margin-top: 1rem;
+    padding: 1rem 0.5rem;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: #0b0d17;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 82% 9%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1.5px 1.5px at 91% 62%, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 7% 71%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1px 1px at 48% 4%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 22% 93%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 68% 88%, rgba(255, 255, 255, 0.7), transparent);
+  }
+
   .solar {
     position: relative;
     width: 240px;
     height: 240px;
-    margin: 1rem 0 0.5rem;
+    margin: 0 auto 0.75rem;
   }
 
   .solar-sun,
@@ -138,7 +156,7 @@ $post-column-max-width: 1125px;
     }
 
     &.selected {
-      outline: 2px solid rgba(55, 53, 47, 0.45);
+      outline: 2px solid rgba(255, 255, 255, 0.75);
       outline-offset: 3px;
     }
   }
@@ -160,7 +178,7 @@ $post-column-max-width: 1125px;
     width: calc(var(--r) * 2);
     height: calc(var(--r) * 2);
     margin: calc(var(--r) * -1);
-    border: 1px solid rgba(55, 53, 47, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 50%;
     animation: solar-spin var(--t) linear infinite;
     animation-delay: var(--d);
@@ -197,13 +215,14 @@ $post-column-max-width: 1125px;
   .solar-caption {
     min-height: 3.6rem;
     margin: 0;
-    padding-right: 1rem;
+    padding: 0 0.75rem;
     font-size: 0.85rem;
     line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
 
     strong {
       display: block;
-      color: var(--heading-color);
+      color: #fff;
     }
   }
 }
