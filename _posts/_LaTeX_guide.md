@@ -1,3 +1,33 @@
+## LaTex 문법
+
+| 문법           | 결과 |
+| :-----------: | :---: |
+| \ddot{a}      | $\dot{a}$     |
+| \vec{a}       | $\vec{a}$     |
+| \infty        | $\infty$      |
+| \S            | $\S$          |
+| \equiv        | $\equiv$      |
+| \bmod         | $\bmod$       |
+| \oplus, \ominus, \otimes, \oslash, \odot
+\emptyset
+\in, \notin \not\in, \ni, \not\ni
+\cap
+\cup
+\subset, \not\subset
+\supset, \not\supset
+\subseteq, \nsubseteq
+\supseteq, \nsupseteq
+\overset{\underset{\mathrm{def}}{}}{=}
+\approx
+\propto
+\ll
+\gg
+\parallel
+\perp, \angle
+\circ
+\forall, \exists, \nexists
+
+
 ## 이미지 첨부
 
 ### 블로그 출처

@@ -1,6 +1,9 @@
 <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
+  <!-- decorative shooting stars behind the sidebar content -->
+  <div class="shooting-stars" aria-hidden="true"><span></span><span></span><span></span></div>
+
   <header class="profile-wrapper">
     <a href="{{ '/' | relative_url }}" id="avatar">
       {%- if site.avatar != empty and site.avatar -%}
