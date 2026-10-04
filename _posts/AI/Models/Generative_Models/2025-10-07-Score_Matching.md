@@ -25,7 +25,7 @@ _[[출처]](https://jmtomczak.github.io/blog/16/16_score_matching.html)_
 이 기울기 값을 수학적으로 Score라고 하며, Log-Likelihood의 그래디언트로 정의된다.
 
 $$
-\nabla_\mathbf{x}\log p(\mathbf{x})
+\nabla_\vx\log p(\vx)
 \tag{1}
 $$
 
@@ -34,7 +34,7 @@ $$
 식 (1) 자체를 함수로 보고, Score Function이라고도 한다.
 
 $$
-s(\mathbf{x})=\nabla_\mathbf{x}\log p(\mathbf{x})
+s(\vx)=\nabla_\vx\log p(\vx)
 \tag{2}
 $$
 
@@ -47,11 +47,11 @@ Score Matching은 말 그대로 데이터 분포의 기울기인 Score Function�
 즉, 모델이 예측한 Score와 실제 데이터의 Score 간의 차이를 줄이도록 학습한다.
 
 $$
-\mathcal{L}=\frac{1}{2}\mathbb{E}_{p_{data}(\mathbf{x})}\left[\lVert s_\theta(\mathbf{x})-\nabla_\mathbf{x}\log p_{data}(\mathbf{x})\rVert_2^2\right]
+\mathcal{L}=\frac{1}{2}\mathbb{E}_{p_{data}(\vx)}\left[\lVert s_\theta(\vx)-\nabla_\vx\log p_{data}(\vx)\rVert_2^2\right]
 \tag{3}
 $$
 
-하지만 여기에는 치명적인 모순이 있다. 우리가 모델을 학습시키는 이유는 실제 데이터 분포 $p_{data}(\mathbf{x})$를 모르기 때문인데, 위 식을 계산하려면 실제 데이터 분포의 기울기를 알아야 한다. 즉, 정답을 모르는데 정답과 비교해야 하는 상황인 것이다.
+하지만 여기에는 치명적인 모순이 있다. 우리가 모델을 학습시키는 이유는 실제 데이터 분포 $p_{data}(\vx)$를 모르기 때문인데, 위 식을 계산하려면 실제 데이터 분포의 기울기를 알아야 한다. 즉, 정답을 모르는데 정답과 비교해야 하는 상황인 것이다.
 
 이 문제를 해결하기 위해 등장한 기법들이 바로 Score Matching이다.
 
@@ -60,12 +60,12 @@ $$
 2005년 Hyvärinen은 부분 적분을 이용해, 실제 데이터의 분포를 몰라도 위 목적 함수를 최소화할 수 있음을 수학적으로 증명했다. 유도 과정을 거친 목적 함수는 아래와 같다.
 
 $$
-\mathcal{L}=\mathbb{E}_{p_{data}(\mathbf{x})}\left[\text{tr}\left(\nabla_\mathbf{x}s_\theta(\mathbf{x})\right)
-+\frac{1}{2}\lVert s_\theta(\mathbf{x})\rVert_2^2\right]
+\mathcal{L}=\mathbb{E}_{p_{data}(\vx)}\left[\text{tr}\left(\nabla_\vx s_\theta(\vx)\right)
++\frac{1}{2}\lVert s_\theta(\vx)\rVert_2^2\right]
 \tag{4}
 $$
 
-하지만 식에 포함된 $\text{tr}(\nabla_\mathbf{x} s_\theta(\mathbf{x}))$ 항은 모델 출력의 입력에 대한 미분값(Jacobian)의 대각합을 구해야 한다. 
+하지만 식에 포함된 $\text{tr}(\nabla_\vx s_\theta(\vx))$ 항은 모델 출력의 입력에 대한 미분값(Jacobian)의 대각합을 구해야 한다. 
 
 이는 데이터 차원이 커질수록 계산량이 기하급수적으로 늘어나기 때문에, 딥러닝에 직접 적용하기엔 너무 무거웠다.
 
@@ -78,15 +78,15 @@ Score Estimation에서는 문제가 하나 있는데, 데이터가 없는 영역
 이를 완화하기 위해 데이터에 분산이 $\sigma^2$인 가우시안 노이즈를 더하고, 노이즈가 섞인 분포의 Score를 추정하도록 하였다.
 
 $$
-p(\tilde{\mathbf{x}}\mid\mathbf{x})=\mathcal{N}(\tilde{\mathbf{x}};\mathbf{x},\sigma^2\mathbf{I})
+p(\tilde{\vx}\mid\vx)=\mathcal{N}(\tilde{\vx};\vx,\sigma^2\vI)
 \tag{5}
 $$
 
 위 조건부 확률은 우리가 직접 정의한 가우시안 분포이기 때문에, 미분 또한 간단하게 계산할 수 있다.
 
 $$
-\nabla_{\tilde{\mathbf{x}}}\log p(\tilde{\mathbf{x}}\mid\mathbf{x})
-=-\frac{\tilde{\mathbf{x}}-\mathbf{x}}{\sigma^2}
+\nabla_{\tilde{\vx}}\log p(\tilde{\vx}\mid\vx)
+=-\frac{\tilde{\vx}-\vx}{\sigma^2}
 \tag{6}
 $$
 
@@ -94,10 +94,10 @@ $$
 
 ![fig4](Score_Matching-4.png)
 
-Vincent는 노이즈가 섞인 데이터 $\tilde{\mathbf{x}}$의 Score를 추정하는 것이, 원본 데이터 $\mathbf{x}$의 Score를 추정하는 것과 최적화 관점에서 동치임을 증명했다.
+Vincent는 노이즈가 섞인 데이터 $\tilde{\vx}$의 Score를 추정하는 것이, 원본 데이터 $\vx$의 Score를 추정하는 것과 최적화 관점에서 동치임을 증명했다.
 
 $$
-\mathcal{L}=\mathbb{E}\left[\lVert s_\theta(\tilde{\mathbf{x}})-\nabla_{\tilde{\mathbf{x}}}\log p_{data}(\tilde{\mathbf{x}}\mid\mathbf{x})\rVert_2^2\right]
-=\mathbb{E}\left[\left\lVert s_\theta(\tilde{\mathbf{x}})-\frac{\tilde{\mathbf{x}}-\mathbf{x}}{\sigma^2}\right\rVert_2^2\right]
+\mathcal{L}=\mathbb{E}\left[\lVert s_\theta(\tilde{\vx})-\nabla_{\tilde{\vx}}\log p_{data}(\tilde{\vx}\mid\vx)\rVert_2^2\right]
+=\mathbb{E}\left[\left\lVert s_\theta(\tilde{\vx})-\frac{\tilde{\vx}-\vx}{\sigma^2}\right\rVert_2^2\right]
 \tag{7}
 $$

@@ -8,33 +8,33 @@ published: true
 ---
 
 ## Qudratic Form
-Qudaratic Form은 어떤 벡터 $\mathbf{x}$를 넣었을 때 2차식이 나오는 형태라고 생각하면 된다.
+Qudaratic Form은 어떤 벡터 $\vx$를 넣었을 때 2차식이 나오는 형태라고 생각하면 된다.
 
 가장 기본적인 형태는 다음과 같다.
 
 $$
-f(\mathbf{x})=\mathbf{x}^\top A\mathbf{x}
+f(\vx)=\vx^\top A\vx
 \tag{1}
 $$
 
-예를 들어 2차원 벡터 $\mathbf{x}$와 대칭 행렬 $A$에 대해 Quadratic Form을 계산하면 다음과 같다.
+예를 들어 2차원 벡터 $\vx$와 대칭 행렬 $A$에 대해 Quadratic Form을 계산하면 다음과 같다.
 
 $$
-\mathbf{x}=\begin{bmatrix}x_1\\x_2\end{bmatrix}~,~
+\vx=\begin{bmatrix}x_1\\x_2\end{bmatrix}~,~
 A=\begin{bmatrix}a & b\\b & c\end{bmatrix}
 \quad\to\quad
-f(\mathbf{x})=ax_1^2+2bx_1x_2+cx_2^2
+f(\vx)=ax_1^2+2bx_1x_2+cx_2^2
 $$
 
-즉, 행렬 $A$는 벡터 $\mathbf{x}$에 대해 2차식의 계수를 결정하는 역할을 한다.
+즉, 행렬 $A$는 벡터 $\vx$에 대해 2차식의 계수를 결정하는 역할을 한다.
 
 ## Positive Definite Matrix
 
-대칭 행렬 $A\in\mathbb{R}^{n\times n}$와 영벡터가 아닌 벡터 $\mathbf{x}$에 대해서 Qudratic Form이 항상 양수값을 가질 때, $A$를 **Positive Definite**하다고 부른다.
+대칭 행렬 $A\in\mathbb{R}^{n\times n}$와 영벡터가 아닌 벡터 $\vx$에 대해서 Qudratic Form이 항상 양수값을 가질 때, $A$를 **Positive Definite**하다고 부른다.
 
 $$
-\mathbf{x}^\top A\mathbf{x}>0
-\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
+\vx^\top A\vx>0
+\;,\quad\text{where }\forall \vx\not=\mathbf{0}
 \tag{2}
 $$
 
@@ -42,13 +42,13 @@ Positive Definite Matrix는 다음과 같은 특징을 가진다.
 
 - $A$의 고유값은 모두 양수이다.
 - $A$의 행렬식은 양수이다.
-- $A$를 이용해 새로운 내적 $\langle\mathbf{x},\mathbf{y}\rangle_A=\mathbf{x}^\top A\mathbf{x}$를 정의할 수 있다.
+- $A$를 이용해 새로운 내적 $\langle\vx,\vy\rangle_A=\vx^\top A\vx$를 정의할 수 있다.
 
-만약 $\mathbf{x}^\top A\mathbf{x}=\mathbf{0}$을 만족하는 $\mathbf{0}$이 아닌 벡터가 존재하면, $A$를 **Positive Semi-Definite**하다고 부른다.
+만약 $\vx^\top A\vx=\mathbf{0}$을 만족하는 $\mathbf{0}$이 아닌 벡터가 존재하면, $A$를 **Positive Semi-Definite**하다고 부른다.
 
 $$
-\mathbf{x}^\top A\mathbf{x}\geq0
-\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
+\vx^\top A\vx\geq0
+\;,\quad\text{where }\forall \vx\not=\mathbf{0}
 \tag{3}
 $$
 
@@ -57,7 +57,7 @@ $$A=\begin{bmatrix}2&1\\1&2\end{bmatrix}$$
 
 **정의로 판별**
 
-$$\mathbf{x}^\top A\mathbf{x}=\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$$
+$$\vx^\top A\vx=\begin{bmatrix}x_1&x_2\end{bmatrix}\begin{bmatrix}2&1\\1&2\end{bmatrix}\begin{bmatrix}x_1\\x_2\end{bmatrix}=2x_1^2+2x_1x_2+2x_2^2=2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$$
 
 $x_1,x_2\neq0$일 때 $2(x_1+\frac{1}{2}x_2)^2+\frac{3}{2}x_2^2$는 항상 양수이므로, $A$는 Positive Definite하다.
 
@@ -75,7 +75,7 @@ Positive Definite Matrix의 성질을 여러 관점에서 해석할 수 있다.
 
 ==$A$가 Positive Definite하다면, Qudratic Form의 곡면은 아래로 볼록한 그릇 모양이 된다.==
 
-Quadratic Form $f(\mathbf{x})=\mathbf{x}^\top A\mathbf{x}$를 3차원 공간 $(x_1,x_2,f)$의 곡면으로 그려 보면, $A$의 고유값의 부호에 따라 원점 주변의 모양이 다음과 같이 달라진다.
+Quadratic Form $f(\vx)=\vx^\top A\vx$를 3차원 공간 $(x_1,x_2,f)$의 곡면으로 그려 보면, $A$의 고유값의 부호에 따라 원점 주변의 모양이 다음과 같이 달라진다.
 
 - **고유값이 모두 양수:** 원점에서 최솟값 $0$을 갖고 모든 방향으로 위로 증가하는 그릇 모양
 - **고유값이 모두 음수:** 원점에서 최댓값을 갖는 뒤집힌 돔 모양
@@ -84,7 +84,7 @@ Quadratic Form $f(\mathbf{x})=\mathbf{x}^\top A\mathbf{x}$를 3차원 공간 $(x
 즉, 행렬 $A$가 Positive Definite하다는 것은, 행렬 $A$가 만드는 2차식이 원점을 제외하면 항상 양수라는 의미이다.
 
 $$
-f(\mathbf{x})>0\;,\quad\text{where }\forall \mathbf{x}\not=\mathbf{0}
+f(\vx)>0\;,\quad\text{where }\forall \vx\not=\mathbf{0}
 $$
 
 ![fig1](Positive_Definite-1.png)
@@ -95,13 +95,13 @@ $$
 
 ==$A$가 Positive Definite하다면, $A$에 의한 변환은 벡터의 방향성을 어느 정도 보존한다.==
 
-Quadratic Form은 벡터 $\mathbf{x}$와 변환된 벡터 $A\mathbf{x}$의 내적으로도 볼 수 있다.
+Quadratic Form은 벡터 $\vx$와 변환된 벡터 $A\vx$의 내적으로도 볼 수 있다.
 
 $$
-\mathbf{x}\cdot (A\mathbf{x})=\mathbf{x}^\top (A\mathbf{x})
+\vx\cdot (A\vx)=\vx^\top (A\vx)
 $$
 
-이때 $A$가 Positive Definite하다면 $\mathbf{x}^\top A\mathbf{x}>0$이기 때문에, 변환된 벡터 $A\mathbf{x}$는 원래 벡터 $\mathbf{x}$와 90º보다 작은 각을 이룬다.
+이때 $A$가 Positive Definite하다면 $\vx^\top A\vx>0$이기 때문에, 변환된 벡터 $A\vx$는 원래 벡터 $\vx$와 90º보다 작은 각을 이룬다.
 
 즉, Positive Definite 변환은 벡터의 방향성을 어느 정도 보존하는 선형 변환으로 볼 수 있다.
 
@@ -110,16 +110,16 @@ _[[출처]](https://angeloyeo.github.io/2021/12/20/positive_definite.html)_
 
 ## 딥러닝에서의 활용
 
-손실 함수, 확률 분포, 분산 등 Quadratic Form $\mathbf{x}^\top A\mathbf{x}$는 어디에서든지 반복해서 등장한다.
+손실 함수, 확률 분포, 분산 등 Quadratic Form $\vx^\top A\vx$는 어디에서든지 반복해서 등장한다.
 <br>
 이때 $A$의 정부호성이 손실 함수의 최솟값이 존재하는지, 유효한 분포인지, 유효한 분산인지 등을 결정하게 된다.
 
 ### 볼록성 (Convexity)
 
-임의의 손실 함수 $\mathcal{L}({\boldsymbol{\theta}})$를 한 점 $\boldsymbol{\theta}_0$​ 근처에서 2차 테일러 전개하면 다음과 같다.
+임의의 손실 함수 $\mathcal{L}({\vtheta})$를 한 점 $\vtheta_0$​ 근처에서 2차 테일러 전개하면 다음과 같다.
 
 $$
-\mathcal{L}(\boldsymbol{\theta}_0+\Delta)\approx \mathcal{L}(\boldsymbol{\theta}_0)+\nabla \mathcal{L}^\top\Delta+\tfrac{1}{2}\,\Delta^\top H\,\Delta
+\mathcal{L}(\vtheta_0+\Delta)\approx \mathcal{L}(\vtheta_0)+\nabla \mathcal{L}^\top\Delta+\tfrac{1}{2}\,\Delta^\top H\,\Delta
 $$
 
 여기서 $\tfrac{1}{2}\Delta^\top H\Delta$라는 Quadratic Form이 손실 함수의 Local 지형을 결정한다.
@@ -130,10 +130,10 @@ $$
 
 ### 가우시안 분포
 
-다변량 가우시안 분포의 수식을 보면, 지수 안에 Quadratic Form $(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)$가 포함되어 있는 것을 확인할 수 있다.
+다변량 가우시안 분포의 수식을 보면, 지수 안에 Quadratic Form $(\vx-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\vx-\boldsymbol\mu)$가 포함되어 있는 것을 확인할 수 있다.
 
 $$
-p(\mathbf{x})=\frac{1}{\sqrt{(2\pi)^D|\boldsymbol\Sigma|}}\exp(-\frac{(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)}{2})
+p(\vx)=\frac{1}{\sqrt{(2\pi)^D|\boldsymbol\Sigma|}}\exp(-\frac{(\vx-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\vx-\boldsymbol\mu)}{2})
 $$
 
 위의 가우시안 분포 공식이 유효하기 위해서는, 공분산 $\Sigma$가 Positive Definite해야 한다.

@@ -48,10 +48,10 @@ $$
 
 ### 그래디언트의 의미
 
-모델에 여러 개의 파라미터 $\boldsymbol{\theta}=[\theta_1,\dots,\theta_N]$이 존재할 때, 손실 함수 $\mathcal{L}$에 대한 그래디언트는 각 파라미터에 대한 편미분 벡터로 나타난다.
+모델에 여러 개의 파라미터 $\vtheta=[\theta_1,\dots,\theta_N]$이 존재할 때, 손실 함수 $\mathcal{L}$에 대한 그래디언트는 각 파라미터에 대한 편미분 벡터로 나타난다.
 
 $$
-\nabla_{\boldsymbol{\theta}}\mathcal{L}=
+\nabla_{\vtheta}\mathcal{L}=
 [\frac{\partial\mathcal{L}}{\partial\theta_1},\dots,\frac{\partial\mathcal{L}}{\partial\theta_N}]
 \tag{3}
 $$

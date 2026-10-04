@@ -17,7 +17,7 @@ published: true
 파라미터 업데이트 수식은 다음과 같다.
 
 $$
-\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t-\eta\nabla_{\boldsymbol{\theta}_t}\mathcal{L}_i
+\vtheta_{t+1}=\vtheta_t-\eta\nabla_{\vtheta_t}\mathcal{L}_i
 \tag{1}
 $$
 
@@ -30,7 +30,7 @@ SGD는 1개의 샘플만 사용하기 때문에 loss 값이 매 epoch마다 심�
 ==현대 딥러닝에서 흔히 SGD라고 부르는 것은 사실상 미니배치 GD를 의미한다.==
 
 $$
-\boldsymbol{\theta}_{t+1}=\boldsymbol{\theta}_t-\eta\frac{1}{B}\sum_{i\in\mathcal{B}}\nabla_{\boldsymbol{\theta}_t}\mathcal{L}_i
+\vtheta_{t+1}=\vtheta_t-\eta\frac{1}{B}\sum_{i\in\mathcal{B}}\nabla_{\vtheta_t}\mathcal{L}_i
 \tag{2}
 $$
 
@@ -54,8 +54,8 @@ $$
 
 $$
 \begin{aligned}
-m_t&=\mu m_{t-1}+\nabla_{\boldsymbol{\theta}_t}\mathcal{L}\\
-\boldsymbol{\theta}_{t+1}&=\boldsymbol{\theta}_t-\eta m_t
+m_t&=\mu m_{t-1}+\nabla_{\vtheta_t}\mathcal{L}\\
+\vtheta_{t+1}&=\vtheta_t-\eta m_t
 \end{aligned}
 \tag{3}
 $$
@@ -74,8 +74,8 @@ $\mu$는 모멘텀 계수로, 과거의 속도를 얼마나 반영할지를 결�
 
 $$
 \begin{aligned}
-v_t&=\gamma v_{t-1}+(1-\gamma)\left(\nabla_{\boldsymbol{\theta}_t}\mathcal{L}\right)^2\\
-\boldsymbol{\theta}_{t+1}&=\boldsymbol{\theta}_t-\frac{\eta}{\sqrt{v_t}+\epsilon}\nabla_{\boldsymbol{\theta}_t}\mathcal{L}
+v_t&=\gamma v_{t-1}+(1-\gamma)\left(\nabla_{\vtheta_t}\mathcal{L}\right)^2\\
+\vtheta_{t+1}&=\vtheta_t-\frac{\eta}{\sqrt{v_t}+\epsilon}\nabla_{\vtheta_t}\mathcal{L}
 \end{aligned}
 \tag{4}
 $$
@@ -94,9 +94,9 @@ Momentum과 RMSprop을 결합한 방법이다.
 
 $$
 \begin{aligned}
-m_{t+1}&=\beta_1m_t+(1-\beta_1)\nabla_{\boldsymbol{\theta}_t}\mathcal{L}\\
-v_{t+1}&=\beta_2v_t+(1-\beta_2)\left(\nabla_{\boldsymbol{\theta}_t}\mathcal{L}\right)^2\\
-\boldsymbol{\theta}_{t+1}&=\boldsymbol{\theta}_t-\eta\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}
+m_{t+1}&=\beta_1m_t+(1-\beta_1)\nabla_{\vtheta_t}\mathcal{L}\\
+v_{t+1}&=\beta_2v_t+(1-\beta_2)\left(\nabla_{\vtheta_t}\mathcal{L}\right)^2\\
+\vtheta_{t+1}&=\vtheta_t-\eta\frac{\hat{m}_t}{\sqrt{\hat{v}_t}+\epsilon}
 \end{aligned}
 \tag{5}
 $$

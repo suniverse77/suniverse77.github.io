@@ -9,45 +9,45 @@ published: true
 
 ## 벡터 위로의 사영 (Projection onto a Vector)
 
-기저가 $\mathbf{b}$인 직선 벡터 공간 $\mathcal{U}$가 있을 때, 벡터 $\mathbf{x}$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\mathbf{x})$는 다음과 같이 정의된다.
+기저가 $\vb$인 직선 벡터 공간 $\mathcal{U}$가 있을 때, 벡터 $\vx$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\vx)$는 다음과 같이 정의된다.
 
 $$
-\text{proj}_\mathcal{U}(\mathbf{x})
-=\frac{\mathbf{b}\cdot\mathbf{x}}{\mathbf{b}\cdot\mathbf{b}}\mathbf{b}
-=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert^2_2}\mathbf{b}
+\text{proj}_\mathcal{U}(\vx)
+=\frac{\vb\cdot\vx}{\vb\cdot\vb}\vb
+=\frac{\vb^\top\vx}{\lVert\vb\rVert^2_2}\vb
 \tag{1}
 $$
 
-내적은 $\mathbf{b}^\top\mathbf{x}=\lVert\mathbf{b}\rVert\cdot\lVert\mathbf{x}\rVert\cos\theta$으로 정의되기 때문에 내적값에는 $\lVert\mathbf{b}\rVert_2$이 포함되어 있다.
+내적은 $\vb^\top\vx=\lVert\vb\rVert\cdot\lVert\vx\rVert\cos\theta$으로 정의되기 때문에 내적값에는 $\lVert\vb\rVert_2$이 포함되어 있다.
 <br>
-또한 $\mathbf{x}$의 정사영의 크기는 $\lVert\mathbf{x}\rVert\cos\theta$이지만, 뒤에 곱해져 있는 $\mathbf{b}$는 단위 벡터가 아니기 때문에 여기에도 $\lVert\mathbf{b}\rVert_2$이 포함되어 있다. 
+또한 $\vx$의 정사영의 크기는 $\lVert\vx\rVert\cos\theta$이지만, 뒤에 곱해져 있는 $\vb$는 단위 벡터가 아니기 때문에 여기에도 $\lVert\vb\rVert_2$이 포함되어 있다. 
 
-따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\mathbf{b}\rVert_2^2$를 나눠야 한다.
+따라서, 정사영을 구할 때 L2 Norm의 제곱인 $\lVert\vb\rVert_2^2$를 나눠야 한다.
 
 ![fig1](Projection-1.png)
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 ::: 식 (1) 유도
-**1. $\text{proj}_\mathcal{U}(\mathbf{x})$는 $\mathcal{U}$ 내의 벡터이기 때문에 $\mathbf{b}$의 상수배이다.**
+**1. $\text{proj}_\mathcal{U}(\vx)$는 $\mathcal{U}$ 내의 벡터이기 때문에 $\vb$의 상수배이다.**
 
-$$\text{proj}_\mathcal{U}(\mathbf{x})=\lambda\mathbf{b}$$
+$$\text{proj}_\mathcal{U}(\vx)=\lambda\vb$$
 
-**2. $\mathbf{x}-\lambda\mathbf{b}$는 $\mathbf{b}$와 직교한다.**
+**2. $\vx-\lambda\vb$는 $\vb$와 직교한다.**
 
-$$\langle\mathbf{x}-\lambda\mathbf{b},\mathbf{b}\rangle=0\to \mathbf{x}^\top\mathbf{b}=\lambda\mathbf{b}^\top\mathbf{b}$$
+$$\langle\vx-\lambda\vb,\vb\rangle=0\to \vx^\top\vb=\lambda\vb^\top\vb$$
 
 **3. 수식을 정리한다.**
 
-$$\lambda=\frac{\mathbf{b}^\top\mathbf{x}}{\mathbf{b}^\top\mathbf{b}}~\to~\text{proj}_\mathcal{U}(\mathbf{x})=\frac{\mathbf{b}^\top\mathbf{x}}{\lVert\mathbf{b}\rVert}\mathbf{b}$$
+$$\lambda=\frac{\vb^\top\vx}{\vb^\top\vb}~\to~\text{proj}_\mathcal{U}(\vx)=\frac{\vb^\top\vx}{\lVert\vb\rVert}\vb$$
 :::
 
 ## 부분공간 위로의 사영 (Projection onto Subspaces)
 
-기저 집합이 $B$인 벡터 부분공간 $\mathcal{U}$가 있을 때, 벡터 $\mathbf{x}$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\mathbf{x})$는 다음과 같이 정의된다.
+기저 집합이 $B$인 벡터 부분공간 $\mathcal{U}$가 있을 때, 벡터 $\vx$의 $\mathcal{U}$ 위로의 정사영 $\text{proj}_\mathcal{U}(\vx)$는 다음과 같이 정의된다.
 
 $$
 
-\text{proj}_\mathcal{U}(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}
+\text{proj}_\mathcal{U}(\vx)=B(B^\top B)^{-1}B^\top\vx
 \tag{2}
 $$
 
@@ -55,29 +55,29 @@ $$
 _출처: Deisenroth, Faisal, & Ong, <i>Mathematics for Machine Learning</i>_
 
 ::: 식 (2) 유도
-**1. $\text{proj}_\mathcal{U}(\mathbf{x})$는 $\mathcal{U}$ 내의 벡터이기 때문에 기저들의 선형 결합으로 표현될 수 있다.**
+**1. $\text{proj}_\mathcal{U}(\vx)$는 $\mathcal{U}$ 내의 벡터이기 때문에 기저들의 선형 결합으로 표현될 수 있다.**
 
-$$\text{proj}_\mathcal{U}(\mathbf{x})(\mathbf{x})=\lambda_1\mathbf{b}_1+\cdots+\lambda_m\mathbf{b}_m=B\boldsymbol\lambda$$
+$$\text{proj}_\mathcal{U}(\vx)(\vx)=\lambda_1\vb_1+\cdots+\lambda_m\vb_m=B\boldsymbol\lambda$$
 
-**2. $\mathbf{x}-\pi_\mathcal{U}(\mathbf{x})$는 $U$의 basis들과 직교한다.**
+**2. $\vx-\pi_\mathcal{U}(\vx)$는 $U$의 basis들과 직교한다.**
 
-$$\langle\mathbf{x}-\pi_\mathcal{U}(\mathbf{x}),\mathbf{b}_1\rangle=0\\\vdots\\\langle\mathbf{x}-\pi_\mathcal{U}(\mathbf{x}),\mathbf{b}_m\rangle=0$$
+$$\langle\vx-\pi_\mathcal{U}(\vx),\vb_1\rangle=0\\\vdots\\\langle\vx-\pi_\mathcal{U}(\vx),\vb_m\rangle=0$$
 
 **3. 위의 수식을 행렬로 표현한다.**
 
-$$\langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0
-\to\mathbf{x}^\top B=(B\boldsymbol\lambda)^\top B$$
+$$\langle\vx-B\boldsymbol\lambda,B\rangle=0
+\to\vx^\top B=(B\boldsymbol\lambda)^\top B$$
 
 **4. 수식을 정리한다.**
 
-$$\boldsymbol\lambda=(B^\top B)^{-1}B^\top\mathbf{x}~\to~\text{proj}_\mathcal{U}(\mathbf{x})(\mathbf{x})=B(B^\top B)^{-1}B^\top\mathbf{x}$$
+$$\boldsymbol\lambda=(B^\top B)^{-1}B^\top\vx~\to~\text{proj}_\mathcal{U}(\vx)(\vx)=B(B^\top B)^{-1}B^\top\vx$$
 :::
 <br>
 
-$\mathbf{x}$의 정사영은 $\mathcal{U}$의 기저들의 선형 결합으로 표현될 수 있다. 따라서 선형 결합 계수 $\lambda$만 안다면 $\text{proj}_\mathcal{U}(\mathbf{x})$를 바로 구할 수 있다.
+$\vx$의 정사영은 $\mathcal{U}$의 기저들의 선형 결합으로 표현될 수 있다. 따라서 선형 결합 계수 $\lambda$만 안다면 $\text{proj}_\mathcal{U}(\vx)$를 바로 구할 수 있다.
 
 $$
-\text{proj}_\mathcal{U}(\mathbf{x})=B\boldsymbol\lambda
+\text{proj}_\mathcal{U}(\vx)=B\boldsymbol\lambda
 \tag{3}
 $$
 
@@ -86,19 +86,19 @@ $$
 
 $$B=\begin{bmatrix}0&1&-3\\-1&-3&4\\2&1&1\\0&-1&2\\2&2&1\end{bmatrix}$$
 
-벡터 $\mathbf{x}=\begin{bmatrix}-1\\\\-9\\\\-1\\\\4\\\\1\end{bmatrix}$를 $V$으로 정사영 시킨 결과는 다음과 같이 구할 수 있다.
+벡터 $\vx=\begin{bmatrix}-1\\\\-9\\\\-1\\\\4\\\\1\end{bmatrix}$를 $V$으로 정사영 시킨 결과는 다음과 같이 구할 수 있다.
 
-먼저 $\mathbf{x}-B\boldsymbol\lambda$와 $B$는 서로 수직이기 때문에, 아래의 식이 성립한다.
+먼저 $\vx-B\boldsymbol\lambda$와 $B$는 서로 수직이기 때문에, 아래의 식이 성립한다.
 
-$$\langle\mathbf{x}-B\boldsymbol\lambda,B\rangle=0~\to~B^\top(\mathbf{x}-B\boldsymbol\lambda)=0~\to~B^\top\mathbf{x}=B^\top B\boldsymbol\lambda$$
+$$\langle\vx-B\boldsymbol\lambda,B\rangle=0~\to~B^\top(\vx-B\boldsymbol\lambda)=0~\to~B^\top\vx=B^\top B\boldsymbol\lambda$$
 
 즉, 아래의 방정식을 풀어 $\boldsymbol\lambda
-$를 구하면 $\text{proj}_\mathcal{U}(\mathbf{x})$를 구할 수 있다.
+$를 구하면 $\text{proj}_\mathcal{U}(\vx)$를 구할 수 있다.
 
-$$[B^\top B\mid B^\top\mathbf{x}]=\begin{bmatrix}\begin{array}{ccc|c}9&9&0&9\\9&16&-14&23\\0&-14&31&-25\end{array}\end{bmatrix}~\to~\boldsymbol\lambda=\begin{bmatrix}-3\\4\\1\end{bmatrix}$$
+$$[B^\top B\mid B^\top\vx]=\begin{bmatrix}\begin{array}{ccc|c}9&9&0&9\\9&16&-14&23\\0&-14&31&-25\end{array}\end{bmatrix}~\to~\boldsymbol\lambda=\begin{bmatrix}-3\\4\\1\end{bmatrix}$$
 
 결과적으로, 부분공간 $\mathcal{U}$ 위로의 정사영된 벡터는 다음과 같다.
 
-$$\text{proj}_\mathcal{U}(\mathbf{x})=B\boldsymbol\lambda=\begin{bmatrix}1\\-5\\-1\\-2\\3\end{bmatrix}$$
+$$\text{proj}_\mathcal{U}(\vx)=B\boldsymbol\lambda=\begin{bmatrix}1\\-5\\-1\\-2\\3\end{bmatrix}$$
 :::
 <br>

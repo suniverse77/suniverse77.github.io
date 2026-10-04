@@ -50,15 +50,15 @@ $$\text{det}(A)=6-0=6$$
 행렬식이 음수라는 것은 공간의 방향의 뒤집힌 것을 의미한다.
 
 :::{red} <strong>Example:</strong> 행렬식인 0인 행렬에 의한 변환
-$$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\mathbf{x}_1=\begin{bmatrix}1\\1\end{bmatrix},\mathbf{x}_2=\begin{bmatrix}2\\4\end{bmatrix}$$
+$$A=\begin{bmatrix}2&4\\2&4\end{bmatrix}~,~\vx_1=\begin{bmatrix}1\\1\end{bmatrix},\vx_2=\begin{bmatrix}2\\4\end{bmatrix}$$
 
 행렬 $A$의 행렬식은 $0$이다.
 
-$\mathbf{x}_1$과 $\mathbf{x}_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
+$\vx_1$과 $\vx_2$는 선형 독립이므로, 두 벡터가 span하는 공간은 2차원 평면이다.
 
 $$\text{span}(\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}2\\4\end{bmatrix})=\mathbb{R}^2$$
 
-하지만 변환 후의 $\mathbf{x}_1$과 $\mathbf{x}_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
+하지만 변환 후의 $\vx_1$과 $\vx_2$는 서로 같은 벡터로, 직선을 span하는 것을 확인할 수 있다.
 
 $$AX=\begin{bmatrix}2&4\\2&4\end{bmatrix}\begin{bmatrix}1&2\\1&4\end{bmatrix}=\begin{bmatrix}6&20\\6&20\end{bmatrix}$$
 
@@ -161,9 +161,9 @@ $A\in\mathbb{R}^{n\times n}$에 대해서 아래 표현은 모두 동일한 의�
 
     만약 $\text{rank}(A)<n$ 이면, 변환 후 출력 공간의 차원이 줄어들어 정보를 복원할 수 없게 된다.
 
-- $A\mathbf{x}=\mathbf{b}$가 유일한 해를 가짐
+- $A\vx=\vb$가 유일한 해를 가짐
 
-    $A$가 가역 행렬이라면, $\mathbf{x}=A^{-1}\mathbf{b}$이므로 $\mathbf{x}$는 유일한 해를 가지게 된다.
+    $A$가 가역 행렬이라면, $\vx=A^{-1}\vb$이므로 $\vx$는 유일한 해를 가지게 된다.
 
 - $A$의 고유값에 0이 없음
 

@@ -14,7 +14,7 @@ published: true
 **선형 변환**은 ==선형성을 만족하는 특별한 변환==을 의미하며, 다음과 같이 표현된다.
 
 $$
-T(a\mathbf{u}+b\mathbf{v})=a\cdot T(\mathbf{u})+b\cdot T(\mathbf{v})
+T(a\vu+b\vv)=a\cdot T(\vu)+b\cdot T(\vv)
 \tag{1}
 $$
 
@@ -23,12 +23,12 @@ $$
 1. 두 벡터를 먼저 더한 후 변환한 결과는, 각각을 변환한 후 더한 결과와 같다.
 
     $$
-    T(\mathbf{u}+\mathbf{v})=T(\mathbf{u})+T(\mathbf{v})
+    T(\vu+\vv)=T(\vu)+T(\vv)
     $$
 2. 벡터에 스칼라를 곱한 후 변환한 결과는, 변환을 먼저 한 후 스칼라를 곱한 결과와 같다.
 
     $$
-    T(a\mathbf{u})=a\cdot T(\mathbf{u})
+    T(a\vu)=a\cdot T(\vu)
     $$
 
 선형 변환에서는 다음의 기하학적 특징을 가진다.
@@ -70,7 +70,7 @@ $$
 A=\begin{bmatrix}1&3\\-2&0\end{bmatrix}\in\mathbb{R}^{2\times2}
 $$
 
-이제 유클리드 좌표계 위의 벡터 $\mathbf{x}=\mathbf{i}+\mathbf{j}$에 선형 변환 $A$를 적용해 보자.
+이제 유클리드 좌표계 위의 벡터 $\vx=\vi+\vj$에 선형 변환 $A$를 적용해 보자.
 
 #### 기저 벡터의 이동
 
@@ -79,24 +79,24 @@ $$
 즉, 벡터를 기저 벡터의 선형 결합으로 나타냈을 때 그 계수는 그대로 유지되지만, 기저 벡터 자체가 새로운 위치로 이동하기 때문에 벡터가 가리키는 실제 위치가 바뀌는 것이다.
 
 $$
-\mathbf{x}=1\mathbf{i}+1\mathbf{j}\quad\to\quad
-A\mathbf{x}=1(A\mathbf{i})+1(A\mathbf{j})
+\vx=1\vi+1\vj\quad\to\quad
+A\vx=1(A\vi)+1(A\vj)
 $$
 
-기저 벡터 $\mathbf{i}$, $\mathbf{j}$가 이동한 위치를 각각 $\mathbf{v}_1$, $\mathbf{v}_2$라고 하면, 이는 다음과 같이 구해진다.
+기저 벡터 $\vi$, $\vj$가 이동한 위치를 각각 $\vv_1$, $\vv_2$라고 하면, 이는 다음과 같이 구해진다.
 
 $$
-\mathbf{v}_1=A\mathbf{i}=\begin{bmatrix}1\\-2\end{bmatrix}
+\vv_1=A\vi=\begin{bmatrix}1\\-2\end{bmatrix}
 \quad,\quad
-\mathbf{v}_2=A\mathbf{j}=\begin{bmatrix}3\\0\end{bmatrix}
+\vv_2=A\vj=\begin{bmatrix}3\\0\end{bmatrix}
 $$
 
 즉, ==행렬의 각 열 벡터는 원래 기저 벡터가 변환 후 도달한 위치==이다.
 
-따라서 $\mathbf{x}$의 변환 결과 $A\mathbf{x}$는 계수 $(1, 1)$을 유지한 채 기저 벡터만 갈아끼운 것으로 계산된다.
+따라서 $\vx$의 변환 결과 $A\vx$는 계수 $(1, 1)$을 유지한 채 기저 벡터만 갈아끼운 것으로 계산된다.
 
 $$
-A\mathbf{x}=1\mathbf{v}_1+1\mathbf{v}_2
+A\vx=1\vv_1+1\vv_2
 =\begin{bmatrix}1\\-2\end{bmatrix}+\begin{bmatrix}3\\0\end{bmatrix}
 =\begin{bmatrix}4\\-2\end{bmatrix}
 $$
@@ -105,33 +105,33 @@ $$
 
 #### 원래 벡터를 새로운 기저로 표현
 
-반대로, 변환 전의 벡터 $\mathbf{x}=\mathbf{i}+\mathbf{j}$를 새로운 기저 $\mathbf{v}_1$, $\mathbf{v}_2$로 표현하면 어떻게 될까?
+반대로, 변환 전의 벡터 $\vx=\vi+\vj$를 새로운 기저 $\vv_1$, $\vv_2$로 표현하면 어떻게 될까?
 <br>
 주의할 점은, 이는 위와 달리 벡터를 이동시키는 것이 아니라 ==가만히 있는 벡터를 읽는 기준만 바꾸는 것==이므로 계수 $(1,1)$이 유지되지 않는다는 것이다.
 
-찾고자 하는 것은 $\mathbf{x}=c_1\mathbf{v}_1+c_2\mathbf{v}_2$를 만족하는 계수 $(c_1, c_2)$이다.
+찾고자 하는 것은 $\vx=c_1\vv_1+c_2\vv_2$를 만족하는 계수 $(c_1, c_2)$이다.
 
-$\mathbf{v}_1$, $\mathbf{v}_2$가 행렬 $A$의 열이므로 이 식은 $\mathbf{x}=A\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$로 쓸 수 있고, 양변에 $A^{-1}$을 곱하면 ==새로운 기저에서의 좌표는 역변환으로 구해짐==을 알 수 있다.
+$\vv_1$, $\vv_2$가 행렬 $A$의 열이므로 이 식은 $\vx=A\begin{bmatrix}c_1\\\\c_2\end{bmatrix}$로 쓸 수 있고, 양변에 $A^{-1}$을 곱하면 ==새로운 기저에서의 좌표는 역변환으로 구해짐==을 알 수 있다.
 
 $$
-\begin{bmatrix}c_1\\c_2\end{bmatrix}=A^{-1}\mathbf{x}=
+\begin{bmatrix}c_1\\c_2\end{bmatrix}=A^{-1}\vx=
 \frac{1}{6}\begin{bmatrix}0&-3\\2&1\end{bmatrix}
 \begin{bmatrix}1\\1\end{bmatrix}=
 \begin{bmatrix}-0.5\\0.5\end{bmatrix}
 $$
 
-즉, 원래 벡터 $\mathbf{x}$는 새로운 기저로 다음과 같이 표현된다.
+즉, 원래 벡터 $\vx$는 새로운 기저로 다음과 같이 표현된다.
 
 $$
-\mathbf{x}=-0.5\mathbf{v}_1+0.5\mathbf{v}_2
+\vx=-0.5\vv_1+0.5\vv_2
 $$
 
 ![fig4](Linear_Transform-4.png)
 
 정리하면, 같은 행렬 $A$를 두고 두 가지 방향의 해석이 존재한다.
 
-1. **벡터를 실제로 이동시키는 변환의 관점:** 계수가 유지된 채 도착지가 $A\mathbf{x}$로 정해짐
-2. **벡터는 그대로 둔 채 기준만 바꾸는 기저 변환의 관점:** 새로운 좌표가 $A^{-1}\mathbf{x}$로 정해짐
+1. **벡터를 실제로 이동시키는 변환의 관점:** 계수가 유지된 채 도착지가 $A\vx$로 정해짐
+2. **벡터는 그대로 둔 채 기준만 바꾸는 기저 변환의 관점:** 새로운 좌표가 $A^{-1}\vx$로 정해짐
 
 ### 회전 행렬 (Rotation Matrix)
 

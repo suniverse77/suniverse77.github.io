@@ -21,7 +21,7 @@ x_1+x_2+x_3=3\\x_1-x_2+2x_2=2\\2x_1+x_3=1
 =\begin{bmatrix}3\\2\\1\end{bmatrix}
 $$
 
-이때 변수 벡터 $\mathbf{x}$를 $\mid$ (bar)로 표현해서, 하나의 행렬로 나타낸 것을 **첨가 행렬 (Augmented Matrix)**이라고 부른다.
+이때 변수 벡터 $\vx$를 $\mid$ (bar)로 표현해서, 하나의 행렬로 나타낸 것을 **첨가 행렬 (Augmented Matrix)**이라고 부른다.
 
 $$
 \begin{bmatrix}1&1&1\\1&-1&2\\2&0&1\end{bmatrix}
@@ -52,7 +52,7 @@ $$
 1&0&0&1\\0&1&0&2\\0&0&1&3
 \end{array}\end{bmatrix}
 ~\to~
-\mathbf{x}=\begin{bmatrix}1\\2\\3\end{bmatrix}
+\vx=\begin{bmatrix}1\\2\\3\end{bmatrix}
 $$
 
 기하학적으로는, 예를 들어 2차원 공간에서 두 직선이 오직 한 점에서만 만나는 상황으로 이해할 수 있다.
@@ -72,7 +72,7 @@ $$
 1&0&2&1\\0&1&3&2\\0&0&0&0
 \end{array}\end{bmatrix}
 ~\to~
-\mathbf{x}=\begin{bmatrix}1-2x_3\\2-3x_3\\x_3\end{bmatrix}
+\vx=\begin{bmatrix}1-2x_3\\2-3x_3\\x_3\end{bmatrix}
 $$
 
 위에서 변수 $x_3$에 따라 해가 결정되며, 이때 $x_3$를 자유 변수라고 부른다.
@@ -99,14 +99,14 @@ $$
 
 ### 연립 방정식의 해가 존재할 조건
 
-선형 연립 방정식 $A\mathbf{x}=\mathbf{b}$의 해가 존재할 조건은 여러 관점에서 설명할 수 있다.
+선형 연립 방정식 $A\vx=\vb$의 해가 존재할 조건은 여러 관점에서 설명할 수 있다.
 
 **1. Rank 관점**
 
-행렬 $A$의 Rank와 첨가 행렬 $[A\mid \mathbf{b}]$의 Rank가 같아야 해가 존재한다.
+행렬 $A$의 Rank와 첨가 행렬 $[A\mid \vb]$의 Rank가 같아야 해가 존재한다.
 
 $$
-\text{rank}(A)=\text{rank}(A\mid \mathbf{b})
+\text{rank}(A)=\text{rank}(A\mid \vb)
 $$
 
 즉, 가우스 소거법을 이용해 REF 형태로 만들었을 때 아래 형태의 행이 존재하면 안된다.
@@ -117,40 +117,40 @@ $$
 
 변수의 개수를 $n$이라고 할 때, 아래의 경우로 나눌 수 있다.
 
-- **해가 유일함**: $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=n$
-- **해가 무수히 많음**: $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})<n$
-- **해가 없음**: $\text{rank}(A)<\text{rank}(A\mid \mathbf{b})$
+- **해가 유일함**: $\text{rank}(A)=\text{rank}(A\mid \vb)=n$
+- **해가 무수히 많음**: $\text{rank}(A)=\text{rank}(A\mid \vb)<n$
+- **해가 없음**: $\text{rank}(A)<\text{rank}(A\mid \vb)$
 
 :::{red} <strong>Example:</strong> 연립 방정식의 해 판별
-$$[A\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \mathbf{b}]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
+$$[A\mid \vb]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&0&1&3\end{array}\end{bmatrix}~,~[B\mid \vb]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&2\end{array}\end{bmatrix}~,~[C\mid \vb]=\begin{bmatrix}\begin{array}{ccc|c}1&0&0&1\\0&1&0&2\\0&1&0&3\end{array}\end{bmatrix}$$
 
-$[A\mid \mathbf{b}]$는 $\text{rank}(A)=\text{rank}(A\mid \mathbf{b})=3$이므로 유일한 해를 가진다.
+$[A\mid \vb]$는 $\text{rank}(A)=\text{rank}(A\mid \vb)=3$이므로 유일한 해를 가진다.
 
-$[B\mid \mathbf{b}]$는 $\text{rank}(B)=\text{rank}(B\mid \mathbf{b})=2<3$이므로 해가 무수히 많이 존재한다.
+$[B\mid \vb]$는 $\text{rank}(B)=\text{rank}(B\mid \vb)=2<3$이므로 해가 무수히 많이 존재한다.
 
-$[C\mid \mathbf{b}]$는 $\text{rank}(C)<\text{rank}(C\mid \mathbf{b})$이므로 해가 존재하지 않는다.
+$[C\mid \vb]$는 $\text{rank}(C)<\text{rank}(C\mid \vb)$이므로 해가 존재하지 않는다.
 :::
 <br>
 
 **2. 벡터 공간 관점**
 
-벡터 $\mathbf{b}$가 행렬 $A$의 열공간에 포함되어야 한다.
+벡터 $\vb$가 행렬 $A$의 열공간에 포함되어야 한다.
 
 $$
-\mathbf{b}\in C(A)
+\vb\in C(A)
 $$
 
-즉, 행렬 $A$의 열벡터의 선형 결합으로 span되는 공간에 $\mathbf{b}$가 존재해야 한다.
+즉, 행렬 $A$의 열벡터의 선형 결합으로 span되는 공간에 $\vb$가 존재해야 한다.
 
 **$A$가 정사각 행렬인 경우**
 
-정사각 행렬 $A$가 가역 행렬이라면, 어떤 $\mathbf{b}$에 대해서도 항상 유일한 해가 존재한다.
+정사각 행렬 $A$가 가역 행렬이라면, 어떤 $\vb$에 대해서도 항상 유일한 해가 존재한다.
 
 $$
-\mathbf{x}=A^{-1}\mathbf{b}
+\vx=A^{-1}\vb
 $$
 
-즉, $\text{det}(A)=0$일때 $A\mathbf{x}=\mathbf{b}$는 유일한 해를 가진다.
+즉, $\text{det}(A)=0$일때 $A\vx=\vb$는 유일한 해를 가진다.
 
 ## 가우스 소거법 (Gauss Elimination)
 
@@ -233,23 +233,23 @@ RREF (Reduced REF)는 REF에서 한 단계 더 나아간 형태로, 가우스 �
 
 ## 연립 선형 방정식 풀기
 
-연립방정식 $A\mathbf{x}=\mathbf{b}$의 **일반해(General solution)**는 **특수해(Particular solution)**와 **동차해(Homogeneous solution)**의 합으로 표현될 수 있다.
+연립방정식 $A\vx=\vb$의 **일반해(General solution)**는 **특수해(Particular solution)**와 **동차해(Homogeneous solution)**의 합으로 표현될 수 있다.
 
 $$
-\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h
+\vx=\vx_p+\vx_h
 $$
 
-- **특수해:** $A\mathbf{x}=\mathbf{b}$를 만족하는 하나의 특정한 해
-- **동차해:** 동차방정식 (Homogeneous Equation) $A\mathbf{x}=\mathbf{0}$를 만족하는 모든 해들의 집합
+- **특수해:** $A\vx=\vb$를 만족하는 하나의 특정한 해
+- **동차해:** 동차방정식 (Homogeneous Equation) $A\vx=\mathbf{0}$를 만족하는 모든 해들의 집합
 
-동차해를 특수해에 더해도 $A\mathbf{x}=A(\mathbf{x}_p+\mathbf{x}_h)=A\mathbf{x}_p+A\mathbf{x}_h=\mathbf{b}+\mathbf{0}=\mathbf{b}$이기 때문에 방정식의 결과는 변하지 않는다.
+동차해를 특수해에 더해도 $A\vx=A(\vx_p+\vx_h)=A\vx_p+A\vx_h=\vb+\mathbf{0}=\vb$이기 때문에 방정식의 결과는 변하지 않는다.
 
-$A\mathbf{x}=\mathbf{0}$에서 $\mathbf{x}=\mathbf{0}$은 항상 해가 되기 때문에 **자명해(Trivial solution)**라고 부르며, 그 외의 해는 **비자명해(Non-Trivial soltuion)**라고 부른다.
+$A\vx=\mathbf{0}$에서 $\vx=\mathbf{0}$은 항상 해가 되기 때문에 **자명해(Trivial solution)**라고 부르며, 그 외의 해는 **비자명해(Non-Trivial soltuion)**라고 부른다.
     
-$A\mathbf{x}=\mathbf{0}$에서 행렬 $A$가 Invertible하다면, 해는 영벡터밖에 없다.
+$A\vx=\mathbf{0}$에서 행렬 $A$가 Invertible하다면, 해는 영벡터밖에 없다.
 
 $$
-A\mathbf{x}=\mathbf{0}~\to~A^{-1}A\mathbf{x}=A^{-1}\mathbf{0}~\to~\mathbf{x}=\mathbf{0}
+A\vx=\mathbf{0}~\to~A^{-1}A\vx=A^{-1}\mathbf{0}~\to~\vx=\mathbf{0}
 $$
 
 이것은 변환 후 원점에 도달하는 유일한 벡터는 변환 전에도 원점이었다는 것을 뜻한다.
@@ -277,7 +277,7 @@ $$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_
 
 4. 특수해를 구함
 
-   $$\mathbf{x}_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}$$
+   $$\vx_p=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}$$
 
 **2. Solve Homogeneous Equation**
 
@@ -293,11 +293,11 @@ $$\begin{bmatrix}1&0&8&-4\\0&1&2&12\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\\x_
 
 3. 동차해를 구함
 
-   $$\mathbf{x}_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+   $$\vx_h=x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
 
 **3. Find General solution**
 
-$$\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
+$$\vx=\vx_p+\vx_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x_3\begin{bmatrix}-8\\-2\\1\\0\end{bmatrix}+x_4\begin{bmatrix}4\\-12\\0\\1\end{bmatrix}$$
 :::
 <br>
 
@@ -305,20 +305,20 @@ $$\mathbf{x}=\mathbf{x}_p+\mathbf{x}_h=\begin{bmatrix}42\\8\\0\\0\end{bmatrix}+x
 
 단순히 모든 해를 나열하는 것보다, '특수해 + 동차해'로 표현하는 것이 더 효율적이기 때문이다.
 
-특수해는 $A\mathbf{x}=\mathbf{b}$를 만족하는 모든 해 중 하나를 고른 것이다.
+특수해는 $A\vx=\vb$를 만족하는 모든 해 중 하나를 고른 것이다.
 <br>
 즉, 해공간(Solution space) 위의 하나의 벡터인 것이다.
 
-동차해는 $A\mathbf{x}=\mathbf{0}$을 만족하는 모든 벡터를 모은 것이다. 즉, [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)이다.
+동차해는 $A\vx=\mathbf{0}$을 만족하는 모든 벡터를 모은 것이다. 즉, [Null Space](https://suniverse77.github.io/posts/Matrix-Space/#영공간-null-space)이다.
 
-영공간을 직선이라고 가정할 때, $\mathbf{x}_p+\mathbf{x}_h$는 직선을 정답을 위치한 공간으로 평행이동하는 것으로 볼 수 있다.
+영공간을 직선이라고 가정할 때, $\vx_p+\vx_h$는 직선을 정답을 위치한 공간으로 평행이동하는 것으로 볼 수 있다.
 
 예를 들어, $x+y=1$을 가정해보자.
 
-이 방정식에서 특수해는 $\mathbf{x}_p=(0,1)$, 동차해는 $\mathbf{x}_h=(t,-t)$로 구할 수 있고, 그에 따른 일반해는 아래와 같다.
+이 방정식에서 특수해는 $\vx_p=(0,1)$, 동차해는 $\vx_h=(t,-t)$로 구할 수 있고, 그에 따른 일반해는 아래와 같다.
 
 $$
-\mathbf{x}=\begin{bmatrix}0\\1\end{bmatrix}
+\vx=\begin{bmatrix}0\\1\end{bmatrix}
 +t\begin{bmatrix}1\\-1\end{bmatrix}
 $$
 
@@ -329,5 +329,5 @@ $$
 ![fig1](Linear_Equation-1.png)
 
 - 빨간색 직선은 $x+y=1$ 즉, 해공간을 나타낸다.
-- 파란색 직선은 $x+y=0$ 즉, 영공간인 동차해 $\mathbf{x}_h$를 나타낸다.
-- 초록색 벡터는 특수해 $\mathbf{x}_p$를 나타낸다.
+- 파란색 직선은 $x+y=0$ 즉, 영공간인 동차해 $\vx_h$를 나타낸다.
+- 초록색 벡터는 특수해 $\vx_p$를 나타낸다.

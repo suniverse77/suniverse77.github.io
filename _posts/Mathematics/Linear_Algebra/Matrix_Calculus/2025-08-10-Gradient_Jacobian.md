@@ -96,7 +96,7 @@ $$
 벡터 함수 $\mathbf f:\mathbb{R}^n\to\mathbb{R}^m$에 대해, 각 출력 성분 $f_i$를 각 입력 변수 $x_j$에 대해 편미분한 값들을 모은 행렬을 **자코비안**이라고 한다.
 
 $$
-J_\mathbf f(\mathbf{x})=
+J_\mathbf f(\vx)=
 \frac{\partial\mathbf f}{\partial\mathbf x}=
 \begin{bmatrix}
 \frac{\partial \mathbf f(\mathbf x)}{\partial x_1}&\cdots&\frac{\partial \mathbf f(\mathbf x)}{\partial x_n}
@@ -113,7 +113,7 @@ $$
 여기서 벡터 함수는 벡터를 입력 받아 벡터를 출력하는 함수이다.
 
 $$
-\mathbf{y}=
+\vy=
 \mathbf f(\mathbf x)=
 \begin{bmatrix}
 f_1(\mathbf x)\\\vdots\\ f_m(\mathbf x)
@@ -141,13 +141,13 @@ $$
 출력 차원이 $m=1$인 스칼라 함수에서는 자코비안이 $1\times n$ 행벡터가 되며, 이는 사실상 그래디언트의 전치와 같다.
 
 $$
-J_\mathbf f(\mathbf{x})=\nabla_{\mathbf x}f(\mathbf x)^{\mathsf T}
+J_\mathbf f(\vx)=\nabla_{\mathbf x}f(\mathbf x)^{\mathsf T}
 \tag{13}
 $$
 
 ## 그래디언트 계산법
 
-들어가기에 앞서, 계산 과정에서 $\nabla\mathbf{x}^\top\nabla\mathbf{x}$와 같은 2차항은 무시 가능하다는 것을 참고 바란다.
+들어가기에 앞서, 계산 과정에서 $\nabla\vx^\top\nabla\vx$와 같은 2차항은 무시 가능하다는 것을 참고 바란다.
 
 딥러닝에서는 입력이 행렬이고 출력이 스칼라인 함수에서의 미분도 그래디언트라고 부른다.
 
@@ -157,7 +157,7 @@ $$
 
 $$
 f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)\approx
-\left(\nabla f(\mathbf{x})\right)^\top\Delta\mathbf x
+\left(\nabla f(\vx)\right)^\top\Delta\mathbf x
 \tag{8}
 $$
 
@@ -166,15 +166,15 @@ $$\frac{\partial \mathbf x^\top A\mathbf x}{\partial\mathbf x}$$
 
 1. 함수 정의
 
-      $$f(\mathbf{x})=\mathbf x^\top A\mathbf x$$
+      $$f(\vx)=\mathbf x^\top A\mathbf x$$
 
 2. 선형 근사 식
 
-      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\mathbf{x})^\top A(\mathbf x+\Delta\mathbf{x})-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\mathbf{x}$$
+      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf x+\Delta\vx)^\top A(\mathbf x+\Delta\vx)-\mathbf x^\top A\mathbf x=\mathbf x^\top(A+A^\top)\Delta\vx$$
 
 따라서 그래디언트는 다음과 같다.
 
-$$\nabla f(\mathbf{x})=(A+A^\top)\mathbf x$$
+$$\nabla f(\vx)=(A+A^\top)\mathbf x$$
 :::
 
 :::{red} <strong>Example:</strong> 벡터 미분 2
@@ -182,15 +182,15 @@ $$\frac{\partial\left<\mathbf x\cdot\mathbf x\right>}{\partial\mathbf x}$$
 
 1. 함수 정의
 
-      $$f(\mathbf{x})=\left<\mathbf x\cdot\mathbf x\right>=\mathbf{x}^\top\mathbf{x}$$
+      $$f(\vx)=\left<\mathbf x\cdot\mathbf x\right>=\vx^\top\vx$$
 
 2. 선형 근사 식
 
-      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\mathbf{x}+\Delta\mathbf{x})^\top(\mathbf{x}+\Delta\mathbf{x})-\mathbf{x}^\top\mathbf{x}=2\mathbf x^\top\Delta\mathbf{x}$$
+      $$f(\mathbf x+\Delta\mathbf x)-f(\mathbf x)=(\vx+\Delta\vx)^\top(\vx+\Delta\vx)-\vx^\top\vx=2\mathbf x^\top\Delta\vx$$
 
 따라서 그래디언트는 다음과 같다.
 
-$$\nabla f(\mathbf{x})=2\mathbf{x}$$
+$$\nabla f(\vx)=2\vx$$
 :::
 
 ### 행렬 미분
@@ -204,23 +204,23 @@ f(X+\Delta X)-f(X)\approx
 $$
 
 :::{red} <strong>Example:</strong> 행렬 미분 1
-$$\frac{\partial \mathbf{a}^\top X\mathbf{b}}{\partial X}$$
+$$\frac{\partial \va^\top X\vb}{\partial X}$$
 
 1. 함수 정의
 
-      $$f(X)=\mathbf{a}^\top X\mathbf{b}$$
+      $$f(X)=\va^\top X\vb$$
 
 2. 선형 근사 식
 
-      $$f(X+\Delta X)-f(X)=\mathbf{a}^\top (X+\Delta X)\mathbf{b}-\mathbf{a}^\top X\mathbf{b}=\mathbf{a}^\top \Delta X\mathbf{b}$$
+      $$f(X+\Delta X)-f(X)=\va^\top (X+\Delta X)\vb-\va^\top X\vb=\va^\top \Delta X\vb$$
 
 3. Trace로 표현
 
-      $$\mathbf{a}^\top \Delta X\mathbf{b}=\text{tr}(\mathbf{a}^\top \Delta X\mathbf{b})=\text{tr}(\mathbf{b}\mathbf{a}^\top \Delta X)$$
+      $$\va^\top \Delta X\vb=\text{tr}(\va^\top \Delta X\vb)=\text{tr}(\vb\va^\top \Delta X)$$
 
 따라서 그래디언트는 다음과 같다.
 
-$$\nabla_X f(X)=\mathbf{b}\mathbf{a}^\top$$
+$$\nabla_X f(X)=\vb\va^\top$$
 :::
 
 :::{red} <strong>Example:</strong> 행렬 미분 2
@@ -261,11 +261,11 @@ $$\nabla_X f(X)=-X^{-\top}$$
 
 ## 자코비안 계산법
 
-입력이 벡터이고 출력도 벡터인 함수 $\mathbf{f}:\mathbb{R}^{n}\to\mathbb{R}^m$에 대해, 자코비안 아래와 같은 선형 근사 식이 성립하도록 정의된다.
+입력이 벡터이고 출력도 벡터인 함수 $\vf:\mathbb{R}^{n}\to\mathbb{R}^m$에 대해, 자코비안 아래와 같은 선형 근사 식이 성립하도록 정의된다.
 
 $$
-\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})\approx
-J_{\mathbf{f}}(\mathbf{x})\Delta\mathbf{x}
+\vf(\vx+\Delta \vx)-\vf(\vx)\approx
+J_{\vf}(\vx)\Delta\vx
 \tag{10}
 $$
 
@@ -274,13 +274,13 @@ $$\frac{\partial A\mathbf x}{\partial\mathbf x}$$
 
 1. 함수 정의
 
-      $$\mathbf{f}(\mathbf{x})=A\mathbf{x}$$
+      $$\vf(\vx)=A\vx$$
 
 2. 선형 근사 식
 
-      $$\mathbf{f}(\mathbf{x}+\Delta \mathbf{x})-\mathbf{f}(\mathbf{x})=A(\mathbf{x}+\Delta\mathbf{x})-A\mathbf{x}=A\Delta\mathbf{x}$$
+      $$\vf(\vx+\Delta \vx)-\vf(\vx)=A(\vx+\Delta\vx)-A\vx=A\Delta\vx$$
 
 따라서 자코비안은 다음과 같다.
 
-$$J_{\mathbf{f}}(\mathbf{x})=A$$
+$$J_{\vf}(\vx)=A$$
 :::

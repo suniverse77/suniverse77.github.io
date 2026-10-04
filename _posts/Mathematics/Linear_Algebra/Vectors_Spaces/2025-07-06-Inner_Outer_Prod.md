@@ -23,12 +23,12 @@ $$
 Inner Product space에서는 Norm과 Distance가 아래와 같이 정의된다.
 
 $$
-\lVert\mathbf{x}\rVert=\sqrt{\langle\mathbf{x},\mathbf{x}\rangle}
+\lVert\vx\rVert=\sqrt{\langle\vx,\vx\rangle}
 \tag{2}
 $$
 
 $$
-d(\mathbf{x},\mathbf{y}):=\lVert\mathbf{x}-\mathbf{y}\rVert=\sqrt{\langle\mathbf{x}-\mathbf{y},\mathbf{x}-\mathbf{y}\rangle}
+d(\vx,\vy):=\lVert\vx-\vy\rVert=\sqrt{\langle\vx-\vy,\vx-\vy\rangle}
 \tag{3}
 $$
 
@@ -55,7 +55,7 @@ $$
 Inner Product space에서 두 벡터가 이루는 각도는 아래와 같이 정의된다.
 
 $$
-\theta=\cos^{-1}\big(\frac{\langle\mathbf{x},\mathbf{y}\rangle}{\lVert\mathbf{x}\rVert\cdot\lVert\mathbf{y}\rVert}\big)
+\theta=\cos^{-1}\big(\frac{\langle\vx,\vy\rangle}{\lVert\vx\rVert\cdot\lVert\vy\rVert}\big)
 \tag{4}
 $$
 
@@ -68,7 +68,7 @@ $$
 실수 벡터 공간 $\mathbb{R}^n$에서 아래와 같이 정의되는 내적을 **Dot Product** (또는 **Scalar Product**)라고 부른다.
 
 $$
-\langle\mathbf{x},\mathbf y\rangle:=\mathbf x^\top \mathbf y
+\langle\vx,\mathbf y\rangle:=\mathbf x^\top \mathbf y
 \tag{5}
 $$
 
@@ -96,7 +96,7 @@ $$
 두 벡터의 곱으로 행렬을 생성하는 연산을 **외적**이라고 한다.
 
 $$
-\mathbf{x}\otimes\mathbf{y}:=\mathbf{x}\mathbf{y}^\top
+\vx\otimes\vy:=\vx\vy^\top
 \tag{7}
 $$
 
@@ -107,7 +107,7 @@ $\mathbf{0}$을 제외했을 때, 외적으로 생성된 행렬의 Rank는 항�
 **벡터곱**은 3차원 벡터에 대해서만 정의되는 연산으로, 두 3차원 벡터에 수직인 벡터를 생성하는 연산이다.
 
 $$
-\mathbf{x}\times\mathbf{y}:=\begin{vmatrix}\mathbf{i}&\mathbf{j}&\mathbf{k}\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\mathbf{i}-(x_1y_3-x_3y_1)\mathbf{j}+(x_1y_2-x_2y_1)\mathbf{k}
+\vx\times\vy:=\begin{vmatrix}\vi&\vj&\vk\\x_1&x_2&x_3\\y_1&y_2&y_3\end{vmatrix}=(x_2y_3-x_3y_2)\vi-(x_1y_3-x_3y_1)\vj+(x_1y_2-x_2y_1)\vk
 \tag{8}
 $$
 

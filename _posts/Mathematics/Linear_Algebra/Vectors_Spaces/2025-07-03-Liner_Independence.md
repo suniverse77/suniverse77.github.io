@@ -14,7 +14,7 @@ published: true
 벡터를 상수배하고 더하는 두 가지 기본 연산으로 이루어져 있는 1차식 형태이기 때문에 **선형**이고, 여러 개의 벡터를 함께 사용하여 새로운 벡터를 만들어내기 때문에 **결합**이라고 표현한다.
 
 $$
-\mathbf{v}=c_1\mathbf{v}_1+\cdots+c_n\mathbf{v}_n
+\vv=c_1\vv_1+\cdots+c_n\vv_n
 \tag{1}
 $$
 
@@ -23,14 +23,14 @@ $$
 $$
 \begin{bmatrix}2\\4\end{bmatrix}=
 2\cdot\begin{bmatrix}1\\0\end{bmatrix}+4\cdot\begin{bmatrix}0\\1\end{bmatrix}
-=2\mathbf{i}+4\mathbf{j}
+=2\vi+4\vj
 $$
 
 ## 선형 생성 (Span)
 
 벡터 집합 $\mathcal{V}$에 있는 벡터들의 가능한 모든 선형 결합으로 만들어지는 집합을 $\text{span}(\mathcal{V})$라고 한다.
 
-2차원 공간에서 $\mathbf{v}$와 $\mathbf{w}$의 span은 두 벡터의 모든 선형 결합의 집합 $a\mathbf{v}+b\mathbf{w}$이다.
+2차원 공간에서 $\vv$와 $\vw$의 span은 두 벡터의 모든 선형 결합의 집합 $a\vv+b\vw$이다.
 
 예를 들어, 아래의 두 벡터는 서로 평행하기 때문에 span한 결과는 1차원 직선이 된다.
 
@@ -46,35 +46,35 @@ $$
 
 ## 선형 독립 (Linear Independence)
 
-벡터들의 집합 $\lbrace\mathbf{v}_1,\dots,\mathbf{v}_n\rbrace$이 주어졌을 때,
+벡터들의 집합 $\lbrace\vv_1,\dots,\vv_n\rbrace$이 주어졌을 때,
 
 $$
-\mathbf{0}=\lambda_1\mathbf{v}_1+\cdots+\lambda_n\mathbf{v}_n
+\mathbf{0}=\lambda_1\vv_1+\cdots+\lambda_n\vv_n
 \tag{2}
 $$
 
 을 만족하는 스칼라 $\lambda_1,\cdots,\lambda_n$이 오직 $\lambda_1=\cdots=\lambda_2=0$일 때만 존재한다면 (trivial solution만 존재한다면), 이 벡터 집합을 **선형 독립**이라고 한다.
 
-만약 $0$이 아닌 $\lambda$가 존재한다면 $\lambda_1\mathbf{v}_1=-\lambda_2\mathbf{v}_2-\lambda_n\mathbf{v}_3$처럼 한 벡터가 다른 벡터들의 조합으로 표현될 수 있으며, 이를 **선형 종속**이라고 한다.
+만약 $0$이 아닌 $\lambda$가 존재한다면 $\lambda_1\vv_1=-\lambda_2\vv_2-\lambda_n\vv_3$처럼 한 벡터가 다른 벡터들의 조합으로 표현될 수 있으며, 이를 **선형 종속**이라고 한다.
 
 즉, 선형 독립이란 집합 내의 어떤 벡터도 다른 벡터들의 조합으로 만들어지지 않는다는 것을 의미한다.
 
 ==선형 독립은 해당 벡터들이 span할 수 있는 공간의 차원과 연관==되어 있기 때문에 중요하다.
 
-예를 들어, $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다.
+예를 들어, $\vv_1=(1,1)$과 $\vv_2=(2,2)$는 서로 비례 관계이므로 선형 종속이다.
 <br>
 따라서 두 벡터를 아무리 조합해도 결국 하나의 직선 (1차원 공간)밖에 만들 수 없다.
 <br>
 이 경우 하나의 벡터를 제거해도 span되는 공간은 변하지 않는다.
 
-반면 $\mathbf{v}_1=(1,1)$과 $\mathbf{v}_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다.
+반면 $\vv_1=(1,1)$과 $\vv_2=(1,2)$는 선형 독립이므로, 이들의 조합으로 2차원 전체를 다 표현할 수 있다.
 <br>
 이 경우에는 벡터 중 하나라도 제거하면 span되는 공간의 차원이 줄어들게 된다.
 
 ![fig1](Liner_Independence-1.png)
 _[[출처]](https://deep-learning-study.tistory.com/301)_
 
-위 그림에서 왼쪽은 $\mathbf{w}$가 $\mathbf{u}$와 $\mathbf{v}$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.
+위 그림에서 왼쪽은 $\vw$가 $\vu$와 $\vv$의 선형 결합으로 만들어질 수 있기 때문에, 3개의 벡터가 있더라도 2차원 평면만 생성할 수 있다.
 
 하지만 오른쪽은 3개의 벡터가 모두 선형 독립이므로, 3차원 공간을 생성할 수 있다.
 
@@ -99,7 +99,7 @@ _[[출처]](https://deep-learning-study.tistory.com/301)_
     
 **2. 동차 방정식 (Homogeneous Equation)의 해 확인**
 
-   동차 방정식 $\sum\lambda_i\mathbf{v}_i=\mathbf{0}$의 해 $\boldsymbol\lambda$가 오직 자명해 (Trivial solution)만 존재한다면, 벡터 집합은 선형 독립이다.
+   동차 방정식 $\sum\lambda_i\vv_i=\mathbf{0}$의 해 $\boldsymbol\lambda$가 오직 자명해 (Trivial solution)만 존재한다면, 벡터 집합은 선형 독립이다.
     
    즉, 변수 $\lambda_i$에 자유 변수 (Free variable)가 존재하면 안된다.
 
@@ -124,5 +124,5 @@ $$\begin{bmatrix}1\\2\\-3\\4\end{bmatrix}~,~\begin{bmatrix}1\\1\\0\\2\end{bmatri
 
  동차방정식의 해가 자명해이므로, 세 벡터는 선형 독립이다.
 
-$$\begin{bmatrix}\begin{array}{ccc|c}1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0\end{array}\end{bmatrix}~\to~\boldsymbol{\lambda}=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
+$$\begin{bmatrix}\begin{array}{ccc|c}1&1&-1&0\\0&1&0&0\\0&0&1&0\\0&0&0&0\end{array}\end{bmatrix}~\to~\vlambda=\begin{bmatrix}0\\0\\0\end{bmatrix}$$
 :::

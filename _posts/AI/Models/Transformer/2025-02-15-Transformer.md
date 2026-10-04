@@ -80,11 +80,11 @@ $$
 
 여기서 $N_{\text{word}}$는 Vocabulary에 존재하는 전체 토큰 개수, $D$는 하나의 토큰을 표현할 차원의 크기를 의미한다.
 
-수학적으로 특정 토큰의 임베딩 벡터 $\mathbf{e}_i$를 구하는 과정은 다음과 같이 해당 토큰의 One-hot Vector $\mathbf{x}_i$와 임베딩 행렬 $W_E$의 곱으로 표현할 수 있다.
+수학적으로 특정 토큰의 임베딩 벡터 $\ve_i$를 구하는 과정은 다음과 같이 해당 토큰의 One-hot Vector $\vx_i$와 임베딩 행렬 $W_E$의 곱으로 표현할 수 있다.
 
 $$
-\mathbf{e}_i=\mathbf{x}_i\cdot W_E
-,\quad\text{where }\mathbf{x}_i\in\mathbb{R}^{1\times N_{\text{word}}}
+\ve_i=\vx_i\cdot W_E
+,\quad\text{where }\vx_i\in\mathbb{R}^{1\times N_{\text{word}}}
 \tag{2}
 $$
 
@@ -128,11 +128,11 @@ Attention은 현재 문맥을 반영하여, 각 단어의 의미를 더 정교�
 수학적으로는 $N$개의 토큰 임베딩으로 구성된 입력 행렬 $E$가, Attention을 거쳐 문맥이 반영된 새로운 행렬 $E'$로 변환되는 과정이다.
 
 $$
-E'=\text{Attention}(E),\quad\text{where }E=\begin{bmatrix}\mathbf{e}_1,&\mathbf{e}_2,&\cdots,&\mathbf{e}_N\end{bmatrix}
+E'=\text{Attention}(E),\quad\text{where }E=\begin{bmatrix}\ve_1,&\ve_2,&\cdots,&\ve_N\end{bmatrix}
 \tag{3}
 $$
 
-예를 들어, 아래 그림에서 `creature`에 해당하는 임베딩 $\mathbf{e}_4$는 문맥상 주변 단어인 `fluffy`와 `blue`의 임베딩에 영향을 받아, `파랗고 복슬복슬한 생명체`라는 구체적인 정보를 담은 새로운 임베딩 $\mathbf{e}_4'$로 업데이트된다.
+예를 들어, 아래 그림에서 `creature`에 해당하는 임베딩 $\ve_4$는 문맥상 주변 단어인 `fluffy`와 `blue`의 임베딩에 영향을 받아, `파랗고 복슬복슬한 생명체`라는 구체적인 정보를 담은 새로운 임베딩 $\ve_4'$로 업데이트된다.
 
 ![fig7](Transformer-7.png)
 
@@ -178,9 +178,9 @@ $$
 >
 > 두 벡터의 내적은 다음과 같다.
 > 
-> $$\mathbf{q}\cdot\mathbf{k}=\sum_{i=1}^{d_k}q_ik_i$$
+> $$\vq\cdot\vk=\sum_{i=1}^{d_k}q_ik_i$$
 > 
-> $\mathbf{q}$와 $\mathbf{k}$를 구성하는 각 원소들이 평균이 $0$이고 분산이 $1$인 독립적인 확률 변수라고 가정해 보자.
+> $\vq$와 $\vk$를 구성하는 각 원소들이 평균이 $0$이고 분산이 $1$인 독립적인 확률 변수라고 가정해 보자.
 >
 > 그렇게 되면 $q_i k_i$는 여전히 평균이 $0$, 분산이 $1$인 분포를 따르지만, 이 값들을 $d_k$개만큼 더한 결과는 평균이 $0$, 분산이 $d_k$가 된다.
 > 
@@ -195,10 +195,10 @@ $$
 $$
 \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)=
 \begin{bmatrix}
-\text{softmax}(~\mathbf{q}_1\mathbf{k}_1^\top&\mathbf{q}_1\mathbf{k}_2^\top&\cdots&\mathbf{q}_1\mathbf{k}_N^\top~)\\
-\text{softmax}(~\mathbf{q}_2\mathbf{k}_1^\top&\mathbf{q}_2\mathbf{k}_2^\top&\cdots&\mathbf{q}_2\mathbf{k}_N^\top~)\\
+\text{softmax}(~\vq_1\vk_1^\top&\vq_1\vk_2^\top&\cdots&\vq_1\vk_N^\top~)\\
+\text{softmax}(~\vq_2\vk_1^\top&\vq_2\vk_2^\top&\cdots&\vq_2\vk_N^\top~)\\
 \vdots&\vdots&\ddots&\vdots\\
-\text{softmax}(~\mathbf{q}_N\mathbf{k}_1^\top&\mathbf{q}_N\mathbf{k}_2^\top&\cdots&\mathbf{q}_N\mathbf{k}_N^\top~)
+\text{softmax}(~\vq_N\vk_1^\top&\vq_N\vk_2^\top&\cdots&\vq_N\vk_N^\top~)
 \end{bmatrix}\in\mathbb{R}^{N\times N}
 \tag{6}
 $$
@@ -223,25 +223,25 @@ $$
 $$
 \text{softmax}\left(QK^\top\right)V=
 \begin{bmatrix}
-w_{1,1}\mathbf{v}_1+w_{1,2}\mathbf{v}_2+\cdots+w_{1,N}\mathbf{v}_N\\
+w_{1,1}\vv_1+w_{1,2}\vv_2+\cdots+w_{1,N}\vv_N\\
 \vdots\\
-w_{4,1}\mathbf{v}_1+w_{4,2}\mathbf{v}_2+\cdots+w_{4,N}\mathbf{v}_N\\
+w_{4,1}\vv_1+w_{4,2}\vv_2+\cdots+w_{4,N}\vv_N\\
 \vdots\\
-w_{N,1}\mathbf{v}_1+w_{N,2}\mathbf{v}_2+\cdots+w_{N,N}\mathbf{v}_N
+w_{N,1}\vv_1+w_{N,2}\vv_2+\cdots+w_{N,N}\vv_N
 \end{bmatrix}
-=\begin{bmatrix}\Delta\mathbf{e}_1\\\vdots\\\Delta\mathbf{e}_4\\\vdots\\\Delta\mathbf{e}_N
+=\begin{bmatrix}\Delta\ve_1\\\vdots\\\Delta\ve_4\\\vdots\\\Delta\ve_N
 \end{bmatrix}\in\mathbb{R}^{N\times D}
 \tag{8}
 $$
 
-이 행렬 곱 연산을 통해 도출된 $\Delta\mathbf{e}_i$는 원본 임베딩이 ==문맥을 반영하기 위해 이동해야 할 방향==과 크기, 즉 ==해당 방향으로 가하는 힘==으로 해석할 수 있다.
+이 행렬 곱 연산을 통해 도출된 $\Delta\ve_i$는 원본 임베딩이 ==문맥을 반영하기 위해 이동해야 할 방향==과 크기, 즉 ==해당 방향으로 가하는 힘==으로 해석할 수 있다.
 
-최종적으로 Attention 연산 이후 Skip Connection을 통해, 원래의 토큰 임베딩인 $\mathbf{e}_i$에 $\Delta\mathbf{e}_i$를 더해준다.
+최종적으로 Attention 연산 이후 Skip Connection을 통해, 원래의 토큰 임베딩인 $\ve_i$에 $\Delta\ve_i$를 더해준다.
 <br>
 이 과정을 거치며 각 토큰은 비로소 주변 문맥의 의미를 반영한 새로운 임베딩으로 업데이트되는 것이다.
 
 $$
-\mathbf{e}_i'=\mathbf{e}_i+\Delta\mathbf{e}_i
+\ve_i'=\ve_i+\Delta\ve_i
 \tag{9}
 $$
 
@@ -351,12 +351,12 @@ Autoregressive 모델을 기준으로, 각 위치의 출력 토큰은 다음에 
 
 Transformer Block의 출력 행렬을 $Z\in\mathbb{R}^{N\times D}$라고 해보자.
 <br>
-이 행렬의 마지막 행 벡터인 $\mathbf{z}_N$은 이전까지의 전체 문맥을 깊이 있게 고려했을 때, 다음에 어떤 단어가 와야 하는가에 대한 핵심 단서를 압축한 최종 Representation이라고 할 수 있다.
+이 행렬의 마지막 행 벡터인 $\vz_N$은 이전까지의 전체 문맥을 깊이 있게 고려했을 때, 다음에 어떤 단어가 와야 하는가에 대한 핵심 단서를 압축한 최종 Representation이라고 할 수 있다.
 
-이 마지막 벡터 $\mathbf{z}_N$은 먼저 Linear layer를 통과해 Vocabulary에 존재하는 전체 단어의 개수 $V$만큼 차원이 확장된다.
+이 마지막 벡터 $\vz_N$은 먼저 Linear layer를 통과해 Vocabulary에 존재하는 전체 단어의 개수 $V$만큼 차원이 확장된다.
 
 $$
-\text{Logits}_N=\mathbf{z}_N\cdot W_O
+\text{Logits}_N=\vz_N\cdot W_O
 ,\quad\text{where }W_O\in\mathbb{R}^{D\times V}
 \tag{14}
 $$
@@ -370,7 +370,7 @@ P_N=\text{softmax}\left(\text{Logits}_N\right)\in\mathbb{R}^{V}
 \tag{15}
 $$
 
-즉, $\mathbf{p}_N$은 사전에 존재하는 $V$개의 단어 각각이 바로 다음 토큰으로 등장할 실제 확률값을 담은 벡터를 의미한다.
+즉, $\vp_N$은 사전에 존재하는 $V$개의 단어 각각이 바로 다음 토큰으로 등장할 실제 확률값을 담은 벡터를 의미한다.
 
 결과적으로 이 확률 분포에서 가장 높은 확률 값을 가진 토큰이 최종적인 다음 토큰으로 선택된다.
 

@@ -13,7 +13,7 @@ published: true
 
 이는 일종의 스무고개로 볼 수 있다.
 
-예를 들어, 입력 벡터 $\mathbf{x}\in\mathbb{R}^3$이 '날씨', '습도', '바람'의 세 가지 특징으로 구성되어 있고, 라벨 $y$가 '데이트 여부'를 나타내는 데이터셋을 생각해보자.
+예를 들어, 입력 벡터 $\vx\in\mathbb{R}^3$이 '날씨', '습도', '바람'의 세 가지 특징으로 구성되어 있고, 라벨 $y$가 '데이트 여부'를 나타내는 데이터셋을 생각해보자.
 
 ![fig1](Decision_Tree-1.png)
 _[[출처: 신박AI]](https://www.youtube.com/watch?v=vutU-SLTZ-A)_

@@ -18,10 +18,10 @@ published: true
 
 ![fig1](Kalman_Filter3-1.png)
 
-이 시스템에서 우리가 추정해야 할 상태 벡터 $\mathbf{x}_t$와 시스템에 가해지는 제어 입력 $u_t$는 다음과 같이 정의된다.
+이 시스템에서 우리가 추정해야 할 상태 벡터 $\vx_t$와 시스템에 가해지는 제어 입력 $u_t$는 다음과 같이 정의된다.
 
 $$
-u_t=a~~,~~\hat{\mathbf{x}}_t=\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
+u_t=a~~,~~\hat{\vx}_t=\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
 \tag{1}
 $$
 
@@ -39,7 +39,7 @@ $$
 이 물리 방정식을 하나의 행렬로 표현하면 다음과 같은 상태 방정식으로 나타낼 수 있다.
 
 $$
-\hat{\mathbf{x}}_t=A\hat{\mathbf{x}}_{t-1}+Bu_t
+\hat{\vx}_t=A\hat{\vx}_{t-1}+Bu_t
 ~~\rightarrow~~
 \begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
 =\begin{bmatrix}1&\Delta t\\0&1\end{bmatrix}\begin{bmatrix}\hat{p}_{t-1}\\\hat{v}_{t-1}\end{bmatrix}
@@ -50,9 +50,9 @@ $$
 그리고 측정값 또한 다음과 같은 관측 방정식으로 나타낼 수 있다.
 
 $$
-\hat{\mathbf{z}}_t=H\hat{\mathbf{x}}_t^-
+\hat{\vz}_t=H\hat{\vx}_t^-
 ~~\rightarrow~~
-\mathbf{z}_t=\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
+\vz_t=\begin{bmatrix}1&0\\0&1\end{bmatrix}\begin{bmatrix}\hat{p}_t\\\hat{v}_t\end{bmatrix}
 \tag{4}
 $$
 
@@ -68,7 +68,7 @@ $$
 
 ![fig3](Kalman_Filter3-3.png)
 
-위 그림을 보면 과거의 예측 상태 $\hat{\mathbf{x}}\_{t-1}^-$보다 현재 예측한 상태 $\hat{\mathbf{x}}\_{t}^-$의 불확실성이 더 커진 것을 확인할 수 있는데, 이는 매순간 모델이 알지 못하는 현실의 노이즈가 계속해서 누적되기 때문이다.
+위 그림을 보면 과거의 예측 상태 $\hat{\vx}\_{t-1}^-$보다 현재 예측한 상태 $\hat{\vx}\_{t}^-$의 불확실성이 더 커진 것을 확인할 수 있는데, 이는 매순간 모델이 알지 못하는 현실의 노이즈가 계속해서 누적되기 때문이다.
 
 이러한 현상을 반영하여, 예측 단계에서 불확실성이 얼마나 커졌는지를 계산하는 수식이 아래의 오차 공분산 예측식이다.
 
@@ -88,11 +88,11 @@ $$
 
 ### 보정 단계
 
-센서의 측정값 $\mathbf{z}_t$를 사용하기 위해, 우리가 예측한 prior state $\hat{\mathbf{x}}_t^-$를 센서와 동일한 차원 (관측 공간)으로 변환해야 한다.
+센서의 측정값 $\vz_t$를 사용하기 위해, 우리가 예측한 prior state $\hat{\vx}_t^-$를 센서와 동일한 차원 (관측 공간)으로 변환해야 한다.
 이를 위해 관측 행렬 $H$를 사용한다.
 
 $$
-\hat{\mathbf{z}}_t=H\hat{\mathbf{x}}_t^-
+\hat{\vz}_t=H\hat{\vx}_t^-
 \tag{7}
 $$
 
@@ -106,15 +106,15 @@ $$
 
 ![fig6](Kalman_Filter3-6.png)
 
-확률 분포의 관점에서 볼 때, 예측값 $\hat{\mathbf{z}}_t$와 측정값 $\mathbf{z}_t$ 사이의 오차를 최소화하는 과정은, 두 분포가 겹쳐서 만들어지는 새로운 확률 분포에서 확률이 가장 높은 꼭대기 지점을 찾는 것과 같다.
+확률 분포의 관점에서 볼 때, 예측값 $\hat{\vz}_t$와 측정값 $\vz_t$ 사이의 오차를 최소화하는 과정은, 두 분포가 겹쳐서 만들어지는 새로운 확률 분포에서 확률이 가장 높은 꼭대기 지점을 찾는 것과 같다.
 
 이때 모델의 예측 노이즈와 센서의 측정 노이즈는 서로 독립적으로 발생한다.
 <br>
 확률론에서 두 독립적인 확률 분포의 교집합은 두 확률의 곱으로 계산되므로, 예측 분포와 측정 분포의 확률 밀도 함수를 곱해서 새로운 분포를 만들 수 있다.
 
-앞서 관측 행렬 $H$를 통해 내부 상태 $\mathbf{x}$와 센서 측정값 $\mathbf{z}$를 수식적으로 연결해 두었기 때문에, ==$\mathbf{z}$의 오차를 최소화하는 과정은 곧 $\mathbf{x}$의 오차를 줄이는 결과로 직결된다.==
+앞서 관측 행렬 $H$를 통해 내부 상태 $\vx$와 센서 측정값 $\vz$를 수식적으로 연결해 두었기 때문에, ==$\vz$의 오차를 최소화하는 과정은 곧 $\vx$의 오차를 줄이는 결과로 직결된다.==
 
-따라서 이렇게 두 분포를 곱해 만들어진 새로운 분포의 꼭대기 지점이, 우리가 최종적으로 찾고자 하는 최적의 상태 예측값 $\hat{\mathbf{x}}_t$가 된다.
+따라서 이렇게 두 분포를 곱해 만들어진 새로운 분포의 꼭대기 지점이, 우리가 최종적으로 찾고자 하는 최적의 상태 예측값 $\hat{\vx}_t$가 된다.
 
 ### Kalman filter와 Kalman gain 정의
 
@@ -163,13 +163,13 @@ $$
 
 이제 1차원 분포에 대한 수식을 다차원 분포로 확장하면, 기존의 변수들을 다음과 같이 매핑할 수 있다.
 
-- 모델의 예측치 평균: $\mu_0$ $\rightarrow\hat{\mathbf{x}}_k^-$
+- 모델의 예측치 평균: $\mu_0$ $\rightarrow\hat{\vx}_k^-$
 - 모델의 예측치 분산: $\sigma_0^2$ $\rightarrow P_k^-$
 - 센서의 측정치 평균: $\mu_1$ $\rightarrow z_k$
 - 센서의 측정치 분산: $\sigma_1^2\rightarrow R$
 - Kalman gain: $k\rightarrow K_k$
 
-변수들이 다차원 공간에 존재한다면, 내부 상태 $\mathbf{x}$와 측정값 $\mathbf{z}$의 차원이 다를 수도 있다.
+변수들이 다차원 공간에 존재한다면, 내부 상태 $\vx$와 측정값 $\vz$의 차원이 다를 수도 있다.
 <br>
 따라서 다른 공간에 존재하는 변수의 차원을 맞춰주기 위해 관측 행렬 $H$를 도입한다.
 
@@ -187,7 +187,7 @@ $$
     $$
     \mu' = \mu_0 + k(\mu_1 - \mu_0)
     ~~~\rightarrow~~~
-    \hat{\mathbf{x}}_k = \hat{\mathbf{x}}_k^- + K_k(z_k - H\hat{\mathbf{x}}_k^-)
+    \hat{\vx}_k = \hat{\vx}_k^- + K_k(z_k - H\hat{\vx}_k^-)
     \tag{14}
     $$
 

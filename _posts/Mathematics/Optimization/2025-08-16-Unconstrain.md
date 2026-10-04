@@ -26,7 +26,7 @@ $$
 함수 $f:\mathbb{R}^n\to\mathbb{R}$를 각 변수에 대해 편미분한 값을 모은 열 벡터를 그라디언트라고 한다.
 
 $$
-\nabla_\mathbf{x} f(\mathbf{x})
+\nabla_\vx f(\vx)
 =\begin{bmatrix}\frac{\partial f}{\partial x_1}\\\vdots\\\frac{\partial f}{\partial x_n}\end{bmatrix}\in\mathbb{R}^n
 $$
 
@@ -37,7 +37,7 @@ $$
 어떤 점에서 최소가 되기 위한 필수 조건은 해당 지점에서의 그라디언트가 0이어야 한다는 것이다.
 
 $$
-\nabla f(\mathbf{x}^*)=0
+\nabla f(\vx^*)=0
 $$
 
 이를 만족하는 점을 정상점 (Stationary Point)이라고 부른다.
@@ -49,7 +49,7 @@ $$
 함수 $f:\mathbb{R}^n\to\mathbb{R}$의 2차 편미분을 모두 모은 정사각 행렬을 Hessian 행렬이라고 한다.
 
 $$
-H(f)=\nabla^2_\mathbf{x}f(\mathbf{x})
+H(f)=\nabla^2_\vx f(\vx)
 =\begin{bmatrix}
 \frac{\partial^2 f}{\partial x^2_1}&\cdots&\frac{\partial^2 f}{\partial x_1\partial x_n}\\
 \vdots&\ddots&\vdots\\
@@ -66,7 +66,7 @@ Hessian은 함수의 곡률을 나타내며, 특정 지점 주변이 위로 볼�
 정상점이 최소점임을 확신하기 위한 충분 조건은 Hessian 행렬이 [양의 정부호 (Positive Definite)](https://suniverse77.github.io/posts/Positive/)여야 한다는 것이다.
 
 $$
-\mathbf{y}^\top H(\mathbf{x}^*)\mathbf{y}>0
+\vy^\top H(\vx^*)\vy>0
 $$
 
 행렬이 양의 정부호라는 것은 그 지점에서 함수가 아래로 볼록한 그릇 모양이라는 의미이다.

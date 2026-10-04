@@ -40,13 +40,13 @@ _[[출처]](https://medium.datadriveninvestor.com/machine-learning-101-part-1-24
 입력 변수가 여러개인 경우에서의 선형 회귀를 의미한다. 입력 변수가 $D$개일 경우, $D$차원 공간의 초평면 형태를 나타낸다.
 
 $$
-\hat{y}=b+w_1x_1+w_2x_2+\cdots+w_Dx_D=b+\mathbf{w}^\top\mathbf{x}
+\hat{y}=b+w_1x_1+w_2x_2+\cdots+w_Dx_D=b+\vw^\top\vx
 $$
 
 또는 파라미터를 $\theta$로 표현해서 아래와 같이 표현할 수도 있다.
 
 $$
-\hat{y}=f(\mathbf{x};\boldsymbol\theta)=\theta_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_Dx_D~~,~~
+\hat{y}=f(\vx;\boldsymbol\theta)=\theta_0+\theta_1x_1+\theta_2x_2+\cdots+\theta_Dx_D~~,~~
 \boldsymbol\theta=\begin{bmatrix}\theta_0\\\theta_1\\\vdots\\\theta_D\end{bmatrix}
 $$
 

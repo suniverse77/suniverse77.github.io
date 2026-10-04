@@ -116,8 +116,8 @@ $n$개의 노드에서 입력을 받아 1개의 값을 출력하는 단일 뉴�
 주로 신경망의 마지막 layer의 구조가 이 경우이다.
 
 $$
-y=\mathbf{w}^\top\mathbf{x}\in\mathbb{R}
-, \quad \text{where }\mathbf{x},\mathbf{w}\in\mathbb{R}^n
+y=\vw^\top\vx\in\mathbb{R}
+, \quad \text{where }\vx,\vw\in\mathbb{R}^n
 $$
 
 ![fig5](Compute_Graph-5.png)
@@ -127,14 +127,14 @@ Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 - 입력에 대한 미분
 
     $$
-    \frac{\partial\mathcal{L}}{\partial\mathbf{x}}=\frac{\partial\mathcal{L}}{\partial y}\cdot\frac{\partial y}{\partial \mathbf{x}}
-    =\frac{\partial\mathcal{L}}{\partial y}\cdot\mathbf{w}\in\mathbb{R}^{n}
+    \frac{\partial\mathcal{L}}{\partial\vx}=\frac{\partial\mathcal{L}}{\partial y}\cdot\frac{\partial y}{\partial \vx}
+    =\frac{\partial\mathcal{L}}{\partial y}\cdot\vw\in\mathbb{R}^{n}
     $$
 - 가중치에 대한 미분
 
     $$
-    \frac{\partial\mathcal{L}}{\partial\mathbf{w}}=\frac{\partial\mathcal{L}}{\partial y}\cdot\frac{\partial y}{\partial \mathbf{w}}
-    =\frac{\partial\mathcal{L}}{\partial y}\cdot\mathbf{x}\in\mathbb{R}^{n}
+    \frac{\partial\mathcal{L}}{\partial\vw}=\frac{\partial\mathcal{L}}{\partial y}\cdot\frac{\partial y}{\partial \vw}
+    =\frac{\partial\mathcal{L}}{\partial y}\cdot\vx\in\mathbb{R}^{n}
     $$
 
 ### 3. 입출력이 모두 벡터인 경우 (Vector to Vector)
@@ -144,8 +144,8 @@ $n$개의 노드가 $m$개의 노드로 연결되는 경우를 생각해보자.
 주로 신경망의 hidden layer의 구조가 이 경우이다.
 
 $$
-\mathbf{y}=W\mathbf{x}\in\mathbb{R}^m
-, \quad \text{where } \mathbf{x}\in\mathbb{R}^n~,W\in\mathbb{R}^{m\times n}
+\vy=W\vx\in\mathbb{R}^m
+, \quad \text{where } \vx\in\mathbb{R}^n~,W\in\mathbb{R}^{m\times n}
 $$
 
 ![fig6](Compute_Graph-6.png)
@@ -155,14 +155,14 @@ Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 - 입력에 대한 미분
 
     $$
-    \frac{\partial\mathcal{L}}{\partial\mathbf{x}}=\frac{\partial\mathcal{L}}{\partial\mathbf{y}}\cdot\frac{\partial\mathbf{y}}{\partial \mathbf{x}}
-    =W^\top\cdot\frac{\partial\mathcal{L}}{\partial\mathbf{y}}\in\mathbb{R}^{n}
+    \frac{\partial\mathcal{L}}{\partial\vx}=\frac{\partial\mathcal{L}}{\partial\vy}\cdot\frac{\partial\vy}{\partial \vx}
+    =W^\top\cdot\frac{\partial\mathcal{L}}{\partial\vy}\in\mathbb{R}^{n}
     $$
 - 가중치에 대한 미분
 
     $$
-    \frac{\partial\mathcal{L}}{\partial W}=\frac{\partial\mathcal{L}}{\partial\mathbf{y}}\cdot\frac{\partial\mathbf{y}}{\partial W}
-    =\frac{\partial\mathcal{L}}{\partial\mathbf{y}}\cdot\mathbf{x}^\top\in\mathbb{R}^{m\times n}
+    \frac{\partial\mathcal{L}}{\partial W}=\frac{\partial\mathcal{L}}{\partial\vy}\cdot\frac{\partial\vy}{\partial W}
+    =\frac{\partial\mathcal{L}}{\partial\vy}\cdot\vx^\top\in\mathbb{R}^{m\times n}
     $$
 
 ### 4. 입출력이 행렬인 경우: 배치 처리 (Matrix to Matrix)
@@ -172,8 +172,8 @@ Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 신경망에서 가장 일반적인 경우이다.
 
 $$
-Y=\mathbf{W}X\in\mathbb{R}^{m\times B}
-, \quad \text{where } X\in\mathbb{R}^{n\times B}~,\mathbf{W}\in\mathbb{R}^{(m\times B)\times(n\times B)}
+Y=\vW X\in\mathbb{R}^{m\times B}
+, \quad \text{where } X\in\mathbb{R}^{n\times B}~,\vW\in\mathbb{R}^{(m\times B)\times(n\times B)}
 $$
 
 ![fig7](Compute_Graph-7.png)
@@ -188,7 +188,7 @@ Chain Rule에 따라, 각 downstream gradient는 다음과 같이 계산된다.
 - 가중치에 대한 미분
 
     $$
-    \frac{\partial\mathcal{L}}{\partial\mathbf{W}}=\frac{\partial\mathcal{L}}{\partial Y}\cdot\frac{\partial Y}{\partial \mathbf{W}}\in\mathbb{R}^{(m\times B)\times(n\times B)}
+    \frac{\partial\mathcal{L}}{\partial\vW}=\frac{\partial\mathcal{L}}{\partial Y}\cdot\frac{\partial Y}{\partial \vW}\in\mathbb{R}^{(m\times B)\times(n\times B)}
     $$
 
 #### ReLU 함수에서의 역전파
@@ -200,9 +200,9 @@ ReLU는 Element-wise 연산이기 때문에 $x_1$은 $z_1$에만 영향을 주�
 결과적으로 역전파 때, 원래 입력이 양수였던 요소의 기울기만 그대로 전파되고, 음수였던 곳은 0이 된다.
 
 $$
-\left(\frac{\partial L}{\partial \mathbf{x}}\right)_i=
+\left(\frac{\partial L}{\partial \vx}\right)_i=
 \begin{cases}
-\left(\frac{\partial L}{\partial \mathbf{z}}\right)_i&x_i>0\\
+\left(\frac{\partial L}{\partial \vz}\right)_i&x_i>0\\
 0&\text{otherwise}
 \end{cases}
 $$

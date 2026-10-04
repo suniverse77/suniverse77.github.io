@@ -47,7 +47,7 @@ $$
 $$
 
 $$
-\nabla_\mathbf x\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf c^\top+\boldsymbol\lambda^\top A=0~\to~\boldsymbol\lambda^\top A=-\mathbf{c}^\top
+\nabla_\mathbf x\mathcal{L}(\mathbf x,\boldsymbol\lambda)=\mathbf c^\top+\boldsymbol\lambda^\top A=0~\to~\boldsymbol\lambda^\top A=-\vc^\top
 $$
 
 **3. $\mathcal{L}(\mathbf x,\boldsymbol\lambda)$에 대입**

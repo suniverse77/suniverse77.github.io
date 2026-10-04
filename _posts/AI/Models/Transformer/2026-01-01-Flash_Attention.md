@@ -102,11 +102,11 @@ _[[출처]](https://gangjeong22.tistory.com/227)_
 
 $$
 \text{Softmax}(x_i) = \frac{e^{x_i - m}}{l}
-,\quad\text{where }x_i\in\mathbf{x}
+,\quad\text{where }x_i\in\vx
 \tag{1}
 $$
 
-여기서 $m$은 전체 원소의 최댓값 $\max(\mathbf{x})$이고, $l$은 지수 함수의 전체 합 $\sum_j e^{x_j - m}$을 의미한다.
+여기서 $m$은 전체 원소의 최댓값 $\max(\vx)$이고, $l$은 지수 함수의 전체 합 $\sum_j e^{x_j - m}$을 의미한다.
 
 Stadard Attention에서 무거운 $S$ 행렬을 HBM에서 계속 읽고 쓰는 이유는, Softmax 연산의 특성상 $m$과 $l$을 구하기 위해 행 단위의 전체 데이터를 한 번에 알아야 하기 때문이다.
 

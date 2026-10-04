@@ -26,9 +26,9 @@ Forward process에 가우시안 노이즈가 사용될 경우, reverse process�
 
 ### 1. Forward process
 
-Forward process는 variance schedule $\beta_1,\dots,\beta_T$에 따라 입력 데이터 $\mathbf{x}_0$에 가우시안 노이즈를 점진적으로 더하여 최종적으로 완전한 노이즈 이미지 $\mathcal{N}(0,\text{I})$로 만드는 과정이다.
+Forward process는 variance schedule $\beta_1,\dots,\beta_T$에 따라 입력 데이터 $\vx_0$에 가우시안 노이즈를 점진적으로 더하여 최종적으로 완전한 노이즈 이미지 $\mathcal{N}(0,\text{I})$로 만드는 과정이다.
 
-VAE와 달리 latent와 data의 차원이 같으므로, $\mathbf{z}$를 $\mathbf{x}$로 표현한다.
+VAE와 달리 latent와 data의 차원이 같으므로, $\vz$를 $\vx$로 표현한다.
 
 $$
 q(\mathbf x_{1:T}\mid\mathbf x_0):=\prod_{t=1}^Tq(\mathbf x_t\mid\mathbf x_{t-1})
@@ -43,11 +43,11 @@ $$
 
 위의 수식은 가우시안 분포로 정의된 forward process의 한 단계이다.
 
-이전 step의 이미지의 값을 $\sqrt{1-\beta_t}$만큼 스케일링한 후, 분산이 $\beta_t\mathbf{I}$인 가우시안 노이즈를 더한다.
+이전 step의 이미지의 값을 $\sqrt{1-\beta_t}$만큼 스케일링한 후, 분산이 $\beta_t\vI$인 가우시안 노이즈를 더한다.
 
 ---
 
-원본 데이터 $\mathbf{x}_0$에서 임의의 time step $t$까지 한 번에 이동할 수 있는 수식이 아래와 같이 closed form으로 존재한다. (실제 코드에서는 아래의 수식을 사용해 forward process 진행)
+원본 데이터 $\vx_0$에서 임의의 time step $t$까지 한 번에 이동할 수 있는 수식이 아래와 같이 closed form으로 존재한다. (실제 코드에서는 아래의 수식을 사용해 forward process 진행)
 
 $$
 q(\mathbf x_t\mid\mathbf x_0)=\mathcal{N}(\mathbf x_t;\sqrt{\bar\alpha_t}\mathbf x_0,(1-\bar\alpha_t)\mathbf I)
@@ -75,44 +75,44 @@ time step $t$에 따라 추가되는 노이즈의 분산을 조절하는 매커�
 
 ### 2. Reverse process
 
-Reverse process는 완전한 노이즈 이미지 $\mathbf{x}_T\sim\mathcal{N}(0,\text{I})$에서 시작하여, 가우시안 노이즈를 점진적으로 제거함으로써 입력 데이터 $\mathbf{x}_0$를 복원하는 과정이다.
+Reverse process는 완전한 노이즈 이미지 $\vx_T\sim\mathcal{N}(0,\text{I})$에서 시작하여, 가우시안 노이즈를 점진적으로 제거함으로써 입력 데이터 $\vx_0$를 복원하는 과정이다.
 
 $$
-p_\theta(\mathbf x_{0:T}):=p(\mathbf{x}_T)\prod_{t=1}^Tp_\theta(\mathbf{x}_{t-1}\mid\mathbf{x}_t)
+p_\theta(\mathbf x_{0:T}):=p(\vx_T)\prod_{t=1}^Tp_\theta(\vx_{t-1}\mid\vx_t)
 $$
 
 위의 수식은 reverse process를 표현한 것으로, Markov chain으로 정의된다.
 
 $$
-p_\theta(\mathbf{x}_{t-1}\mid\mathbf{x}_t):=
-\mathcal{N}(\mathbf{x}_{t-1};\boldsymbol\mu_\theta(\mathbf{x}_t,t),\boldsymbol\Sigma_\theta(\mathbf{x}_t,t))
+p_\theta(\vx_{t-1}\mid\vx_t):=
+\mathcal{N}(\vx_{t-1};\boldsymbol\mu_\theta(\vx_t,t),\boldsymbol\Sigma_\theta(\vx_t,t))
 $$
 
-Reverse process는 실제 diffusion model이 학습하는 부분으로, 위의 수식은 주어진 $\mathbf{x}\_t$에서 이전 step $\mathbf{x}\_{t-1}$을 복원하는 조건부 확률 분포를 나타낸다.
+Reverse process는 실제 diffusion model이 학습하는 부분으로, 위의 수식은 주어진 $\vx\_t$에서 이전 step $\vx\_{t-1}$을 복원하는 조건부 확률 분포를 나타낸다.
 
 Forward process의 각 step이 가우시안 분포로 구성될 경우, time step 폭이 충분히 작으면 reverse process도 가우시안 분포로 근사할 수 있음이 알려져있기 때문에 위의 조건부 확률도 가우시안 분포로 정의할 수 있다.
 
-Forward process Posterior $q(\mathbf{x}_{t-1}\mid\mathbf{x}\_t)$는 구할 수 없으므로, 모델 $p\_\theta(\\mathbf{x}\_{t-1}\mid\mathbf{x}_t)$를 이용해 근사하도록 학습한다.
+Forward process Posterior $q(\vx_{t-1}\mid\vx\_t)$는 구할 수 없으므로, 모델 $p\_\theta(\\vx\_{t-1}\mid\vx_t)$를 이용해 근사하도록 학습한다.
 
-본 논문에서는 분산을 $\boldsymbol\Sigma_\theta(\mathbf{x}_t,t)=\sigma_t^2\mathbf{I}$로 고정하여 학습하지 않았으며, 실험적으로 $\sigma_t^2=\beta_t$와 $\sigma_t^2=\tilde\beta_t=\frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t}\beta_t$를 사용할 때 성능 차이가 거의 없음을 확인하였다.
+본 논문에서는 분산을 $\boldsymbol\Sigma_\theta(\vx_t,t)=\sigma_t^2\vI$로 고정하여 학습하지 않았으며, 실험적으로 $\sigma_t^2=\beta_t$와 $\sigma_t^2=\tilde\beta_t=\frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t}\beta_t$를 사용할 때 성능 차이가 거의 없음을 확인하였다.
 
 $$
-\mathbf{x}_{t-1}=\frac{1}{\sqrt{\alpha_t}}\bigg(
-\mathbf{x}_t-\frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\boldsymbol\epsilon_\theta(\mathbf{x}_t,t)
-\bigg)+\sigma_t\mathbf{z}
-~~,~~\mathbf{z}\sim\mathcal{N}(\mathbf0,\mathbf{I})
+\vx_{t-1}=\frac{1}{\sqrt{\alpha_t}}\bigg(
+\vx_t-\frac{\beta_t}{\sqrt{1-\bar\alpha_t}}\boldsymbol\epsilon_\theta(\vx_t,t)
+\bigg)+\sigma_t\vz
+~~,~~\vz\sim\mathcal{N}(\mathbf0,\vI)
 $$
 
-$\mathbf{x}\_{t-1}\sim p\_\theta(\mathbf{x}_{t-1}\mid \mathbf{x}_t)$을 샘플링하는 것은 위와 같이 계산된다.
+$\vx\_{t-1}\sim p\_\theta(\vx_{t-1}\mid \vx_t)$을 샘플링하는 것은 위와 같이 계산된다.
 
 #### Loss
 
 학습은 [ELBO](https://suniverse77.github.io/%EB%85%BC%EB%AC%B8%EB%A6%AC%EB%B7%B0/Diffusion/)를 사용해 아래와 같이 negative log likelihood를 최소화하는 방식으로 진행된다.
 
 $$
-\mathbb{E}\big[-\log p_\theta(\mathbf{x}_0)\big]\leq
+\mathbb{E}\big[-\log p_\theta(\vx_0)\big]\leq
 \mathbb{E}_q\bigg[
--\log p(\mathbf{x}_T)-\sum_{t\geq1}\log\frac{p_\theta(\mathbf{x}_{t-1}\mid\mathbf{x}_t)}{q(\mathbf x_t\mid\mathbf x_{t-1})}
+-\log p(\vx_T)-\sum_{t\geq1}\log\frac{p_\theta(\vx_{t-1}\mid\vx_t)}{q(\mathbf x_t\mid\mathbf x_{t-1})}
 \bigg]:=L
 $$
 
@@ -120,9 +120,9 @@ $$
 
 $$
 \mathbb{E}_q \Bigg[
-\underbrace{D_{\mathrm{KL}}\left(q(\mathbf{x}_T \mid \mathbf{x}_0) \,\|\, p(\mathbf{x}_T)\right)}_{L_T}
-+ \underbrace{\sum_{t > 1} D_{\mathrm{KL}}\left(q(\mathbf{x}_{t-1} \mid \mathbf{x}_t, \mathbf{x}_0) \,\|\, p_\theta(\mathbf{x}_{t-1} \mid \mathbf{x}_t)\right)}_{L_{t-1}}
-- \underbrace{\log p_\theta(\mathbf{x}_0 \mid \mathbf{x}_1)}_{L_0}
+\underbrace{D_{\mathrm{KL}}\left(q(\vx_T \mid \vx_0) \,\|\, p(\vx_T)\right)}_{L_T}
++ \underbrace{\sum_{t > 1} D_{\mathrm{KL}}\left(q(\vx_{t-1} \mid \vx_t, \vx_0) \,\|\, p_\theta(\vx_{t-1} \mid \vx_t)\right)}_{L_{t-1}}
+- \underbrace{\log p_\theta(\vx_0 \mid \vx_1)}_{L_0}
 \Bigg]
 $$
 
@@ -148,13 +148,13 @@ $$
 
 1. $t$를 $[1,T]$ 범위에서 랜덤으로 샘플링한다.
 2. $q(\mathbf x_t\mid\mathbf x_0)$ 수식을 이용해 해당 $t$에서의 노이즈 이미지를 생성한다.
-3. 생성된 $\mathbf x_t$와 $t$를 입력으로 하여, 네트워크가 예측한 노이즈 $\epsilon_\theta(\mathbf{x}_t,t)$와 실제 추가된 노이즈 $\boldsymbol{\epsilon}$의 차이를 최소화하도록 파라미터를 업데이트한다.
+3. 생성된 $\mathbf x_t$와 $t$를 입력으로 하여, 네트워크가 예측한 노이즈 $\epsilon_\theta(\vx_t,t)$와 실제 추가된 노이즈 $\vepsilon$의 차이를 최소화하도록 파라미터를 업데이트한다.
 4. 위 과정을 epoch만큼 반복한다.
 
 #### Sampling
 
-1. $\mathbf{x}_T$를 $\mathcal{N}(\mathbf0,\mathbf{I})$에서 샘플링한다.
-2. 현재 time step이 $t>1$이라면, $\mathbf{z}$를 $\mathcal{N}(\mathbf0,\mathbf{I})$에서 샘플링한다.
+1. $\vx_T$를 $\mathcal{N}(\mathbf0,\vI)$에서 샘플링한다.
+2. 현재 time step이 $t>1$이라면, $\vz$를 $\mathcal{N}(\mathbf0,\vI)$에서 샘플링한다.
 3. 현재 $\mathbf x_t$와 $t$를 입력으로 하여, 네트워크가 해당 time step에서의 노이즈를 예측한다.
 4. 예측된 노이즈를 바탕으로 $\mathbf x_{t-1}$을 계산한다.
 5. (2)~(4) 과정을 $t=T,\dots,1$ 동안 반복한다.

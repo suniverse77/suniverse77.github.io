@@ -10,15 +10,15 @@ published: true
 **그람 슈미트 과정**은 기저 $B$를, 같은 공간을 span하는 정규 직교 기저 $Q$로 변환하는 방법이다.
 
 $$
-B=\lbrace\mathbf{b}_1,\dots,\mathbf{b}_k\rbrace
+B=\lbrace\vb_1,\dots,\vb_k\rbrace
 \quad\to\quad
-Q=\lbrace\mathbf{q}_1,\dots,\mathbf{q}_k\rbrace
+Q=\lbrace\vq_1,\dots,\vq_k\rbrace
 $$
 
 $Q$의 벡터들은 정규 직교 기저이기 때문에, 다음이 성립한다.
 
 $$
-\mathbf{q}_i^\top\mathbf{q}_j=
+\vq_i^\top\vq_j=
 \begin{cases}
 1&i=j\\0&i\not=j
 \end{cases}
@@ -29,71 +29,71 @@ $$
 - 원래 벡터에서 이전에 만든 직교 벡터들의 방향 성분을 빼서, 새로운 직교 벡터를 만든다.
 
     $$
-    \mathbf{u}_k=\mathbf{b}_k-\sum_{i=1}^{k-1}\text{proj}_{\mathbf{q}_i}(\mathbf{b}_k)
+    \vu_k=\vb_k-\sum_{i=1}^{k-1}\text{proj}_{\vq_i}(\vb_k)
     \tag{1}
     $$
 - 만들어진 직교 벡터를 정규화하여 길이가 $1$인 벡터로 만든다.
 
     $$
-    \mathbf{q}_k=\frac{\mathbf{u}_k}{\lVert\mathbf{u}_k\rVert}
+    \vq_k=\frac{\vu_k}{\lVert\vu_k\rVert}
     \tag{2}
     $$
 
 ![fig1](Gram_Schmidt-1.png)
 
-예를 들어, 3차원 공간에서 기저 $B=\lbrace\mathbf{b}_1,\mathbf{b}_2,\mathbf{b}_3\rbrace$에 대한 그람 슈미트 과정은 아래와 같다.
+예를 들어, 3차원 공간에서 기저 $B=\lbrace\vb_1,\vb_2,\vb_3\rbrace$에 대한 그람 슈미트 과정은 아래와 같다.
 
 1. **첫 번째 정규 직교 기저 구하기**
 
     먼저 기저 벡터에서 하나의 기준 벡터를 정한 후, 해당 벡터를 정규화한다.
 
     $$
-    \mathbf{u}_1=\mathbf{b}_1
+    \vu_1=\vb_1
     $$
 
     $$
-    \mathbf{q}_1=\frac{\mathbf{b}_1}{\lVert\mathbf{b}_1\rVert}
+    \vq_1=\frac{\vb_1}{\lVert\vb_1\rVert}
     $$
 
 2. **두 번째 정규 직교 기저 구하기**
 
-    두 번째 기저 벡터 $\mathbf{b}_2$에서 $\mathbf{q}_1$ 방향의 성분을 제거한다.
+    두 번째 기저 벡터 $\vb_2$에서 $\vq_1$ 방향의 성분을 제거한다.
 
     $$
-    \mathbf{u}_2=\mathbf{b}_2-\text{proj}_{\mathbf{q}_1}(\mathbf{b}_2)
+    \vu_2=\vb_2-\text{proj}_{\vq_1}(\vb_2)
     $$
 
-    $\mathbf{q}_1$ 방향의 성분은 $\mathbf{b}_2$를 $\mathbf{q}_1$ 벡터로 정사영함으로써 구할 수 있다.
+    $\vq_1$ 방향의 성분은 $\vb_2$를 $\vq_1$ 벡터로 정사영함으로써 구할 수 있다.
 
     $$
-    \text{proj}_{\mathbf{q}_1}(\mathbf{b}_2)=(\mathbf{b}_2^\top\mathbf{q}_1)\mathbf{q}_1
+    \text{proj}_{\vq_1}(\vb_2)=(\vb_2^\top\vq_1)\vq_1
     $$
 
-    이렇게 만든 $\mathbf{u}_2$는 $\mathbf{q}_1$과 직교한다.
+    이렇게 만든 $\vu_2$는 $\vq_1$과 직교한다.
 
     이후 정규화하여 길이를 $1$로 만든다.
 
     $$
-    \mathbf{q}_2=\frac{\mathbf{u}_2}{\lVert\mathbf{u}_2\rVert}
+    \vq_2=\frac{\vu_2}{\lVert\vu_2\rVert}
     $$
 
 3. **세 번째 정규 직교 기저 구하기**
 
-    세 번째 기저 벡터 $\mathbf{b}_3$에서 $\mathbf{q}_1$과 $\mathbf{q}_2$ 방향의 성분을 제거한다.
+    세 번째 기저 벡터 $\vb_3$에서 $\vq_1$과 $\vq_2$ 방향의 성분을 제거한다.
 
     $$
-    \mathbf{u}_3=\mathbf{b}_3-\text{proj}_{\mathbf{q}_1}(\mathbf{b}_3)-\text{proj}_{\mathbf{q}_2}(\mathbf{b}_3)
+    \vu_3=\vb_3-\text{proj}_{\vq_1}(\vb_3)-\text{proj}_{\vq_2}(\vb_3)
     $$
 
-    이렇게 만든 $\mathbf{u}_3$는 $\mathbf{q}_1,\mathbf{q}_2$와 모두 직교한다.
+    이렇게 만든 $\vu_3$는 $\vq_1,\vq_2$와 모두 직교한다.
 
     이후 정규화하여 길이를 $1$로 만든다.
 
     $$
-    \mathbf{q}_3=\frac{\mathbf{u}_3}{\lVert\mathbf{u}_3\rVert}
+    \vq_3=\frac{\vu_3}{\lVert\vu_3\rVert}
     $$
 
-    아래의 왼쪽 그림에서 $\mathbf{a}$들은 서로 직교하지 않았지만, 오른쪽 그림에서 $\mathbf{b}$들은 서로 직교한다. 
+    아래의 왼쪽 그림에서 $\va$들은 서로 직교하지 않았지만, 오른쪽 그림에서 $\vb$들은 서로 직교한다. 
 
 ![fig2](Gram_Schmidt-2.png)
 _[[출처]](https://interactivetextbooks.tudelft.nl/linear-algebra/Chapter7/GramSchmidt.html)_
@@ -103,21 +103,21 @@ $$B=\begin{bmatrix}1&1&2\\1&3&0\\0&2&1\end{bmatrix}$$
 
 1. **첫 번째 정규 직교 기저 구하기**
 
-  $$\mathbf{u}_1=\mathbf{b}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}$$
+  $$\vu_1=\vb_1=\begin{bmatrix}1\\1\\0\end{bmatrix}$$
 
-  $$\mathbf{q}_1=\frac{\mathbf{u}_1}{\lVert\mathbf{u}_1\rVert}=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}$$
+  $$\vq_1=\frac{\vu_1}{\lVert\vu_1\rVert}=\frac{1}{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}$$
 
 2. **두 번째 정규 직교 기저 구하기**
 
-  $$\mathbf{u}_2=\mathbf{b}_2-(\mathbf{b}_2^\top\mathbf{q}_1)\mathbf{q}_1=\begin{bmatrix}1\\3\\2\end{bmatrix}-2\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}=\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
+  $$\vu_2=\vb_2-(\vb_2^\top\vq_1)\vq_1=\begin{bmatrix}1\\3\\2\end{bmatrix}-2\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}=\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
 
-  $$\mathbf{q}_2=\frac{\mathbf{u}_2}{\lVert\mathbf{u}_2\rVert}=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
+  $$\vq_2=\frac{\vu_2}{\lVert\vu_2\rVert}=\frac{1}{\sqrt6}\begin{bmatrix}-1\\1\\2\end{bmatrix}$$
 
 3. **세 번째 정규 직교 기저 구하기**
 
-  $$\mathbf{u}_3=\mathbf{b}_3-(\mathbf{b}_3^\top\mathbf{q}_1)\mathbf{q}_1-(\mathbf{b}_3^\top\mathbf{q}_2)\mathbf{q}_2=\begin{bmatrix}2\\0\\1\end{bmatrix}-\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}-0\begin{bmatrix}-\frac{1}{\sqrt6}\\\frac{1}{\sqrt6}\\\frac{2}{\sqrt6}\end{bmatrix}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
+  $$\vu_3=\vb_3-(\vb_3^\top\vq_1)\vq_1-(\vb_3^\top\vq_2)\vq_2=\begin{bmatrix}2\\0\\1\end{bmatrix}-\sqrt{2}\begin{bmatrix}\frac{1}{\sqrt2}\\\frac{1}{\sqrt2}\\0\end{bmatrix}-0\begin{bmatrix}-\frac{1}{\sqrt6}\\\frac{1}{\sqrt6}\\\frac{2}{\sqrt6}\end{bmatrix}=\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
 
-  $$\mathbf{q}_3=\frac{\mathbf{u}_3}{\lVert\mathbf{u}_3\rVert}=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
+  $$\vq_3=\frac{\vu_3}{\lVert\vu_3\rVert}=\frac{1}{\sqrt3}\begin{bmatrix}1\\-1\\1\end{bmatrix}$$
 
 최종적으로 얻은 정규 직교 기저는 아래와 같다.
 

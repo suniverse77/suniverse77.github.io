@@ -11,8 +11,8 @@ published: true
 
 아래의 조건을 만족시키는 사상 $\Phi : V\to W$를 선형 사상이라고 부른다.
 
-1. $\Phi(\mathbf{x}+\mathbf{y})=\Phi(\mathbf{x})+\Phi(\mathbf{y})$
-2. $\Phi (\lambda \mathbf{x})=\lambda \Phi (\mathbf{x})$
+1. $\Phi(\vx+\vy)=\Phi(\vx)+\Phi(\vy)$
+2. $\Phi (\lambda \vx)=\lambda \Phi (\vx)$
 
 사상은 함수라고도 하며, $V$를 정의역, $W$를 치역이라고 생각하면 된다.
 
@@ -25,7 +25,7 @@ published: true
 선형 사상 $\Phi$가 단사라는 것은 정의역의 서로 다른 두 원소가 공역의 서로 다른 두 원소에 대응한다는 것을 의미한다. 일대일이라고도 불린다.
 
 $$
-\Phi (\mathbf{x})=\Phi (\mathbf{y})\implies\mathbf{x}=\mathbf{y}
+\Phi (\vx)=\Phi (\vy)\implies\vx=\vy
 \tag{1}
 $$
 
@@ -102,7 +102,7 @@ $$
 $$
 \text{ker}(\Phi)=\Phi^{-1}(\mathbf{0}_W)=
 \lbrace
-\mathbf{v}\in V\mid\Phi(\mathbf{v})=\mathbf{0}_W
+\vv\in V\mid\Phi(\vv)=\mathbf{0}_W
 \rbrace
 \tag{5}
 $$

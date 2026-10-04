@@ -31,13 +31,13 @@ $$ji=-k~,~kj=-i~,~ik=-j$$
 
 ## 사원수를 이용한 3차원 회전
 
-3차원 공간에서의 회전을 다룰 때에는, 사원수를 스칼라 $s$와 벡터 $\mathbf{v}$의 조합으로 표현한다.
+3차원 공간에서의 회전을 다룰 때에는, 사원수를 스칼라 $s$와 벡터 $\vv$의 조합으로 표현한다.
 
 $$
-q=(s,\mathbf{v})=(w,(x,y,z))
+q=(s,\vv)=(w,(x,y,z))
 $$
 
-3차원 공간에서 어떤 벡터 $\mathbf{p}$를 단위 회전축 $\mathbf{u}=(u_x,u_y,u_z)$를 기준으로 반시계방향으로 $\theta$만큼 회전하는 회전 사원수 $q$는 아래와 같이 정의된다.
+3차원 공간에서 어떤 벡터 $\vp$를 단위 회전축 $\vu=(u_x,u_y,u_z)$를 기준으로 반시계방향으로 $\theta$만큼 회전하는 회전 사원수 $q$는 아래와 같이 정의된다.
 
 $$
 q=(w,x,y,z)=\cos\left(\frac{\theta}{2}\right)+\sin\left(\frac{\theta}{2}\right)u_xi+\sin\left(\frac{\theta}{2}\right)u_yj+\sin\left(\frac{\theta}{2}\right)u_zk
@@ -49,19 +49,19 @@ $$
 
 이 회전 사원수는 3차원 벡터를 회전시키는 연산자의 역할을 한다.
 
-회전시키고자 하는 3차원 좌표 $\mathbf{p}=(x, y, z)$를 사원수 형태로 변환한다. 이때 실수부 $w$는 $0$으로 설정하며, 이를 순수 사원수 (pure quarternion)라고 부른다.
+회전시키고자 하는 3차원 좌표 $\vp=(x, y, z)$를 사원수 형태로 변환한다. 이때 실수부 $w$는 $0$으로 설정하며, 이를 순수 사원수 (pure quarternion)라고 부른다.
 
 $$
-\mathbf{p}_{quat}=(0,x,y,z)=0+xi+yj+zk=(0,\mathbf{p})
+\vp_{quat}=(0,x,y,z)=0+xi+yj+zk=(0,\vp)
 $$
 
-회전된 결과 사원수 $\mathbf{p}'$는 아래와 같이 계산된다.
+회전된 결과 사원수 $\vp'$는 아래와 같이 계산된다.
 
 $$
-\mathbf{p}'_{quat}=q\mathbf{p}_{quat}q^{-1}=(0,\mathbf{p}')
+\vp'_{quat}=q\vp_{quat}q^{-1}=(0,\vp')
 $$
 
-계산 결과 나온 $\mathbf{p}'_{quat}$의 벡터 부분 (허수부) $\mathbf{p}'$이 회전된 새로운 좌표가 된다.
+계산 결과 나온 $\vp'_{quat}$의 벡터 부분 (허수부) $\vp'$이 회전된 새로운 좌표가 된다.
 
 ### 3차원 회전 행렬과의 관계
 
@@ -75,10 +75,10 @@ R=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-위 행렬은 사원수 연산 $\mathbf{p}' = q\mathbf{p}q^{-1}$을 수행한 결과와 동일한 회전 효과를 낸다.
+위 행렬은 사원수 연산 $\vp' = q\vp q^{-1}$을 수행한 결과와 동일한 회전 효과를 낸다.
 
 $$
-\mathbf{p}' = R\mathbf{p}
+\vp' = R\vp
 $$
 
 ### 장점

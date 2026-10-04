@@ -52,17 +52,17 @@ $$
 $C$의 $(i,j)$번째 원소 $c_{ij}$는 $A$의 $i$번째 행벡터와 $B$의 $j$번째 열벡터의 내적으로 계산된다.
 
 $$
-c_{ij}=\mathbf{a}_{i}\cdot\mathbf{b}_{j}=\sum_{k=1}^na_{ik}b_{kj}
+c_{ij}=\va_{i}\cdot\vb_{j}=\sum_{k=1}^na_{ik}b_{kj}
 \tag{3}
 $$
 
 :::{red} <strong>Example:</strong> 1번 관점으로 행렬곱 수행
 $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$
 
-- $c_{11}=\mathbf{a}_1\cdot\mathbf{b}_1~\rightarrow~13=2\cdot3+3\cdot1+1\cdot4$
-- $c_{12}=\mathbf{a}_1\cdot\mathbf{b}_2~\rightarrow~10=2\cdot2+3\cdot0+1\cdot6$
-- $c_{21}=\mathbf{a}_2\cdot\mathbf{b}_1~\rightarrow~14=4\cdot3+2\cdot1+0\cdot4$
-- $c_{22}=\mathbf{a}_2\cdot\mathbf{b}_2~\rightarrow~8=4\cdot2+2\cdot0+0\cdot6$
+- $c_{11}=\va_1\cdot\vb_1~\rightarrow~13=2\cdot3+3\cdot1+1\cdot4$
+- $c_{12}=\va_1\cdot\vb_2~\rightarrow~10=2\cdot2+3\cdot0+1\cdot6$
+- $c_{21}=\va_2\cdot\vb_1~\rightarrow~14=4\cdot3+2\cdot1+0\cdot4$
+- $c_{22}=\va_2\cdot\vb_2~\rightarrow~8=4\cdot2+2\cdot0+0\cdot6$
 
 $$C=\begin{bmatrix}13&10\\14&8\end{bmatrix}$$
 :::
@@ -72,30 +72,30 @@ $$C=\begin{bmatrix}13&10\\14&8\end{bmatrix}$$
 
 행렬곱을 $A$의 열벡터들의 선형결합으로 바라볼 수 있다.
 
-그러면 $C$의 $j$번째 열벡터 $\mathbf{c}_j$는 $A$의 열벡터들을 선형 결합하여 계산된다.
+그러면 $C$의 $j$번째 열벡터 $\vc_j$는 $A$의 열벡터들을 선형 결합하여 계산된다.
 
 $$
-\mathbf{c}_j=A\mathbf{b}_j=\sum_{k=1}^nb_{kj}\mathbf{a}_k
+\vc_j=A\vb_j=\sum_{k=1}^nb_{kj}\va_k
 \tag{4}
 $$
 
-- $\mathbf{a}_k$: $A$의 $k$번째 열벡터
-- $b_{kj}$: $B$의 $j$번째 열벡터 $\mathbf{b}_j$​의 $k$번째 성분
+- $\va_k$: $A$의 $k$번째 열벡터
+- $b_{kj}$: $B$의 $j$번째 열벡터 $\vb_j$​의 $k$번째 성분
 
 :::{red} <strong>Example:</strong> 2번 관점으로 행렬곱 수행
 $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$
 
 $A$와 $C$를 열벡터로 표현
 
-$$A=\begin{bmatrix}|&|&|\\\mathbf{a}_1&\mathbf{a}_2&\mathbf{a}_3\\|&|&|\end{bmatrix}~,~C=\begin{bmatrix}|&|\\\mathbf{c}_1&\mathbf{c}_2\\|&|\end{bmatrix}$$
+$$A=\begin{bmatrix}|&|&|\\\va_1&\va_2&\va_3\\|&|&|\end{bmatrix}~,~C=\begin{bmatrix}|&|\\\vc_1&\vc_2\\|&|\end{bmatrix}$$
 
 1. $C$의 첫 번째 열 벡터
 
-$$\mathbf{c}_1=3\cdot \mathbf{a}_1+1\cdot \mathbf{a}_2+4\cdot \mathbf{a}_3=\begin{bmatrix}13\\14\end{bmatrix}$$
+$$\vc_1=3\cdot \va_1+1\cdot \va_2+4\cdot \va_3=\begin{bmatrix}13\\14\end{bmatrix}$$
 
 2. $C$의 두 번째 열 벡터
 
-$$\mathbf{c}_2=2\cdot \mathbf{a}_1+0\cdot \mathbf{a}_2+3\cdot \mathbf{a}_3=\begin{bmatrix}10\\8\end{bmatrix}$$
+$$\vc_2=2\cdot \va_1+0\cdot \va_2+3\cdot \va_3=\begin{bmatrix}10\\8\end{bmatrix}$$
 :::
 <br>
 
@@ -103,30 +103,30 @@ $$\mathbf{c}_2=2\cdot \mathbf{a}_1+0\cdot \mathbf{a}_2+3\cdot \mathbf{a}_3=\begi
 
 행렬곱을 $B$의 행벡터들의 선형결합으로 바라볼 수 있다.
 
-그러면 $C$의 $i$번째 행벡터 $\mathbf{c}_i$는 $B$의 행벡터들을 선형 결합하여 계산된다.
+그러면 $C$의 $i$번째 행벡터 $\vc_i$는 $B$의 행벡터들을 선형 결합하여 계산된다.
 
 $$
-\mathbf{c}_i=\mathbf{a}_iB=\sum_{k=1}^na_{ik}\mathbf{b}_k
+\vc_i=\va_iB=\sum_{k=1}^na_{ik}\vb_k
 \tag{5}
 $$
 
 - $a_{ik}$: $A$의 $i$번째 행벡터의 $k$번째 성분
-- $\mathbf{b}_k$: $B$의 $k$번째 행벡터
+- $\vb_k$: $B$의 $k$번째 행벡터
 
 :::{red} <strong>Example:</strong> 3번 관점으로 행렬곱 수행
 $$A=\begin{bmatrix}2&3&1\\4&2&0\end{bmatrix}~,~B=\begin{bmatrix}3&2\\1&0\\4&3\end{bmatrix}$$
 
 $B$와 $C$를 행 벡터로 표현
 
-$$B=\begin{bmatrix}-\mathbf{b}_1-\\-\mathbf{b}_2-\\-\mathbf{b}_3-\end{bmatrix}~,~C=\begin{bmatrix}-\mathbf{c}_1-\\-\mathbf{c}_2-\end{bmatrix}$$
+$$B=\begin{bmatrix}-\vb_1-\\-\vb_2-\\-\vb_3-\end{bmatrix}~,~C=\begin{bmatrix}-\vc_1-\\-\vc_2-\end{bmatrix}$$
 
 1. $C$의 첫 번째 행 벡터
 
-$$\mathbf{c}_1=\begin{bmatrix}13&10\end{bmatrix}=2\cdot \mathbf{b}_1+3\cdot \mathbf{b}_2+1\cdot \mathbf{b}_3$$
+$$\vc_1=\begin{bmatrix}13&10\end{bmatrix}=2\cdot \vb_1+3\cdot \vb_2+1\cdot \vb_3$$
 
 2. $C$의 두 번째 행 벡터
 
-$$\mathbf{c}_2=\begin{bmatrix}14&8\end{bmatrix}=4\cdot \mathbf{b}_1+2\cdot \mathbf{b}_2+0\cdot \mathbf{b}_3$$
+$$\vc_2=\begin{bmatrix}14&8\end{bmatrix}=4\cdot \vb_1+2\cdot \vb_2+0\cdot \vb_3$$
 :::
 
 

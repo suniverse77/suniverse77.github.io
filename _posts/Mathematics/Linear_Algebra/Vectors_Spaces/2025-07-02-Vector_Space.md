@@ -23,43 +23,43 @@ published: true
 
 1. **닫힘 (Closure)**
 
-	임의의 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $\mathbf{u} + \mathbf{v}$는 $\mathcal{V}$에 속한다.
+	임의의 벡터 $\vu, \vv \in \mathcal{V}$에 대해, $\vu + \vv$는 $\mathcal{V}$에 속한다.
 
 2. **교환 법칙 (Commutativity) 성립**
 
-	임의의 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$가 성립한다.
+	임의의 벡터 $\vu, \vv \in \mathcal{V}$에 대해, $\vu + \vv = \vv + \vu$가 성립한다.
 
 3. **결합 법칙 (Associativity) 성립**
 
-	임의의 벡터 $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathcal{V}$에 대해, $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$가 성립한다.
+	임의의 벡터 $\vu, \vv, \vw \in \mathcal{V}$에 대해, $(\vu + \vv) + \vw = \vu + (\vv + \vw)$가 성립한다.
 
 4. **항등원 (Identity) 존재**
 
-	V 내에 모든 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $\mathbf{u} + \mathbf{0} = \mathbf{u}$를 만족하는 유일한 영벡터 $\mathbf{0}$이 존재한다.
+	V 내에 모든 벡터 $\vu \in \mathcal{V}$에 대해 $\vu + \mathbf{0} = \vu$를 만족하는 유일한 영벡터 $\mathbf{0}$이 존재한다.
 
 5. **역원 (Inverse) 존재**
 
-	임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $\mathbf{u} + (-\mathbf{u}) = \mathbf{0}$를 만족하는 유일한 역벡터 $-\mathbf{u}$가 $\mathcal{V}$ 내에 존재한다.
+	임의의 벡터 $\vu \in \mathcal{V}$에 대해, $\vu + (-\vu) = \mathbf{0}$를 만족하는 유일한 역벡터 $-\vu$가 $\mathcal{V}$ 내에 존재한다.
 
 ### 스칼라 곱셈에 대한 공리
 
 6. **닫힘 (Closure)**
 
-	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $c \cdot \mathbf{u}$는 $\mathcal{V}$에 속한다.
+	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\vu \in \mathcal{V}$에 대해, $c \cdot \vu$는 $\mathcal{V}$에 속한다.
 
 7. **분배 법칙 (Distributivity) 성립**
 
-	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(c+d) \cdot \mathbf{u} = c \cdot \mathbf{u} + d \cdot \mathbf{u}$가 성립한다.
+	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\vu \in \mathcal{V}$에 대해, $(c+d) \cdot \vu = c \cdot \vu + d \cdot \vu$가 성립한다.
 
-	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\mathbf{u}, \mathbf{v} \in \mathcal{V}$에 대해, $c \cdot (\mathbf{u} + \mathbf{v}) = c \cdot \mathbf{u} + c \cdot \mathbf{v}$가 성립한다.
+	임의의 스칼라 $c\in \mathcal{F}$와 벡터 $\vu, \vv \in \mathcal{V}$에 대해, $c \cdot (\vu + \vv) = c \cdot \vu + c \cdot \vv$가 성립한다.
 
 8. **결합 법칙 (Associativity) 성립**
 
-	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\mathbf{u} \in \mathcal{V}$에 대해, $(cd) \cdot \mathbf{u} = c \cdot (d \cdot \mathbf{u})$가 성립한다.
+	임의의 스칼라 $c,d\in \mathcal{F}$와 벡터 $\vu \in \mathcal{V}$에 대해, $(cd) \cdot \vu = c \cdot (d \cdot \vu)$가 성립한다.
 
 9. **항등원 (Identity) 존재**
 
-	스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\mathbf{u} \in \mathcal{V}$에 대해 $1 \cdot \mathbf{u} = \mathbf{u}$가 성립한다.
+	스칼라 집합 F의 곱셈 항등원인 1에 대해, 임의의 벡터 $\vu \in \mathcal{V}$에 대해 $1 \cdot \vu = \vu$가 성립한다.
 
 교환 법칙이 성립하는 군 (Group)을 아벨군 (Abelian Group)이라고 부른다.
 <br>
@@ -74,10 +74,10 @@ published: true
 	$$\mathbf{0}\in \mathcal{U}$$
 2. $\mathcal{U}$는 덧셈에 대해 닫혀있어야 한다.
 
-	$$\mathbf{u},\mathbf{v}\in \mathcal{U}~\to~\mathbf{u+v}\in \mathcal{U}$$
+	$$\vu,\vv\in \mathcal{U}~\to~\mathbf{u+v}\in \mathcal{U}$$
 3. $\mathcal{U}$는 스칼라배에 대해 닫혀있어야 한다.
 
-	$$\mathbf{u}\in \mathcal{U}~\to~c\cdot\mathbf{u}\in \mathcal{U}$$
+	$$\vu\in \mathcal{U}~\to~c\cdot\vu\in \mathcal{U}$$
 
 1번 조건에 의해 좌표 공간에서의 부분공간은 원점을 포함해야 하기 때문에, 2차원 공간에서는 원점을 통과하는 직선, 3차원 공간에서는 원점을 통과하는 직선 또는 평면으로 나타난다.
 
@@ -90,7 +90,7 @@ published: true
 
 예를 들어, 그림에서 축과 만나는 지점의 좌표를 $\pm1$이라고 가정하자.
 
-집합 내에 존재하는 벡터 $\mathbf{u}=(1,0)$와 $\mathbf{v}=(1,1)$에 대해, $\mathbf{u}+\mathbf{v}=(2,1)$ , $2\mathbf{u}=(2,0)$이 되어 해당 집합을 벗어나게 된다.
+집합 내에 존재하는 벡터 $\vu=(1,0)$와 $\vv=(1,1)$에 대해, $\vu+\vv=(2,1)$ , $2\vu=(2,0)$이 되어 해당 집합을 벗어나게 된다.
 
 **2. 두 번째 그림**
 
@@ -98,7 +98,7 @@ published: true
 
 예를 들어, 그림의 직선의 방정식이 $y=x+1$이라고 가정하자.
 
-집합 내에 존재하는 벡터 $\mathbf{u}=(0,1)$와 $\mathbf{v}=(-1,0)$에 대해, $\mathbf{u}+\mathbf{v}=(-1,1)$ , $2\mathbf{u}=(0,2)$가 되어 해당 집합을 벗어나게 된다.
+집합 내에 존재하는 벡터 $\vu=(0,1)$와 $\vv=(-1,0)$에 대해, $\vu+\vv=(-1,1)$ , $2\vu=(0,2)$가 되어 해당 집합을 벗어나게 된다.
 
 **3. 세 번째 그림**
 
@@ -106,7 +106,7 @@ published: true
 
 예를 들어, 그림의 두 직선의 방정식이 각각 $y=2x$ , $y=\frac{1}{2}x$라고 가정하자.
 
-집합 내에 존재하는 벡터 $\mathbf{u}=(4,2)$와 $\mathbf{v}=(-2,-4)$에 대해, $\mathbf{u}+\mathbf{v}=(2,-2)$가 되어 해당 집합을 벗어나게 된다.
+집합 내에 존재하는 벡터 $\vu=(4,2)$와 $\vv=(-2,-4)$에 대해, $\vu+\vv=(2,-2)$가 되어 해당 집합을 벗어나게 된다.
 
 **4. 네 번째 그림**
 

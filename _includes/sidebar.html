@@ -1,8 +1,10 @@
 <!-- The Side Bar -->
 
 <aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column align-items-end">
-  <!-- decorative shooting stars behind the sidebar content -->
-  <div class="shooting-stars" aria-hidden="true"><span></span><span></span><span></span></div>
+  <!-- decorative shooting stars behind the sidebar content (not on posts, to keep reading calm) -->
+  {% unless page.layout == 'post' %}
+    <div class="shooting-stars" aria-hidden="true"><span></span><span></span><span></span></div>
+  {% endunless %}
 
   <header class="profile-wrapper">
     <a href="{{ '/' | relative_url }}" id="avatar">

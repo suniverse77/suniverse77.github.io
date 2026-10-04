@@ -90,7 +90,7 @@ $$\lVert A\rVert_\infty=\max(1+2,3+4)=7$$
 L2 Norm과 동일한 값을 가지며, 아래와 같이 정의된다.
 
 $$
-\lVert A\rVert_2:=\underset{\mathbf{x}}{\max}\frac{\lVert A\mathbf x\rVert_2}{\lVert \mathbf x\rVert_2}=\underset{\lVert\mathbf{x}\rVert=1}{\max}\lVert A\mathbf x\rVert_2
+\lVert A\rVert_2:=\underset{\vx}{\max}\frac{\lVert A\mathbf x\rVert_2}{\lVert \mathbf x\rVert_2}=\underset{\lVert\vx\rVert=1}{\max}\lVert A\mathbf x\rVert_2
 \tag{4}
 $$
 
@@ -114,13 +114,13 @@ $$A^\top A=(U\Sigma V^\top)^\top(U\Sigma V^\top)=V\Sigma^\top U^\top U\Sigma V^\
 
 $$\lVert A\mathbf x\rVert_2^2=\mathbf x^\top V(\Sigma^\top\Sigma)V^\top\mathbf x$$
 
-$\mathbf{y}=V^\top\mathbf{x}$로 치환하면 아래와 같이 전개할 수 있다.
+$\vy=V^\top\vx$로 치환하면 아래와 같이 전개할 수 있다.
 
-$$\lVert A\mathbf x\rVert_2^2=\mathbf{y}^\top(\Sigma^\top\Sigma)\mathbf{y}=\sigma_1^2\mathbf y_1^2+\sigma_2^2\mathbf y_2^2+\cdots+\sigma_r^2\mathbf y_r^2$$
+$$\lVert A\mathbf x\rVert_2^2=\vy^\top(\Sigma^\top\Sigma)\vy=\sigma_1^2\mathbf y_1^2+\sigma_2^2\mathbf y_2^2+\cdots+\sigma_r^2\mathbf y_r^2$$
 
-$V$는 직교 행렬이기 때문에 $\mathbf{x}$의 크기를 바꾸지 않으며, $\rVert\mathbf{x}\lVert_2^2=1$을 가정했으므로 아래의 식이 성립한다.
+$V$는 직교 행렬이기 때문에 $\vx$의 크기를 바꾸지 않으며, $\rVert\vx\lVert_2^2=1$을 가정했으므로 아래의 식이 성립한다.
 
-$$\rVert\mathbf{y}\lVert_2^2=\rVert V^\top\mathbf{x}\lVert_2^2=\rVert\mathbf{x}\lVert_2^2=1~\to~\rVert\mathbf{y}\lVert_2^2=y_1^2+y_2^2+\cdots=1$$
+$$\rVert\vy\lVert_2^2=\rVert V^\top\vx\lVert_2^2=\rVert\vx\lVert_2^2=1~\to~\rVert\vy\lVert_2^2=y_1^2+y_2^2+\cdots=1$$
 
 특이값은 크기가 큰 순서부터 정렬되어 있으며, 위의 조건이 아래에서 $\lVert A\mathbf x\rVert_2^2$가 최대값이 되기 위해서는 $\sigma_1$에 가중치를 몰아줘아 한다.
 

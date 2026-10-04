@@ -49,7 +49,7 @@ _[[출처: BrainDrain]](https://www.youtube.com/watch?v=T3OT8kqoqjc)_
 예를 들어 임베딩 차원이 $d=8$이라면, 첫 번째 단어 $(pos=0)$와 두 번째 단어 $(pos=1)$의 위치 인코딩은 다음과 같다.
 
 $$
-\mathbf{p}_0=
+\vp_0=
 \begin{bmatrix}
 \sin\left(\frac{0}{10000^{0/8}}\right)\\
 \cos\left(\frac{0}{10000^{0/8}}\right)\\
@@ -65,7 +65,7 @@ $$
 \vdots
 \end{bmatrix}\in\mathbb{R}^d
 ~~,~~
-\mathbf{p}_1=
+\vp_1=
 \begin{bmatrix}
 \sin\left(\frac{1}{10000^{0/8}}\right)\\
 \cos\left(\frac{1}{10000^{0/8}}\right)\\
@@ -82,12 +82,12 @@ $$
 \end{bmatrix}\in\mathbb{R}^d
 $$
 
-이렇게 만들어진 위치 인코딩 $\mathbf{p}_i$는 원래의 단어 임베딩 $\mathbf{e}_i$에 더한다.
+이렇게 만들어진 위치 인코딩 $\vp_i$는 원래의 단어 임베딩 $\ve_i$에 더한다.
 <br>
 (Concat을 사용할 경우 차원이 불필요하게 증가하기 때문에 덧셈을 사용함)
 
 $$
-\mathbf{e}_i'=\mathbf{e}_i+\mathbf{p}_i
+\ve_i'=\ve_i+\vp_i
 \tag{2}
 $$
 
@@ -100,7 +100,7 @@ $$
 이때 임베딩 벡터의 두 차원을 각각 $x$축과 $y$축의 좌표로 볼 수 있다.
 
 $$
-\mathbf{p}_t=
+\vp_t=
 \begin{bmatrix}\sin\left(\frac{t}{10000^i}\right)\\\cos\left(\frac{t}{10000^i}\right)\end{bmatrix}=\begin{bmatrix}y\\x\end{bmatrix}
 \tag{3}
 $$

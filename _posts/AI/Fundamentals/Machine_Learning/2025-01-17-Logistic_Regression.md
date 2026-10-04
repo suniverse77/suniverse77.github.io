@@ -11,7 +11,7 @@ published: true
 
 로지스틱 회귀는 이름에 회귀가 들어있지만 실제로는 분류 (Classification) 문제를 푸는 모델이다.
 
-즉, 어떤 입력 $\mathbf{x}$가 주어졌을 때, 그 샘플이 특정 클래스에 속할 확률을 예측하는 모델이다.
+즉, 어떤 입력 $\vx$가 주어졌을 때, 그 샘플이 특정 클래스에 속할 확률을 예측하는 모델이다.
 
 회귀와 분류의 차이는 아래와 같다.
 
@@ -21,7 +21,7 @@ published: true
 선형 회귀에서 아래 식의 출력값 $y$는 실수 전체 범위의 값을 가질 수 있다.
 
 $$
-y=\mathbf{w}^\top\mathbf{x}+b
+y=\vw^\top\vx+b
 $$
 
 하지만 분류 문제에서는 샘플이 특정 클래스에 속할 확률을 예측해야 하므로, 출력값이 $(0,1)$ 사이의 확률로 제한되어야 한다.
@@ -39,10 +39,10 @@ $$
 ![fig1](Logistic_Regression-1.png)
 _[[출처]](https://datasciencebeehive.tistory.com/80)_
 
-따라서 선형 함수의 결과 $z=\mathbf{w}^\top\mathbf{x}+b$를 시그모이드 함수에 입력하여 로지스틱 회귀의 최종 모델 식을 아래와 같이 정의할 수 있다.
+따라서 선형 함수의 결과 $z=\vw^\top\vx+b$를 시그모이드 함수에 입력하여 로지스틱 회귀의 최종 모델 식을 아래와 같이 정의할 수 있다.
 
 $$
-P(y=1\mid \mathbf{x})=\sigma(\mathbf{w}^\top\mathbf{x}+b)=\frac{1}{1+e^{-(\mathbf{w}^\top\mathbf{x}+b)}}
+P(y=1\mid \vx)=\sigma(\vw^\top\vx+b)=\frac{1}{1+e^{-(\vw^\top\vx+b)}}
 $$
 
 위의 식의 출력값 $\hat{y}$는 해당 샘플이 클래스 1에 속할 확률을 의미한다.
@@ -64,20 +64,20 @@ $$
 
 $$
 \begin{cases}
-\mathbf{w}^\top\mathbf{x}+b>0&\to p>0.5\\
-\mathbf{w}^\top\mathbf{x}+b<0&\to p<0.5\\
-\mathbf{w}^\top\mathbf{x}+b=0&\to p=0.5\\
+\vw^\top\vx+b>0&\to p>0.5\\
+\vw^\top\vx+b<0&\to p<0.5\\
+\vw^\top\vx+b=0&\to p=0.5\\
 \end{cases}
 $$
 
 ![fig2](Logistic_Regression-2.png)
 _[[출처]](https://ploomber.io/blog/regression-101/)_
 
-이때 $p=0.5$가 되는 지점인 $\mathbf{w}^\top \mathbf{x}+b=0$을 결정 경계라고 부르며, 이진 분류에서는 두 클래스를 구분하는 직선이 된다.
+이때 $p=0.5$가 되는 지점인 $\vw^\top \vx+b=0$을 결정 경계라고 부르며, 이진 분류에서는 두 클래스를 구분하는 직선이 된다.
 
-아래 그림은 특징 차원이 2차원인 입력 $\mathbf{x}\in\mathbb{R}^2$에 대해 분류한 결과이다. $x$축과 $y$축은 각각의 특징을 의미하고, $y$값은 색상으로 표현하였다.
+아래 그림은 특징 차원이 2차원인 입력 $\vx\in\mathbb{R}^2$에 대해 분류한 결과이다. $x$축과 $y$축은 각각의 특징을 의미하고, $y$값은 색상으로 표현하였다.
 
-빨간색 영역 $(\mathbf{w}^\top\mathbf{x}+b<0)$은 클래스 0 $(\hat{y}=0)$, 초록색 영역 $(\mathbf{w}^\top\mathbf{x}+b>0)$은 클래스 1 $(\hat{y}=1)$에 속한다.
+빨간색 영역 $(\vw^\top\vx+b<0)$은 클래스 0 $(\hat{y}=0)$, 초록색 영역 $(\vw^\top\vx+b>0)$은 클래스 1 $(\hat{y}=1)$에 속한다.
 
 ![fig3](Logistic_Regression-3.png)
 _[[출처]](https://ploomber.io/blog/regression-101/)_
@@ -108,7 +108,7 @@ $$
 각 클래스 $i$에 해당할 확률은 아래와 같이 계산한다.
 
 $$
-P(y=i\mid\mathbf{x})=\frac{e^{\mathbf{w}_i^\top\mathbf{x}+b_i}}{\sum_{j=1}^Ke^{\mathbf{w}_j^\top\mathbf{x}+b_j}}
+P(y=i\mid\vx)=\frac{e^{\vw_i^\top\vx+b_i}}{\sum_{j=1}^Ke^{\vw_j^\top\vx+b_j}}
 $$
 
 즉, 모든 클래스에 대해 주어진 샘플이 해당 클래스일 확률 $p_i$를 계산한 뒤,
@@ -125,13 +125,13 @@ $$
 예를 들어, 클래스 $i$와 $j$의 결정 경계는 두 클래스의 확률이 같아지는 지점이 된다. 이는 곧, 두 클래스의 logit값이 같아지는 지점을 의미한다.
 
 $$
-P(y=i)=P(y=j)~\to~\mathbf{w}_i^\top\mathbf{x}+b_i=\mathbf{w}_j^\top\mathbf{x}+b_j
+P(y=i)=P(y=j)~\to~\vw_i^\top\vx+b_i=\vw_j^\top\vx+b_j
 $$
 
 즉, 두 클래스 사이의 경계면은 아래와 같은 선형 방정식으로 표현된다.
 
 $$
-(\mathbf{w}_i-\mathbf{w}_j)^\top\mathbf{x}+(b_i-b_j)=0
+(\vw_i-\vw_j)^\top\vx+(b_i-b_j)=0
 $$
 
 아래 그림은 서로 다른 3개의 클래스에 대한 결정 경계를 보여준다.
